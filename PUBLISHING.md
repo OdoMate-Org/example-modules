@@ -75,3 +75,12 @@ The Apps Store does not take uploads — it **scans a registered git repository*
 
 A stale repo reads worse than no repo: land a fresh example module every **4–6 weeks**
 during beta (content calendar owns the reminder).
+
+## 7. Repo hygiene
+
+Commit messages carry no AI co-author/session trailers — plain project history
+only. A `commit-msg` hook enforces it; enable once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```

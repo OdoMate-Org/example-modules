@@ -1,0 +1,5 @@
+#!/bin/sh
+# Strip AI co-author/session trailers from commit messages — this showcase
+# repo's history stays plain project history. Enable once per clone with:
+#   git config core.hooksPath .githooks
+sed -e '/^Co-Authored-By: Claude/d' -e '/^Claude-Session:/d' "$1" > "$1.stripped" && mv "$1.stripped" "$1"
