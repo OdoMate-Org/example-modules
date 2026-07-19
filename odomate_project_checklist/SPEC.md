@@ -4,7 +4,7 @@ This is the finalized specification produced during the OdoMate refinement
 conversation, verbatim. The module in this folder was generated from it —
 code, views, security, demo data, tests, and the user guide in `doc/` —
 and published after human security review, unedited apart from publication
-metadata (store banner reference, support email).
+metadata (store banner reference).
 
 Generated with OdoMate (https://www.odomate.pro) — July 2026, Odoo 19 Community.
 

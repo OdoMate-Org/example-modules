@@ -6,7 +6,7 @@ a live demo, and a downloadable zip.
 
 Every module in this repository was generated from a written business specification by the
 OdoMate team, security-reviewed by a human, and published unedited apart from publication
-metadata (store banner reference, support email).
+metadata (store banner reference).
 Each module folder contains a `SPEC.md` with the original business specification it was
 generated from — so you can judge the input against the output yourself.
 

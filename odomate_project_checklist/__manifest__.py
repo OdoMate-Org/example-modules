@@ -17,7 +17,7 @@ stamp themselves automatically.
     """,
     'author': "OdoMate",
     'website': "https://odomate.pro",
-    'support': "info@odomate.pro",
+    'support': "support@odomate.pro",
     'category': 'Services/Project',
     'version': '19.0.1.0.2',
     'license': 'LGPL-3',
