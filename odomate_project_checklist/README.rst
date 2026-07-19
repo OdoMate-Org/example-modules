@@ -50,7 +50,7 @@ No configuration required. Optionally create your own templates under
 Bug Tracker
 ===========
 
-Please report issues to support@odomate.com.
+Please report issues to support@odomate.pro.
 
 Credits
 =======
