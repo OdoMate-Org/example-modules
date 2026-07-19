@@ -5,7 +5,8 @@ generator that turns business specifications into OCA-compliant Odoo 19 modules 
 a live demo, and a downloadable zip.
 
 Every module in this repository was generated from a written business specification by the
-OdoMate team, security-reviewed by a human, and published unedited apart from that review.
+OdoMate team, security-reviewed by a human, and published unedited apart from publication
+metadata (store banner reference, support email).
 Each module folder contains a `SPEC.md` with the original business specification it was
 generated from — so you can judge the input against the output yourself.
 
@@ -15,7 +16,7 @@ generated from — so you can judge the input against the output yourself.
 
 | Module | Description | Complexity |
 |---|---|---|
-| _(first showcase module landing shortly)_ | | |
+| [`odomate_project_checklist`](odomate_project_checklist/) | Reusable step-by-step checklists on Project tasks: template library, per-task customization, live progress bar (cancelled steps excluded), auto-stamped start/end dates with self-healing, and a replace-confirmation wizard. 12 unit tests. | Medium — 5 models incl. an inherited `project.task`, stored computes, a TransientModel wizard, record rules |
 
 ## Repository structure
 
@@ -55,7 +56,9 @@ Community edition**.
 
 ## License
 
-All modules are licensed under [AGPL-3](LICENSE), matching OCA conventions.
+All modules are licensed under [LGPL-3](LICENSE) — the license OdoMate emits by default
+(the same one Odoo uses for Community). Each module's `__manifest__.py` states its license
+explicitly.
 
 ## Links
 

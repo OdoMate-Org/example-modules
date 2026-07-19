@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List view -->
+    <record id="view_project_checklist_template_list" model="ir.ui.view">
+        <field name="name">project.checklist.template.list</field>
+        <field name="model">project.checklist.template</field>
+        <field name="arch" type="xml">
+            <list string="Checklist Templates">
+                <field name="name"/>
+                <field name="line_count"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_project_checklist_template_form" model="ir.ui.view">
+        <field name="name">project.checklist.template.form</field>
+        <field name="model">project.checklist.template</field>
+        <field name="arch" type="xml">
+            <form string="Checklist Template">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. New Client Onboarding"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="active" invisible="1"/>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Steps" name="steps">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_project_checklist_template_search" model="ir.ui.view">
+        <field name="name">project.checklist.template.search</field>
+        <field name="model">project.checklist.template</field>
+        <field name="arch" type="xml">
+            <search string="Checklist Templates">
+                <field name="name"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_project_checklist_template" model="ir.actions.act_window">
+        <field name="name">Checklists</field>
+        <field name="res_model">project.checklist.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first reusable checklist template
+            </p>
+            <p>
+                Build a step-by-step checklist once, then attach it to any
+                project task and track its progress.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu under Project > Configuration -->
+    <menuitem id="menu_project_checklist_template"
+              name="Checklists"
+              parent="project.menu_project_config"
+              action="action_project_checklist_template"
+              sequence="90"/>
+
+</odoo>

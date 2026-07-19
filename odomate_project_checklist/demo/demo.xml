@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ============================================================ -->
+    <!-- Reusable checklist templates                                 -->
+    <!-- ============================================================ -->
+
+    <record id="tmpl_onboarding" model="project.checklist.template">
+        <field name="name">New Client Onboarding</field>
+        <field name="description">Steps to run every time a new client is signed.</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'name': 'Create Account', 'sequence': 10}),
+            (0, 0, {'name': 'Send Welcome Email', 'sequence': 20}),
+            (0, 0, {'name': 'Schedule Kick-off Call', 'sequence': 30}),
+            (0, 0, {'name': 'Set Up Shared Folder', 'sequence': 40}),
+            (0, 0, {'name': 'Confirm First Invoice', 'sequence': 50}),
+        ]"/>
+    </record>
+
+    <record id="tmpl_website_launch" model="project.checklist.template">
+        <field name="name">Website Launch Checklist</field>
+        <field name="description">Pre-flight checks before a site goes live.</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'name': 'Review Content', 'sequence': 10}),
+            (0, 0, {'name': 'Test on Mobile', 'sequence': 20}),
+            (0, 0, {'name': 'Configure Analytics', 'sequence': 30}),
+            (0, 0, {'name': 'Point DNS to Production', 'sequence': 40}),
+        ]"/>
+    </record>
+
+    <record id="tmpl_offboarding" model="project.checklist.template">
+        <field name="name">Employee Offboarding</field>
+        <field name="description">Wrap-up tasks when an employee leaves.</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'name': 'Revoke System Access', 'sequence': 10}),
+            (0, 0, {'name': 'Collect Company Equipment', 'sequence': 20}),
+            (0, 0, {'name': 'Handover Documentation', 'sequence': 30}),
+            (0, 0, {'name': 'Final Payroll Run', 'sequence': 40}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Demo project + tasks with checklists in mixed states         -->
+    <!-- ============================================================ -->
+
+    <record id="demo_project" model="project.project">
+        <field name="name">Client Delivery (Checklist Demo)</field>
+    </record>
+
+    <!-- 1) Fresh task: checklist applied, everything still to do -->
+    <record id="demo_task_fresh" model="project.task">
+        <field name="name">Onboard Acme Corp</field>
+        <field name="project_id" ref="demo_project"/>
+        <field name="checklist_template_id" ref="tmpl_onboarding"/>
+        <field name="applied_template_id" ref="tmpl_onboarding"/>
+    </record>
+    <record id="demo_task_fresh_l1" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_fresh"/>
+        <field name="template_line_id" search="[('template_id', '=', ref('tmpl_onboarding')), ('sequence', '=', 10)]"/>
+        <field name="name">Create Account</field>
+        <field name="sequence">10</field>
+        <field name="state">to_do</field>
+    </record>
+    <record id="demo_task_fresh_l2" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_fresh"/>
+        <field name="name">Send Welcome Email</field>
+        <field name="sequence">20</field>
+        <field name="state">to_do</field>
+    </record>
+    <record id="demo_task_fresh_l3" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_fresh"/>
+        <field name="name">Schedule Kick-off Call</field>
+        <field name="sequence">30</field>
+        <field name="state">to_do</field>
+    </record>
+
+    <!-- 2) Mid-progress task: mix of done / in progress / to do -->
+    <record id="demo_task_mid" model="project.task">
+        <field name="name">Launch Marketing Site</field>
+        <field name="project_id" ref="demo_project"/>
+        <field name="checklist_template_id" ref="tmpl_website_launch"/>
+        <field name="applied_template_id" ref="tmpl_website_launch"/>
+    </record>
+    <record id="demo_task_mid_l1" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_mid"/>
+        <field name="name">Review Content</field>
+        <field name="sequence">10</field>
+        <field name="state">done</field>
+    </record>
+    <record id="demo_task_mid_l2" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_mid"/>
+        <field name="name">Test on Mobile</field>
+        <field name="sequence">20</field>
+        <field name="state">in_progress</field>
+    </record>
+    <record id="demo_task_mid_l3" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_mid"/>
+        <field name="name">Configure Analytics</field>
+        <field name="sequence">30</field>
+        <field name="state">to_do</field>
+    </record>
+    <record id="demo_task_mid_l4" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_mid"/>
+        <field name="name">Point DNS to Production</field>
+        <field name="sequence">40</field>
+        <field name="state">to_do</field>
+    </record>
+
+    <!-- 3) Task with a cancelled step (excluded from progress) -->
+    <record id="demo_task_cancelled" model="project.task">
+        <field name="name">Offboard Departing Contractor</field>
+        <field name="project_id" ref="demo_project"/>
+        <field name="checklist_template_id" ref="tmpl_offboarding"/>
+        <field name="applied_template_id" ref="tmpl_offboarding"/>
+    </record>
+    <record id="demo_task_cancelled_l1" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_cancelled"/>
+        <field name="name">Revoke System Access</field>
+        <field name="sequence">10</field>
+        <field name="state">done</field>
+    </record>
+    <record id="demo_task_cancelled_l2" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_cancelled"/>
+        <field name="name">Collect Company Equipment</field>
+        <field name="sequence">20</field>
+        <field name="state">cancelled</field>
+    </record>
+    <record id="demo_task_cancelled_l3" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_cancelled"/>
+        <field name="name">Handover Documentation</field>
+        <field name="sequence">30</field>
+        <field name="state">in_progress</field>
+    </record>
+
+    <!-- 4) Fully completed task: start & end dates auto-populated -->
+    <record id="demo_task_done" model="project.task">
+        <field name="name">Onboard Globex Inc</field>
+        <field name="project_id" ref="demo_project"/>
+        <field name="checklist_template_id" ref="tmpl_onboarding"/>
+        <field name="applied_template_id" ref="tmpl_onboarding"/>
+        <field name="date_start" eval="(datetime.today() - relativedelta(days=7))"/>
+    </record>
+    <record id="demo_task_done_l1" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_done"/>
+        <field name="name">Create Account</field>
+        <field name="sequence">10</field>
+        <field name="state">done</field>
+    </record>
+    <record id="demo_task_done_l2" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_done"/>
+        <field name="name">Send Welcome Email</field>
+        <field name="sequence">20</field>
+        <field name="state">done</field>
+    </record>
+    <record id="demo_task_done_l3" model="project.task.checklist.line">
+        <field name="task_id" ref="demo_task_done"/>
+        <field name="name">Confirm First Invoice</field>
+        <field name="sequence">30</field>
+        <field name="state">done</field>
+    </record>
+
+</odoo>

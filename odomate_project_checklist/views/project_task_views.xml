@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Task form: checklist picker, dates, and the Checklist tab -->
+    <record id="view_task_form2_inherit_checklist" model="ir.ui.view">
+        <field name="name">project.task.form.checklist</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <!-- Checklist picker + start/end dates in their own group so the
+                 many2one and Replace button are not squeezed by the deadline
+                 flex row. -->
+            <xpath expr="//div[@id='date_deadline_and_recurring_task']" position="after">
+                <field name="checklist_has_progress" invisible="1"/>
+                <field name="checklist_needs_apply" invisible="1"/>
+                <field name="applied_template_id" invisible="1"/>
+                <group name="checklist_picker_group" col="2">
+                    <field name="checklist_template_id"/>
+                    <button name="action_open_checklist_replace_wizard"
+                            type="object"
+                            string="Replace Checklist"
+                            class="btn-link"
+                            icon="fa-refresh"
+                            colspan="2"
+                            invisible="not (checklist_needs_apply and checklist_has_progress)"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="checklist_progress" widget="progressbar"
+                           invisible="not checklist_line_ids"/>
+                </group>
+            </xpath>
+
+            <!-- Checklist tab, shown once steps exist. The progress bar itself
+                 lives in the group above (next to End Date) so it stays
+                 visible no matter which notebook tab is active. -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Checklist" name="checklist"
+                      invisible="not checklist_line_ids">
+                    <field name="checklist_line_ids">
+                        <list editable="bottom"
+                              decoration-success="state == 'done'"
+                              decoration-danger="state == 'cancelled'"
+                              decoration-warning="state == 'in_progress'">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="note"/>
+                            <field name="state"/>
+                            <button name="action_start" type="object"
+                                    string="Start" icon="fa-play"
+                                    invisible="state != 'to_do'"/>
+                            <button name="action_done" type="object"
+                                    string="Done" icon="fa-check"
+                                    invisible="state not in ('to_do', 'in_progress')"/>
+                            <button name="action_cancel" type="object"
+                                    string="Cancel" icon="fa-times"
+                                    invisible="state not in ('to_do', 'in_progress')"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Task list: scannable progress column -->
+    <record id="view_task_tree2_inherit_checklist" model="ir.ui.view">
+        <field name="name">project.task.list.checklist</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="checklist_progress" widget="progressbar"
+                       optional="show"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

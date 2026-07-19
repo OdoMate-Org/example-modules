@@ -47,7 +47,7 @@ doc. Minimum bar, per module:
     "author": "OdoMate",
     "website": "https://www.odomate.pro",
     "support": "info@odomate.pro",
-    "license": "AGPL-3",
+    "license": "LGPL-3",          # generator default; AGPL-3 also store-accepted
     "depends": […],
     "installable": True,
     "images": ["static/description/banner.png"],
