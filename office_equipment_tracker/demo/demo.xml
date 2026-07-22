@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo employees (holders) -->
+        <record id="demo_employee_01" model="hr.employee">
+            <field name="name">Olivia Bennett</field>
+        </record>
+        <record id="demo_employee_02" model="hr.employee">
+            <field name="name">Marcus Reed</field>
+        </record>
+        <record id="demo_employee_03" model="hr.employee">
+            <field name="name">Priya Nair</field>
+        </record>
+        <record id="demo_employee_04" model="hr.employee">
+            <field name="name">Daniel Hoffmann</field>
+        </record>
+        <record id="demo_employee_05" model="hr.employee">
+            <field name="name">Sofia Marino</field>
+        </record>
+        <record id="demo_employee_06" model="hr.employee">
+            <field name="name">Liam O'Connor</field>
+        </record>
+        <record id="demo_employee_07" model="hr.employee">
+            <field name="name">Hannah Weber</field>
+        </record>
+        <record id="demo_employee_08" model="hr.employee">
+            <field name="name">Noah Fischer</field>
+        </record>
+
+        <!-- Checked out (8) -->
+        <record id="demo_equipment_01" model="office.equipment">
+            <field name="name">Dell Latitude 7420</field>
+            <field name="serial_number">DL7420-0091</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_01"/>
+            <field name="checkout_date">2026-01-28</field>
+        </record>
+        <record id="demo_equipment_02" model="office.equipment">
+            <field name="name">MacBook Pro 14</field>
+            <field name="serial_number">MBP14-4472</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_02"/>
+            <field name="checkout_date">2026-02-11</field>
+        </record>
+        <record id="demo_equipment_03" model="office.equipment">
+            <field name="name">iPhone 15</field>
+            <field name="serial_number">IP15-8830</field>
+            <field name="equipment_type">phone</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_03"/>
+            <field name="checkout_date">2026-03-04</field>
+        </record>
+        <record id="demo_equipment_04" model="office.equipment">
+            <field name="name">Samsung Galaxy S24</field>
+            <field name="serial_number">SGS24-1207</field>
+            <field name="equipment_type">phone</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_04"/>
+            <field name="checkout_date">2026-03-19</field>
+        </record>
+        <record id="demo_equipment_05" model="office.equipment">
+            <field name="name">LG UltraFine 27</field>
+            <field name="serial_number">LGUF27-5560</field>
+            <field name="equipment_type">monitor</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_05"/>
+            <field name="checkout_date">2026-04-08</field>
+        </record>
+        <record id="demo_equipment_06" model="office.equipment">
+            <field name="name">Lenovo ThinkPad X1</field>
+            <field name="serial_number">LTX1-3319</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_06"/>
+            <field name="checkout_date">2026-05-02</field>
+        </record>
+        <record id="demo_equipment_07" model="office.equipment">
+            <field name="name">Dell UltraSharp U2723</field>
+            <field name="serial_number">DUS27-7741</field>
+            <field name="equipment_type">monitor</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_07"/>
+            <field name="checkout_date">2026-06-16</field>
+        </record>
+        <record id="demo_equipment_08" model="office.equipment">
+            <field name="name">Logitech MX Master 3S</field>
+            <field name="serial_number">LMX3S-9902</field>
+            <field name="equipment_type">peripheral</field>
+            <field name="state">checked_out</field>
+            <field name="employee_id" ref="demo_employee_08"/>
+            <field name="checkout_date">2026-07-07</field>
+        </record>
+
+        <!-- Available (4) -->
+        <record id="demo_equipment_09" model="office.equipment">
+            <field name="name">HP EliteBook 840</field>
+            <field name="serial_number">HPEB840-2280</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">available</field>
+        </record>
+        <record id="demo_equipment_10" model="office.equipment">
+            <field name="name">Google Pixel 8</field>
+            <field name="serial_number">GP8-6614</field>
+            <field name="equipment_type">phone</field>
+            <field name="state">available</field>
+        </record>
+        <record id="demo_equipment_11" model="office.equipment">
+            <field name="name">BenQ PD2705U</field>
+            <field name="serial_number">BQ2705-4098</field>
+            <field name="equipment_type">monitor</field>
+            <field name="state">available</field>
+        </record>
+        <record id="demo_equipment_12" model="office.equipment">
+            <field name="name">Keychron K8 Keyboard</field>
+            <field name="serial_number">KCK8-1163</field>
+            <field name="equipment_type">peripheral</field>
+            <field name="state">available</field>
+        </record>
+
+        <!-- In repair (2) -->
+        <record id="demo_equipment_13" model="office.equipment">
+            <field name="name">Asus ZenBook 14</field>
+            <field name="serial_number">AZB14-7025</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">in_repair</field>
+            <field name="condition_notes">Screen flickering, sent to vendor for repair.</field>
+        </record>
+        <record id="demo_equipment_14" model="office.equipment">
+            <field name="name">Dell P2419H</field>
+            <field name="serial_number">DP2419-3387</field>
+            <field name="equipment_type">monitor</field>
+            <field name="state">in_repair</field>
+            <field name="condition_notes">Dead pixels in lower-left corner, RMA in progress.</field>
+        </record>
+
+        <!-- Retired (1) -->
+        <record id="demo_equipment_15" model="office.equipment">
+            <field name="name">MacBook Air 2015</field>
+            <field name="serial_number">MBA15-0042</field>
+            <field name="equipment_type">laptop</field>
+            <field name="state">retired</field>
+            <field name="condition_notes">End of life: battery no longer holds charge, hardware unsupported.</field>
+        </record>
+
+    </data>
+</odoo>

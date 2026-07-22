@@ -1,0 +1,260 @@
+{
+  "module_name": "office_equipment_tracker",
+  "technical_name": "office_equipment_tracker",
+  "generation_id": "050d2cc9-d6fc-4537-b4bc-43682f9146d9",
+  "original_requirements": "## Module: office_equipment_tracker\nTrack office equipment assigned to employees \u2014 who currently holds what, check-out/return dates, and condition notes.\n\n### Models\n- **office.equipment**: name (Char, required), serial_number (Char), equipment_type (Selection: laptop/phone/monitor/peripheral/other), state (Selection: available/checked_out/in_repair/retired, default=available), employee_id (Many2one hr.employee, current holder), checkout_date (Date), return_date (Date), condition_notes (Text), company_id (Many2one res.company, default current company)\n  - Relations: Many2one to hr.employee (employee_id), Many2one to res.company\n  - Computed fields: none (all fields stored/direct)\n\n### Business Rules\n- State flow: available -> checked_out -> available (returned), with side branches to in_repair and retired from any active state.\n- Checking out: requires employee_id to be set; checkout_date auto-fills to today when state becomes checked_out; return_date is cleared.\n- Returning: available action clears employee_id (current-holder-only model, no history kept) and sets return_date to today.\n- Marking in_repair or retired: clears employee_id (item is no longer held by anyone) but preserves condition_notes.\n- Constraint: employee_id is required whenever state = checked_out (validated on save).\n- Constraint: serial_number, if provided, should be unique across active (non-retired) equipment.\n- No overdue/reminder logic (not requested) and no historical log model \u2014 only the current assignment is tracked.\n\n### Views & UX\n- List view (main working view): name, serial_number, equipment_type, state, employee_id, checkout_date, return_date. Color/decoration by state (e.g. red for in_repair, muted for retired).\n- Form view: header with state as a status bar (buttons to check out / return / send to repair / retire), main group with identification fields (name, serial_number, equipment_type), assignment group (employee_id, checkout_date, return_date), and condition_notes as a full-width text area.\n- Search view: filters by state (Available/Checked Out/In Repair/Retired) and group-by Employee, Equipment Type, State.\n- No kanban board requested \u2014 list-first workflow.\n- OWL complexity: none \u2014 all standard views/widgets.\n- Responsive: standard Odoo responsive list/form, no custom mobile work needed.\n\n### Security\n- Group \"Equipment Administrator\": full create/read/write/unlink on office.equipment; manages checkout/return/repair/retire actions.\n- Group \"Equipment Viewer\" (implicit, all internal users): read-only access to office.equipment, restricted by record rule to records where employee_id.user_id = current user.\n- Record rule: Admin group sees all records (no domain); Viewer group domain [('employee_id.user_id', '=', user.id)].\n- Menu structure: top-level \"Equipment\" menu -> \"All Equipment\" (list, admin-visible) ; employees access their own items via the same list/menu filtered by the record rule (menu visible to all internal users, content auto-restricted).\n\n### Demo Data\n- office.equipment: 15 records \u2014 mix of laptops, phones, monitors, keyboards/peripherals.\n  - ~8 checked_out, each assigned to a different demo employee (from hr demo data) with realistic checkout_date values spread over the last 6 months.\n  - ~4 available (unassigned, no dates).\n  - 2 in_repair with condition_notes describing an issue (e.g. \"Screen flickering, sent to vendor for repair\").\n  - 1 retired with condition_notes noting end-of-life reason.\n\n### Constraints & Notes\n- No assignment history is kept per explicit decision \u2014 reassigning an item simply overwrites the current holder; if history becomes a future need, this can be added as a separate log model without breaking this structure.\n- No overdue-date alerting or scheduled notifications in this scope.\n- Multi-company: company_id included for data isolation since equipment is a company asset, but no multi-currency/valuation fields requested.",
+  "module_summary": "{\n  \"summary\": \"Built office_equipment_tracker, a backend Odoo 19 module tracking company office equipment and its current holder. Single model office.equipment with a state workflow (available/checked_out/in_repair/retired) driven by header buttons that auto-fill checkout/return dates and clear the holder. Conditional serial-number uniqueness across non-retired items is enforced with a friendly pre-check in create/write plus a partial unique DB index as a concurrency backstop. Security uses two groups (Equipment Administrator full CRUD, Equipment Viewer read-only) with record rules restricting viewers to their own equipment and a global multi-company isolation rule. Verified on live Odoo 19: installed, 10/10 tests pass, api_test failed_checks=0.\",\n  \"risk_patterns\": [\n    \"partial unique index created in _auto_init via create_index(unique=True, where=...) \u2014 DB backstop separate from Python check\",\n    \"uniqueness validated in create/write overrides before super() rather than @api.constrains (avoids raw IntegrityError reaching the user)\",\n    \"record rule with relational domain employee_id.user_id = user.id for viewer isolation\",\n    \"auto-generated model external id (model_office_equipment) referenced in security XML \u2014 flagged as false positive by static semantic validator\"\n  ],\n  \"critical_flows\": [\n    \"Create equipment, set current holder, click Check Out \u2014 state becomes checked_out and checkout_date is today\",\n    \"Click Return on a checked-out item \u2014 holder cleared, state available, return_date is today\",\n    \"Click Send to Repair / Retire \u2014 holder cleared but condition_notes preserved\",\n    \"Save a checked_out record without a holder \u2014 blocked with ValidationError\",\n    \"Create two active items with the same serial_number \u2014 blocked; reuse a retired item's serial \u2014 allowed\",\n    \"Log in as a non-admin internal user \u2014 see only equipment whose holder maps to your user via the record rule\",\n    \"Group the list by Employee / Equipment Type / Status and filter by each state\"\n  ]\n}",
+  "models": [
+    {
+      "name": "office.equipment",
+      "description": "Office Equipment",
+      "inherit": [],
+      "is_transient": false,
+      "is_abstract": false,
+      "fields": [
+        {
+          "name": "name",
+          "field_type": "Char",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": true
+        },
+        {
+          "name": "serial_number",
+          "field_type": "Char",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "equipment_type",
+          "field_type": "Selection",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": true
+        },
+        {
+          "name": "state",
+          "field_type": "Selection",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": true
+        },
+        {
+          "name": "employee_id",
+          "field_type": "Many2one",
+          "comodel": "hr.employee",
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "checkout_date",
+          "field_type": "Date",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "return_date",
+          "field_type": "Date",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "condition_notes",
+          "field_type": "Text",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "company_id",
+          "field_type": "Many2one",
+          "comodel": "res.company",
+          "compute": null,
+          "stored": true,
+          "required": true
+        }
+      ],
+      "computed_fields": [],
+      "relational_fields": [
+        "employee_id",
+        "company_id"
+      ],
+      "methods": [
+        "create",
+        "write",
+        "action_check_out",
+        "action_return",
+        "action_send_to_repair",
+        "action_retire"
+      ]
+    }
+  ],
+  "views": [
+    {
+      "xmlid": "office_equipment_view_list",
+      "view_type": "list",
+      "model": "office.equipment",
+      "inherit_id": null,
+      "key_elements": [
+        "field:name",
+        "field:serial_number",
+        "field:equipment_type",
+        "field:state",
+        "field:employee_id",
+        "field:checkout_date",
+        "field:return_date",
+        "field:company_id"
+      ]
+    },
+    {
+      "xmlid": "office_equipment_view_form",
+      "view_type": "form",
+      "model": "office.equipment",
+      "inherit_id": null,
+      "key_elements": [
+        "button:action_check_out",
+        "button:action_return",
+        "button:action_send_to_repair",
+        "button:action_retire",
+        "field:state",
+        "field:name",
+        "field:serial_number",
+        "field:equipment_type",
+        "field:company_id",
+        "field:employee_id",
+        "field:checkout_date",
+        "field:return_date",
+        "field:condition_notes"
+      ]
+    },
+    {
+      "xmlid": "office_equipment_view_search",
+      "view_type": "search",
+      "model": "office.equipment",
+      "inherit_id": null,
+      "key_elements": [
+        "field:name",
+        "field:serial_number",
+        "field:employee_id"
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "xmlid": "menu_equipment_root",
+      "name": "Equipment",
+      "parent_xmlid": null,
+      "action_xmlid": null,
+      "sequence": 10
+    },
+    {
+      "xmlid": "menu_equipment_all",
+      "name": "All Equipment",
+      "parent_xmlid": "menu_equipment_root",
+      "action_xmlid": "office_equipment_action",
+      "sequence": 10
+    }
+  ],
+  "security": {
+    "groups": [
+      "group_equipment_viewer",
+      "group_equipment_admin",
+      "base.group_user"
+    ],
+    "access_rules": [
+      {
+        "id": "access_office_equipment_viewer",
+        "name": "office.equipment.viewer",
+        "model_id:id": "model_office_equipment",
+        "group_id:id": "group_equipment_viewer",
+        "perm_read": "1",
+        "perm_write": "0",
+        "perm_create": "0",
+        "perm_unlink": "0"
+      },
+      {
+        "id": "access_office_equipment_admin",
+        "name": "office.equipment.admin",
+        "model_id:id": "model_office_equipment",
+        "group_id:id": "group_equipment_admin",
+        "perm_read": "1",
+        "perm_write": "1",
+        "perm_create": "1",
+        "perm_unlink": "1"
+      }
+    ],
+    "record_rules": [
+      "equipment_rule_viewer_own",
+      "equipment_rule_admin_all",
+      "equipment_rule_company"
+    ]
+  },
+  "test_db": "",
+  "admin_login": "admin",
+  "critical_flows": [
+    "Create available equipment, open form, set employee_id, click 'Check Out' button\u2014verify state changes to checked_out, checkout_date is today, return_date is empty",
+    "Open checked_out equipment, click 'Return' button\u2014verify state changes to available, employee_id cleared, return_date is today",
+    "Open any active equipment, click 'Send to Repair'\u2014verify state changes to in_repair, employee_id cleared, condition_notes preserved",
+    "Open any equipment, click 'Retire'\u2014verify state changes to retired, employee_id cleared, condition_notes preserved, equipment no longer appears in 'available' filters",
+    "Attempt to save checked_out equipment without employee_id\u2014verify ValidationError blocks save with user-friendly message",
+    "Create two active equipment with identical serial_number\u2014verify second create fails with uniqueness constraint error; create retired equipment, then create new active with same serial_number\u2014verify allowed",
+    "Log in as Equipment Viewer (internal user), create equipment assigned to you\u2014verify you see it in list; click Return to clear holder\u2014verify record disappears from your list view (record rule now excludes it)",
+    "Log in as Equipment Administrator\u2014verify all equipment visible regardless of employee_id or company_id; verify full CRUD permissions (create, edit, delete) work",
+    "Open list view with 8 checked_out items, group by Employee\u2014verify items group under assigned employees, group by State\u2014verify items group correctly under checked_out/available/in_repair/retired buckets",
+    "Test multi-company isolation: create equipment in Company A, switch user context to Company B\u2014verify Company B admin sees only Company B equipment, equipment from Company A is filtered out by record rule",
+    "Navigate from list to form via row click on various states\u2014verify appropriate action buttons are visible/hidden (Check Out button on available only, Return/Repair/Retire on non-available)",
+    "Verify checkout_date does not change on subsequent writes to a checked_out record if state remains checked_out\u2014test that date-filling logic only triggers on state transition, not every save"
+  ],
+  "risk_patterns": [
+    "State workflow side-effects in create/write overrides auto-fill checkout_date and return_date; if user saves a checked_out record twice, dates may unexpectedly update\u2014needs guards to only fill dates on state transition, not every write",
+    "Conditional uniqueness on serial_number enforced by both Python pre-check and partial unique DB index (where state != 'retired'); Python check may not catch race conditions under concurrent writes\u2014verify DB index WHERE clause syntax is valid for Odoo 19 CREATE INDEX",
+    "Record rule for Equipment Viewer restricts visibility to [('employee_id.user_id', '=', user.id)]; after returning equipment, employee_id is cleared and viewer loses visibility\u2014non-admin users cannot see their own equipment history, may confuse workflow",
+    "Many2one domain employee_id.user_id in record rule assumes all hr.employee records have user_id; if employee has no user_id or user_id is deleted, record rule evaluation may fail or raise error\u2014test with orphaned employee_id",
+    "Employee_id field required when state=checked_out enforced in create/write; if ValidationError is raised before super(), side-effects may not rollback properly\u2014verify create/write override error handling doesn't break transaction",
+    "Search view group-by Employee will create a 'False' group for unassigned equipment (available/in_repair/retired); UI may display confusing empty or null-labeled group\u2014consider readability on list with many unassigned items",
+    "Partial unique index only applies to non-retired records; if record is created as retired, then state changed to available, then changed to checked_out with existing serial_number, unique constraint may not trigger on second transition\u2014verify index is checked on every state change",
+    "Action buttons (action_check_out, action_return, action_send_to_repair, action_retire) must be wired with correct states attribute to hide/show appropriately; if button is available in wrong state, workflow can become inconsistent or stuck",
+    "Company_id multi-company record rule (equipment_rule_company) must exist to isolate equipment by company; if rule is missing or permissive, users in one company may see equipment from another\u2014verify rule domain is [('company_id', '=', user.company_id.id)]",
+    "Return_date auto-filled on state transition to available; if Equipment Viewer marks own equipment as returned (clears employee_id), they lose visibility immediately and cannot confirm return_date was recorded\u2014test viewer perspective end-to-end"
+  ],
+  "files": [
+    "README.rst",
+    "__init__.py",
+    "__manifest__.py",
+    "__pycache__/__init__.cpython-312.pyc",
+    "__pycache__/__manifest__.cpython-312.pyc",
+    "data/.gitkeep",
+    "demo/demo.xml",
+    "doc/USER_GUIDE.md",
+    "i18n/.gitkeep",
+    "models/__init__.py",
+    "models/__pycache__/__init__.cpython-312.pyc",
+    "models/__pycache__/models.cpython-312.pyc",
+    "models/models.py",
+    "report/.gitkeep",
+    "security/equipment_security.xml",
+    "security/ir.model.access.csv",
+    "static/description/icon.png",
+    "static/description/index.html",
+    "static/src/.gitkeep",
+    "static/src/css/.gitkeep",
+    "static/src/js/.gitkeep",
+    "static/src/xml/.gitkeep",
+    "tests/__init__.py",
+    "tests/__pycache__/__init__.cpython-312.pyc",
+    "tests/__pycache__/test_office_equipment_tracker.cpython-312.pyc",
+    "tests/test_office_equipment_tracker.py",
+    "views/views.xml"
+  ]
+}
