@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="office_equipment_view_list" model="ir.ui.view">
+        <field name="name">office.equipment.list</field>
+        <field name="model">office.equipment</field>
+        <field name="arch" type="xml">
+            <list string="Office Equipment"
+                  decoration-success="state == 'available'"
+                  decoration-info="state == 'checked_out'"
+                  decoration-danger="state == 'in_repair'"
+                  decoration-muted="state == 'retired'">
+                <field name="name"/>
+                <field name="serial_number"/>
+                <field name="equipment_type"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'available'"
+                       decoration-info="state == 'checked_out'"
+                       decoration-danger="state == 'in_repair'"
+                       decoration-muted="state == 'retired'"/>
+                <field name="employee_id"/>
+                <field name="checkout_date"/>
+                <field name="return_date"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="office_equipment_view_form" model="ir.ui.view">
+        <field name="name">office.equipment.form</field>
+        <field name="model">office.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Office Equipment">
+                <header>
+                    <button name="action_check_out" type="object"
+                            string="Check Out" class="oe_highlight"
+                            groups="office_equipment_tracker.group_equipment_admin"
+                            invisible="state != 'available'"/>
+                    <button name="action_return" type="object"
+                            string="Return"
+                            groups="office_equipment_tracker.group_equipment_admin"
+                            invisible="state != 'checked_out'"/>
+                    <button name="action_send_to_repair" type="object"
+                            string="Send to Repair"
+                            groups="office_equipment_tracker.group_equipment_admin"
+                            invisible="state in ('in_repair', 'retired')"/>
+                    <button name="action_retire" type="object"
+                            string="Retire"
+                            groups="office_equipment_tracker.group_equipment_admin"
+                            invisible="state == 'retired'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,checked_out,in_repair,retired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Dell Latitude 7420"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Identification">
+                            <field name="serial_number"/>
+                            <field name="equipment_type"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Assignment">
+                            <field name="employee_id"/>
+                            <field name="checkout_date"/>
+                            <field name="return_date"/>
+                        </group>
+                    </group>
+                    <group string="Condition Notes">
+                        <field name="condition_notes" nolabel="1"
+                               placeholder="Describe any damage, repair reason, or end-of-life note..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="office_equipment_view_search" model="ir.ui.view">
+        <field name="name">office.equipment.search</field>
+        <field name="model">office.equipment</field>
+        <field name="arch" type="xml">
+            <search string="Office Equipment">
+                <field name="name"/>
+                <field name="serial_number"/>
+                <field name="employee_id"/>
+                <filter string="Available" name="available"
+                        domain="[('state', '=', 'available')]"/>
+                <filter string="Checked Out" name="checked_out"
+                        domain="[('state', '=', 'checked_out')]"/>
+                <filter string="In Repair" name="in_repair"
+                        domain="[('state', '=', 'in_repair')]"/>
+                <filter string="Retired" name="retired"
+                        domain="[('state', '=', 'retired')]"/>
+                <separator/>
+                <filter string="Employee" name="group_employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter string="Equipment Type" name="group_type"
+                        context="{'group_by': 'equipment_type'}"/>
+                <filter string="Status" name="group_state"
+                        context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="office_equipment_action" model="ir.actions.act_window">
+        <field name="name">All Equipment</field>
+        <field name="res_model">office.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="office_equipment_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your first piece of office equipment
+            </p>
+            <p>
+                Track laptops, phones, monitors and peripherals, who currently
+                holds them, and their check-out and return dates.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_equipment_root"
+              name="Equipment"
+              sequence="10"/>
+    <menuitem id="menu_equipment_all"
+              name="All Equipment"
+              parent="menu_equipment_root"
+              action="office_equipment_action"
+              sequence="10"/>
+
+</odoo>
