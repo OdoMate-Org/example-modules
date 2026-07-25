@@ -1,0 +1,267 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_product_kind
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_product_kind
+#: model:ir.model,name:odomate_product_kind.model_odomate_product_kind
+msgid "Product Kind"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.actions.act_window,name:odomate_product_kind.odomate_product_kind_action
+#: model:ir.ui.menu,name:odomate_product_kind.menu_odomate_product_kind_root
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_hierarchy
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Product Kinds"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:res.groups,name:odomate_product_kind.group_odomate_product_kind_user
+msgid "Product Kind / User"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:res.groups,name:odomate_product_kind.group_odomate_product_kind_manager
+msgid "Product Kind / Manager"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__name
+msgid "Name"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__code
+msgid "Code"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__complete_name
+msgid "Complete Name"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__active
+msgid "Active"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__company_id
+msgid "Company"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__parent_id
+msgid "Parent Kind"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__child_ids
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Sub Kinds"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_product_kind_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_mrp_bom__odomate_product_kind_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_sale_order_line__odomate_product_kind_id
+msgid "Product Kind"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_sale_order_line__odomate_product_kind_snapshot_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_mrp_production__odomate_product_kind_snapshot_id
+msgid "Product Kind (Snapshot)"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__route_type
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_route_type
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Route Type"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__manufacturing_mode
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_manufacturing_mode
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Manufacturing Mode"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__requires_engineering
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_requires_engineering
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Requires Engineering"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__requires_team_planning
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_requires_team_planning
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Requires Team Planning"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__sold
+msgid "Sold (Finished Good)"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__manufactured
+msgid "Manufactured"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__semi_finished
+msgid "Semi-Finished"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__component
+msgid "Component"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__service
+msgid "Service"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__transport
+msgid "Transport"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__other
+msgid "Other"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__inherit
+msgid "Inherit"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__mto
+msgid "Make to Order"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__mts
+msgid "Make to Stock"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__manual
+msgid "Manual"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__disabled
+msgid "Disabled"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Products"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "BoMs"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Sale Lines"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Manufacturing"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Parent"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_action
+msgid "Create your first Product Kind"
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "You cannot create a recursive Product Kind hierarchy."
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "The Product Kind '%(child)s' must belong to the same company as its parent '%(parent)s'."
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Cannot archive Product Kind '%(name)s' while it has active sub kinds."
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Cannot archive Product Kind '%(name)s' while active products still use it. Please ask a Product Kind Manager."
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Bills of Materials"
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Sale Order Lines"
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Manufacturing Orders"
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/sale_order.py:0
+msgid "The Product Kind snapshot on a confirmed sale order line is frozen and can only be changed by a Product Kind Manager."
+msgstr ""
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/mrp_production.py:0
+msgid "The Product Kind snapshot on a manufacturing order is frozen and can only be changed by a Product Kind Manager."
+msgstr ""

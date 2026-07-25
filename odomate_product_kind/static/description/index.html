@@ -1,0 +1,91 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color: #875A7B;">Product Kind — Manufacturing Classification</h2>
+            <h3 class="oe_slogan">Classify once, keep history honest forever</h3>
+            <p class="oe_mt32">
+                A hierarchical, production-oriented <b>Product Kind</b> catalog that
+                flows from products through sales into manufacturing. Confirmed sale
+                order lines and manufacturing orders freeze a snapshot of the kind,
+                so historical documents stay accurate even after a product is
+                reclassified — while products and their bills of materials keep a
+                live link to the current kind.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color: #875A7B;">Key Features</h2>
+        </div>
+        <div class="oe_span6">
+            <h3 class="oe_slogan">Hierarchical catalog</h3>
+            <p>
+                A draggable multi-level tree (Hierarchy view) with List, Kanban and
+                Form. Each kind carries a route type, a manufacturing mode, and
+                engineering / team-planning flags.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h3 class="oe_slogan">Live link + frozen snapshot</h3>
+            <p>
+                Products and bills of materials always reflect the current kind.
+                Confirmed sale order lines and manufacturing orders keep the kind
+                they had at confirmation — never contradicting your history.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h3 class="oe_slogan">Snapshot immutability</h3>
+            <p>
+                Once frozen, a snapshot can only be changed by a Product Kind
+                Manager — enforced at the model level, not just in the form, so
+                direct API and import writes cannot bypass it.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h3 class="oe_slogan">Subtree smart buttons</h3>
+            <p>
+                From any kind, jump to the Products, BoMs, Sale Lines and
+                Manufacturing Orders of its entire subtree, counted with
+                <code>child_of</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color: #875A7B;">How it works</h2>
+            <p class="oe_mt32">
+                1. Build your Product Kind tree under
+                <b>Manufacturing &#9656; Configuration &#9656; Product Kinds</b>.<br/>
+                2. Assign a kind to each product; derived route/mode attributes
+                appear automatically.<br/>
+                3. Confirm a sale order — each line freezes its Product Kind
+                snapshot.<br/>
+                4. Create a manufacturing order — it inherits the sale line's
+                snapshot, or the product's current kind for manual orders.<br/>
+                5. Reclassify a product later — its BoM follows the new kind, while
+                confirmed documents keep the old one.
+            </p>
+            <p>
+                Full documentation lives in <code>doc/USER_GUIDE.md</code> (English)
+                and <code>doc/USER_GUIDE.uk.md</code> (Ukrainian).
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                Built by <a href="https://odomate.pro">OdoMate</a> &mdash;
+                support@odomate.pro
+            </p>
+        </div>
+    </div>
+</section>

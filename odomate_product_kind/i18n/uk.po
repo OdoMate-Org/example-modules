@@ -1,0 +1,268 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_product_kind
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_product_kind
+#: model:ir.model,name:odomate_product_kind.model_odomate_product_kind
+msgid "Product Kind"
+msgstr "Вид товару"
+
+#. module: odomate_product_kind
+#: model:ir.actions.act_window,name:odomate_product_kind.odomate_product_kind_action
+#: model:ir.ui.menu,name:odomate_product_kind.menu_odomate_product_kind_root
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_hierarchy
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Product Kinds"
+msgstr "Види товару"
+
+#. module: odomate_product_kind
+#: model:res.groups,name:odomate_product_kind.group_odomate_product_kind_user
+msgid "Product Kind / User"
+msgstr "Вид товару / Користувач"
+
+#. module: odomate_product_kind
+#: model:res.groups,name:odomate_product_kind.group_odomate_product_kind_manager
+msgid "Product Kind / Manager"
+msgstr "Вид товару / Менеджер"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__code
+msgid "Code"
+msgstr "Код"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__complete_name
+msgid "Complete Name"
+msgstr "Повна назва"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__parent_id
+msgid "Parent Kind"
+msgstr "Батьківський вид"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__child_ids
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Sub Kinds"
+msgstr "Підвиди"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_product_kind_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_mrp_bom__odomate_product_kind_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_sale_order_line__odomate_product_kind_id
+msgid "Product Kind"
+msgstr "Вид товару"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_sale_order_line__odomate_product_kind_snapshot_id
+#: model:ir.model.fields,field_description:odomate_product_kind.field_mrp_production__odomate_product_kind_snapshot_id
+msgid "Product Kind (Snapshot)"
+msgstr "Вид товару (знімок)"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__route_type
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_route_type
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Route Type"
+msgstr "Тип маршруту"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__manufacturing_mode
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_manufacturing_mode
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Manufacturing Mode"
+msgstr "Режим виробництва"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__requires_engineering
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_requires_engineering
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Requires Engineering"
+msgstr "Потрібна інженерія"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields,field_description:odomate_product_kind.field_odomate_product_kind__requires_team_planning
+#: model:ir.model.fields,field_description:odomate_product_kind.field_product_template__odomate_requires_team_planning
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Requires Team Planning"
+msgstr "Потрібне планування бригад"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__sold
+msgid "Sold (Finished Good)"
+msgstr "Продається (готовий виріб)"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__manufactured
+msgid "Manufactured"
+msgstr "Виробляється"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__semi_finished
+msgid "Semi-Finished"
+msgstr "Напівфабрикат"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__component
+msgid "Component"
+msgstr "Комплектуюча"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__service
+msgid "Service"
+msgstr "Послуга"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__transport
+msgid "Transport"
+msgstr "Транспорт"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__route_type__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__inherit
+msgid "Inherit"
+msgstr "Успадкувати"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__mto
+msgid "Make to Order"
+msgstr "Виготовлення на замовлення"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__mts
+msgid "Make to Stock"
+msgstr "Виготовлення на склад"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__manual
+msgid "Manual"
+msgstr "Вручну"
+
+#. module: odomate_product_kind
+#: model:ir.model.fields.selection,name:odomate_product_kind.selection__odomate_product_kind__manufacturing_mode__disabled
+msgid "Disabled"
+msgstr "Вимкнено"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Products"
+msgstr "Товари"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "BoMs"
+msgstr "Специфікації"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Sale Lines"
+msgstr "Рядки продажу"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_form
+msgid "Manufacturing"
+msgstr "Виробництво"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Archived"
+msgstr "Архівовані"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Parent"
+msgstr "Батьківський"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_view_search
+msgid "Group By"
+msgstr "Групувати за"
+
+#. module: odomate_product_kind
+#: model_terms:ir.ui.view,arch_db:odomate_product_kind.odomate_product_kind_action
+msgid "Create your first Product Kind"
+msgstr "Створіть свій перший Вид товару"
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "You cannot create a recursive Product Kind hierarchy."
+msgstr "Неможливо створити рекурсивну ієрархію Видів товару."
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "The Product Kind '%(child)s' must belong to the same company as its parent '%(parent)s'."
+msgstr "Вид товару «%(child)s» має належати тій самій компанії, що й його батьківський вид «%(parent)s»."
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Cannot archive Product Kind '%(name)s' while it has active sub kinds."
+msgstr "Неможливо архівувати Вид товару «%(name)s», доки він має активні підвиди."
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Cannot archive Product Kind '%(name)s' while active products still use it. Please ask a Product Kind Manager."
+msgstr "Неможливо архівувати Вид товару «%(name)s», доки його використовують активні товари. Зверніться до Менеджера видів товару."
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Bills of Materials"
+msgstr "Специфікації"
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Sale Order Lines"
+msgstr "Рядки замовлень на продаж"
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/product_kind.py:0
+msgid "Manufacturing Orders"
+msgstr "Виробничі замовлення"
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/sale_order.py:0
+msgid "The Product Kind snapshot on a confirmed sale order line is frozen and can only be changed by a Product Kind Manager."
+msgstr "Знімок Виду товару на підтвердженому рядку замовлення зафіксовано; змінити його може лише Менеджер видів товару."
+
+#. module: odomate_product_kind
+#: code:addons/odomate_product_kind/models/mrp_production.py:0
+msgid "The Product Kind snapshot on a manufacturing order is frozen and can only be changed by a Product Kind Manager."
+msgstr "Знімок Виду товару на виробничому замовленні зафіксовано; змінити його може лише Менеджер видів товару."

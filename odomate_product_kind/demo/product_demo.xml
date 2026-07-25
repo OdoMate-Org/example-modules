@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ Products (product.product carry the kind via the
+             delegated product.template field) ============ -->
+        <record id="demo_prod_table" model="product.product">
+            <field name="name">Oak Dining Table</field>
+            <field name="list_price">640.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_furniture"/>
+        </record>
+
+        <record id="demo_prod_chair" model="product.product">
+            <field name="name">Office Chair</field>
+            <field name="list_price">180.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_furniture"/>
+        </record>
+
+        <!-- Reclassified later (see mrp_demo.xml) to demonstrate snapshot divergence. -->
+        <record id="demo_prod_shelf" model="product.product">
+            <field name="name">Modular Shelf</field>
+            <field name="list_price">220.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_furniture"/>
+        </record>
+
+        <record id="demo_prod_thermostat" model="product.product">
+            <field name="name">Smart Thermostat</field>
+            <field name="list_price">95.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_electronics"/>
+        </record>
+
+        <record id="demo_prod_circuit" model="product.product">
+            <field name="name">Control Board</field>
+            <field name="list_price">42.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_electronics"/>
+        </record>
+
+        <record id="demo_prod_panel" model="product.product">
+            <field name="name">Wooden Panel</field>
+            <field name="list_price">18.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_components"/>
+        </record>
+
+        <record id="demo_prod_bracket" model="product.product">
+            <field name="name">Metal Bracket</field>
+            <field name="list_price">4.5</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_fasteners"/>
+        </record>
+
+        <record id="demo_prod_screws" model="product.product">
+            <field name="name">Screw Set (50 pcs)</field>
+            <field name="list_price">6.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_fasteners"/>
+        </record>
+
+        <record id="demo_prod_delivery" model="product.product">
+            <field name="name">Installation Service</field>
+            <field name="type">service</field>
+            <field name="list_price">120.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_services"/>
+        </record>
+
+        <record id="demo_prod_freight" model="product.product">
+            <field name="name">Freight Transport</field>
+            <field name="type">service</field>
+            <field name="list_price">75.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_transport"/>
+        </record>
+
+        <record id="demo_prod_misc" model="product.product">
+            <field name="name">Packaging Material</field>
+            <field name="list_price">3.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_other"/>
+        </record>
+
+        <!-- ============ A manufactured template with a filled BoM ============ -->
+        <record id="demo_tmpl_cabinet" model="product.template">
+            <field name="name">Kitchen Cabinet (Assembled)</field>
+            <field name="list_price">410.0</field>
+            <field name="odomate_product_kind_id" ref="demo_kind_furniture"/>
+        </record>
+
+        <record id="demo_bom_cabinet" model="mrp.bom">
+            <field name="product_tmpl_id" ref="demo_tmpl_cabinet"/>
+            <field name="product_qty">1.0</field>
+            <field name="type">normal</field>
+            <field name="bom_line_ids" eval="[
+                (0, 0, {'product_id': ref('demo_prod_panel'), 'product_qty': 4}),
+                (0, 0, {'product_id': ref('demo_prod_bracket'), 'product_qty': 8}),
+                (0, 0, {'product_id': ref('demo_prod_screws'), 'product_qty': 2}),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>

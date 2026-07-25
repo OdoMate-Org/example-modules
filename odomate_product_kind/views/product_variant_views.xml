@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product Variant form (Sales > Products > Product Variants). The field
+         is template-level (product.product delegates to product.template via
+         _inherits), so reading/writing it here reads/writes the same
+         underlying record as the Product Template form — no separate
+         per-variant value, no extra Python field. Same placement and same
+         (unrestricted) editability as the Template form. -->
+    <record id="product_normal_form_view_odomate_kind" model="ir.ui.view">
+        <field name="name">product.product.form.odomate.product.kind</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="odomate_product_kind_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Product Template list view (Sales > Products > Products). -->
+    <record id="product_template_tree_view_odomate_kind" model="ir.ui.view">
+        <field name="name">product.template.list.odomate.product.kind</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="odomate_product_kind_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Product Variant list view (Sales > Products > Product Variants). -->
+    <record id="product_product_tree_view_odomate_kind" model="ir.ui.view">
+        <field name="name">product.product.list.odomate.product.kind</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="odomate_product_kind_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

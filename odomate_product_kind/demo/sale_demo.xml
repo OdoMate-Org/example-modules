@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Draft order: live product-kind link, no snapshot yet. -->
+        <record id="demo_so_draft" model="sale.order">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="order_line" eval="[
+                (0, 0, {'product_id': ref('demo_prod_table'), 'product_uom_qty': 2}),
+                (0, 0, {'product_id': ref('demo_prod_delivery'), 'product_uom_qty': 1}),
+            ]"/>
+        </record>
+
+        <!-- Confirmed order: the snapshot is frozen at confirmation time. The
+             shelf line keeps "Furniture" even after the product is reclassified. -->
+        <record id="demo_so_confirmed" model="sale.order">
+            <field name="partner_id" ref="base.res_partner_3"/>
+            <field name="state">sale</field>
+            <field name="order_line" eval="[
+                (0, 0, {
+                    'product_id': ref('demo_prod_shelf'),
+                    'product_uom_qty': 3,
+                    'odomate_product_kind_snapshot_id': ref('demo_kind_furniture'),
+                }),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>

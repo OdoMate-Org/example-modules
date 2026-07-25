@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_product_kind_user,odomate.product.kind.user,model_odomate_product_kind,group_odomate_product_kind_user,1,0,0,0
+access_odomate_product_kind_manager,odomate.product.kind.manager,model_odomate_product_kind,group_odomate_product_kind_manager,1,1,1,1
+access_odomate_product_kind_all_users,odomate.product.kind.all.users,model_odomate_product_kind,base.group_user,1,0,0,0

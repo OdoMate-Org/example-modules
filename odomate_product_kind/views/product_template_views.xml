@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view_odomate_kind" model="ir.ui.view">
+        <field name="name">product.template.form.odomate.product.kind</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Product Kind" name="odomate_product_kind">
+                    <group>
+                        <field name="odomate_product_kind_id"/>
+                        <field name="odomate_route_type" invisible="not odomate_product_kind_id"/>
+                        <field name="odomate_manufacturing_mode" invisible="not odomate_product_kind_id"/>
+                        <field name="odomate_requires_engineering" invisible="not odomate_product_kind_id"/>
+                        <field name="odomate_requires_team_planning" invisible="not odomate_product_kind_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_search_view_odomate_kind" model="ir.ui.view">
+        <field name="name">product.template.search.odomate.product.kind</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="group_odomate_product_kind" string="Product Kind"
+                        context="{'group_by': 'odomate_product_kind_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

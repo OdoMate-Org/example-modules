@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_order_form_view_odomate_kind" model="ir.ui.view">
+        <field name="name">sale.order.form.odomate.product.kind</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- The order_line field embeds BOTH an inline <list> and an inline
+                 <form> (the line editor). We must scope to //list// so the fields
+                 become real, toggleable LIST COLUMNS; an unscoped
+                 //field[@name='price_unit'] matches the form sub-view first and
+                 hides the fields in the line popup instead. price_unit is a plain,
+                 always-present direct column of that list (unlike product_uom_qty,
+                 which sale_stock wraps in a <div name="ordered_qty">). -->
+            <xpath expr="//field[@name='order_line']//list//field[@name='price_unit']" position="after">
+                <field name="odomate_product_kind_id" optional="hide"/>
+                <!-- Snapshot is frozen at confirmation. Readonly for everyone,
+                     editable only for a Product Kind Manager (group-dependent
+                     modifier so the view never blocks what the model allows). -->
+                <field name="odomate_product_kind_snapshot_id" optional="hide"
+                       groups="!odomate_product_kind.group_odomate_product_kind_manager"
+                       readonly="1"/>
+                <field name="odomate_product_kind_snapshot_id" optional="hide"
+                       groups="odomate_product_kind.group_odomate_product_kind_manager"/>
+                <field name="odomate_route_type_snapshot" optional="hide" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
