@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_discount_approval" model="ir.ui.view">
+        <field name="name">sale.order.form.discount.approval</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_approve" type="object"
+                        string="Approve" class="btn-primary"
+                        groups="sales_team.group_sale_manager"
+                        invisible="state != 'waiting'"/>
+                <button name="action_reject" type="object"
+                        string="Reject"
+                        groups="sales_team.group_sale_manager"
+                        invisible="state != 'waiting'"/>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//field[@name='discount']" position="attributes">
+                <attribute name="digits">[16, 2]</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//field[@name='discount']" position="after">
+                <field name="total_discount" column_invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='tax_totals']" position="before">
+                <group class="oe_subtotal_footer" colspan="2"
+                       groups="sale.group_discount_per_so_line">
+                    <field name="discount_type"/>
+                    <field name="discount_rate"/>
+                    <button name="button_dummy" type="object"
+                            string="(update)" class="btn-link"
+                            invisible="state not in ('draft', 'sent')"/>
+                    <field name="amount_discount"/>
+                    <field name="margin_test" invisible="not margin_test"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
