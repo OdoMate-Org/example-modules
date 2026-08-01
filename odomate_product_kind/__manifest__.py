@@ -1,7 +1,12 @@
 {
     'name': "Product Kind — Manufacturing Classification",
-    'summary': "Hierarchical Product Kind classification with snapshot freezing "
-               "across product, sale and manufacturing",
+    'summary': "Odoo Product Kind — Manufacturing Classification module classifies products "
+               "in a hierarchical, production-oriented catalog and freezes a snapshot on sale "
+               "orders and manufacturing orders at confirmation, keeping historical documents "
+               "accurate even after products are reclassified. "
+               "product classification | manufacturing classification | product hierarchy | "
+               "product kind odoo | sale order snapshot | manufacturing order tracking | "
+               "bill of materials | route type tracking | production reporting",
     'description': """
 Product Kind — hierarchical manufacturing classification
 =========================================================
