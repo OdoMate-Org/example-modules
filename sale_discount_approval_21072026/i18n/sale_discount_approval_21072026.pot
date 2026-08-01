@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_discount_approval_21072026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_company__so_double_validation
+msgid "Sale Order Approval"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_company__so_double_validation_limit
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_config_settings__so_double_validation_limit
+msgid "Discount Approval Limit"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_config_settings__so_order_approval
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.res_config_settings_view_form_discount_approval
+msgid "Sale Discount Approval"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_config_settings__so_double_validation
+msgid "Sale Order Approval Level"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__res_company__so_double_validation__one_step
+msgid "Confirm directly"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__res_company__so_double_validation__two_step
+msgid "Get approval for large discounts"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_sale_order__discount_type
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_account_move__discount_type
+msgid "Discount Type"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_sale_order__discount_rate
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_account_move__discount_rate
+msgid "Discount Rate"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_sale_order__amount_discount
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_account_move__amount_discount
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.view_move_form_discount
+msgid "Discount"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.report_saleorder_document_discount
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.report_invoice_document_discount
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.sale_order_portal_content_totals_discount
+msgid "<strong>Discount</strong>"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_account_invoice_report__discount
+msgid "Discount %"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_sale_order__margin_test
+msgid "Margin Test"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_sale_order_line__total_discount
+msgid "Discounted Unit Value"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__sale_order__discount_type__percent
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__account_move__discount_type__percent
+msgid "Percent"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__sale_order__discount_type__amount
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__account_move__discount_type__amount
+msgid "Amount"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model:ir.model.fields.selection,name:sale_discount_approval_21072026.selection__sale_order__state__waiting
+msgid "Waiting Approval"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.view_order_form_discount_approval
+msgid "Approve"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.view_order_form_discount_approval
+msgid "Reject"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.view_order_form_discount_approval
+msgid "(update)"
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.res_config_settings_view_form_discount_approval
+msgid "Require a Sales Manager to approve orders whose average line discount exceeds a threshold."
+msgstr ""
+
+#. module: sale_discount_approval_21072026
+#: model_terms:ir.ui.view,arch_db:sale_discount_approval_21072026.res_config_settings_view_form_discount_approval
+msgid "Discount Approval Limit (%)"
+msgstr ""
