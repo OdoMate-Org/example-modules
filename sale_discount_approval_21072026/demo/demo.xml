@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Company approval configuration: two-step gate at 15% average discount -->
+    <record id="base.main_company" model="res.company">
+        <field name="so_double_validation">two_step</field>
+        <field name="so_double_validation_limit">15.0</field>
+    </record>
+
+    <!-- Sales Manager demo user able to approve/reject waiting orders -->
+    <record id="user_discount_sales_manager" model="res.users">
+        <field name="name">Diana Discount-Manager</field>
+        <field name="login">diana_discount_mgr</field>
+        <field name="email">diana.manager@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+    </record>
+
+    <!-- Scenario 1: 10% Percent discount, confirmable (avg 10% < 15% limit) -->
+    <record id="sale_order_discount_percent" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="discount_type">percent</field>
+        <field name="discount_rate">10.0</field>
+        <field name="order_line" eval="[
+            (0, 0, {'product_id': ref('product.product_product_5'), 'product_uom_qty': 5, 'price_unit': 100.0, 'discount': 10.0}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'product_uom_qty': 3, 'price_unit': 200.0, 'discount': 10.0}),
+        ]"/>
+    </record>
+
+    <!-- Scenario 2: Fixed Amount discount (approximately 500 off a 5000 order) -->
+    <record id="sale_order_discount_amount" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="discount_type">amount</field>
+        <field name="discount_rate">500.0</field>
+        <field name="order_line" eval="[
+            (0, 0, {'product_id': ref('product.product_product_9'), 'product_uom_qty': 10, 'price_unit': 300.0, 'discount': 10.0, 'total_discount': 270.0}),
+            (0, 0, {'product_id': ref('product.product_product_11'), 'product_uom_qty': 20, 'price_unit': 100.0, 'discount': 10.0, 'total_discount': 90.0}),
+        ]"/>
+    </record>
+
+    <!-- Scenario 3: 20% discount that lands in Waiting Approval (avg 20% > 15%) -->
+    <record id="sale_order_discount_waiting" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="state">waiting</field>
+        <field name="discount_type">percent</field>
+        <field name="discount_rate">20.0</field>
+        <field name="order_line" eval="[
+            (0, 0, {'product_id': ref('product.product_product_5'), 'product_uom_qty': 8, 'price_unit': 150.0, 'discount': 20.0}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'product_uom_qty': 4, 'price_unit': 250.0, 'discount': 20.0}),
+        ]"/>
+    </record>
+
+    <!-- Scenario 4: Order in Waiting Approval, ready for Approve / Reject demo -->
+    <record id="sale_order_discount_pending_review" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="state">waiting</field>
+        <field name="discount_type">percent</field>
+        <field name="discount_rate">18.0</field>
+        <field name="order_line" eval="[
+            (0, 0, {'product_id': ref('product.product_product_9'), 'product_uom_qty': 6, 'price_unit': 220.0, 'discount': 18.0}),
+            (0, 0, {'product_id': ref('product.product_product_11'), 'product_uom_qty': 2, 'price_unit': 480.0, 'discount': 18.0}),
+        ]"/>
+    </record>
+
+    <!-- Scenario 5: Discounted line + negative surcharge line (average-dilution edge case) -->
+    <record id="sale_order_discount_mixed" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="discount_type">percent</field>
+        <field name="discount_rate">25.0</field>
+        <field name="order_line" eval="[
+            (0, 0, {'product_id': ref('product.product_product_5'), 'product_uom_qty': 10, 'price_unit': 300.0, 'discount': 25.0}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'product_uom_qty': 5, 'price_unit': 120.0, 'discount': -20.0}),
+        ]"/>
+    </record>
+
+    <!-- Customer invoice showing the discount carried over from the order -->
+    <record id="invoice_discount_demo" model="account.move">
+        <field name="move_type">out_invoice</field>
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="invoice_date" eval="time.strftime('%Y-%m-%d')"/>
+        <field name="discount_type">percent</field>
+        <field name="discount_rate">10.0</field>
+        <field name="invoice_line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_5'), 'quantity': 5, 'price_unit': 100.0, 'discount': 10.0}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'quantity': 3, 'price_unit': 200.0, 'discount': 10.0}),
+        ]"/>
+    </record>
+
+</odoo>
