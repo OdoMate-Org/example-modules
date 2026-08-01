@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ===================== Roots ===================== -->
+        <record id="demo_kind_finished" model="odomate.product.kind">
+            <field name="name">Finished Goods</field>
+            <field name="code">FG</field>
+            <field name="route_type">sold</field>
+            <field name="manufacturing_mode">inherit</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="demo_kind_components" model="odomate.product.kind">
+            <field name="name">Components</field>
+            <field name="code">COMP</field>
+            <field name="route_type">component</field>
+            <field name="manufacturing_mode">mts</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="demo_kind_semi" model="odomate.product.kind">
+            <field name="name">Semi-Finished Products</field>
+            <field name="code">SEMI</field>
+            <field name="route_type">semi_finished</field>
+            <field name="manufacturing_mode">mto</field>
+            <field name="requires_engineering" eval="True"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="demo_kind_services" model="odomate.product.kind">
+            <field name="name">Services</field>
+            <field name="code">SRV</field>
+            <field name="route_type">service</field>
+            <field name="manufacturing_mode">disabled</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="demo_kind_transport" model="odomate.product.kind">
+            <field name="name">Transport</field>
+            <field name="code">TRANS</field>
+            <field name="route_type">transport</field>
+            <field name="manufacturing_mode">disabled</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="demo_kind_other" model="odomate.product.kind">
+            <field name="name">Other</field>
+            <field name="code">OTHER</field>
+            <field name="route_type">other</field>
+            <field name="manufacturing_mode">manual</field>
+            <field name="sequence">60</field>
+        </record>
+
+        <!-- ===================== Children ===================== -->
+        <record id="demo_kind_furniture" model="odomate.product.kind">
+            <field name="name">Furniture</field>
+            <field name="code">FURN</field>
+            <field name="route_type">manufactured</field>
+            <field name="manufacturing_mode">mto</field>
+            <field name="requires_engineering" eval="True"/>
+            <field name="requires_team_planning" eval="True"/>
+            <field name="parent_id" ref="demo_kind_finished"/>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="demo_kind_electronics" model="odomate.product.kind">
+            <field name="name">Electronics</field>
+            <field name="code">ELEC</field>
+            <field name="route_type">manufactured</field>
+            <field name="manufacturing_mode">mts</field>
+            <field name="requires_engineering" eval="True"/>
+            <field name="parent_id" ref="demo_kind_finished"/>
+            <field name="sequence">12</field>
+        </record>
+
+        <record id="demo_kind_fasteners" model="odomate.product.kind">
+            <field name="name">Fasteners</field>
+            <field name="code">FAST</field>
+            <field name="route_type">component</field>
+            <field name="manufacturing_mode">mts</field>
+            <field name="parent_id" ref="demo_kind_components"/>
+            <field name="sequence">21</field>
+        </record>
+
+    </data>
+</odoo>

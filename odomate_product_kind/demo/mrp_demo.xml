@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- MO created "from" a confirmed sale line: snapshot inherited from the
+             sale line's frozen snapshot (Furniture). -->
+        <record id="demo_mo_from_so" model="mrp.production">
+            <field name="product_id" ref="demo_prod_shelf"/>
+            <field name="product_qty">3.0</field>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="odomate_product_kind_snapshot_id" ref="demo_kind_furniture"/>
+        </record>
+
+        <!-- Manual MO: snapshot auto-filled by create() from the product's
+             current kind (Furniture). -->
+        <record id="demo_mo_manual" model="mrp.production">
+            <field name="product_id" ref="demo_prod_table"/>
+            <field name="product_qty">1.0</field>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <!-- ===== Reclassification scenario =====
+             The shelf is moved from "Furniture" to "Semi-Finished Products" AFTER its sale
+             order was confirmed and its MO created. From now on the product and
+             its live BoM link show "Semi-Finished Products", while the confirmed sale
+             line and the manufacturing order keep the frozen "Furniture" snapshot. -->
+        <record id="demo_prod_shelf" model="product.product">
+            <field name="odomate_product_kind_id" ref="demo_kind_semi"/>
+        </record>
+
+    </data>
+</odoo>
