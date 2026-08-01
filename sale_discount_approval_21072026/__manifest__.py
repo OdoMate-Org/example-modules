@@ -1,7 +1,17 @@
 {
     'name': "Sale Discount Approval",
 
-    'summary': "Order and invoice level discounts with a large-discount approval gate",
+    'summary': (
+        "Odoo Sale Discount Approval module streamlines order and invoice "
+        "discounting by applying a single percent or fixed-amount rate "
+        "across every line and routing large discounts through an "
+        "approval gate before confirmation, keeping pricing consistent "
+        "without manual line-by-line edits. "
+        "sales discount module | odoo pricing control | order line discount | "
+        "invoice discount automation | discount approval workflow | "
+        "sales manager approval | percent amount discount | "
+        "discount approval gate | sale order surcharge"
+    ),
 
     'description': """
 Sale Discount Approval
@@ -24,8 +34,8 @@ Key features
     """,
 
     'author': "OdoMate",
-    'website': "https://www.odomate.com",
-    'support': "support@odomate.com",
+    'website': "https://www.odomate.pro",
+    'support': "support@odomate.pro",
 
     'category': 'Sales/Sales',
     'version': '19.0.1.0.1',
@@ -51,4 +61,5 @@ Key features
     'installable': True,
     'application': False,
     'auto_install': False,
+    'images': ['static/description/banner.jpg'],
 }
