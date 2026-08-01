@@ -47,7 +47,7 @@ route type, snapshot, sale order, manufacturing order, bill of materials.
         'demo/sale_demo.xml',
         'demo/mrp_demo.xml',
     ],
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': False,
     'auto_install': False,

@@ -17,6 +17,7 @@ generated from — so you can judge the input against the output yourself.
 | Module | Description | Complexity |
 |---|---|---|
 | [`odomate_project_checklist`](odomate_project_checklist/) | Reusable step-by-step checklists on Project tasks: template library, per-task customization, live progress bar (cancelled steps excluded), auto-stamped start/end dates with self-healing, and a replace-confirmation wizard. 12 unit tests. | Medium — 5 models incl. an inherited `project.task`, stored computes, a TransientModel wizard, record rules |
+| [`odomate_product_kind`](odomate_product_kind/) | Hierarchical Product Kind classification carrying production semantics (route type, manufacturing mode) from products through sales into manufacturing — reclassify a product anytime and its confirmed sale order lines and manufacturing orders still keep the kind they had at confirmation. 22 unit tests. | Medium-High — 1 new hierarchical model (partial unique indexes, model-level snapshot immutability) plus inherits on `product.template`, `mrp.bom`, `mrp.production`, `sale.order.line`, and a self-healing `sale.report` search-view patch via install/upgrade hooks |
 
 ## Repository structure
 
