@@ -1,3 +1,4 @@
+from odoo.exceptions import AccessError
 from odoo.tests import TransactionCase, tagged
 
 
@@ -117,6 +118,92 @@ class TestSaleDiscountApproval(TransactionCase):
         order.action_confirm()
         order.action_reject()
         self.assertEqual(order.state, 'draft')
+
+    def test_action_approve_reject_denied_for_non_manager(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.assertEqual(order.state, 'waiting')
+
+        salesperson = self.env['res.users'].create({
+            'name': "Non-Manager Salesperson",
+            'login': 'discount_test_salesperson',
+            'group_ids': [(6, 0, [self.env.ref('sales_team.group_sale_salesman').id])],
+        })
+        order_as_salesperson = order.with_user(salesperson)
+        with self.assertRaises(AccessError):
+            order_as_salesperson.action_approve()
+        self.assertEqual(order.state, 'waiting')
+        with self.assertRaises(AccessError):
+            order_as_salesperson.action_reject()
+        self.assertEqual(order.state, 'waiting')
+
+    def test_action_approve_noop_when_not_waiting(self):
+        order = self._make_order('percent', 5.0, [(5, 100.0)])
+        order._apply_order_discount()
+        self.assertEqual(order.state, 'draft')
+        order.action_approve()
+        self.assertEqual(order.state, 'draft')
+
+    def test_action_reject_noop_when_not_waiting(self):
+        self.company.so_double_validation = 'one_step'
+        order = self._make_order('percent', 5.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.assertEqual(order.state, 'sale')
+        order.action_reject()
+        self.assertEqual(order.state, 'sale')
+
+    def test_section_and_note_lines_excluded_from_fan_out_and_average(self):
+        order = self.env['sale.order'].create({
+            'partner_id': self.partner.id,
+            'discount_type': 'percent',
+            'discount_rate': 20.0,
+        })
+        self.env['sale.order.line'].create({
+            'order_id': order.id,
+            'display_type': 'line_section',
+            'name': "Section A",
+        })
+        self.env['sale.order.line'].create({
+            'order_id': order.id,
+            'product_id': self.product.id,
+            'product_uom_qty': 5,
+            'price_unit': 100.0,
+        })
+        self.env['sale.order.line'].create({
+            'order_id': order.id,
+            'display_type': 'line_note',
+            'name': "Note A",
+        })
+        order._apply_order_discount()
+        section = order.order_line.filtered(lambda l: l.display_type == 'line_section')
+        note = order.order_line.filtered(lambda l: l.display_type == 'line_note')
+        product_line = order.order_line.filtered(lambda l: not l.display_type)
+        self.assertEqual(section.discount, 0.0)
+        self.assertEqual(note.discount, 0.0)
+        self.assertEqual(product_line.discount, 20.0)
+
+        # If section/note lines diluted the average, 20/3 = 6.67% would stay under the 15% limit.
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        self.assertTrue(order._discount_needs_approval())
+
+    def test_sale_report_discount_measure(self):
+        # sale.report ships its own 'discount' measure natively (feeding its
+        # discount_amount); this pins that it reflects our order-level fan-out.
+        self.company.so_double_validation = 'one_step'
+        order = self._make_order('percent', 12.0, [(4, 150.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.env.flush_all()  # sale.report is a raw SQL view; force pending writes to the DB first.
+        report_lines = self.env['sale.report'].search([]).filtered(
+            lambda r: r.order_reference == order
+        )
+        self.assertTrue(report_lines)
+        self.assertAlmostEqual(report_lines[0].discount, 12.0, places=2)
 
     # --- Invoice carry-over and invoice-level fan-out -----------------------
 

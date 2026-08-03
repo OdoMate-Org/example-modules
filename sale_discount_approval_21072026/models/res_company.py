@@ -9,7 +9,7 @@ class ResCompany(models.Model):
             ('one_step', "Confirm directly"),
             ('two_step', "Get approval for large discounts"),
         ],
-        string="Sale Order Approval",
+        string="Discount Approval",
         default='one_step',
     )
     so_double_validation_limit = fields.Float(

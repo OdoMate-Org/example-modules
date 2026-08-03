@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import AccessError
 
 
 class SaleOrder(models.Model):
@@ -105,12 +106,22 @@ class SaleOrder(models.Model):
             return True
         return super().action_confirm()
 
+    def _check_discount_manager(self):
+        # su bypass matches core Odoo: cron/sudo/tests run privileged; real calls are gated on the caller's groups.
+        if self.env.su:
+            return
+        if not self.env.user.has_group('sales_team.group_sale_manager'):
+            raise AccessError(_("Only a Sales Manager can approve or reject an order waiting for discount approval."))
+
     def action_approve(self):
-        self.filtered(lambda order: order.state == 'waiting').write({'state': 'sent'})
-        return self.with_context(skip_discount_approval=True).action_confirm()
+        self._check_discount_manager()
+        waiting = self.filtered(lambda order: order.state == 'waiting')
+        waiting.write({'state': 'sent'})
+        return waiting.with_context(skip_discount_approval=True).action_confirm()
 
     def action_reject(self):
-        self.write({'state': 'draft'})
+        self._check_discount_manager()
+        self.filtered(lambda order: order.state == 'waiting').write({'state': 'draft'})
         return True
 
     def _prepare_invoice(self):
