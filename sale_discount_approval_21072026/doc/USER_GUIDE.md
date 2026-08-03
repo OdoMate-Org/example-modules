@@ -85,6 +85,12 @@ sees two buttons:
 * **Approve** — confirms the order through the standard flow.
 * **Reject** — sends the order back to **Draft** for revision.
 
+Both actions are enforced on the server, not just hidden in the UI: calling
+either one as a user outside `sales_team.group_sale_manager` (e.g. over RPC)
+is rejected with an access error, and each only acts on orders actually in
+**Waiting Approval** — calling **Approve** on an order that never reached that
+state (still **Draft**) leaves it untouched rather than confirming it.
+
 > **Edge case — average dilution.** Because 0% and negative lines are included
 > unweighted, a single steeply-discounted line can be diluted below the limit.
 > Example: one line at **25%** and one surcharge line at **−20%** average to
@@ -109,6 +115,9 @@ sees two buttons:
   the online portal totals.
 * The invoice analysis report (`account.invoice.report`) exposes a **Discount %**
   column for pivot and graph views.
+* Sales Analysis (`sale.report`) exposes the same **Discount %** measure for
+  quotations and orders — open **Sales → Reporting → Sales**, switch to pivot
+  or graph, and add **Discount %** to see it alongside the standard measures.
 
 ## Field reference
 

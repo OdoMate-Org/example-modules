@@ -53,6 +53,6 @@ Known limitations
 Credits
 =======
 
-Author: **OdoMate** — https://www.odomate.com
+Author: **OdoMate** — https://www.odomate.pro
 
 License: LGPL-3.

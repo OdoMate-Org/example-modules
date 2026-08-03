@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: sale_discount_approval_21072026
 #: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_company__so_double_validation
-msgid "Sale Order Approval"
+msgid "Discount Approval"
 msgstr ""
 
 #. module: sale_discount_approval_21072026
@@ -32,7 +32,7 @@ msgstr ""
 
 #. module: sale_discount_approval_21072026
 #: model:ir.model.fields,field_description:sale_discount_approval_21072026.field_res_config_settings__so_double_validation
-msgid "Sale Order Approval Level"
+msgid "Discount Approval Level"
 msgstr ""
 
 #. module: sale_discount_approval_21072026

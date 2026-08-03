@@ -7,7 +7,7 @@ class ResConfigSettings(models.TransientModel):
     so_order_approval = fields.Boolean(string="Sale Discount Approval")
     so_double_validation = fields.Selection(
         related='company_id.so_double_validation',
-        string="Sale Order Approval Level",
+        string="Discount Approval Level",
         readonly=False,
     )
     so_double_validation_limit = fields.Float(
