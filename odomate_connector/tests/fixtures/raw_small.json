@@ -71,7 +71,11 @@
           ],
           "relation": null,
           "required": false,
-          "custom": true
+          "custom": true,
+          "readonly": false,
+          "store": true,
+          "computed": false,
+          "related": null
         },
         {
           "name": "name",
@@ -79,15 +83,23 @@
           "selection": null,
           "relation": null,
           "required": true,
-          "custom": false
+          "custom": false,
+          "readonly": false,
+          "store": true,
+          "computed": false,
+          "related": null
         }
-      ]
+      ],
+      "module": "sale",
+      "xmlid": "sale.model_sale_order"
     },
     {
       "model": "sale.advance.payment.inv",
       "custom": false,
       "transient": true,
-      "fields": []
+      "fields": [],
+      "module": "sale",
+      "xmlid": "sale.model_sale_advance_payment_inv"
     }
   ],
   "views": [
@@ -124,7 +136,10 @@
     {
       "name": "Notify on big order",
       "model": "sale.order",
-      "trigger": "on_create_or_write"
+      "trigger": "on_create_or_write",
+      "filter_domain": "[('state','=','done')]",
+      "filter_pre_domain": null,
+      "active": true
     }
   ],
   "record_counts": {

@@ -157,7 +157,21 @@ def _models(env):
     field_rows = (
         env["ir.model.fields"]
         .sudo()
-        .search_read([], ["model", "name", "ttype", "relation", "required", "state"])
+        .search_read(
+            [],
+            [
+                "model",
+                "name",
+                "ttype",
+                "relation",
+                "required",
+                "readonly",
+                "store",
+                "related",
+                "compute",
+                "state",
+            ],
+        )
     )
     for f in field_rows:
         fields_by_model[f["model"]].append(
@@ -167,20 +181,73 @@ def _models(env):
                 "selection": selections.get(f["id"]) or None,
                 "relation": f["relation"] or None,
                 "required": bool(f["required"]),
+                # A stored-computed field cannot be written to, and an automation
+                # trigger placed on one never fires. Both are silent failures
+                # unless the generator can see these three flags.
+                "readonly": bool(f["readonly"]),
+                "store": bool(f["store"]),
+                "computed": bool(f["compute"]),
+                "related": f["related"] or None,
                 "custom": f["state"] == "manual",
             }
         )
 
     model_rows = env["ir.model"].sudo().search_read([], ["model", "state", "transient"])
-    return [
-        {
-            "model": m["model"],
-            "custom": m["state"] == "manual",
-            "transient": bool(m["transient"]),
-            "fields": fields_by_model.get(m["model"], []),
-        }
-        for m in model_rows
-    ]
+    out = []
+    for m in model_rows:
+        name = m["model"]
+        owner = _defining_module(env, name)
+        out.append(
+            {
+                "model": name,
+                "custom": m["state"] == "manual",
+                "transient": bool(m["transient"]),
+                "module": owner,
+                # Odoo's own convention for a model's external id.
+                "xmlid": "%s.model_%s" % (owner, name.replace(".", "_")) if owner else None,
+                "fields": _merge_registry_flags(env, name, fields_by_model.get(name, [])),
+            }
+        )
+    return out
+
+
+def _defining_module(env, model_name):
+    """The module that *defines* a model, not one that merely inherits it.
+
+    ``ir.model.data`` holds a row per module that touches the model, so reading
+    xmlids gives an arbitrary inheritor — ``res.partner`` resolves to ``account``
+    on an accounting install. ``_original_module`` is the registry's record of
+    who declared it, which is what ``depends`` and ``ref=`` actually need.
+    """
+    try:
+        return env[model_name]._original_module or None
+    except Exception:  # noqa: BLE001 - a stale ir.model row must not break the export
+        return None
+
+
+def _merge_registry_flags(env, model_name, field_dicts):
+    """Overlay store/computed/related/readonly from the registry.
+
+    ``ir.model.fields.compute`` only holds *Studio* compute code; a Python
+    ``@api.depends`` field leaves that column empty, so trusting it reports every
+    core computed field as a plain stored column. The registry knows the truth.
+    """
+    try:
+        registry_fields = env[model_name]._fields
+    except Exception:  # noqa: BLE001
+        return field_dicts
+    for f in field_dicts:
+        rf = registry_fields.get(f["name"])
+        if rf is None:
+            continue
+        related = getattr(rf, "related", None)
+        if isinstance(related, (list, tuple)):
+            related = ".".join(related)
+        f["store"] = bool(rf.store)
+        f["computed"] = bool(rf.compute)
+        f["related"] = related or None
+        f["readonly"] = bool(rf.readonly)
+    return field_dicts
 
 
 def _xmlid_map(env, model):
@@ -297,12 +364,29 @@ def _groups(env):
 
 
 def _automations(env):
+    """Automated actions: what fires, on what, and under what condition.
+
+    ``filter_domain`` is the condition, not the code — an automation on
+    ``project.task.checklist.line`` that only acts when ``state = 'done'``
+    behaves nothing like one that fires on every write, and a generator that
+    cannot see the difference will duplicate or contradict it. Server-action
+    code bodies remain excluded.
+    """
     if "base.automation" not in env:
         return []
-    return [
-        {"name": a.name, "model": a.model_id.model, "trigger": a.trigger}
-        for a in env["base.automation"].sudo().search([])
-    ]
+    out = []
+    for a in env["base.automation"].sudo().search([]):
+        out.append(
+            {
+                "name": a.name,
+                "model": a.model_id.model,
+                "trigger": a.trigger,
+                "filter_domain": a.filter_domain or None,
+                "filter_pre_domain": a.filter_pre_domain or None,
+                "active": bool(a.active),
+            }
+        )
+    return out
 
 
 def _record_counts(env, models):

@@ -144,9 +144,33 @@ class TestContextExport(TransactionCase):
             f"none of {len(company_related)} company-related settings were exported",
         )
 
-    def test_no_transient_models(self):
-        models = {m["model"] for m in self._snapshot()["models"]}
-        self.assertNotIn("res.config.settings", models)  # settings wizard is transient
+    def test_transient_models_are_exported_and_flagged(self):
+        models = {m["model"]: m for m in self._snapshot()["models"]}
+        self.assertIn("res.config.settings", models)
+        self.assertTrue(models["res.config.settings"]["transient"])
+        self.assertFalse(models["res.partner"]["transient"])
+
+    def test_record_counts_skip_transient_models(self):
+        """Wizards persist nothing, so a row count for one is meaningless."""
+        snap = self._snapshot()
+        transient = {m["model"] for m in snap["models"] if m["transient"]}
+        self.assertFalse(transient & set(snap["record_counts"]))
+
+    def test_models_carry_owning_module(self):
+        models = {m["model"]: m for m in self._snapshot()["models"]}
+        self.assertEqual(models["res.partner"]["module"], "base")
+        self.assertEqual(models["res.partner"]["xmlid"], "base.model_res_partner")
+
+    def test_stored_computed_fields_are_distinguishable(self):
+        """A stored-computed field cannot be written to, and an automation
+        triggered on it never fires — both silent failures without these flags."""
+        models = {m["model"]: m for m in self._snapshot()["models"]}
+        fields = {f["name"]: f for f in models["res.partner"]["fields"]}
+        for name, f in fields.items():
+            self.assertIsInstance(f["store"], bool, name)
+            self.assertIsInstance(f["computed"], bool, name)
+        computed = [f for f in fields.values() if f["computed"]]
+        self.assertTrue(computed, "expected res.partner to have computed fields")
 
     def test_db_created_view_captured(self):
         """A view created in the DB (no module xmlid) is a customization."""

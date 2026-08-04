@@ -243,11 +243,27 @@ class TestBuildSnapshot(BaseCase):
         self.assertEqual(mods["sale"]["published_version"], "19.0.1.2")
         self.assertEqual(mods["base"]["published_version"], "")
 
-    def test_transient_models_excluded_and_fields_sorted(self):
-        models = _build(_raw())["models"]
-        self.assertEqual([m["model"] for m in models], ["sale.order"])
-        self.assertEqual([f["name"] for f in models[0]["fields"]], ["name", "x_priority_score"])
-        self.assertNotIn("transient", models[0])
+    def test_transient_models_included_but_flagged(self):
+        """Wizards are a public API surface — often the only supported way to
+        perform an OCA operation — so they are exported, flagged rather than
+        dropped."""
+        models = {m["model"]: m for m in _build(_raw())["models"]}
+        self.assertIn("sale.advance.payment.inv", models)
+        self.assertTrue(models["sale.advance.payment.inv"]["transient"])
+        self.assertFalse(models["sale.order"]["transient"])
+
+    def test_fields_sorted(self):
+        models = {m["model"]: m for m in _build(_raw())["models"]}
+        self.assertEqual(
+            [f["name"] for f in models["sale.order"]["fields"]], ["name", "x_priority_score"]
+        )
+
+    def test_models_carry_their_owning_module(self):
+        """`ref=` to another module's model xmlid is otherwise a guess, and
+        `depends` cannot be derived from the models a module touches."""
+        models = {m["model"]: m for m in _build(_raw())["models"]}
+        self.assertEqual(models["sale.order"]["module"], "sale")
+        self.assertEqual(models["sale.order"]["xmlid"], "sale.model_sale_order")
 
     def test_views_marked_custom(self):
         views = _build(_raw())["views"]

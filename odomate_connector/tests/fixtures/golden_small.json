@@ -1,6 +1,9 @@
 {
   "automations": [
     {
+      "active": true,
+      "filter_domain": "[('state','=','done')]",
+      "filter_pre_domain": null,
       "model": "sale.order",
       "name": "Notify on big order",
       "trigger": "on_create_or_write"
@@ -38,18 +41,33 @@
   "models": [
     {
       "custom": false,
+      "fields": [],
+      "model": "sale.advance.payment.inv",
+      "module": "sale",
+      "transient": true,
+      "xmlid": "sale.model_sale_advance_payment_inv"
+    },
+    {
+      "custom": false,
       "fields": [
         {
+          "computed": false,
           "custom": false,
           "name": "name",
+          "readonly": false,
+          "related": null,
           "relation": null,
           "required": true,
           "selection": null,
+          "store": true,
           "ttype": "char"
         },
         {
+          "computed": false,
           "custom": true,
           "name": "x_priority_score",
+          "readonly": false,
+          "related": null,
           "relation": null,
           "required": false,
           "selection": [
@@ -62,10 +80,14 @@
               "High"
             ]
           ],
+          "store": true,
           "ttype": "selection"
         }
       ],
-      "model": "sale.order"
+      "model": "sale.order",
+      "module": "sale",
+      "transient": false,
+      "xmlid": "sale.model_sale_order"
     }
   ],
   "modules": [

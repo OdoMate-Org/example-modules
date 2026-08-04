@@ -15,8 +15,10 @@ SCHEMA_VERSION = 1
 #       an instantiated record, recovering company-related policy fields.
 # 1.3.0 derives `source` from where a module actually lives on disk rather
 #       than from manifest strings.
+# 1.4.0 adds field store/computed/readonly/related, automation filter_domain,
+#       model->owning-module, and includes transient models (flagged).
 # Consumers read this to tell whether a snapshot carries those fields.
-CONNECTOR_VERSION = "1.3.0"
+CONNECTOR_VERSION = "1.4.0"
 MAX_SNAPSHOT_BYTES = 5 * 1024 * 1024
 
 # Spec: drop any config key/value matching these patterns (defense-in-depth on
@@ -152,15 +154,23 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
         if any((m.get("license") or "").startswith(("OEEL", "OPL")) for m in raw["modules"])
         else "community"
     )
+    # Transient models are included: wizards are a public API surface, and for
+    # OCA modules they are frequently the only supported way to perform an
+    # operation (purchase.request.line.make.purchase.order is how a request
+    # becomes a PO). They hold no persisted data, so including them removes a
+    # capability blind spot without touching privacy. They stay flagged so a
+    # consumer can tell a wizard from a stored model.
     models = sorted(
         (
             {
                 "model": m["model"],
                 "custom": bool(m["custom"]),
+                "transient": bool(m.get("transient")),
+                "module": m.get("module"),
+                "xmlid": m.get("xmlid"),
                 "fields": sorted((dict(f) for f in m["fields"]), key=lambda f: f["name"]),
             }
             for m in raw["models"]
-            if not m.get("transient")
         ),
         key=lambda m: m["model"],
     )
