@@ -97,14 +97,27 @@ class SaleOrder(models.Model):
         return average_discount > company.so_double_validation_limit
 
     def action_confirm(self):
-        if not self.env.context.get('skip_discount_approval'):
-            waiting = self.filtered(lambda order: order._discount_needs_approval())
-            if waiting:
-                waiting.write({'state': 'waiting'})
-                self = self - waiting
-        if not self:
+        # The skip flag is only honoured for an order that is genuinely 'waiting':
+        # that state is the only trustworthy proof it already cleared the gate once
+        # (via action_approve), so forging the flag elsewhere - even as a manager -
+        # cannot skip straight to 'sale' without ever visiting 'waiting'.
+        can_skip = self.env.context.get('skip_discount_approval') and (
+            self.env.su or self.env.user.has_group('sales_team.group_sale_manager')
+        )
+        eligible = self.filtered(lambda order: order.state == 'waiting') if can_skip else self.browse()
+        if eligible:
+            eligible.write({'state': 'sent'})
+        # Orders outside draft/sent (already confirmed, cancelled, ...) are left
+        # untouched here - re-running action_confirm on them must never regress
+        # them to 'waiting' just because their current discount is over the limit.
+        pending = (self - eligible).filtered(lambda order: order.state in ('draft', 'sent'))
+        waiting = pending.filtered(lambda order: order._discount_needs_approval())
+        if waiting:
+            waiting.write({'state': 'waiting'})
+        to_confirm = eligible | (pending - waiting)
+        if not to_confirm:
             return True
-        return super().action_confirm()
+        return super(SaleOrder, to_confirm).action_confirm()
 
     def _check_discount_manager(self):
         # su bypass matches core Odoo: cron/sudo/tests run privileged; real calls are gated on the caller's groups.
@@ -115,9 +128,9 @@ class SaleOrder(models.Model):
 
     def action_approve(self):
         self._check_discount_manager()
-        waiting = self.filtered(lambda order: order.state == 'waiting')
-        waiting.write({'state': 'sent'})
-        return waiting.with_context(skip_discount_approval=True).action_confirm()
+        return self.filtered(
+            lambda order: order.state == 'waiting'
+        ).with_context(skip_discount_approval=True).action_confirm()
 
     def action_reject(self):
         self._check_discount_manager()

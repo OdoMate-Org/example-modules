@@ -91,6 +91,30 @@ is rejected with an access error, and each only acts on orders actually in
 **Waiting Approval** — calling **Approve** on an order that never reached that
 state (still **Draft**) leaves it untouched rather than confirming it.
 
+**Approve** works by internally re-running the same confirmation the
+**Confirm** button uses, with permission to skip the average-discount check —
+but only under two conditions checked together: the caller must be a Sales
+Manager (or a privileged system call such as a cron job), *and* the order
+must already be in **Waiting Approval**. Neither condition alone is enough:
+
+* A non-manager can never skip the check, no matter how confirmation is
+  triggered.
+* A Sales Manager confirming a **Draft** or **Sent** order directly — one
+  that never actually went through **Waiting Approval** — still has the
+  average-discount check applied like anyone else. The only way to reach
+  **Sale** without the check is to have first been parked in **Waiting
+  Approval** and then explicitly approved, so the approval always leaves a
+  visible trace in the order's history rather than being silently skipped.
+* Confirming as an elevated system user — as the customer portal does when a
+  customer accepts a quotation — is **not** on its own enough to bypass the
+  check; the same average-discount comparison still applies unless the order
+  is genuinely already waiting on an approval.
+
+Re-confirming an order that is already **Sale** never re-triggers the gate:
+whatever its current line discounts are, clicking **Confirm** again leaves a
+confirmed order exactly as it is rather than sending it back to **Waiting
+Approval**.
+
 > **Edge case — average dilution.** Because 0% and negative lines are included
 > unweighted, a single steeply-discounted line can be diluted below the limit.
 > Example: one line at **25%** and one surcharge line at **−20%** average to
