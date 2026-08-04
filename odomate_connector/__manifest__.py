@@ -32,7 +32,7 @@ exactly what leaves your system before you share it.
     'website': "https://www.odomate.pro",
     'support': "support@odomate.pro",
     'category': 'Technical',
-    'version': '19.0.1.4.0',
+    'version': '19.0.1.5.0',
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [

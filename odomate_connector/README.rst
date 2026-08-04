@@ -65,11 +65,14 @@ Targets Odoo 19, Community and Enterprise.
 Size limits
 ===========
 
-The snapshot is capped at roughly 5 MB. If a database would exceed that, the
-export degrades in disclosed stages — first dropping customized view bodies
-(keeping their structure), then the field lists of standard models that carry
-no customizations. Whatever was dropped is recorded in the file's ``truncated``
-list, so a consumer never has to guess whether it is complete.
+The snapshot is capped at 25 MB. A database that would exceed it degrades in
+disclosed stages, ordered by how easily the content can be found elsewhere:
+first the field lists of models belonging to standard Odoo modules, then those
+belonging to OCA modules — both reconstructable by installing the module —
+then empty record counts, and only last the bodies of your customized views.
+Your own custom fields and any module we cannot obtain are never dropped.
+Whatever was dropped is recorded in the file's ``truncated`` list, so a
+consumer never has to guess whether it is complete.
 
 Credits
 =======

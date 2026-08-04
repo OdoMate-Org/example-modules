@@ -306,38 +306,88 @@ class TestSerialize(BaseCase):
         self.assertEqual(data["truncated"], [])
         self.assertEqual(data["schema_version"], 1)
 
-    def test_oversized_archs_dropped_first(self):
-        raw = _raw()
-        raw["views"][0]["arch"] = "<data>" + "x" * (6 * 1024 * 1024) + "</data>"
-        payload, truncated = snapshot_lib.serialize(_build(raw))
-        self.assertEqual(truncated, ["view_archs"])
-        data = json.loads(payload)
-        self.assertIsNone(data["views"][0]["arch"])
-        self.assertEqual(data["views"][0]["inherit_id_xmlid"], "sale.view_order_form")
-        self.assertLessEqual(len(payload.encode()), snapshot_lib.MAX_SNAPSHOT_BYTES)
-
-    def test_standard_fields_dropped_second(self):
-        raw = _raw()
-        big_fields = [
+    @staticmethod
+    def _bulk_fields(n, prefix="f"):
+        # A long relation inflates bytes per field, so the cap is reached with
+        # far fewer dicts and the test stays fast.
+        padding = "some.very.long.relation.model.name" * 15
+        return [
             {
-                "name": "field_%07d" % i,
+                "name": "%s_%07d" % (prefix, i),
                 "ttype": "char",
                 "selection": None,
-                "relation": "some.very.long.relation.model.name",
+                "relation": padding,
                 "required": False,
+                "readonly": False,
+                "store": True,
+                "computed": False,
+                "related": None,
                 "custom": False,
             }
-            for i in range(60000)
+            for i in range(n)
         ]
-        raw["models"].append(
-            {"model": "res.partner", "custom": False, "transient": False, "fields": big_fields}
+
+    def _oversized_raw(self):
+        """Over the cap, and still over it after the core stage.
+
+        Sized so both field stages must run while the unobtainable module and
+        the view arch stay comfortably affordable — that is the ordering the
+        strategy is meant to guarantee.
+        """
+        raw = _raw()
+        for model, module, count in (
+            ("res.partner", "base", 12000),
+            ("queue.job", "queue_job", 40000),
+            ("acme.secret", "acme_bespoke", 500),
+        ):
+            raw["models"].append(
+                {
+                    "model": model,
+                    "custom": False,
+                    "transient": False,
+                    "module": module,
+                    "xmlid": "%s.model_%s" % (module, model.replace(".", "_")),
+                    "fields": self._bulk_fields(count, model.split(".")[0]),
+                }
+            )
+        raw["modules"].append(
+            {
+                "name": "acme_bespoke",
+                "installed_version": "19.0.1.0.0",
+                "published_version": "",
+                "author": "ACME",
+                "website": "https://acme.example",
+                "url": "",
+                "license": "LGPL-3",
+                "auto_install": False,
+                "location": "external",
+            }
         )
-        payload, truncated = snapshot_lib.serialize(_build(raw))
-        self.assertEqual(truncated, ["view_archs", "standard_model_fields"])
-        by_model = {m["model"]: m for m in json.loads(payload)["models"]}
-        self.assertEqual(by_model["res.partner"]["fields"], [])
-        self.assertEqual(len(by_model["sale.order"]["fields"]), 2)
+        return raw
+
+    def test_degrades_in_re_derivability_order(self):
+        """Core fields first, then OCA fields — and the genuinely lossy view
+        arch survives both, because it exists nowhere else."""
+        payload, truncated = snapshot_lib.serialize(_build(self._oversized_raw()))
+        self.assertEqual(truncated, ["core_model_fields", "fetchable_model_fields"])
+        data = json.loads(payload)
+        by_model = {m["model"]: m for m in data["models"]}
+        self.assertEqual(by_model["res.partner"]["fields"], [], "core fields should go first")
+        self.assertEqual(by_model["queue.job"]["fields"], [], "OCA fields should go second")
+        self.assertIsNotNone(data["views"][0]["arch"], "view arch dropped before cheaper content")
         self.assertLessEqual(len(payload.encode()), snapshot_lib.MAX_SNAPSHOT_BYTES)
+
+    def test_unobtainable_module_fields_are_never_dropped(self):
+        """A module we cannot fetch has no other source of truth for its schema."""
+        payload, _ = snapshot_lib.serialize(_build(self._oversized_raw()))
+        by_model = {m["model"]: m for m in json.loads(payload)["models"]}
+        self.assertTrue(by_model["acme.secret"]["fields"], "bespoke module schema was discarded")
+
+    def test_customized_fields_survive_every_stage(self):
+        payload, _ = snapshot_lib.serialize(_build(self._oversized_raw()))
+        by_model = {m["model"]: m for m in json.loads(payload)["models"]}
+        names = [f["name"] for f in by_model["sale.order"]["fields"]]
+        self.assertIn("x_priority_score", names)
 
     def test_deterministic(self):
         a, _ = snapshot_lib.serialize(_build(_raw()))

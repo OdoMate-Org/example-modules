@@ -92,7 +92,7 @@ Consequences, all of which are requirements rather than preferences:
 
 ### Size limit
 
-Roughly 5 MB, with disclosed degradation rather than silent truncation. If the
+25 MB, with disclosed degradation rather than silent truncation. If the
 snapshot would exceed the cap it drops, in order: customized view bodies
 (keeping the structural metadata), then the field lists of standard models
 carrying no customizations. Whatever was dropped is listed in the file's
@@ -116,7 +116,7 @@ cover it without a database.
 
 ### Tests
 
-57 tests, run with `--test-tags /odomate_connector`:
+58 tests, run with `--test-tags /odomate_connector`:
 
 - Pure-logic tests over the redaction, classification, assembly, size-cap and
   schema-contract behaviour, including a blessed golden-file comparison that

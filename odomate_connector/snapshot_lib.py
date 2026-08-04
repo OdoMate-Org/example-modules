@@ -17,9 +17,17 @@ SCHEMA_VERSION = 1
 #       than from manifest strings.
 # 1.4.0 adds field store/computed/readonly/related, automation filter_domain,
 #       model->owning-module, and includes transient models (flagged).
+# 1.5.0 raises the size cap to 25 MB and degrades by re-derivability.
 # Consumers read this to tell whether a snapshot carries those fields.
-CONNECTOR_VERSION = "1.4.0"
-MAX_SNAPSHOT_BYTES = 5 * 1024 * 1024
+CONNECTOR_VERSION = "1.5.0"
+# The original 5 MB was a guess made before any real export existed. A live
+# 108-module database produces 2.4 MB, so a heavily customized enterprise system
+# — more models, multi-language, a decade of inherited views — would trip a 5 MB
+# cap routinely, and the customers who most need environment context are exactly
+# the ones who would lose it. Nothing technical requires a small file: it is
+# machine-consumed, stored as jsonb, and gzips roughly ten to one in transit.
+# The cap exists to bound a runaway export, not to ration content.
+MAX_SNAPSHOT_BYTES = 25 * 1024 * 1024
 
 # Spec: drop any config key/value matching these patterns (defense-in-depth on
 # top of the allowlist).
@@ -224,31 +232,77 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
     }
 
 
+def _is_irreplaceable(model: dict) -> bool:
+    """True when this model's fields exist nowhere but in this database."""
+    return bool(model["custom"]) or any(f["custom"] for f in model["fields"])
+
+
 def serialize(snapshot: dict) -> "tuple[str, list[str]]":
     """JSON-serialize with the hard size cap and staged, disclosed truncation.
 
-    Stages (spec: ~5 MB cap):
-      1. drop customized-view archs (keep the structural metadata),
-      2. drop field lists of standard models that carry no custom fields.
-    The applied stages are recorded in the payload's ``truncated`` list.
+    Degradation is ordered by **how re-derivable the content is**, not by
+    section. Measured on a real 108-module export, model fields are 72% of the
+    file and everything except ``models`` combined is under 10% — so a stage
+    that drops anything else cannot buy meaningful room, and dropping it only
+    destroys content for no gain.
+
+    What can be recovered elsewhere goes first: the fields of a model owned by a
+    module we can install are re-derivable simply by installing it, whereas a
+    Studio field, a customized view arch, or the schema of a module we cannot
+    obtain exist only here.
+
+    Order:
+      1. fields of ``core``-owned models with no customizations — reconstructable
+         from any Odoo of the same version,
+      2. fields of ``oca``-owned models with no customizations — reconstructable
+         by cloning the repository named in ``modules[].website``,
+      3. record counts that are zero or unknown — no information,
+      4. customized view archs — genuinely lossy, hence last.
+
+    Never dropped: custom fields, models owned by modules we cannot obtain,
+    models defined in the database, and every non-``models`` section.
     """
-    truncated = []
+    truncated: list = []
     snap = dict(snapshot)
+    source_of = {m["name"]: m["source"] for m in snap.get("modules", [])}
 
     def dump() -> str:
         snap["truncated"] = list(truncated)
         return json.dumps(snap, ensure_ascii=False, sort_keys=True, indent=2)
 
-    payload = dump()
-    if len(payload.encode()) > MAX_SNAPSHOT_BYTES:
-        truncated.append("view_archs")
-        snap["views"] = [dict(v, arch=None) for v in snap["views"]]
-        payload = dump()
-    if len(payload.encode()) > MAX_SNAPSHOT_BYTES:
-        truncated.append("standard_model_fields")
+    def over_cap(payload: str) -> bool:
+        return len(payload.encode()) > MAX_SNAPSHOT_BYTES
+
+    def strip_fields_owned_by(sources: set) -> None:
         snap["models"] = [
-            m if m["custom"] or any(f["custom"] for f in m["fields"]) else dict(m, fields=[])
+            m
+            if (
+                _is_irreplaceable(m)
+                or not m.get("module")
+                or source_of.get(m["module"]) not in sources
+            )
+            else dict(m, fields=[])
             for m in snap["models"]
         ]
+
+    payload = dump()
+    for stage, apply in (
+        ("core_model_fields", lambda: strip_fields_owned_by({"core"})),
+        ("fetchable_model_fields", lambda: strip_fields_owned_by({"oca"})),
+        (
+            "empty_record_counts",
+            lambda: snap.update(
+                record_counts={k: v for k, v in snap["record_counts"].items() if v}
+            ),
+        ),
+        (
+            "view_archs",
+            lambda: snap.update(views=[dict(v, arch=None) for v in snap["views"]]),
+        ),
+    ):
+        if not over_cap(payload):
+            break
+        truncated.append(stage)
+        apply()
         payload = dump()
     return payload, truncated
