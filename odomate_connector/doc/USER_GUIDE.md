@@ -54,6 +54,21 @@ Note that field *names* such as `password` or `totp_secret` do appear under `mod
 are part of Odoo's public schema, and only the names are present. No values of any kind are
 exported.
 
+## What OdoMate can do with it
+
+The snapshot describes your database accurately whatever is installed on it.
+What OdoMate can currently *do* with each part of it differs:
+
+- **Odoo Community** is what OdoMate generates for today. An Enterprise installation is
+  still described accurately in the snapshot, but generation is not aimed at it.
+- **Commercial third-party modules** are recorded by name, version and public schema —
+  never their code. Whether that is enough for OdoMate to reliably account for such a
+  module's behaviour while generating is **not yet verified**; treat it as unconfirmed
+  rather than supported.
+- The **test replica cannot install commercial modules**, so a generated module is never
+  automatically tested against them. Anything depending on a paid module needs your own
+  testing before you rely on it.
+
 ## How often to re-export
 
 Whenever your environment changes in a way that matters — you install or remove apps, add

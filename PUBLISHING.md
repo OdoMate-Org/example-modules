@@ -50,7 +50,9 @@ doc. Minimum bar, per module:
     "license": "LGPL-3",          # generator default; AGPL-3 also store-accepted
     "depends": […],
     "installable": True,
-    "images": ["static/description/banner.png"],
+    "images": ["static/description/banner.jpg"],   # the BANNER, never icon.png — the
+                                                   # store stretches whatever is here
+                                                   # into the big listing slot
 }
 ```
 

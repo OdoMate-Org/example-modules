@@ -62,6 +62,24 @@ list, and install **OdoMate Connector**.
 
 Targets Odoo 19, Community and Enterprise.
 
+What OdoMate can do with the snapshot
+=====================================
+
+The snapshot describes your database accurately whatever is installed on it.
+What OdoMate can currently *do* with each part of it differs, and the
+distinction is worth stating plainly:
+
+* **Odoo Community** is what OdoMate generates for today. An Enterprise
+  installation is still described accurately in the snapshot, but generation is
+  not aimed at it.
+* **Commercial third-party modules** are recorded by name, version and public
+  schema — never their code. Whether that is enough for OdoMate to reliably
+  account for such a module's behaviour while generating is **not yet
+  verified**; treat it as unconfirmed rather than supported.
+* The **test replica cannot install commercial modules**, so a generated module
+  is never automatically tested against them. Anything depending on a paid
+  module needs your own testing before you rely on it.
+
 Size limits
 ===========
 

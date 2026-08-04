@@ -1,9 +1,11 @@
 {
     'name': "OdoMate Connector",
-    'summary': "Export a redacted structural snapshot of your database for OdoMate — "
-               "structural context, never your business records. "
-               "environment context | schema export | metadata snapshot | "
-               "installed modules | customizations | privacy preserving",
+    'summary': "Odoo OdoMate Connector module exports a redacted structural snapshot of your "
+               "database so OdoMate can generate modules that fit your real environment and "
+               "test them on a replica of it, instead of in isolation. "
+               "odoo module generator | ai module generation | database context export | "
+               "environment snapshot | installed modules report | odoo customizations export | "
+               "module dependency check | privacy preserving export | replica test environment",
     'description': """
 OdoMate Connector
 =================
@@ -39,7 +41,7 @@ exactly what leaves your system before you share it.
         'security/ir.model.access.csv',
         'views/export_wizard_views.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': False,
 }
