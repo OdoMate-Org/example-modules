@@ -7,21 +7,21 @@
     </linearGradient>
   </defs>
 
-  <!-- SUBJECT: the discount. Heavier strokes and larger counters than the first
-       attempt — a percent drawn thin reads as three unrelated strokes rather
-       than one symbol. -->
-  <g fill="none" stroke="url(#g)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="130" cy="130" r="58"/>
-    <circle cx="272" cy="272" r="58"/>
-    <line x1="302" y1="100" x2="100" y2="302"/>
+  <!-- The badge carries the mark's weight. A percent on its own is an open form
+       and reads lighter in the grid than the other modules' marks, which are
+       all built on an enclosed shape. -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="64" y="64" width="384" height="384" rx="64"/>
   </g>
 
-  <!-- ACTION: the approval it has to clear. Deliberately NOT enclosed in a
-       badge — the percent's counters are already two circles, and a third made
-       the mark read as three circles on a diagonal rather than "discount,
-       approved". A bare tick has directional form a circle does not, so it
-       stays legible as a separate idea at 128px. -->
-  <g fill="none" stroke="url(#g)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M326 388 l44 44 l98 -118"/>
+  <!-- The discount itself. Earlier versions paired this with a tick for the
+       approval, and the tick had nowhere to sit that did not either collide
+       with the lower counter or dangle off the percent's diagonal. Boxing the
+       tick instead turned the mark into three circles in a row, because a
+       percent is already two. The badge does that work without competing. -->
+  <g fill="none" stroke="url(#g)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="196" cy="196" r="48"/>
+    <circle cx="316" cy="316" r="48"/>
+    <line x1="342" y1="170" x2="170" y2="342"/>
   </g>
 </svg>
