@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- OdoMate brand ramp (banner-template.html .grad): mint -> blue -> violet.
+         userSpaceOnUse so one continuous ramp runs across the whole mark, and so
+         the horizontal arrow (zero-height bounding box) still renders. -->
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- technical orbit, deliberately open on the right so the export can leave it -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
+    <path d="M330 105 A182 182 0 1 0 330 407" stroke-dasharray="44 30"/>
+  </g>
+
+  <!-- cardinal nodes on the closed side -->
+  <g fill="none" stroke="url(#g)" stroke-width="9">
+    <rect x="220" y="60" width="26" height="26"/>
+    <rect x="220" y="426" width="26" height="26"/>
+    <rect x="52" y="243" width="26" height="26"/>
+  </g>
+
+  <!-- database -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="233" cy="186" rx="88" ry="31"/>
+    <path d="M145 186 v70 c0 17.1 39.4 31 88 31 s88-13.9 88-31 v-70"/>
+    <path d="M145 256 v70 c0 17.1 39.4 31 88 31 s88-13.9 88-31 v-70"/>
+  </g>
+
+  <!-- the snapshot leaving, through the gap in the ring -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M356 256 H452"/>
+    <path d="M410 214 L452 256 L410 298"/>
+  </g>
+</svg>

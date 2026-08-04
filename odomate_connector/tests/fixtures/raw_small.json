@@ -1,0 +1,157 @@
+{
+  "instance": {
+    "odoo_version": "19.0",
+    "db_uuid": "11111111-2222-3333-4444-555555555555",
+    "languages": [
+      "en_US",
+      "uk_UA"
+    ],
+    "multi_company": false
+  },
+  "modules": [
+    {
+      "name": "sale",
+      "installed_version": "19.0.1.2",
+      "author": "Odoo S.A.",
+      "website": "https://www.odoo.com",
+      "license": "LGPL-3",
+      "auto_install": false,
+      "url": "",
+      "published_version": "19.0.1.2",
+      "addons_root": "addons",
+      "location": "core"
+    },
+    {
+      "name": "base",
+      "installed_version": "19.0.1.3",
+      "author": "Odoo S.A.",
+      "website": "https://www.odoo.com",
+      "license": "LGPL-3",
+      "auto_install": true,
+      "url": "",
+      "published_version": "",
+      "addons_root": "addons",
+      "location": "core"
+    },
+    {
+      "name": "queue_job",
+      "installed_version": "19.0.2.0.1",
+      "author": "Camptocamp, ACSONE SA/NV, Odoo Community Association (OCA)",
+      "website": "https://github.com/OCA/queue",
+      "license": "LGPL-3",
+      "auto_install": false,
+      "url": "",
+      "published_version": "",
+      "addons_root": "oca-addons",
+      "location": "external"
+    },
+    {
+      "name": "x_custom_margin",
+      "installed_version": "19.0.1.0",
+      "author": "",
+      "website": "",
+      "license": "LGPL-3",
+      "auto_install": false,
+      "url": "",
+      "published_version": "",
+      "addons_root": "client-addons",
+      "location": "external"
+    }
+  ],
+  "models": [
+    {
+      "model": "sale.order",
+      "custom": false,
+      "transient": false,
+      "fields": [
+        {
+          "name": "x_priority_score",
+          "ttype": "selection",
+          "selection": [
+            [
+              "low",
+              "Low"
+            ],
+            [
+              "high",
+              "High"
+            ]
+          ],
+          "relation": null,
+          "required": false,
+          "custom": true,
+          "readonly": false,
+          "store": true,
+          "computed": false,
+          "related": null
+        },
+        {
+          "name": "name",
+          "ttype": "char",
+          "selection": null,
+          "relation": null,
+          "required": true,
+          "custom": false,
+          "readonly": false,
+          "store": true,
+          "computed": false,
+          "related": null
+        }
+      ],
+      "module": "sale",
+      "xmlid": "sale.model_sale_order"
+    },
+    {
+      "model": "sale.advance.payment.inv",
+      "custom": false,
+      "transient": true,
+      "fields": [],
+      "module": "sale",
+      "xmlid": "sale.model_sale_advance_payment_inv"
+    }
+  ],
+  "views": [
+    {
+      "model": "sale.order",
+      "type": "form",
+      "inherit_id_xmlid": "sale.view_order_form",
+      "arch": "<xpath expr=\"//field[@name='partner_id']\" position=\"after\"><field name=\"x_priority_score\"/></xpath>"
+    }
+  ],
+  "settings": {
+    "portal_confirmation_sign": false,
+    "group_discount_per_so_line": true,
+    "auth_signup_uninvited": "b2b",
+    "unsplash_access_key_set": true
+  },
+  "config_params": {
+    "auth_signup.invitation_scope": "b2b",
+    "mail.sneaky.api_key": "SHOULD_NEVER_APPEAR"
+  },
+  "groups": [
+    {
+      "xmlid": null,
+      "name": "Custom Approvers",
+      "users_count": 2
+    },
+    {
+      "xmlid": "sales_team.group_sale_manager",
+      "name": "Sales / Administrator",
+      "users_count": 4
+    }
+  ],
+  "automations": [
+    {
+      "name": "Notify on big order",
+      "model": "sale.order",
+      "trigger": "on_create_or_write",
+      "filter_domain": "['&', ('state', '=', 'done'), ('name', '=', 'Wellness Ltd')]",
+      "filter_pre_domain": null,
+      "active": true
+    }
+  ],
+  "record_counts": {
+    "sale.order": 12840,
+    "res.partner": 3211
+  }
+}

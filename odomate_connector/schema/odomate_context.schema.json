@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odomate.pro/schemas/odomate_context.v1.json",
+  "title": "OdoMate environment context snapshot v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "connector_version",
+    "generated_at",
+    "truncated",
+    "instance",
+    "modules",
+    "models",
+    "views",
+    "settings",
+    "config_params",
+    "groups",
+    "automations",
+    "record_counts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "connector_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "truncated": {
+      "type": "array",
+      "description": "Degradation stages applied, in order. Ordered by re-derivability: core fields first, view archs last.",
+      "items": {
+        "enum": [
+          "core_model_fields",
+          "fetchable_model_fields",
+          "empty_record_counts",
+          "view_archs"
+        ]
+      }
+    },
+    "instance": {
+      "type": "object",
+      "required": [
+        "odoo_version",
+        "edition",
+        "db_uuid_hash",
+        "languages",
+        "multi_company"
+      ],
+      "properties": {
+        "odoo_version": {
+          "type": "string"
+        },
+        "edition": {
+          "enum": [
+            "community",
+            "enterprise"
+          ]
+        },
+        "db_uuid_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "multi_company": {
+          "type": "boolean"
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "installed_version",
+          "published_version",
+          "source",
+          "author",
+          "website",
+          "url",
+          "license",
+          "auto_install",
+          "addons_root"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "installed_version": {
+            "type": "string"
+          },
+          "published_version": {
+            "type": "string",
+            "description": "Set only for Apps Store modules; empty otherwise."
+          },
+          "source": {
+            "enum": [
+              "core",
+              "enterprise",
+              "oca",
+              "thirdparty",
+              "custom"
+            ]
+          },
+          "author": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string",
+            "description": "For OCA this is the exact source repository."
+          },
+          "url": {
+            "type": "string",
+            "description": "Apps Store download URL when Odoo recorded one."
+          },
+          "license": {
+            "type": "string"
+          },
+          "auto_install": {
+            "type": "boolean"
+          },
+          "addons_root": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name (not path) of the addons directory holding this module. Group on it to separate a site's own code from a vendor's; null when the module has no filesystem presence."
+          }
+        }
+      }
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "model",
+          "custom",
+          "transient",
+          "module",
+          "xmlid",
+          "fields"
+        ],
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "custom": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "ttype",
+                "selection",
+                "relation",
+                "required",
+                "readonly",
+                "store",
+                "computed",
+                "related",
+                "custom"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "ttype": {
+                  "type": "string"
+                },
+                "selection": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "relation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "custom": {
+                  "type": "boolean"
+                },
+                "readonly": {
+                  "type": "boolean"
+                },
+                "store": {
+                  "type": "boolean",
+                  "description": "False for non-stored computed fields."
+                },
+                "computed": {
+                  "type": "boolean",
+                  "description": "Stored+computed cannot be written and will not fire write triggers."
+                },
+                "related": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "transient": {
+            "type": "boolean"
+          },
+          "module": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Module that owns this model; null when defined in the database."
+          },
+          "xmlid": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "model",
+          "type",
+          "inherit_id_xmlid",
+          "custom",
+          "arch"
+        ],
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "inherit_id_xmlid": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "custom": {
+            "const": true
+          },
+          "arch": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "settings": {
+      "type": "object"
+    },
+    "config_params": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "xmlid",
+          "name",
+          "custom",
+          "users_count"
+        ],
+        "properties": {
+          "xmlid": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "custom": {
+            "type": "boolean"
+          },
+          "users_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "automations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "model",
+          "trigger",
+          "filter_domain",
+          "filter_pre_domain",
+          "active"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "filter_domain": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The condition, not the code."
+          },
+          "filter_pre_domain": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "record_counts": {
+      "type": "object",
+      "description": "Row-count estimates. null means the table has never been analyzed, i.e. unknown \u2014 NOT zero.",
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0
+      }
+    }
+  }
+}
