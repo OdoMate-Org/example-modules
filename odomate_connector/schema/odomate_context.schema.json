@@ -88,7 +88,8 @@
           "website",
           "url",
           "license",
-          "auto_install"
+          "auto_install",
+          "addons_root"
         ],
         "properties": {
           "name": {
@@ -126,6 +127,13 @@
           },
           "auto_install": {
             "type": "boolean"
+          },
+          "addons_root": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name (not path) of the addons directory holding this module. Group on it to separate a site's own code from a vendor's; null when the module has no filesystem presence."
           }
         }
       }

@@ -92,6 +92,7 @@
   ],
   "modules": [
     {
+      "addons_root": "addons",
       "author": "Odoo S.A.",
       "auto_install": true,
       "installed_version": "19.0.1.3",
@@ -103,6 +104,7 @@
       "website": "https://www.odoo.com"
     },
     {
+      "addons_root": "oca-addons",
       "author": "Camptocamp, ACSONE SA/NV, Odoo Community Association (OCA)",
       "auto_install": false,
       "installed_version": "19.0.2.0.1",
@@ -114,6 +116,7 @@
       "website": "https://github.com/OCA/queue"
     },
     {
+      "addons_root": "addons",
       "author": "Odoo S.A.",
       "auto_install": false,
       "installed_version": "19.0.1.2",
@@ -125,6 +128,7 @@
       "website": "https://www.odoo.com"
     },
     {
+      "addons_root": "client-addons",
       "author": "",
       "auto_install": false,
       "installed_version": "19.0.1.0",

@@ -281,10 +281,24 @@ class TestBuildSnapshot(BaseCase):
             "website",
             "url",
             "license",
+            "addons_root",
             "auto_install",
         }
         for m in mods:
             self.assertEqual(set(m), expected_keys)
+
+    def test_addons_root_separates_a_sites_own_code_from_a_vendors(self):
+        """`source` calls both 'external'; only the addons directory tells them
+        apart, and only when the deployment keeps them in separate paths."""
+        mods = {m["name"]: m for m in _build(_raw())["modules"]}
+        self.assertEqual(mods["queue_job"]["addons_root"], "oca-addons")
+        self.assertEqual(mods["x_custom_margin"]["addons_root"], "client-addons")
+        self.assertEqual(mods["base"]["addons_root"], "addons")
+        # Grouping is the point: two roots here, so the two are distinguishable.
+        external = {
+            m["addons_root"] for m in mods.values() if m["addons_root"] != "addons"
+        }
+        self.assertEqual(external, {"oca-addons", "client-addons"})
 
     def test_module_source_location_survives(self):
         """OCA puts the repository in `website` — without it a replica cannot

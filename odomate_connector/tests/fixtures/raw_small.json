@@ -17,7 +17,9 @@
       "license": "LGPL-3",
       "auto_install": false,
       "url": "",
-      "published_version": "19.0.1.2"
+      "published_version": "19.0.1.2",
+      "addons_root": "addons",
+      "location": "core"
     },
     {
       "name": "base",
@@ -27,7 +29,9 @@
       "license": "LGPL-3",
       "auto_install": true,
       "url": "",
-      "published_version": ""
+      "published_version": "",
+      "addons_root": "addons",
+      "location": "core"
     },
     {
       "name": "queue_job",
@@ -37,7 +41,9 @@
       "license": "LGPL-3",
       "auto_install": false,
       "url": "",
-      "published_version": ""
+      "published_version": "",
+      "addons_root": "oca-addons",
+      "location": "external"
     },
     {
       "name": "x_custom_margin",
@@ -47,7 +53,9 @@
       "license": "LGPL-3",
       "auto_install": false,
       "url": "",
-      "published_version": ""
+      "published_version": "",
+      "addons_root": "client-addons",
+      "location": "external"
     }
   ],
   "models": [

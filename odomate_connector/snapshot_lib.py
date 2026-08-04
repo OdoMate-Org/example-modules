@@ -20,8 +20,10 @@ SCHEMA_VERSION = 1
 #       model->owning-module, and includes transient models (flagged).
 # 1.5.0 raises the size cap to 25 MB and degrades by re-derivability.
 # 1.6.0 masks automation condition values that could name a record.
+# 1.7.0 exports the addons directory each module lives in, so a site's own
+#       code can be told apart from a vendor's.
 # Consumers read this to tell whether a snapshot carries those fields.
-CONNECTOR_VERSION = "1.6.0"
+CONNECTOR_VERSION = "1.7.0"
 # The original 5 MB was a guess made before any real export existed. A live
 # 108-module database produces 2.4 MB, so a heavily customized enterprise system
 # — more models, multi-language, a decade of inherited views — would trip a 5 MB
@@ -215,6 +217,11 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
                 "website": m.get("website") or "",
                 "url": m.get("url") or "",
                 "license": m.get("license") or "",
+                # Name of the addons directory holding this module. Grouping on
+                # it separates a site's own code from a vendor's when they live
+                # in different addons paths — which `source` alone cannot do,
+                # since both are merely "external".
+                "addons_root": m.get("addons_root") or None,
                 "auto_install": bool(m.get("auto_install")),
             }
             for m in raw["modules"]

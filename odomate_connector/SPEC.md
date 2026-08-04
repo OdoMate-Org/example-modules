@@ -54,6 +54,14 @@ Consequences, all of which are requirements rather than preferences:
   modules can be reinstalled in a sandbox, Enterprise ones cannot, and `custom`
   marks code OdoMate does not have.
 
+  Each module also reports the **name** of the addons directory it lives in
+  (never the full path — that can carry a company or user name). `source`
+  cannot separate a site's own code from a vendor's, since both are merely
+  "external"; grouping on the addons root can, when the deployment keeps them
+  in different addons paths. A deployment that flattens everything into one
+  directory honestly reports one group rather than implying a distinction it
+  cannot make.
+
   Manifest provenance travels with each module so a replica can fetch the
   source again rather than guess at it. `website` is decisive for OCA, whose
   convention is that it holds the exact repository — `purchase_request` carries
@@ -119,7 +127,7 @@ cover it without a database.
 
 ### Tests
 
-67 tests, run with `--test-tags /odomate_connector`:
+68 tests, run with `--test-tags /odomate_connector`:
 
 - Pure-logic tests over the redaction, classification, assembly, size-cap and
   schema-contract behaviour, including a blessed golden-file comparison that

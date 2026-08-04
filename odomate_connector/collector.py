@@ -51,19 +51,31 @@ def _core_addons_dir():
 
 
 def _module_location(name, core_dir):
-    """"core" if the module ships with Odoo, "external" if it does not.
+    """Where a module lives: ``("core"|"external", addons_root_name)``.
 
-    Returns None when the path cannot be resolved — an imported module has no
-    filesystem presence at all — so the caller can fall back rather than guess.
+    ``core``/``external`` alone cannot tell an in-house module from a vendor's —
+    both sit outside the distribution. The *addons root* can: a site that keeps
+    its own code in ``/opt/client/addons`` beside ``/opt/oca/addons`` becomes
+    separable by grouping on this value, and a deployment that flattens
+    everything into one directory honestly reports one group rather than
+    implying a distinction it cannot make.
+
+    Only the directory's **name** is exported, never the full path — the path
+    can carry a company or user name, and this is meant to group modules, not
+    to describe someone's filesystem.
+
+    Both values are None when the path cannot be resolved, which is the case for
+    a module imported straight into the database.
     """
     try:
         path = get_module_path(name, display_warning=False)
     except Exception:  # noqa: BLE001 - provenance must never break the export
-        return None
+        return None, None
     if not path:
-        return None
+        return None, None
     path = os.path.realpath(path)
-    return "core" if path.startswith(core_dir + os.sep) else "external"
+    location = "core" if path.startswith(core_dir + os.sep) else "external"
+    return location, os.path.basename(os.path.dirname(path)) or None
 
 
 def collect(env):
@@ -125,22 +137,26 @@ def _modules(env):
 
     rows = Module.search_read([("state", "=", "installed")], fields)
     core_dir = _core_addons_dir()
-    return [
-        {
-            "name": r["name"],
-            "installed_version": r["latest_version"] or "",
-            "published_version": r["published_version"] or "",
-            "author": r["author"] or "",
-            "website": r["website"] or "",
-            "url": r["url"] or "",
-            "license": r["license"] or "",
-            "auto_install": bool(r["auto_install"]),
-            # Filesystem truth, which outranks whatever the manifest claims.
-            "location": _module_location(r["name"], core_dir),
-            "imported": bool(r.get("imported")) if has_imported else False,
-        }
-        for r in rows
-    ]
+    out = []
+    for r in rows:
+        location, addons_root = _module_location(r["name"], core_dir)
+        out.append(
+            {
+                "name": r["name"],
+                "installed_version": r["latest_version"] or "",
+                "published_version": r["published_version"] or "",
+                "author": r["author"] or "",
+                "website": r["website"] or "",
+                "url": r["url"] or "",
+                "license": r["license"] or "",
+                "auto_install": bool(r["auto_install"]),
+                # Filesystem truth, which outranks whatever the manifest claims.
+                "location": location,
+                "addons_root": addons_root,
+                "imported": bool(r.get("imported")) if has_imported else False,
+            }
+        )
+    return out
 
 
 def _models(env):
