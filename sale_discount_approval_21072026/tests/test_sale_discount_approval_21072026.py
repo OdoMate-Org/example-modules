@@ -17,6 +17,16 @@ class TestSaleDiscountApproval(TransactionCase):
             'invoice_policy': 'order',
             'list_price': 100.0,
         })
+        cls.salesperson = cls.env['res.users'].create({
+            'name': "Non-Manager Salesperson",
+            'login': 'discount_test_salesperson',
+            'group_ids': [(6, 0, [cls.env.ref('sales_team.group_sale_salesman').id])],
+        })
+        cls.manager = cls.env['res.users'].create({
+            'name': "Discount Approval Manager",
+            'login': 'discount_test_manager',
+            'group_ids': [(6, 0, [cls.env.ref('sales_team.group_sale_manager').id])],
+        })
 
     def _make_order(self, discount_type, rate, lines):
         order = self.env['sale.order'].create({
@@ -127,12 +137,7 @@ class TestSaleDiscountApproval(TransactionCase):
         order.action_confirm()
         self.assertEqual(order.state, 'waiting')
 
-        salesperson = self.env['res.users'].create({
-            'name': "Non-Manager Salesperson",
-            'login': 'discount_test_salesperson',
-            'group_ids': [(6, 0, [self.env.ref('sales_team.group_sale_salesman').id])],
-        })
-        order_as_salesperson = order.with_user(salesperson)
+        order_as_salesperson = order.with_user(self.salesperson)
         with self.assertRaises(AccessError):
             order_as_salesperson.action_approve()
         self.assertEqual(order.state, 'waiting')
@@ -155,6 +160,97 @@ class TestSaleDiscountApproval(TransactionCase):
         self.assertEqual(order.state, 'sale')
         order.action_reject()
         self.assertEqual(order.state, 'sale')
+
+    # --- skip_discount_approval bypass hardening -----------------------------
+
+    def test_action_confirm_flag_ignored_for_non_manager(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.user_id = self.salesperson
+        order.with_user(self.salesperson).with_context(skip_discount_approval=True).action_confirm()
+        self.assertEqual(order.state, 'waiting')
+
+    def test_action_approve_with_explicit_manager(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.assertEqual(order.state, 'waiting')
+        order.with_user(self.manager).action_approve()
+        self.assertEqual(order.state, 'sale')
+
+    def test_action_confirm_mixed_batch_splits(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        over_limit = self._make_order('percent', 20.0, [(5, 100.0)])
+        over_limit._apply_order_discount()
+        under_limit = self._make_order('percent', 5.0, [(5, 100.0)])
+        under_limit._apply_order_discount()
+        (over_limit | under_limit).action_confirm()
+        self.assertEqual(over_limit.state, 'waiting')
+        self.assertEqual(under_limit.state, 'sale')
+
+    def test_action_confirm_flag_ignored_when_not_waiting_even_for_manager(self):
+        # Even a manager can't collapse confirm+approve into one step on an
+        # order that never actually visited 'waiting' - that would skip the
+        # audit trail two-step validation exists to produce.
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        self.assertEqual(order.state, 'draft')
+        order.with_user(self.manager).with_context(skip_discount_approval=True).action_confirm()
+        self.assertEqual(order.state, 'waiting')
+
+    def test_action_confirm_flag_honoured_for_manager_on_waiting_order(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.assertEqual(order.state, 'waiting')
+        order.with_user(self.manager).with_context(skip_discount_approval=True).action_confirm()
+        self.assertEqual(order.state, 'sale')
+
+    def test_action_confirm_sudo_without_flag_still_gated(self):
+        # Mirrors the customer-portal acceptance path: sudo() alone, with no
+        # flag, must not bypass the gate.
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order = self._make_order('percent', 20.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.with_user(self.salesperson).sudo().action_confirm()
+        self.assertEqual(order.state, 'waiting')
+
+    def test_action_confirm_on_confirmed_order_is_noop(self):
+        self.company.so_double_validation = 'one_step'
+        order = self._make_order('percent', 5.0, [(5, 100.0)])
+        order._apply_order_discount()
+        order.action_confirm()
+        self.assertEqual(order.state, 'sale')
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        order.order_line.write({'discount': 50.0})
+        order.action_confirm()
+        self.assertEqual(order.state, 'sale')
+
+    def test_action_confirm_mixed_batch_with_existing_waiting_order(self):
+        self.company.so_double_validation = 'two_step'
+        self.company.so_double_validation_limit = 15.0
+        over_limit = self._make_order('percent', 20.0, [(5, 100.0)])
+        over_limit._apply_order_discount()
+        over_limit.action_confirm()
+        self.assertEqual(over_limit.state, 'waiting')
+
+        under_limit = self._make_order('percent', 5.0, [(5, 100.0)])
+        under_limit._apply_order_discount()
+
+        (over_limit | under_limit).action_confirm()
+        self.assertEqual(over_limit.state, 'waiting')
+        self.assertEqual(under_limit.state, 'sale')
 
     def test_section_and_note_lines_excluded_from_fan_out_and_average(self):
         order = self.env['sale.order'].create({
