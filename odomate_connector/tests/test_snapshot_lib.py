@@ -139,6 +139,52 @@ class TestClassifyModuleSource(BaseCase):
                     snapshot_lib.classify_module_source(author, website, license_), expected
                 )
 
+    def test_filesystem_location_outranks_the_manifest(self):
+        """l10n_ua ships inside core Odoo but declares a third-party author.
+
+        Trusting the manifest sent a replica builder hunting for a module that
+        was already in the distribution.
+        """
+        self.assertEqual(
+            snapshot_lib.classify_module_source(
+                "ERP Ukraine (https://erp.co.ua)", "https://erp.co.ua", "LGPL-3", location="core"
+            ),
+            "core",
+        )
+
+    def test_imported_modules_are_unobtainable(self):
+        """base_import_module uploads live only in that database."""
+        self.assertEqual(
+            snapshot_lib.classify_module_source(
+                "ACME", "https://acme.example", "LGPL-3", location=None, imported=True
+            ),
+            "custom",
+        )
+
+    def test_external_module_without_any_identity_is_custom(self):
+        self.assertEqual(
+            snapshot_lib.classify_module_source("", "", "LGPL-3", location="external"), "custom"
+        )
+
+    def test_oca_still_wins_over_plain_external(self):
+        self.assertEqual(
+            snapshot_lib.classify_module_source(
+                "ACSONE SA/NV, Odoo Community Association (OCA)",
+                "https://github.com/OCA/server-ux",
+                "AGPL-3",
+                location="external",
+            ),
+            "oca",
+        )
+
+    def test_enterprise_licence_outranks_location(self):
+        self.assertEqual(
+            snapshot_lib.classify_module_source(
+                "Odoo S.A.", "https://www.odoo.com", "OEEL-1", location="core"
+            ),
+            "enterprise",
+        )
+
 
 class TestBuildSnapshot(BaseCase):
     def test_meta_fields(self):

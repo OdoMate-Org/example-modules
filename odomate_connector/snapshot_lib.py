@@ -13,8 +13,10 @@ SCHEMA_VERSION = 1
 # 1.1.0 added module provenance (website/url/licence/published_version).
 # 1.2.0 reports unknown record counts as null (was 0) and reads settings from
 #       an instantiated record, recovering company-related policy fields.
+# 1.3.0 derives `source` from where a module actually lives on disk rather
+#       than from manifest strings.
 # Consumers read this to tell whether a snapshot carries those fields.
-CONNECTOR_VERSION = "1.2.0"
+CONNECTOR_VERSION = "1.3.0"
 MAX_SNAPSHOT_BYTES = 5 * 1024 * 1024
 
 # Spec: drop any config key/value matching these patterns (defense-in-depth on
@@ -47,18 +49,44 @@ def hash_db_uuid(db_uuid: str) -> str:
     return "sha256:" + hashlib.sha256((db_uuid or "").encode()).hexdigest()
 
 
-def classify_module_source(author, website, license_) -> str:
-    """core|enterprise|oca|thirdparty|custom, derived per spec from author/website/license.
+def classify_module_source(author, website, license_, location=None, imported=False) -> str:
+    """Where a module's code comes from — and so whether a replica can get it.
 
-    Order matters: enterprise modules are also authored by Odoo S.A., so the
-    license check must come first.
+    ``core|enterprise|oca|thirdparty|custom``, answering "can this be obtained?":
+    core ships with Odoo, oca is a public clone, enterprise is a licensing wall,
+    thirdparty needs a per-vendor lookup, and custom cannot be obtained at all.
+
+    ``location`` is filesystem truth supplied by the collector — ``"core"`` when
+    the module lives inside the Odoo distribution's own addons directory,
+    ``"external"`` for an extra addons path, ``None`` when unknown. It is
+    decisive because the manifest only *claims* provenance while the filesystem
+    knows it: ``l10n_ua`` ships inside core Odoo but declares
+    ``author: ERP Ukraine``, and classifying it as third-party would send a
+    replica builder hunting for something already in the distribution.
+
+    ``imported`` marks a module uploaded through ``base_import_module``: its code
+    exists only inside that database, so it is genuinely unobtainable.
+
+    Order matters — Enterprise modules are also authored by Odoo S.A., and an
+    imported module's manifest strings say nothing about where it came from.
     """
     author_l = (author or "").lower()
     website_l = (website or "").lower()
+
+    if imported:
+        return "custom"
     if (license_ or "").startswith(("OEEL", "OPL")):
         return "enterprise"
+    if location == "core":
+        return "core"
     if "odoo community association" in author_l or "github.com/oca" in website_l:
         return "oca"
+    if location == "external":
+        # A vendor we can at least identify, versus something bespoke.
+        return "thirdparty" if (author_l.strip() or website_l.strip()) else "custom"
+
+    # location unknown (snapshot from a build without filesystem access):
+    # fall back to the manifest heuristics.
     if author_l.strip() in ("odoo s.a.", "odoo sa", "odoo"):
         return "core"
     if not author_l.strip() and not website_l.strip():
@@ -101,7 +129,11 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
                 # a module can be fetched from again.
                 "published_version": m.get("published_version") or "",
                 "source": classify_module_source(
-                    m.get("author"), m.get("website"), m.get("license")
+                    m.get("author"),
+                    m.get("website"),
+                    m.get("license"),
+                    location=m.get("location"),
+                    imported=bool(m.get("imported")),
                 ),
                 "author": m.get("author") or "",
                 # OCA puts the exact repository here, which turns rebuilding a

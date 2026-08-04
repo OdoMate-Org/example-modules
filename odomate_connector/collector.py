@@ -27,14 +27,43 @@ This is safe because of what is read and who can trigger it:
   file to inspect.
 """
 
+import os
 from collections import defaultdict
 
 from odoo import release
+from odoo.modules.module import get_module_path
 
 from .snapshot_lib import CONFIG_PARAM_ALLOWLIST
 
 # xmlid "modules" that mean "created in the database", not "shipped by a module"
 NON_MODULE_XMLID_MODULES = ("__export__", "__cloc_exclude__", "studio_customization")
+
+
+def _core_addons_dir():
+    """Directory holding the Odoo distribution's own addons.
+
+    Located via ``base``, which is by definition part of the distribution, so
+    this stays correct however Odoo was installed (package, source, container).
+    """
+    import odoo.addons.base
+
+    return os.path.realpath(os.path.dirname(os.path.dirname(odoo.addons.base.__file__)))
+
+
+def _module_location(name, core_dir):
+    """"core" if the module ships with Odoo, "external" if it does not.
+
+    Returns None when the path cannot be resolved — an imported module has no
+    filesystem presence at all — so the caller can fall back rather than guess.
+    """
+    try:
+        path = get_module_path(name, display_warning=False)
+    except Exception:  # noqa: BLE001 - provenance must never break the export
+        return None
+    if not path:
+        return None
+    path = os.path.realpath(path)
+    return "core" if path.startswith(core_dir + os.sep) else "external"
 
 
 def collect(env):
@@ -77,23 +106,25 @@ def _modules(env):
       path, so they are the only hint that a module came from the store rather
       than from a repository.
     """
-    rows = (
-        env["ir.module.module"]
-        .sudo()
-        .search_read(
-            [("state", "=", "installed")],
-            [
-                "name",
-                "latest_version",
-                "published_version",
-                "author",
-                "website",
-                "url",
-                "license",
-                "auto_install",
-            ],
-        )
-    )
+    Module = env["ir.module.module"].sudo()
+    fields = [
+        "name",
+        "latest_version",
+        "published_version",
+        "author",
+        "website",
+        "url",
+        "license",
+        "auto_install",
+    ]
+    # `imported` is contributed by base_import_module, so it only exists when
+    # that module is installed. Its absence means nothing was DB-imported.
+    has_imported = "imported" in Module._fields
+    if has_imported:
+        fields.append("imported")
+
+    rows = Module.search_read([("state", "=", "installed")], fields)
+    core_dir = _core_addons_dir()
     return [
         {
             "name": r["name"],
@@ -104,6 +135,9 @@ def _modules(env):
             "url": r["url"] or "",
             "license": r["license"] or "",
             "auto_install": bool(r["auto_install"]),
+            # Filesystem truth, which outranks whatever the manifest claims.
+            "location": _module_location(r["name"], core_dir),
+            "imported": bool(r.get("imported")) if has_imported else False,
         }
         for r in rows
     ]
