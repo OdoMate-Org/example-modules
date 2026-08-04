@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odomate.pro/schemas/odomate_context.v1.json",
+  "title": "OdoMate environment context snapshot v1",
+  "type": "object",
+  "required": [
+    "schema_version", "connector_version", "generated_at", "truncated", "instance",
+    "modules", "models", "views", "settings", "config_params", "groups",
+    "automations", "record_counts"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "connector_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "generated_at": {"type": "string"},
+    "truncated": {"type": "array", "items": {"enum": ["view_archs", "standard_model_fields"]}},
+    "instance": {
+      "type": "object",
+      "required": ["odoo_version", "edition", "db_uuid_hash", "languages", "multi_company"],
+      "properties": {
+        "odoo_version": {"type": "string"},
+        "edition": {"enum": ["community", "enterprise"]},
+        "db_uuid_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "languages": {"type": "array", "items": {"type": "string"}},
+        "multi_company": {"type": "boolean"}
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name", "installed_version", "published_version", "source",
+          "author", "website", "url", "license", "auto_install"
+        ],
+        "properties": {
+          "name": {"type": "string"},
+          "installed_version": {"type": "string"},
+          "published_version": {"type": "string", "description": "Set only for Apps Store modules; empty otherwise."},
+          "source": {"enum": ["core", "enterprise", "oca", "thirdparty", "custom"]},
+          "author": {"type": "string"},
+          "website": {"type": "string", "description": "For OCA this is the exact source repository."},
+          "url": {"type": "string", "description": "Apps Store download URL when Odoo recorded one."},
+          "license": {"type": "string"},
+          "auto_install": {"type": "boolean"}
+        }
+      }
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["model", "custom", "fields"],
+        "properties": {
+          "model": {"type": "string"},
+          "custom": {"type": "boolean"},
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "ttype", "selection", "relation", "required", "custom"],
+              "properties": {
+                "name": {"type": "string"},
+                "ttype": {"type": "string"},
+                "selection": {
+                  "anyOf": [
+                    {"type": "null"},
+                    {"type": "array", "items": {"type": "array", "prefixItems": [{"type": "string"}, {"type": "string"}]}}
+                  ]
+                },
+                "relation": {"type": ["string", "null"]},
+                "required": {"type": "boolean"},
+                "custom": {"type": "boolean"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["model", "type", "inherit_id_xmlid", "custom", "arch"],
+        "properties": {
+          "model": {"type": "string"},
+          "type": {"type": "string"},
+          "inherit_id_xmlid": {"type": ["string", "null"]},
+          "custom": {"const": true},
+          "arch": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "settings": {"type": "object"},
+    "config_params": {"type": "object", "additionalProperties": {"type": ["string", "null"]}},
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["xmlid", "name", "custom", "users_count"],
+        "properties": {
+          "xmlid": {"type": ["string", "null"]},
+          "name": {"type": "string"},
+          "custom": {"type": "boolean"},
+          "users_count": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "automations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "model", "trigger"],
+        "properties": {
+          "name": {"type": "string"},
+          "model": {"type": "string"},
+          "trigger": {"type": "string"}
+        }
+      }
+    },
+    "record_counts": {
+      "type": "object",
+      "description": "Row-count estimates. null means the table has never been analyzed, i.e. unknown — NOT zero.",
+      "additionalProperties": {"type": ["integer", "null"], "minimum": 0}
+    }
+  }
+}

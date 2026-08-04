@@ -1,0 +1,136 @@
+{
+  "automations": [
+    {
+      "model": "sale.order",
+      "name": "Notify on big order",
+      "trigger": "on_create_or_write"
+    }
+  ],
+  "config_params": {
+    "auth_signup.invitation_scope": "b2b"
+  },
+  "connector_version": "1.0.0",
+  "generated_at": "2026-01-01T00:00:00+00:00",
+  "groups": [
+    {
+      "custom": false,
+      "name": "Sales / Administrator",
+      "users_count": 4,
+      "xmlid": "sales_team.group_sale_manager"
+    },
+    {
+      "custom": true,
+      "name": "Custom Approvers",
+      "users_count": 2,
+      "xmlid": null
+    }
+  ],
+  "instance": {
+    "db_uuid_hash": "sha256:666ff6ccaa5b3c07feaa3a95d3a4bd2c46ac9e9abdb09ca9133528d3dc1e8952",
+    "edition": "community",
+    "languages": [
+      "en_US",
+      "uk_UA"
+    ],
+    "multi_company": false,
+    "odoo_version": "19.0"
+  },
+  "models": [
+    {
+      "custom": false,
+      "fields": [
+        {
+          "custom": false,
+          "name": "name",
+          "relation": null,
+          "required": true,
+          "selection": null,
+          "ttype": "char"
+        },
+        {
+          "custom": true,
+          "name": "x_priority_score",
+          "relation": null,
+          "required": false,
+          "selection": [
+            [
+              "low",
+              "Low"
+            ],
+            [
+              "high",
+              "High"
+            ]
+          ],
+          "ttype": "selection"
+        }
+      ],
+      "model": "sale.order"
+    }
+  ],
+  "modules": [
+    {
+      "author": "Odoo S.A.",
+      "auto_install": true,
+      "installed_version": "19.0.1.3",
+      "license": "LGPL-3",
+      "name": "base",
+      "published_version": "",
+      "source": "core",
+      "url": "",
+      "website": "https://www.odoo.com"
+    },
+    {
+      "author": "Camptocamp, ACSONE SA/NV, Odoo Community Association (OCA)",
+      "auto_install": false,
+      "installed_version": "19.0.2.0.1",
+      "license": "LGPL-3",
+      "name": "queue_job",
+      "published_version": "",
+      "source": "oca",
+      "url": "",
+      "website": "https://github.com/OCA/queue"
+    },
+    {
+      "author": "Odoo S.A.",
+      "auto_install": false,
+      "installed_version": "19.0.1.2",
+      "license": "LGPL-3",
+      "name": "sale",
+      "published_version": "19.0.1.2",
+      "source": "core",
+      "url": "",
+      "website": "https://www.odoo.com"
+    },
+    {
+      "author": "",
+      "auto_install": false,
+      "installed_version": "19.0.1.0",
+      "license": "LGPL-3",
+      "name": "x_custom_margin",
+      "published_version": "",
+      "source": "custom",
+      "url": "",
+      "website": ""
+    }
+  ],
+  "record_counts": {
+    "res.partner": 3211,
+    "sale.order": 12840
+  },
+  "schema_version": 1,
+  "settings": {
+    "auth_signup_uninvited": "b2b",
+    "group_discount_per_so_line": true,
+    "portal_confirmation_sign": false
+  },
+  "views": [
+    {
+      "arch": "<xpath expr=\"//field[@name='partner_id']\" position=\"after\"><field name=\"x_priority_score\"/></xpath>",
+      "custom": true,
+      "inherit_id_xmlid": "sale.view_order_form",
+      "model": "sale.order",
+      "type": "form"
+    }
+  ]
+}

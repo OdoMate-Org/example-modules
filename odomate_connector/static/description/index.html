@@ -1,0 +1,100 @@
+<!--
+  Odoo Apps Store listing page.
+  The store strips <style> blocks &mdash; every rule here MUST be an inline style
+  attribute or it will not survive publication.
+-->
+<section style="padding:0;margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1f2937;">
+
+  <div style="text-align:center;margin-bottom:32px;">
+    <img src="banner.png" alt="OdoMate Connector &mdash; structural context, never your business records" style="max-width:100%;height:auto;border-radius:8px;"/>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:0 16px;">
+
+    <h2 style="font-size:28px;line-height:1.25;margin:0 0 16px;color:#111827;">Let OdoMate build modules that fit your actual Odoo</h2>
+
+    <p style="font-size:16px;line-height:1.65;margin:0 0 16px;color:#374151;">
+      This module exports a <strong>redacted structural snapshot</strong> of your database as a
+      human-readable <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">odomate_context.json</code>
+      file. <a href="https://www.odomate.pro" style="color:#0f766e;">OdoMate</a> uses it to generate
+      modules that match your real environment &mdash; your installed apps, your customizations, your
+      settings &mdash; and to test them against a replica of it.
+    </p>
+
+    <p style="font-size:16px;line-height:1.65;margin:0 0 32px;color:#374151;">
+      The export runs entirely inside your own Odoo. This module makes <strong>no network calls</strong>,
+      stores nothing, and adds no third-party Python dependencies. You download a file and decide
+      what to do with it.
+    </p>
+
+    <h3 style="font-size:21px;margin:0 0 14px;color:#111827;">Structural context, never your business records</h3>
+
+    <table style="width:100%;border-collapse:collapse;margin:0 0 32px;font-size:15px;">
+      <tr>
+        <td style="width:50%;vertical-align:top;padding:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px 0 0 8px;">
+          <p style="margin:0 0 10px;font-weight:600;color:#166534;">Included</p>
+          <ul style="margin:0;padding-left:18px;line-height:1.7;color:#374151;">
+            <li>Installed modules, classified core / Enterprise / OCA / third-party / custom, with the manifest website and licence</li>
+            <li>Models and fields, including Studio and <code>x_</code> customizations</li>
+            <li>Views you have customized or inherited</li>
+            <li>Configuration toggles and allowlisted system parameters</li>
+            <li>Security groups, with a user <em>count</em> each</li>
+            <li>Automated-action names and their models</li>
+            <li>Per-model record <em>counts</em></li>
+          </ul>
+        </td>
+        <td style="width:50%;vertical-align:top;padding:16px;background:#fef2f2;border:1px solid #fecaca;border-left:0;border-radius:0 8px 8px 0;">
+          <p style="margin:0 0 10px;font-weight:600;color:#991b1b;">Never included</p>
+          <ul style="margin:0;padding-left:18px;line-height:1.7;color:#374151;">
+            <li>Business records of any kind</li>
+            <li>Partner, employee or user data &mdash; no names, no emails</li>
+            <li>Credentials, API keys or tokens</li>
+            <li>Secret system parameters</li>
+            <li>The raw database UUID (a SHA-256 hash only)</li>
+            <li>Automated-action code bodies</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+    <h3 style="font-size:21px;margin:0 0 14px;color:#111827;">How the redaction works</h3>
+
+    <ol style="font-size:15px;line-height:1.75;margin:0 0 32px;padding-left:22px;color:#374151;">
+      <li><strong>Allowlist first.</strong> System parameters are only considered if explicitly listed &mdash; everything else never leaves.</li>
+      <li><strong>Pattern second.</strong> Any key or value matching <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">key | secret | token | password | api | dkim | private</code> is dropped, including allowlisted ones.</li>
+      <li><strong>Only boolean and selection settings are read.</strong> Odoo core stores real secrets in <em>text</em> settings fields, so reading only booleans and selections excludes that entire class by design.</li>
+      <li><strong>Groups carry a count, never a membership list.</strong></li>
+    </ol>
+
+    <h3 style="font-size:21px;margin:0 0 14px;color:#111827;">How to use it</h3>
+
+    <ol style="font-size:15px;line-height:1.75;margin:0 0 32px;padding-left:22px;color:#374151;">
+      <li>Install the module.</li>
+      <li>Open <strong>Settings &rsaquo; Technical &rsaquo; Export OdoMate Context</strong> (requires the Settings administration group).</li>
+      <li>Press <strong>Generate snapshot</strong>. You get a summary of what was collected and a download link.</li>
+      <li>Review the JSON &mdash; it is pretty-printed and meant to be read &mdash; then upload it in your OdoMate workspace.</li>
+    </ol>
+
+    <div style="padding:16px 18px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;margin:0 0 32px;">
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#374151;">
+        <strong>Auditable by design.</strong> The source is public, the output is plain JSON, and all
+        decisions about what leaves your database live in a single dependency-free file
+        (<code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">snapshot_lib.py</code>)
+        so it can be reviewed on its own.
+      </p>
+    </div>
+
+    <h3 style="font-size:21px;margin:0 0 14px;color:#111827;">Compatibility</h3>
+
+    <p style="font-size:15px;line-height:1.65;margin:0 0 32px;color:#374151;">
+      Odoo 19 &mdash; Community and Enterprise. Licensed LGPL-3.
+    </p>
+
+    <div style="text-align:center;padding:24px 16px;background:#0f172a;border-radius:10px;">
+      <p style="margin:0 0 8px;font-size:19px;font-weight:600;color:#ffffff;">Built by OdoMate</p>
+      <p style="margin:0 0 14px;font-size:15px;color:#cbd5e1;">Turn written business specifications into installed, tested Odoo modules.</p>
+      <a href="https://www.odomate.pro" style="display:inline-block;padding:11px 26px;background:#14b8a6;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;">Visit odomate.pro</a>
+    </div>
+
+  </div>
+</section>
