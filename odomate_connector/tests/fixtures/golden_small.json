@@ -2,7 +2,7 @@
   "automations": [
     {
       "active": true,
-      "filter_domain": "[('state','=','done')]",
+      "filter_domain": "['&', ('state', '=', '<redacted>'), ('name', '=', '<redacted>')]",
       "filter_pre_domain": null,
       "model": "sale.order",
       "name": "Notify on big order",

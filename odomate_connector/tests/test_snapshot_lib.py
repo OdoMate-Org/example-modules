@@ -81,6 +81,64 @@ class TestRedactParams(BaseCase):
         )
 
 
+class TestMaskDomain(BaseCase):
+    """An automation condition may reference a record by name.
+
+    The wizard and the Apps Store page both promise no names and no business
+    records, so a condition's *shape* is exported while values that could be
+    data are not.
+    """
+
+    FIELDS = {
+        "state": {"ttype": "selection", "selection": [["draft", "Draft"], ["done", "Done"]]},
+        "name": {"ttype": "char", "selection": None},
+        "sequence": {"ttype": "integer", "selection": None},
+        "active": {"ttype": "boolean", "selection": None},
+    }
+
+    def test_selection_value_is_schema_and_survives(self):
+        self.assertEqual(
+            snapshot_lib.mask_domain("[('state', '=', 'done')]", self.FIELDS),
+            repr([("state", "=", "done")]),
+        )
+
+    def test_customer_name_is_redacted(self):
+        masked = snapshot_lib.mask_domain(
+            "[('partner_id.name', '=', 'Acme GmbH')]", self.FIELDS
+        )
+        self.assertNotIn("Acme GmbH", masked)
+        self.assertIn("partner_id.name", masked)
+        self.assertIn(snapshot_lib.REDACTED_VALUE, masked)
+
+    def test_free_text_on_own_model_is_redacted(self):
+        masked = snapshot_lib.mask_domain("[('name', 'ilike', 'Wellness Ltd')]", self.FIELDS)
+        self.assertNotIn("Wellness Ltd", masked)
+
+    def test_value_outside_the_declared_selection_is_redacted(self):
+        """A selection field compared to something not in its schema is data."""
+        masked = snapshot_lib.mask_domain("[('state', '=', 'Acme')]", self.FIELDS)
+        self.assertNotIn("Acme", masked)
+
+    def test_numeric_and_boolean_survive(self):
+        self.assertIn("5", snapshot_lib.mask_domain("[('sequence', '>', 5)]", self.FIELDS))
+        self.assertIn("True", snapshot_lib.mask_domain("[('active', '=', True)]", self.FIELDS))
+
+    def test_structural_tokens_survive(self):
+        masked = snapshot_lib.mask_domain(
+            "['|', ('state', '=', 'done'), ('name', '=', 'Acme')]", self.FIELDS
+        )
+        self.assertIn("'|'", masked)
+        self.assertNotIn("Acme", masked)
+
+    def test_unparseable_domain_fails_closed(self):
+        self.assertIsNone(snapshot_lib.mask_domain("[('state', '=', foo)]", self.FIELDS))
+        self.assertIsNone(snapshot_lib.mask_domain("not a domain at all", self.FIELDS))
+
+    def test_unknown_field_is_redacted(self):
+        masked = snapshot_lib.mask_domain("[('x_secret', '=', 'Acme')]", self.FIELDS)
+        self.assertNotIn("Acme", masked)
+
+
 class TestConfigParamAllowlist(BaseCase):
     def test_no_entry_is_killed_by_the_redactor(self):
         """An allowlisted key matching SECRET_RE can never survive redaction.
@@ -285,11 +343,19 @@ class TestBuildSnapshot(BaseCase):
             {"xmlid": None, "name": "Custom Approvers", "custom": True, "users_count": 2},
         )
 
-    def test_passthrough_sections(self):
+    def test_record_counts_pass_through(self):
+        self.assertEqual(
+            _build(_raw())["record_counts"], {"sale.order": 12840, "res.partner": 3211}
+        )
+
+    def test_automation_identity_passes_through_but_condition_is_masked(self):
         raw = _raw()
         snap = _build(raw)
-        self.assertEqual(snap["automations"], raw["automations"])
-        self.assertEqual(snap["record_counts"], {"sale.order": 12840, "res.partner": 3211})
+        before, after = raw["automations"][0], snap["automations"][0]
+        for key in ("name", "model", "trigger", "active"):
+            self.assertEqual(after[key], before[key])
+        self.assertNotEqual(after["filter_domain"], before["filter_domain"])
+        self.assertNotIn("Wellness Ltd", json.dumps(snap))
 
     def test_input_not_mutated(self):
         raw = _raw()

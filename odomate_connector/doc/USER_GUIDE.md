@@ -43,7 +43,7 @@ The file is pretty-printed JSON, meant to be opened and read. The top-level keys
 | `settings` | Boolean and selection configuration toggles |
 | `config_params` | An allowlisted handful of system parameters |
 | `groups` | Security groups and **how many** users hold each |
-| `automations` | Names and models of automated actions — never their code |
+| `automations` | Automated actions: name, model, trigger, and the condition's shape. A comparison value survives only when it is schema (a selection value, a number, a boolean) — anything that could name a record becomes `<redacted>`. Never their code |
 | `record_counts` | Approximate row counts per model |
 | `truncated` | Anything dropped to stay under the size cap (usually empty) |
 

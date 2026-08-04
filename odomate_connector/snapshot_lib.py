@@ -5,6 +5,7 @@ can be unit-tested without an Odoo runtime. MUST NOT import odoo or any
 third-party package — this file ships inside the customer-installed module.
 """
 
+import ast
 import hashlib
 import json
 import re
@@ -18,8 +19,9 @@ SCHEMA_VERSION = 1
 # 1.4.0 adds field store/computed/readonly/related, automation filter_domain,
 #       model->owning-module, and includes transient models (flagged).
 # 1.5.0 raises the size cap to 25 MB and degrades by re-derivability.
+# 1.6.0 masks automation condition values that could name a record.
 # Consumers read this to tell whether a snapshot carries those fields.
-CONNECTOR_VERSION = "1.5.0"
+CONNECTOR_VERSION = "1.6.0"
 # The original 5 MB was a guess made before any real export existed. A live
 # 108-module database produces 2.4 MB, so a heavily customized enterprise system
 # — more models, multi-language, a decade of inherited views — would trip a 5 MB
@@ -52,6 +54,58 @@ def redact_params(params: dict, allowlist: frozenset) -> dict:
 def redact_settings(settings: dict) -> dict:
     """Drop settings whose field NAME matches the secret patterns."""
     return {k: v for k, v in settings.items() if not SECRET_RE.search(k)}
+
+
+# Comparison values safe to keep verbatim in an automation's condition: these
+# are schema, not data. A char/text/date comparison can hold a literal customer
+# name, which the export promises never to carry.
+SAFE_DOMAIN_TYPES = frozenset({"boolean", "integer", "float", "monetary", "selection"})
+REDACTED_VALUE = "<redacted>"
+
+
+def mask_domain(domain, fields_by_name) -> "str | None":
+    """Keep an automation condition's *shape*, drop values that could be data.
+
+    ``[('state', '=', 'done')]`` survives intact — ``state`` is a selection, so
+    ``'done'`` is part of the schema. ``[('partner_id.name', '=', 'Acme GmbH')]``
+    becomes ``[('partner_id.name', '=', '<redacted>')]``: the generator still
+    learns the rule is conditioned on the partner's name, and the customer's
+    name never leaves the database.
+
+    Conservative by construction — a value is kept only when the field resolves
+    on the automation's own model *and* has a type that cannot hold free text.
+    Dotted paths are always masked, since resolving them needs the related
+    model's schema and being wrong here breaks a promise. An unparseable domain
+    returns None rather than being passed through.
+    """
+    if not domain:
+        return None
+    try:
+        parsed = ast.literal_eval(domain)
+    except (ValueError, SyntaxError, TypeError, MemoryError, RecursionError):
+        return None  # fail closed: never emit a domain we could not inspect
+    if not isinstance(parsed, (list, tuple)):
+        return None
+
+    def safe_leaf(field, value):
+        if not isinstance(field, str) or "." in field:
+            return False
+        spec = fields_by_name.get(field)
+        if not spec or spec.get("ttype") not in SAFE_DOMAIN_TYPES:
+            return False
+        if spec.get("ttype") == "selection":
+            allowed = {v for v, _label in (spec.get("selection") or [])}
+            return value in allowed
+        return isinstance(value, (bool, int, float))
+
+    out = []
+    for item in parsed:
+        if isinstance(item, (list, tuple)) and len(item) == 3:
+            field, operator, value = item
+            out.append((field, operator, value if safe_leaf(field, value) else REDACTED_VALUE))
+        else:
+            out.append(item)  # '&', '|', '!' and other structural tokens
+    return repr(out)
 
 
 def hash_db_uuid(db_uuid: str) -> str:
@@ -123,6 +177,16 @@ CONFIG_PARAM_ALLOWLIST = frozenset(
 )
 
 
+def _redacted_automation(automation: dict, fields_by_model: dict) -> dict:
+    """An automation with its condition masked against the model's own schema."""
+    out = dict(automation)
+    spec = fields_by_model.get(out.get("model"), {})
+    for key in ("filter_domain", "filter_pre_domain"):
+        if key in out:
+            out[key] = mask_domain(out.get(key), spec)
+    return out
+
+
 def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict:
     """Assemble the redacted snapshot from the collector's raw dicts.
 
@@ -168,6 +232,11 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
     # becomes a PO). They hold no persisted data, so including them removes a
     # capability blind spot without touching privacy. They stay flagged so a
     # consumer can tell a wizard from a stored model.
+    # {model: {field: spec}} — used to decide which condition literals are
+    # schema (safe) rather than data.
+    fields_by_model = {
+        m["model"]: {f["name"]: f for f in m["fields"]} for m in raw["models"]
+    }
     models = sorted(
         (
             {
@@ -226,7 +295,8 @@ def build_snapshot(raw: dict, connector_version: str, generated_at: str) -> dict
         "config_params": redact_params(raw["config_params"], CONFIG_PARAM_ALLOWLIST),
         "groups": groups,
         "automations": sorted(
-            (dict(a) for a in raw["automations"]), key=lambda a: (a["model"], a["name"])
+            (_redacted_automation(a, fields_by_model) for a in raw["automations"]),
+            key=lambda a: (a["model"], a["name"]),
         ),
         "record_counts": dict(raw["record_counts"]),
     }

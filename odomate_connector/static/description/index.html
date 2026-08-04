@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>OdoMate Connector — OdoMate</title>
+<title>OdoMate Connector &mdash; OdoMate</title>
 </head>
 <body>
 <div style="max-width:900px; margin:0 auto; padding:0 24px; font-family:Inter, system-ui, -apple-system, sans-serif; font-size:17px; color:#27272a; line-height:1.6; text-align:left;">
@@ -101,7 +101,7 @@
             <li style="margin-bottom:8px;">Views you have customized or inherited</li>
             <li style="margin-bottom:8px;">Configuration toggles and allowlisted system parameters</li>
             <li style="margin-bottom:8px;">Security groups, with a user <em>count</em> each</li>
-            <li style="margin-bottom:8px;">Automated actions: name, model, trigger and condition — never the code body</li>
+            <li style="margin-bottom:8px;">Automated actions: name, model, trigger, and the shape of the condition &mdash; the fields it tests, with any comparison value that could name a record replaced by <code>&lt;redacted&gt;</code>. Never the code body</li>
             <li style="margin-bottom:8px;">Per-model record <em>counts</em></li>
           </ul>
         </td>
@@ -109,7 +109,7 @@
           <h3 style="font-weight:700; font-size:18px; color:#9f1239; margin:0 0 10px;">Never included</h3>
           <ul style="margin:0; padding-left:20px; font-size:17px; color:#3f3f46;">
             <li style="margin-bottom:8px;">Business records of any kind</li>
-            <li style="margin-bottom:8px;">Partner, employee or user data — no names, no emails</li>
+            <li style="margin-bottom:8px;">Partner, employee or user data &mdash; no names, no emails</li>
             <li style="margin-bottom:8px;">Credentials, API keys or tokens</li>
             <li style="margin-bottom:8px;">Secret system parameters</li>
             <li style="margin-bottom:8px;">The raw database UUID (a SHA-256 hash only)</li>
@@ -124,7 +124,7 @@
       <strong>allowlist</strong>: a system parameter is not even considered unless it is explicitly
       listed. Then a <strong>pattern rule</strong>: any key or value matching
       <code>key | secret | token | password | api | dkim | private</code> is dropped, including
-      allowlisted ones. Only boolean and selection settings are read at all — Odoo core keeps
+      allowlisted ones. Only boolean and selection settings are read at all &mdash; Odoo core keeps
       real secrets in <em>text</em> settings fields, so that whole class is excluded by design
       rather than by filtering.
     </p>
@@ -146,7 +146,7 @@
         <li style="margin-bottom:6px;">OdoMate currently targets <strong>Odoo Community</strong>. Enterprise environments are outside what OdoMate generates for today &mdash; the snapshot will still describe an Enterprise installation accurately, but generation is not aimed at it.</li>
         <li style="margin-bottom:6px;">The snapshot records commercial third-party modules by name, version and public schema &mdash; <strong>not their code</strong>. Whether that is enough for OdoMate to reliably account for such a module's behaviour during generation is <strong>not yet verified</strong>, so treat it as unconfirmed rather than supported.</li>
         <li style="margin-bottom:6px;">The test replica <strong>cannot install commercial modules</strong>. A generated module is therefore never automatically tested against them; anything depending on a paid module needs your own testing before you rely on it.</li>
-        <li style="margin-bottom:6px;">Automated actions are exported with their trigger and their condition (the filter domain) so generated code does not duplicate or contradict them &mdash; but never their code bodies.</li>
+        <li style="margin-bottom:6px;">Automated actions are exported with their trigger and the shape of their condition, so generated code does not duplicate or contradict them. A comparison value is kept only where it is part of the schema &mdash; a selection value such as <code>done</code>, a number, a boolean; anything that could name a record becomes <code>&lt;redacted&gt;</code>. Code bodies are never exported.</li>
         <li style="margin-bottom:6px;">A snapshot is capped at 25&nbsp;MB. A larger database degrades in disclosed stages, ordered by how easily the content can be found elsewhere: field lists of standard Odoo models first, then OCA ones, then empty record counts, and your customized view bodies only last. Your own custom fields are never dropped, and anything that was is listed in the file's <code>truncated</code> field.</li>
       </ul>
     </div>
@@ -156,10 +156,10 @@
   <div style="padding:32px 0; border-top:1px solid #e4e4e7;">
     <div style="margin-top:8px; padding:32px; border-radius:16px; background-color:#f0f8f5; border:1px solid #e4e4e7;">
       <span style="display:inline-block; font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#047857; margin-bottom:14px;">Free Early Beta Access</span>
-      <p style="margin:0 0 14px; color:#27272a;">You are looking at the piece that connects your own Odoo to OdoMate. OdoMate turns a plain-language business specification into an installable Odoo 19 Community module — with its automated tests, a live demo deployment (with test users at every permission level the module defines, not just admin), and a user guide. Install this connector, export your snapshot, and the module OdoMate builds for you is built against your database rather than a generic one.</p>
-      <p style="margin:0 0 14px; color:#27272a;">OdoMate is built for prototyping, client pitches, and shipping first versions of real Odoo 19 Community modules — a fast first implementation you review and refine, not a replacement for that review. Every generated module follows OCA structure and ships with tests, so you can see exactly what it produces before you take our word for it. A precise specification removes much of the avoidable implementation work.</p>
-      <p style="margin:0 0 14px; color:#27272a;">OdoMate is currently in early beta validation, not a general-availability product. Beta access is free. We review requests on a rolling basis and onboard in small cohorts — access isn't guaranteed or immediate, but every request is read.</p>
-      <p style="margin:0 0 14px; color:#27272a;">OdoMate's other modules on this store were generated from a written specification, not hand-written — each ships with its spec, its automated tests and a live demo you can click through. Look at one, then request early beta access: install this connector, export your snapshot, and generate a module against your own Odoo instead of a demo one.</p>
+      <p style="margin:0 0 14px; color:#27272a;">You are looking at the piece that connects your own Odoo to OdoMate. OdoMate turns a plain-language business specification into an installable Odoo 19 Community module &mdash; with its automated tests, a live demo deployment (with test users at every permission level the module defines, not just admin), and a user guide. Install this connector, export your snapshot, and the module OdoMate builds for you is built against your database rather than a generic one.</p>
+      <p style="margin:0 0 14px; color:#27272a;">OdoMate is built for prototyping, client pitches, and shipping first versions of real Odoo 19 Community modules &mdash; a fast first implementation you review and refine, not a replacement for that review. Every generated module follows OCA structure and ships with tests, so you can see exactly what it produces before you take our word for it. A precise specification removes much of the avoidable implementation work.</p>
+      <p style="margin:0 0 14px; color:#27272a;">OdoMate is currently in early beta validation, not a general-availability product. Beta access is free. We review requests on a rolling basis and onboard in small cohorts &mdash; access isn't guaranteed or immediate, but every request is read.</p>
+      <p style="margin:0 0 14px; color:#27272a;">OdoMate's other modules on this store were generated from a written specification, not hand-written &mdash; each ships with its spec, its automated tests and a live demo you can click through. Look at one, then request early beta access: install this connector, export your snapshot, and generate a module against your own Odoo instead of a demo one.</p>
       <div>
         <a href="https://www.odomate.pro/?utm_source=appsstore&utm_medium=content&utm_campaign=odomate-connector#waitlist" style="display:inline-block; margin-top:6px; padding:12px 26px; border-radius:999px; background-color:#047857; color:#ffffff; font-weight:700; font-size:17px; text-decoration:none;">Request early beta access</a>
         <div style="margin-top:12px; font-size:15px; color:#52525b;">The Apps Store disables outside links, so copy this address into your browser: <a href="https://www.odomate.pro/?utm_source=appsstore&utm_medium=content&utm_campaign=odomate-connector#waitlist" style="color:#047857; font-weight:700; text-decoration:none;">www.odomate.pro/#waitlist</a></div>
@@ -173,7 +173,7 @@
     <div style="margin-bottom:10px;"><img src="assets/icons/linkedin-square.png" width="18" height="18" style="vertical-align:middle; margin-right:10px;" alt=""><span style="vertical-align:middle; display:inline-block; min-width:78px; font-weight:700; color:#09090b;">LinkedIn</span><a href="https://www.linkedin.com/company/odomate-ai/" style="vertical-align:middle; color:#047857; font-weight:700; text-decoration:none;">https://www.linkedin.com/company/odomate-ai/</a></div>
     <div style="margin-bottom:10px;"><img src="assets/icons/twitter.png" width="18" height="18" style="vertical-align:middle; margin-right:10px;" alt=""><span style="vertical-align:middle; display:inline-block; min-width:78px; font-weight:700; color:#09090b;">X</span><a href="https://x.com/OdoMateAI" style="vertical-align:middle; color:#047857; font-weight:700; text-decoration:none;">https://x.com/OdoMateAI</a></div>
     <div style="margin-bottom:10px;"><img src="assets/icons/youtube-play.png" width="18" height="18" style="vertical-align:middle; margin-right:10px;" alt=""><span style="vertical-align:middle; display:inline-block; min-width:78px; font-weight:700; color:#09090b;">YouTube</span><a href="https://www.youtube.com/@odomate-ai" style="vertical-align:middle; color:#047857; font-weight:700; text-decoration:none;">https://www.youtube.com/@odomate-ai</a></div>
-    <div style="margin-top:20px; font-size:16px; color:#52525b; font-weight:600;">— OdoMate Team</div>
+    <div style="margin-top:20px; font-size:16px; color:#52525b; font-weight:600;">&mdash; OdoMate Team</div>
   </div>
 
 </div>

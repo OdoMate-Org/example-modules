@@ -137,7 +137,7 @@
       "name": "Notify on big order",
       "model": "sale.order",
       "trigger": "on_create_or_write",
-      "filter_domain": "[('state','=','done')]",
+      "filter_domain": "['&', ('state', '=', 'done'), ('name', '=', 'Wellness Ltd')]",
       "filter_pre_domain": null,
       "active": true
     }

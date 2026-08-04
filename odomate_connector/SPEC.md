@@ -70,7 +70,10 @@ Consequences, all of which are requirements rather than preferences:
 - **settings** — boolean and selection `res.config.settings` values.
 - **config_params** — an allowlisted subset of `ir.config_parameter`.
 - **groups** — security groups with the number of users holding each.
-- **automations** — names and models of automated actions. **No code bodies**
+- **automations** — names, models, triggers and masked conditions. A domain
+  keeps its fields and operators; a comparison value survives only if it is
+  part of the schema, so `[('partner_id.name','=','Acme GmbH')]` exports as
+  `[('partner_id.name','=','<redacted>')]`. **No code bodies**
   in v1.
 - **record_counts** — per-model row-count estimates, read from PostgreSQL
   statistics rather than by touching rows.
@@ -116,7 +119,7 @@ cover it without a database.
 
 ### Tests
 
-58 tests, run with `--test-tags /odomate_connector`:
+67 tests, run with `--test-tags /odomate_connector`:
 
 - Pure-logic tests over the redaction, classification, assembly, size-cap and
   schema-contract behaviour, including a blessed golden-file comparison that

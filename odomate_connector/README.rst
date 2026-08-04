@@ -25,7 +25,8 @@ Structural context, never your business records
 * Views you have customized or inherited
 * Configuration toggles and an allowlisted subset of system parameters
 * Security groups and the number of users holding each
-* Automated-action names and their models
+* Automated-action names, models, triggers and the shape of their conditions
+  (comparison values that could name a record are redacted)
 * Per-model record **counts**
 
 **Never included**
