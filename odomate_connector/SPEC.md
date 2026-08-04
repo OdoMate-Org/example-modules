@@ -127,7 +127,7 @@ cover it without a database.
 
 ### Tests
 
-68 tests, run with `--test-tags /odomate_connector`:
+69 tests, run with `--test-tags /odomate_connector`:
 
 - Pure-logic tests over the redaction, classification, assembly, size-cap and
   schema-contract behaviour, including a blessed golden-file comparison that

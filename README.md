@@ -32,7 +32,7 @@ this is the repository the Odoo Apps Store scans.
 
 | Module | Description |
 |---|---|
-| [`odomate_connector`](odomate_connector/) | Exports a redacted structural snapshot of your database (`odomate_context.json`) so OdoMate can generate modules that fit your real environment and test them against a replica of it. Structural context only — installed modules, models, fields, customized views, settings, group user *counts* and record *counts*; never business records, user data or credentials, and no network calls. 68 unit tests. |
+| [`odomate_connector`](odomate_connector/) | Exports a redacted structural snapshot of your database (`odomate_context.json`) so OdoMate can generate modules that fit your real environment and test them against a replica of it. Structural context only — installed modules, models, fields, customized views, settings, group user *counts* and record *counts*; never business records, user data or credentials, and no network calls. 69 unit tests. |
 
 ## Repository structure
 

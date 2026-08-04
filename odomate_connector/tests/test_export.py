@@ -144,6 +144,48 @@ class TestContextExport(TransactionCase):
             f"none of {len(company_related)} company-related settings were exported",
         )
 
+    def test_automation_conditions_referencing_records_are_masked(self):
+        """The negative case, end to end against a real database.
+
+        The unit tests cover the masking rules; this proves the whole path —
+        a consultant writes a condition naming a customer, and the exported
+        file does not contain that customer.
+        """
+        if "base.automation" not in self.env:
+            self.skipTest("base_automation not installed")
+        partner = self.env["res.partner"].create(
+            {"name": "Wellness Holdings GmbH", "ref": "CUST-00042"}
+        )
+        model = self.env["ir.model"]._get("res.partner")
+        action = self.env["ir.actions.server"].create(
+            {"name": "probe", "model_id": model.id, "state": "code", "code": "pass"}
+        )
+        conditions = {
+            "by_name": "[('name', '=', 'Wellness Holdings GmbH')]",
+            "by_ref": "[('ref', 'ilike', 'CUST-00042')]",
+            "by_id": "[('parent_id', '=', %d)]" % partner.id,
+        }
+        for label, domain in conditions.items():
+            self.env["base.automation"].create(
+                {
+                    "name": "probe %s" % label,
+                    "model_id": model.id,
+                    "trigger": "on_write",
+                    "filter_domain": domain,
+                    "action_server_ids": [(6, 0, [action.id])],
+                }
+            )
+        payload = self._payload()
+        self.assertNotIn("Wellness Holdings GmbH", payload)
+        self.assertNotIn("CUST-00042", payload)
+        # A many2one comparison is a record reference, so the id must not survive.
+        self.assertNotIn("'parent_id', '=', %d" % partner.id, payload)
+        # The condition's shape is still there — that is the point of masking
+        # rather than dropping.
+        exported = {a["name"]: a["filter_domain"] for a in self._snapshot()["automations"]}
+        self.assertIn("name", exported["probe by_name"])
+        self.assertIn(snapshot_lib.REDACTED_VALUE, exported["probe by_name"])
+
     def test_transient_models_are_exported_and_flagged(self):
         models = {m["model"]: m for m in self._snapshot()["models"]}
         self.assertIn("res.config.settings", models)
