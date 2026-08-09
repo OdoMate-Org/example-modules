@@ -1,0 +1,165 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_warehouse_auto_fulfillment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Automatic fulfillment failed for %(order)s on warehouse %(warehouse)s.\n"
+"\n"
+"Stage: %(stage)s\n"
+"Reason: %(reason)s\n"
+"\n"
+"Nothing was kept: the order stays a quotation, no delivery was validated and no invoice was created. Fix the reason above and confirm the order again, or turn the automation off on the warehouse to confirm it manually."
+msgstr ""
+"Автоматичне виконання замовлення %(order)s на складі %(warehouse)s не вдалося.\n"
+"\n"
+"Етап: %(stage)s\n"
+"Причина: %(reason)s\n"
+"\n"
+"Нічого не збережено: замовлення залишається комерційною пропозицією, жодну доставку не підтверджено і жодного рахунку не створено. Усуньте вказану вище причину та підтвердіть замовлення ще раз або вимкніть автоматизацію на складі, щоб підтвердити його вручну."
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Automatic invoicing skipped: there was nothing to invoice on this order at "
+"confirmation time. The order itself was confirmed normally."
+msgstr ""
+"Автоматичне виставлення рахунку пропущено: на момент підтвердження в цьому "
+"замовленні не було нічого, на що можна виставити рахунок. Саме замовлення "
+"підтверджено у звичайному режимі."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_confirm
+msgid "Confirm Invoice Automatically"
+msgstr "Автоматично проводити рахунок"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_create
+msgid "Create Invoice Automatically"
+msgstr "Автоматично створювати рахунок"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_create
+msgid ""
+"Create the customer invoice as soon as the sales order is confirmed, exactly"
+" as the manual Create Invoice button does. Each product keeps its own "
+"invoicing policy (ordered or delivered quantities). When there is nothing to"
+" invoice, the step is skipped silently."
+msgstr ""
+"Створювати рахунок клієнту одразу після підтвердження замовлення на продаж — "
+"так само, як це робить кнопка «Створити рахунок» вручну. Кожен товар зберігає "
+"власну політику виставлення рахунків (замовлена чи доставлена кількість). Якщо "
+"виставляти рахунок немає на що, крок пропускається без повідомлення."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_custom_fixture_product_template
+msgid "Custom Fixture"
+msgstr "Виріб на замовлення"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Odoo asked for a manual confirmation step (%(wizard)s) that automatic "
+"shipping cannot answer."
+msgstr ""
+"Odoo запитав крок ручного підтвердження (%(wizard)s), на який автоматичне "
+"відвантаження не може відповісти."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_office_chair_product_template
+msgid "Office Chair"
+msgstr "Офісне крісло"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_confirm
+msgid ""
+"Post the invoice that this automation has just created. It has no effect on "
+"its own: with Create Invoice Automatically off, there is nothing to post."
+msgstr ""
+"Проводити рахунок, який щойно створила ця автоматизація. Самостійно цей "
+"перемикач нічого не робить: якщо «Автоматично створювати рахунок» вимкнено, "
+"проводити немає чого."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model,name:sale_warehouse_auto_fulfillment.model_sale_order
+msgid "Sales Order"
+msgstr "Замовлення на продаж"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_ship
+msgid "Ship Automatically"
+msgstr "Автоматично відвантажувати"
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_standard_widget_product_template
+msgid "Standard Widget"
+msgstr "Стандартний виріб"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "The transfer(s) %(pickings)s could not be set to Done automatically."
+msgstr "Переміщення %(pickings)s не вдалося автоматично перевести у стан «Готово»."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_ship
+msgid ""
+"Validate the delivery of a sales order in full as soon as the order is "
+"confirmed. All lines, full ordered quantity, no backorder and no stock "
+"availability check (negative stock is allowed)."
+msgstr ""
+"Підтверджувати доставку замовлення на продаж у повному обсязі одразу після "
+"підтвердження замовлення. Усі рядки, вся замовлена кількість, без часткового "
+"відвантаження та без перевірки наявності на складі (від'ємний залишок "
+"дозволено)."
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model,name:sale_warehouse_auto_fulfillment.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Склад"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic delivery validation"
+msgstr "автоматичне підтвердження доставки"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic invoice creation"
+msgstr "автоматичне створення рахунку"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic invoice posting"
+msgstr "автоматичне проведення рахунку"

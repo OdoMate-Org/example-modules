@@ -1,0 +1,137 @@
+{
+  "module_name": "sale_warehouse_auto_fulfillment",
+  "technical_name": "sale_warehouse_auto_fulfillment",
+  "generation_id": "5e339080-b666-442c-8790-166a70f42429",
+  "original_requirements": "This gives me everything I need. Here's the finalized specification:\n\n```\n## Module: sale_warehouse_auto_fulfillment\nPer-warehouse automatic shipping, invoice creation, and invoice confirmation triggered by a single Sales Order confirmation.\n\n### Models\n- **stock.warehouse** (extended): auto_ship (Boolean, default False), auto_invoice_create (Boolean, default False), auto_invoice_confirm (Boolean, default False)\n  - No new relations; fields live on the existing warehouse record, displayed next to the warehouse's short code (`code`).\n\n- **sale.order** (extended, method override only, no new fields): overrides `action_confirm()`.\n  - No new persisted fields. Reads `warehouse_id.auto_ship`, `warehouse_id.auto_invoice_create`, `warehouse_id.auto_invoice_confirm` at confirmation time.\n\n- **ir.logging** (reused, not extended): automation failures are written here through a separate database cursor/transaction so the entry survives the rollback described below.\n\n### Business Rules\n- State flow unchanged: draft/sent -> sale -> (done). Automation is chained onto the existing `action_confirm()` transition, not a new state machine.\n- Execution order on confirm, when warehouse flags are set: (1) standard order confirmation, (2) if `auto_ship`: validate the order's delivery in full \u2014 all lines, full ordered quantity, no backorder, no stock-availability check (negative stock allowed by design) \u2014 (3) if `auto_invoice_create`: run standard invoice creation, respecting each product's own invoicing policy (ordered vs. delivered quantities) exactly as the manual \"Create Invoice\" button does \u2014 (4) if `auto_invoice_confirm` AND an invoice was actually created in step 3: post that invoice.\n- **\"Nothing to invoice\" is not a failure.** If step 3 produces zero invoiceable lines (e.g. a delivered-quantity-policy product with `auto_ship` off), invoicing is skipped silently, a note is added to the order's chatter, and the confirmation proceeds/succeeds normally.\n- **`auto_invoice_confirm` has no independent effect.** It only posts an invoice that this same automation run just created. If `auto_invoice_create` is off, `auto_invoice_confirm` does nothing (there is nothing to confirm).\n- **Failure handling (real errors only \u2014 delivery validation error, invoice creation error, invoice posting error):** the entire automation, including the order's state change to confirmed, runs inside one database savepoint. On any real error: roll back the savepoint completely (order reverts to quotation, no delivery, no invoice \u2014 nothing half-done), write a failure record to `ir.logging` via an independent cursor (so it survives the rollback), then raise a blocking `UserError` naming the stage that failed and the underlying reason (e.g. \"Invoice could not be posted: customer has no receivable account\") instead of the raw traceback.\n- Serial/lot-tracked products are out of scope: if automatic delivery validation cannot complete because a lot/serial is required, this is treated as a real failure (full rollback + blocking message), not a silent skip.\n- No per-order override and no exceptions list \u2014 every quotation confirmed from an automatic warehouse is automated the same way, no exceptions (explicit user decision).\n- With all three warehouse flags off, `action_confirm()` behaves exactly as standard Odoo \u2014 the override is a no-op pass-through.\n\n### Views & UX\n- Form view (stock.warehouse, inherited): three checkboxes added next to the warehouse `code` field \u2014 \"Ship Automatically\", \"Create Invoice Automatically\", \"Confirm Invoice Automatically\".\n- No changes to the Sales Order form, list, or Confirm button \u2014 automation runs invisibly behind the existing action. After confirm: delivery shows Done, invoice smart-button count increases, invoice shows Posted (or the order stays a quotation with a blocking error if something failed).\n- No new menus, screens, wizards, or reports.\n- OWL complexity: none \u2014 pure server-side Python logic on an existing method.\n- No mobile-specific considerations (standard responsive form view).\n\n### Security\n- No new groups or access levels. Reuses existing Inventory (warehouse edit) and Sales (order confirm) permissions.\n- No new ir.model.access.csv rows required \u2014 only existing models (stock.warehouse, sale.order) gain fields/method overrides; ir.logging already has its standard access.\n- No new record rules; multi-company behavior follows the existing warehouse/order company scoping already in Odoo.\n\n### Demo Data\n- 2 warehouses: \"Main Warehouse\" (code WH) \u2014 all three flags ON; \"Project Warehouse\" (code PROJ) \u2014 all three flags OFF.\n- 3 demo products: \"Standard Widget\" and \"Office Chair\" (in-stock, invoice policy = Ordered Quantities, sufficient on-hand qty for the happy-path scenarios), plus \"Custom Fixture\" (invoice policy = Delivered Quantities, used to demonstrate the silent-skip case when only `auto_invoice_create` is on).\n- 5\u20136 draft quotations pre-created and ready to confirm, covering: (1) all flags on \u2014 full auto flow, (2) ship-only, (3) invoice-create-only (including one using \"Custom Fixture\" to show the silent skip), (4) all flags off on Project Warehouse \u2014 manual baseline, (5) an order for a product with zero on-hand stock on Main Warehouse \u2014 demonstrates negative-stock auto-shipment.\n\n### Constraints & Notes\n- No partial shipping: automatic delivery is always all-or-nothing for the whole order.\n- No stock-availability check on automatic shipment \u2014 negative stock is intended behavior; only enable `auto_ship` on warehouses with trusted stock figures.\n- No invoice emailing \u2014 invoices are posted, never sent.\n- No log/report UI for automation history in the order itself; auditability is via `ir.logging` only (developer-facing), since a rolled-back order shows no trace of the attempt.\n- Setting is strictly per warehouse; there is no per-order override or exception list.\n```\n\nLet me know if you'd like any part adjusted before this goes to module generation.",
+  "module_summary": "{\n  \"summary\": \"Customization addon for sale_stock that adds three Boolean switches to stock.warehouse (auto_ship, auto_invoice_create, auto_invoice_confirm) and overrides sale.order.action_confirm() to chain delivery validation, invoice creation and invoice posting onto the existing Confirm button. No new models, menus, groups or record rules \u2014 behaviour changes only through _inherit on two models plus one xpath view inheritance on stock.view_warehouse. The whole automation, including the order's state change, runs inside one cr.savepoint(): a real error rolls everything back to a quotation, writes the failure to ir.logging through an independent registry cursor so it survives the rollback, and raises a UserError naming the failed stage and reason. 'Nothing to invoice' is explicitly not a failure \u2014 it is skipped silently with a chatter note; auto_invoice_confirm has no independent effect and only posts an invoice this same run created; with all switches off action_confirm() is a pure pass-through.\",\n  \"risk_patterns\": [\n    \"method override on sale.order.action_confirm wrapping super() inside cr.savepoint() \u2014 cache staleness handled with env.invalidate_all(flush=False) after rollback\",\n    \"independent registry cursor writing ir.logging under SUPERUSER_ID \u2014 invisible to the caller's REPEATABLE READ snapshot, so UI-side verification requires a page reload\",\n    \"stock.move.quantity assignment plus picked=True followed by button_validate with skip_backorder \u2014 button_validate may return an act_window dict, treated as a failure\",\n    \"auto delivery bypasses availability checks and creates negative quants by design\",\n    \"demo data writes to the pre-existing stock.warehouse0 record (renames Main Warehouse, flips all three flags)\",\n    \"demo data creates a second warehouse (PROJ), which activates the multi-warehouse group and mutates user groups at install time\"\n  ],\n  \"critical_flows\": [\n    \"Inventory > Configuration > Warehouses > Main Warehouse: the three checkboxes render next to Short Name and save correctly\",\n    \"Confirm the 'Scenario 1' quotation on Main Warehouse: delivery smart button shows Done, invoice counter increments, invoice state is Posted\",\n    \"Confirm the 'Scenario 5' quotation (Custom Fixture, zero on-hand): delivery is Done and product on-hand goes to -10\",\n    \"Turn off Ship Automatically, leave Create Invoice Automatically on, confirm 'Scenario 3b' (delivered-policy product): no invoice, order confirmed, chatter shows 'Automatic invoicing skipped'\",\n    \"Confirm the 'Scenario 4' quotation on Project Warehouse: standard Odoo behaviour, delivery stays Ready and no invoice appears\",\n    \"Turn on only Confirm Invoice Automatically on Main Warehouse and confirm any quotation: nothing is automated (no delivery validation, no invoice)\",\n    \"Force a failure (e.g. remove the customer's receivable account with all three switches on) and confirm: blocking dialog names the stage, order returns to Quotation, no delivery and no invoice remain\",\n    \"Settings > Technical > Logging (developer mode), filter name = sale_warehouse_auto_fulfillment: the failure row from the previous flow is present after a page reload\",\n    \"Open the Main Warehouse form as a user without Inventory admin rights: no AccessError, the checkboxes are simply not editable\",\n    \"Confirm several quotations from the list view in one batch and verify each automated order completes independently\"\n  ]\n}",
+  "models": [
+    {
+      "name": "sale.order",
+      "description": null,
+      "inherit": [
+        "sale.order"
+      ],
+      "is_transient": false,
+      "is_abstract": false,
+      "fields": [],
+      "computed_fields": [],
+      "relational_fields": [],
+      "methods": [
+        "action_confirm"
+      ]
+    },
+    {
+      "name": "stock.warehouse",
+      "description": null,
+      "inherit": [
+        "stock.warehouse"
+      ],
+      "is_transient": false,
+      "is_abstract": false,
+      "fields": [
+        {
+          "name": "auto_ship",
+          "field_type": "Boolean",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "auto_invoice_create",
+          "field_type": "Boolean",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        },
+        {
+          "name": "auto_invoice_confirm",
+          "field_type": "Boolean",
+          "comodel": null,
+          "compute": null,
+          "stored": true,
+          "required": false
+        }
+      ],
+      "computed_fields": [],
+      "relational_fields": [],
+      "methods": []
+    }
+  ],
+  "views": [
+    {
+      "xmlid": "view_warehouse_form_auto_fulfillment",
+      "view_type": "unknown",
+      "model": "stock.warehouse",
+      "inherit_id": "stock.view_warehouse",
+      "key_elements": []
+    }
+  ],
+  "menus": [],
+  "security": {
+    "groups": [],
+    "access_rules": [],
+    "record_rules": []
+  },
+  "test_db": "",
+  "admin_login": "admin",
+  "critical_flows": [
+    "Open Inventory > Configuration > Warehouses > Main Warehouse: three checkboxes (Ship Automatically, Create Invoice Automatically, Confirm Invoice Automatically) render next to Short Name field, toggle each, save, reload page, confirm state persists",
+    "Confirm Scenario 1 order (all flags on, Main Warehouse): delivery smart button shows Done, invoice smart-button count increments by 1, invoice state is Posted (not Draft), order state is Sale",
+    "Confirm Scenario 2 order (auto_ship=on, others=off): delivery shows Done, invoice smart-button is 0 or absent, no invoice created",
+    "Confirm Scenario 3b order (auto_invoice_create=on, auto_ship=off, delivered-policy product): order confirmed but no invoice created, chatter contains 'Automatic invoicing skipped' or similar, no error raised",
+    "Confirm Scenario 5 order (auto_ship=on, zero on-hand stock, Main Warehouse): delivery Done without stock check, product on-hand quantity becomes -10, order confirmed",
+    "Confirm Scenario 4 order on Project Warehouse (all flags=off): standard Odoo behaviour\u2014delivery shows Ready (not Done), no invoice appears, order state is Sale",
+    "Enable only auto_invoice_confirm and confirm any quotation: nothing is automated, delivery and invoice unchanged from standard confirm, no side effects",
+    "Force failure scenario\u2014remove customer's receivable account, enable all flags, attempt confirm: blocking UserError dialog names the failed stage ('Invoice could not be posted: \u2026'), order reverts to Quotation, no delivery/invoice present, is idempotent on retry",
+    "Open Settings > Technical > Logging (enable developer mode), filter by name 'sale_warehouse_auto_fulfillment': failure record from previous flow is visible after page reload; timestamp and error message are populated",
+    "Log in as non-Inventory user, open Main Warehouse form: checkboxes are visible but read-only (grey), no AccessError or 403 raised, form loads cleanly",
+    "Bulk-confirm 5 draft quotations from Sales Order list view (Ctrl+click + Action > Confirm): each order processes independently\u2014verify one failure does not cascade to others, and successful orders remain confirmed while failed order reverts",
+    "Confirm order with serial-tracked product line (auto_ship=on): UserError blocking message names 'Delivery validation' stage with product/serial details, order reverts to Quotation, no delivery created, ir.logging entry present after reload"
+  ],
+  "risk_patterns": [
+    "Savepoint + independent ir.logging cursor creates REPEATABLE READ snapshot race: logged failure may not be visible until page reload, and if logging fails silently, user sees rollback with no audit trail",
+    "Cache invalidation after cr.savepoint() rollback: env.invalidate_all(flush=False) must complete before raising UserError, or stale data leaks into error message (e.g. order state mismatch)",
+    "button_validate() returning act_window dict treated as failure: this is a control-flow signal (edit-inline wizard), not a real error\u2014must verify it never triggers rollback on legitimate shipment completion",
+    "Invoice creation silent skip requires explicit chatter note: if auto_invoice_create=True and \"nothing to invoice\" condition hits (delivered-policy product, no delivered qty), chatter MUST log it or confirmation looks broken",
+    "auto_invoice_confirm has zero independent effect: enabling ONLY this flag does nothing; must verify UI/UX doesn't mislead users into thinking a lone flag is functional",
+    "Serial/lot-tracked products cause hard failure with full rollback: no graceful degradation\u2014if any line requires lot/serial, entire order reverts to quotation; must verify error message names the product/stage",
+    "Negative stock allowed by design on auto_ship: if flag is accidentally enabled on a low-trust warehouse, overselling is irreversible; must verify warehouse-level access control prevents casual mutation",
+    "Demo data mutates pre-existing stock.warehouse0 record and adds user groups at install: not idempotent\u2014re-installation may fail or behave unexpectedly; must verify install/reinstall sequence",
+    "View inheritance parsed as 'unknown' type: xpath location for three checkboxes next to 'code' field may target wrong element; verify rendered form has them in correct visual position",
+    "Permission model: warehouse checkboxes are security-gated on inventory group; non-privileged users must see read-only view with no AccessError, and privilege escalation via compute-field override is blocked"
+  ],
+  "files": [
+    "README.rst",
+    "__init__.py",
+    "__manifest__.py",
+    "__pycache__/__init__.cpython-314.pyc",
+    "__pycache__/__manifest__.cpython-314.pyc",
+    "data/.gitkeep",
+    "demo/products.xml",
+    "demo/sale_orders.xml",
+    "demo/warehouses.xml",
+    "doc/USER_GUIDE.md",
+    "i18n/.gitkeep",
+    "models/__init__.py",
+    "models/__pycache__/__init__.cpython-314.pyc",
+    "models/__pycache__/sale_order.cpython-314.pyc",
+    "models/__pycache__/stock_warehouse.cpython-314.pyc",
+    "models/sale_order.py",
+    "models/stock_warehouse.py",
+    "report/.gitkeep",
+    "security/ir.model.access.csv",
+    "static/description/icon.png",
+    "static/description/index.html",
+    "static/src/.gitkeep",
+    "static/src/css/.gitkeep",
+    "static/src/js/.gitkeep",
+    "static/src/xml/.gitkeep",
+    "tests/__init__.py",
+    "tests/__pycache__/__init__.cpython-314.pyc",
+    "tests/__pycache__/test_sale_warehouse_auto_fulfillment.cpython-314.pyc",
+    "tests/test_sale_warehouse_auto_fulfillment.py",
+    "views/stock_warehouse_views.xml"
+  ]
+}

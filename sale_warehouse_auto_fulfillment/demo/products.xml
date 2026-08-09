@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="product_standard_widget" model="product.product">
+            <field name="name">Standard Widget</field>
+            <field name="default_code">SWAF-WIDGET</field>
+            <field name="type">consu</field>
+            <field name="is_storable" eval="True"/>
+            <field name="invoice_policy">order</field>
+            <field name="list_price">45.00</field>
+            <field name="standard_price">27.50</field>
+        </record>
+
+        <record id="product_office_chair" model="product.product">
+            <field name="name">Office Chair</field>
+            <field name="default_code">SWAF-CHAIR</field>
+            <field name="type">consu</field>
+            <field name="is_storable" eval="True"/>
+            <field name="invoice_policy">order</field>
+            <field name="list_price">180.00</field>
+            <field name="standard_price">110.00</field>
+        </record>
+
+        <record id="product_custom_fixture" model="product.product">
+            <field name="name">Custom Fixture</field>
+            <field name="default_code">SWAF-FIXTURE</field>
+            <field name="type">consu</field>
+            <field name="is_storable" eval="True"/>
+            <field name="invoice_policy">delivery</field>
+            <field name="list_price">320.00</field>
+            <field name="standard_price">195.00</field>
+        </record>
+
+        <record id="quant_standard_widget" model="stock.quant">
+            <field name="product_id" ref="product_standard_widget"/>
+            <field name="location_id" ref="stock.stock_location_stock"/>
+            <field name="inventory_quantity_auto_apply">150</field>
+        </record>
+
+        <record id="quant_office_chair" model="stock.quant">
+            <field name="product_id" ref="product_office_chair"/>
+            <field name="location_id" ref="stock.stock_location_stock"/>
+            <field name="inventory_quantity_auto_apply">60</field>
+        </record>
+
+        <!-- Stock for Standard Widget at the Project Warehouse's own PROJ/Stock
+             location so the Scenario 4 manual-baseline delivery reaches "Ready".
+             The Project Warehouse auto-creates its stock location with no static
+             XML id, and the demo eval context only exposes ``ref`` (an id, not a
+             recordset), so the location is resolved server-side by the helper. -->
+        <function model="stock.warehouse" name="_swaf_seed_demo_stock"
+                  eval="[ref('warehouse_project'), ref('product_standard_widget'), 100]"/>
+
+    </data>
+</odoo>

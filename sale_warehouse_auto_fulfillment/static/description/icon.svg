@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- OdoMate brand ramp (banner-template.html .grad): mint -> blue -> violet.
+         userSpaceOnUse so one continuous ramp runs across the whole mark rather
+         than restarting per shape, and so the horizontal motion lines (zero-height
+         bounding box) still render. -->
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- CONTEXT: motion lines — the parcel left on its own, nobody pushed it -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
+    <path d="M52 196 H100"/>
+    <path d="M52 258 H86"/>
+    <path d="M52 320 H100"/>
+  </g>
+
+  <!-- SUBJECT: the parcel, carrying the mark on its own — an enclosed shape, so
+       it still has mass at 128px without a second element beside it. -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="136" y="128" width="300" height="260" rx="16"/>
+    <path d="M136 212 H436"/>
+    <path d="M286 128 V212"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="stock.warehouse0" model="stock.warehouse">
+            <field name="name">Main Warehouse</field>
+            <field name="auto_ship" eval="True"/>
+            <field name="auto_invoice_create" eval="True"/>
+            <field name="auto_invoice_confirm" eval="True"/>
+        </record>
+
+        <record id="warehouse_project" model="stock.warehouse">
+            <field name="name">Project Warehouse</field>
+            <field name="code">PROJ</field>
+            <field name="auto_ship" eval="False"/>
+            <field name="auto_invoice_create" eval="False"/>
+            <field name="auto_invoice_confirm" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

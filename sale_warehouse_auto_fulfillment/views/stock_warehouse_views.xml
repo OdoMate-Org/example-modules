@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_warehouse_form_auto_fulfillment" model="ir.ui.view">
+        <field name="name">stock.warehouse.form.auto.fulfillment</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="auto_ship"/>
+                <field name="auto_invoice_create"/>
+                <field name="auto_invoice_confirm"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
