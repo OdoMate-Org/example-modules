@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <defs>
     <!-- OdoMate brand ramp (banner-template.html .grad): mint -> blue -> violet.
-         userSpaceOnUse so one continuous ramp runs across the whole mark, and so
-         the horizontal motion lines (zero-height bounding box) still render. -->
+         userSpaceOnUse so one continuous ramp runs across the whole mark rather
+         than restarting per shape. -->
     <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
       <stop offset="0" stop-color="#5fe7b0"/>
       <stop offset="0.48" stop-color="#5ab4f0"/>
@@ -10,23 +10,18 @@
     </linearGradient>
   </defs>
 
-  <!-- motion lines: the parcel left on its own, nobody pushed it -->
-  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
-    <path d="M52 196 H96"/>
-    <path d="M52 262 H82"/>
-    <path d="M52 328 H96"/>
-  </g>
-
   <!-- SUBJECT: the parcel — an enclosed shape, so the mark has mass at 128px -->
-  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="134" y="150" width="228" height="212" rx="14"/>
-    <path d="M134 218 H362"/>
-    <path d="M248 150 V218"/>
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="140" y="86" width="232" height="204" rx="16"/>
+    <path d="M140 152 H372"/>
+    <path d="M256 86 V152"/>
   </g>
 
   <!-- ACTION: done, without anyone clicking through it. A tick, because its
-       diagonals are the one form the parcel's right angles do not already use. -->
-  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M318 378 L372 432 L460 316"/>
+       diagonals are the one form the parcel's right angles do not already use.
+       Stacked below rather than tucked into a corner — an earlier version
+       overlapped the parcel's bottom-right corner and read as a collision. -->
+  <g fill="none" stroke="url(#g)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M158 380 L226 448 L354 344"/>
   </g>
 </svg>
