@@ -2,7 +2,8 @@
   <defs>
     <!-- OdoMate brand ramp (banner-template.html .grad): mint -> blue -> violet.
          userSpaceOnUse so one continuous ramp runs across the whole mark rather
-         than restarting per shape. -->
+         than restarting per shape, and so the horizontal motion lines (zero-height
+         bounding box) still render. -->
     <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
       <stop offset="0" stop-color="#5fe7b0"/>
       <stop offset="0.48" stop-color="#5ab4f0"/>
@@ -10,18 +11,18 @@
     </linearGradient>
   </defs>
 
-  <!-- SUBJECT: the parcel — an enclosed shape, so the mark has mass at 128px -->
-  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="140" y="86" width="232" height="204" rx="16"/>
-    <path d="M140 152 H372"/>
-    <path d="M256 86 V152"/>
+  <!-- CONTEXT: motion lines — the parcel left on its own, nobody pushed it -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
+    <path d="M52 196 H100"/>
+    <path d="M52 258 H86"/>
+    <path d="M52 320 H100"/>
   </g>
 
-  <!-- ACTION: done, without anyone clicking through it. A tick, because its
-       diagonals are the one form the parcel's right angles do not already use.
-       Stacked below rather than tucked into a corner — an earlier version
-       overlapped the parcel's bottom-right corner and read as a collision. -->
-  <g fill="none" stroke="url(#g)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M158 380 L226 448 L354 344"/>
+  <!-- SUBJECT: the parcel, carrying the mark on its own — an enclosed shape, so
+       it still has mass at 128px without a second element beside it. -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="136" y="128" width="300" height="260" rx="16"/>
+    <path d="M136 212 H436"/>
+    <path d="M286 128 V212"/>
   </g>
 </svg>
