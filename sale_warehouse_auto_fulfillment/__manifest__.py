@@ -1,10 +1,17 @@
 {
     'name': "Sale Warehouse Auto Fulfillment",
 
-    'summary': "Automatic delivery validation, invoice creation and invoice "
-               "posting per warehouse on sales order confirmation. "
-               "Sale auto ship, auto invoice, auto validate delivery, "
-               "warehouse automation, one-click fulfillment.",
+    'summary': (
+        "Odoo Sale Warehouse Auto Fulfillment module automates order "
+        "fulfillment per warehouse by validating the delivery, creating "
+        "the customer invoice and posting it the moment a sales order is "
+        "confirmed, all inside one transaction so a failure leaves nothing "
+        "half-done. "
+        "warehouse automation | sales order automation | auto validate delivery | "
+        "automatic delivery validation | sale auto invoice | "
+        "automatic invoice posting | one click fulfillment | "
+        "auto ship sales order | per warehouse settings"
+    ),
 
     'description': """
 Sale Warehouse Auto Fulfillment
@@ -17,7 +24,7 @@ so a failure leaves the order as a quotation with nothing half-done.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://www.odomate.pro",
     'support': "support@odomate.pro",
 
     'category': 'Sales/Sales',
@@ -42,4 +49,5 @@ so a failure leaves the order as a quotation with nothing half-done.
     'installable': True,
     'application': False,
     'auto_install': False,
+    'images': ['static/description/banner.jpg'],
 }

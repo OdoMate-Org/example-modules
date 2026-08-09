@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_warehouse_auto_fulfillment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260803\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-09 07:14+0000\n"
+"PO-Revision-Date: 2026-08-09 07:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Automatic fulfillment failed for %(order)s on warehouse %(warehouse)s.\n"
+"\n"
+"Stage: %(stage)s\n"
+"Reason: %(reason)s\n"
+"\n"
+"Nothing was kept: the order stays a quotation, no delivery was validated and no invoice was created. Fix the reason above and confirm the order again, or turn the automation off on the warehouse to confirm it manually."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Automatic invoicing skipped: there was nothing to invoice on this order at "
+"confirmation time. The order itself was confirmed normally."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_confirm
+msgid "Confirm Invoice Automatically"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_create
+msgid "Create Invoice Automatically"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_create
+msgid ""
+"Create the customer invoice as soon as the sales order is confirmed, exactly"
+" as the manual Create Invoice button does. Each product keeps its own "
+"invoicing policy (ordered or delivered quantities). When there is nothing to"
+" invoice, the step is skipped silently."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_custom_fixture_product_template
+msgid "Custom Fixture"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid ""
+"Odoo asked for a manual confirmation step (%(wizard)s) that automatic "
+"shipping cannot answer."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_office_chair_product_template
+msgid "Office Chair"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_invoice_confirm
+msgid ""
+"Post the invoice that this automation has just created. It has no effect on "
+"its own: with Create Invoice Automatically off, there is nothing to post."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model,name:sale_warehouse_auto_fulfillment.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,field_description:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_ship
+msgid "Ship Automatically"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:product.template,name:sale_warehouse_auto_fulfillment.product_standard_widget_product_template
+msgid "Standard Widget"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "The transfer(s) %(pickings)s could not be set to Done automatically."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model.fields,help:sale_warehouse_auto_fulfillment.field_stock_warehouse__auto_ship
+msgid ""
+"Validate the delivery of a sales order in full as soon as the order is "
+"confirmed. All lines, full ordered quantity, no backorder and no stock "
+"availability check (negative stock is allowed)."
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#: model:ir.model,name:sale_warehouse_auto_fulfillment.model_stock_warehouse
+msgid "Warehouse"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic delivery validation"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic invoice creation"
+msgstr ""
+
+#. module: sale_warehouse_auto_fulfillment
+#. odoo-python
+#: code:addons/sale_warehouse_auto_fulfillment/models/sale_order.py:0
+msgid "automatic invoice posting"
+msgstr ""
