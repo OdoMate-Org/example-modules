@@ -1,0 +1,88 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Sale Warehouse Auto Fulfillment</h2>
+        <h3 class="oe_slogan">One Confirm click: delivery validated, invoice created, invoice posted</h3>
+        <p class="oe_mt32">
+            Standard Odoo stops at the delivery order. Someone still has to open the transfer and click
+            <b>Validate</b>, come back to the sales order and click <b>Create Invoice</b>, then open the draft
+            invoice and click <b>Confirm</b>.
+        </p>
+        <p>
+            This module adds three checkboxes to the warehouse form. When they are on, pressing <b>Confirm</b> on a
+            sales order shipped from that warehouse runs the whole chain automatically — invisibly, behind the
+            button your team already uses. No new menu, no new screen, no new model.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Key Features</h2>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Ship Automatically</b> (<code>auto_ship</code>) — validates the delivery in full: all lines,
+                    full ordered quantity, no backorder.</li>
+                <li><b>Create Invoice Automatically</b> (<code>auto_invoice_create</code>) — runs exactly what the
+                    manual <b>Create Invoice</b> button runs, so each product keeps its own invoicing policy.</li>
+                <li><b>Confirm Invoice Automatically</b> (<code>auto_invoice_confirm</code>) — posts the invoice
+                    this run has just created.</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>All-or-nothing safety</b> — the whole run, including the order's state change, sits inside one
+                    database savepoint.</li>
+                <li><b>"Nothing to invoice" is never an error</b> — the step is skipped silently and a note is added
+                    to the order's chatter.</li>
+                <li><b>Auditable failures</b> — every failed run is written to <code>ir.logging</code> through an
+                    independent transaction, so it survives the rollback.</li>
+                <li><b>Zero footprint when off</b> — with the switches off, <code>action_confirm()</code> is a plain
+                    pass-through to standard Odoo.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">How it works</h2>
+        <div class="oe_span12">
+            <ol class="oe_mt32">
+                <li>Go to <b>Inventory &rsaquo; Configuration &rsaquo; Warehouses</b> and open a warehouse. The three
+                    checkboxes sit next to the <b>Short Name</b> field.</li>
+                <li>Create a quotation as usual and make sure its <b>Warehouse</b> points at that warehouse.</li>
+                <li>Click <b>Confirm</b>. The delivery smart button shows <b>Done</b>, the invoice counter goes up and
+                    the invoice is already <b>Posted</b>.</li>
+                <li>If a real error occurs — a required lot/serial, a missing receivable account — everything is rolled
+                    back. The order stays a quotation and a blocking message names the stage and the reason.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Good to know</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                Automatic shipping performs <b>no stock availability check</b> — negative stock is intended behaviour,
+                so only enable it on warehouses with trusted stock figures. Delivery is all-or-nothing (no partial
+                shipping), invoices are posted but never emailed, and the setting is strictly per warehouse: there is
+                no per-order override and no exception list.
+            </p>
+            <p>
+                Full documentation, worked numeric examples and a demo-data walkthrough are in
+                <code>doc/USER_GUIDE.md</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced text-center">
+        <p class="oe_mt32">
+            <b>OdoMate</b> &mdash; <a href="https://odomate.pro">odomate.pro</a> &mdash;
+            <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+        </p>
+    </div>
+</section>
