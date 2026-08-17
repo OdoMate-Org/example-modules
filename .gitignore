@@ -19,5 +19,7 @@ dist/
 
 # OdoMate generator metadata. It rides in the stored archive because the
 # enhancement flow reads it back, but it is not part of the addon: it carries
-# the generation id and the author's original requirements verbatim.
-module_manifest.json
+# the generation id and the author's original requirements verbatim. Anchored
+# to a module root, so a module may still ship its own data/module_manifest.json
+# — matching the filter the platform's push applies.
+/*/module_manifest.json
