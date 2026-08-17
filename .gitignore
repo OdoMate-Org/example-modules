@@ -1,0 +1,18 @@
+# Python bytecode — never belongs in a published Odoo addon. A .pyc compiled
+# by one interpreter can shadow the source in an Odoo container running a
+# different Python, so the installed code stops matching the code you read.
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging / build artefacts
+*.egg-info/
+build/
+dist/
+*.zip
+
+# Editor and OS noise
+.idea/
+.vscode/
+.DS_Store
+*.swp
