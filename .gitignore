@@ -16,3 +16,8 @@ dist/
 .vscode/
 .DS_Store
 *.swp
+
+# OdoMate generator metadata. It rides in the stored archive because the
+# enhancement flow reads it back, but it is not part of the addon: it carries
+# the generation id and the author's original requirements verbatim.
+module_manifest.json
