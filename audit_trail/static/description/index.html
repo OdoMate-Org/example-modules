@@ -1,0 +1,150 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color:#875A7B;">Audit Trail</h2>
+            <h3 class="oe_slogan">Who did what, to which record, and what the value was before</h3>
+        </div>
+        <div class="oe_span12">
+            <p class="oe_mt32" style="text-align:justify;">
+                Audit Trail records create, update, delete, export and view activity on the
+                models you nominate, storing the old and new value of every changed field.
+                Watch settings are declared per model and per company, so nothing is recorded
+                until you confirm a rule. Models without an active rule pay only a cached
+                set-membership check, which is what keeps the rest of the system fast.
+                It records only &mdash; it never blocks, approves, or reverses an action.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Watch rules you control</h4>
+                <p style="text-align:justify;">
+                    One <code>audit.rule</code> per model per company, with a draft/active
+                    workflow. Uniqueness is enforced by a real database constraint, and a
+                    second rule for the same pair is refused with a message naming the
+                    existing one. Setting a rule back to draft stops recording without
+                    deleting a single line of history.
+                </p>
+            </div>
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Full or light detail</h4>
+                <p style="text-align:justify;">
+                    Full detail stores the old <em>and</em> the new value of every changed
+                    field. Light detail skips the extra read of the record and stores new
+                    values only. The trade-off is spelled out on screen next to each option,
+                    not buried in documentation.
+                </p>
+            </div>
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Deletion snapshots</h4>
+                <p style="text-align:justify;">
+                    When a watched record is deleted, its field values can be stored on the
+                    event itself &mdash; because the record is gone. Excluded fields are
+                    scrubbed out of the snapshot too, not just out of the change lines.
+                </p>
+            </div>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Export and view tracking</h4>
+                <p style="text-align:justify;">
+                    Export events record exactly which record ids left the system, with a
+                    <strong>View Exported Records</strong> button that reopens that precise
+                    set. Optional view tracking records one event per row displayed, for
+                    both list views and single-record opens.
+                </p>
+            </div>
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Working sessions and screens</h4>
+                <p style="text-align:justify;">
+                    Events are grouped into per-user sessions using an inactivity timeout,
+                    and linked to the screen they came from. Opening a session shows its
+                    screen trail and its full story in order.
+                </p>
+            </div>
+            <div class="oe_row_img oe_centeralign oe_websiteonly">
+                <h4>Exclusions and retention</h4>
+                <p style="text-align:justify;">
+                    Excluded users produce no event at all &mdash; ideal for a noisy
+                    integration account. An opt-in scheduled job deletes expired events in
+                    self-re-triggering batches, so a first clean-up on a large history never
+                    holds one long transaction open.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol style="text-align:justify;">
+                <li>
+                    Go to <strong>Audit Trail &rarr; Configuration &rarr; Watch Rules</strong>
+                    and create a rule for the model you want to watch &mdash; Contacts, for
+                    example.
+                </li>
+                <li>
+                    Pick <strong>Full</strong> or <strong>Light</strong> detail and tick the
+                    actions to record: Creations, Updates, Deletions, Exports, Views.
+                </li>
+                <li>
+                    Optionally list <strong>Excluded Users</strong> whose activity should
+                    never be recorded, and <strong>Excluded Fields</strong> that must never
+                    appear in stored values.
+                </li>
+                <li>
+                    Press <strong>Confirm</strong>. Recording starts immediately.
+                </li>
+                <li>
+                    Review activity under <strong>Audit Trail &rarr; Logs</strong>, search
+                    individual field changes across every watched model under
+                    <strong>Field Changes</strong>, or open a record and press
+                    <strong>View Logs</strong>.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Honest limitations</h3>
+            <p style="text-align:justify;">
+                There is <strong>no tamper-proofing</strong>: audit administrators can delete
+                recorded history. This is an activity record, not a sealed vault. The module
+                does not approve, block, alert, or chart &mdash; it records, lists, groups and
+                searches. View tracking creates one event per displayed row and is off by
+                default for that reason.
+            </p>
+            <p style="text-align:justify;">
+                Full documentation, including the performance notes and the complete
+                limitations list, ships with the module at
+                <code>doc/USER_GUIDE.md</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced oe_centeralign">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p>
+                Need support or a customisation?
+                <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+                &mdash;
+                <a href="https://odomate.pro">odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_audit_log_list" model="ir.ui.view">
+        <field name="name">audit.log.list</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <list string="Audit Events" create="false" edit="false">
+                <field name="date"/>
+                <field name="record_name"/>
+                <field name="res_model"/>
+                <field name="action"/>
+                <field name="user_id"/>
+                <field name="session_id" optional="show"/>
+                <field name="page_action_id" optional="hide"/>
+                <field name="detail_level" optional="hide"/>
+                <field name="res_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_log_form" model="ir.ui.view">
+        <field name="name">audit.log.form</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Audit Event" create="false" edit="false">
+                <header>
+                    <button name="action_view_exported_records" type="object"
+                            string="View Exported Records" class="btn-primary"
+                            invisible="exported_count == 0"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="record_name"/>
+                        <h1>
+                            <field name="record_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Event">
+                            <field name="action"/>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="detail_level"/>
+                            <field name="exported_count" invisible="1"/>
+                        </group>
+                        <group string="Record">
+                            <field name="res_model"/>
+                            <field name="res_id"/>
+                            <field name="rule_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Context">
+                        <group>
+                            <field name="session_id"/>
+                            <field name="page_action_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Field Changes" name="lines" invisible="not line_ids">
+                            <field name="line_ids" nolabel="1">
+                                <list string="Field Changes" create="false" edit="false"
+                                      delete="false">
+                                    <field name="field_description"/>
+                                    <field name="old_value"/>
+                                    <field name="new_value"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Deletion Snapshot" name="snapshot"
+                              invisible="not deleted_snapshot">
+                            <field name="deleted_snapshot" nolabel="1"/>
+                        </page>
+                        <page string="Exported Records" name="exported"
+                              invisible="not exported_res_ids">
+                            <field name="exported_res_ids" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_log_search" model="ir.ui.view">
+        <field name="name">audit.log.search</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <search string="Audit Events">
+                <field name="record_name" string="Record"
+                       filter_domain="['|', ('record_name', 'ilike', self), ('res_model', 'ilike', self)]"/>
+                <field name="user_id"/>
+                <field name="res_model"/>
+                <field name="action"/>
+                <field name="session_id"/>
+                <field name="page_action_id"/>
+                <field name="date"/>
+                <filter name="filter_today" string="Today"
+                        domain="[('date', '>=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)))]"/>
+                <filter name="filter_last_week" string="Last 7 Days"
+                        domain="[('date', '>=', (context_today() - relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="filter_creates" string="Creations" domain="[('action', '=', 'create')]"/>
+                <filter name="filter_writes" string="Updates" domain="[('action', '=', 'write')]"/>
+                <filter name="filter_unlinks" string="Deletions" domain="[('action', '=', 'unlink')]"/>
+                <filter name="filter_exports" string="Exports" domain="[('action', '=', 'export')]"/>
+                <filter name="filter_reads" string="Views" domain="[('action', '=', 'read')]"/>
+                <separator/>
+                <filter name="group_by_user" string="User" context="{'group_by': 'user_id'}"/>
+                <filter name="group_by_model" string="Kind of Record"
+                        context="{'group_by': 'res_model'}"/>
+                <filter name="group_by_date" string="Day" context="{'group_by': 'date:day'}"/>
+                <filter name="group_by_session" string="Session"
+                        context="{'group_by': 'session_id'}"/>
+                <filter name="group_by_action" string="Action" context="{'group_by': 'action'}"/>
+                <filter name="group_by_page_action" string="Screen"
+                        context="{'group_by': 'page_action_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_log" model="ir.actions.act_window">
+        <field name="name">Logs</field>
+        <field name="res_model">audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No event recorded yet</p>
+            <p>
+                Events appear here as soon as a confirmed watch rule matches an action
+                on a watched record.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_audit_log_line_list" model="ir.ui.view">
+        <field name="name">audit.log.line.list</field>
+        <field name="model">audit.log.line</field>
+        <field name="arch" type="xml">
+            <list string="Field Changes" create="false" edit="false">
+                <field name="date"/>
+                <field name="record_name"/>
+                <field name="res_model" optional="show"/>
+                <field name="user_id"/>
+                <field name="field_description"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="action" optional="hide"/>
+                <field name="log_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_log_line_search" model="ir.ui.view">
+        <field name="name">audit.log.line.search</field>
+        <field name="model">audit.log.line</field>
+        <field name="arch" type="xml">
+            <search string="Field Changes">
+                <field name="field_description"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="record_name"/>
+                <field name="res_model"/>
+                <field name="user_id"/>
+                <field name="field_id"/>
+                <separator/>
+                <filter name="group_by_field" string="Field"
+                        context="{'group_by': 'field_id'}"/>
+                <filter name="group_by_log" string="Event" context="{'group_by': 'log_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_log_line" model="ir.actions.act_window">
+        <field name="name">Field Changes</field>
+        <field name="res_model">audit.log.line</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="view_audit_log_line_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No field change recorded yet</p>
+            <p>
+                Every changed field of every watched model, searchable in one place.
+            </p>
+        </field>
+    </record>
+
+</odoo>
