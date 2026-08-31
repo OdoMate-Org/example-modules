@@ -59,6 +59,12 @@ doc. Minimum bar, per module:
 Trademark: the app *name* must not lead with "Odoo" or imply it's an official Odoo
 product; "… for Odoo" phrasing in the summary is fine.
 
+**Tracked short link:** once a slug is registered for this module at
+`odomate.pro/admin/listing-links`, point `website` at the tracked variant instead —
+`"https://odomate.pro/m/<slug>?v=site"` — so the one link the Store leaves clickable
+also carries attribution. Register the slug there *first*; the manifest field is a
+same-origin redirect either way, so this is a same-day, one-line change per module.
+
 ## 5. Apps Store submission (Maryana's dashboard)
 
 The Apps Store does not take uploads — it **scans a registered git repository**:

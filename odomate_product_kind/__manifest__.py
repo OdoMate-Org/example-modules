@@ -21,7 +21,7 @@ Keywords: product kind, manufacturing classification, product hierarchy,
 route type, snapshot, sale order, manufacturing order, bill of materials.
     """,
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/kinds?v=site",
     'support': "support@odomate.pro",
     'category': 'Manufacturing',
     'version': '19.0.1.0.6',
