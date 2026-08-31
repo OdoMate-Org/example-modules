@@ -23,3 +23,9 @@ dist/
 # to a module root, so a module may still ship its own data/module_manifest.json
 # — matching the filter the platform's push applies.
 /*/module_manifest.json
+
+# render_page.py's backup of the previous listing page. Kept on disk so the
+# old and new pages can be compared during review, but never committed: it
+# would ride along to the Apps Store, which publishes whatever is in
+# static/description/.
+*.original.html

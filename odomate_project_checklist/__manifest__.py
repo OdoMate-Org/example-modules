@@ -16,10 +16,10 @@ per task, track completion with a live progress bar, and let start/end dates
 stamp themselves automatically.
     """,
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/checklist?v=site",
     'support': "support@odomate.pro",
     'category': 'Services/Project',
-    'version': '19.0.1.0.2',
+    'version': '19.0.1.0.3',
     'license': 'LGPL-3',
     'depends': ['project'],
     'data': [
