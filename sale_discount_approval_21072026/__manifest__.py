@@ -34,11 +34,11 @@ Key features
     """,
 
     'author': "OdoMate",
-    'website': "https://www.odomate.pro",
+    'website': "https://odomate.pro/m/discount?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Sales/Sales',
-    'version': '19.0.1.0.3',
+    'version': '19.0.1.0.4',
     'license': 'LGPL-3',
 
     'depends': [
