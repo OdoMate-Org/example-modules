@@ -1,9 +1,14 @@
 {
     'name': "Audit Trail",
 
-    'summary': "Configurable audit trail: track create, write, delete, export "
-               "and read on any model, with before/after field values, "
-               "deletion snapshots, working sessions and retention clean-up",
+    'summary': "Odoo Audit Trail module records who created, changed, deleted, "
+               "exported or opened any record, storing before and after field "
+               "values, deletion snapshots and session context, so past "
+               "activity stays answerable. "
+               "audit trail odoo | audit log | change tracking | "
+               "field history tracking | record change history | "
+               "deletion snapshot | export tracking | user activity log | "
+               "data retention cleanup | compliance audit odoo",
 
     'description': """
 Audit Trail
@@ -18,7 +23,7 @@ the five actions to record: create, write, unlink, export and read.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/audit?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Tools',
@@ -42,6 +47,7 @@ the five actions to record: create, write, unlink, export and read.
         'demo/demo_watch_setup.xml',
         'demo/demo_audit_history.xml',
     ],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': True,
     'auto_install': False,
