@@ -1,0 +1,45 @@
+{
+  "module_name": "Project Task Checklists",
+  "slug": "project-task-checklists",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Project Task</span> <span style=\"color:#a98bf5;\">Checklists</span>",
+  "intro_html": "Turns a process your team runs the same way every time — onboarding a client, launching a website, closing out an offboarding — into a reusable checklist you attach to any task, so no important step ever gets missed, no matter who's running the work.",
+  "test_count": 12,
+
+  "stats_caption": "time and cost across spec preparation, generation, and every enhancement round.",
+  "stats": [
+    {"value": "~60 min", "label": "First generated version", "caption": "From spec to a working, tested module"},
+    {"value": "2", "label": "Versions", "caption": "v1 original generation + 1 enhancement round"},
+    {"value": "< $40", "label": "Total compute", "caption": "Across both versions — generation and every enhancement"},
+    {"value": "12", "label": "Automated tests", "caption": "Generated and run with the module itself"}
+  ],
+
+  "short_link": {
+    "slug": "checklist",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_project_checklist/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64"
+  },
+
+  "features": [
+    {"icon": "list-ol", "title": "Reusable Templates", "desc": "Build a step-by-step checklist once, then attach it to any project task."},
+    {"icon": "copy", "title": "Independent Per-Task Copies", "desc": "Each task gets its own copy — freely add, remove, rename, or reorder steps without ever touching the original template."},
+    {"icon": "check-square-o", "title": "One-Click Step Actions", "desc": "Start, Done, and Cancel actions with color-coded rows make status obvious at a glance."},
+    {"icon": "refresh", "title": "Safe Checklist Switching", "desc": "Replacing an in-progress checklist shows a warning first, so you never lose recorded progress by accident."},
+    {"icon": "tachometer", "title": "Smart Progress Tracking", "desc": "Cancelled steps are excluded from the calculation, so an irrelevant step can never hold you below 100%."},
+    {"icon": "calendar", "title": "Automatic Start/End Dates", "desc": "The task's dates stamp themselves as work happens — no manual entry, ever."},
+    {"icon": "users", "title": "Manager-Curated Library", "desc": "Managers maintain the checklist library; everyone on the team can pick from it when working on a task."},
+    {"icon": "star", "title": "Ready-to-Use Examples", "desc": "Ships with three example checklists — Client Onboarding, Website Launch, Employee Offboarding — so you can see it working right away."}
+  ],
+
+  "limitations": [
+    "No per-step assignment — the task's existing assignee owns all steps.",
+    "No email notifications or reminders on step changes.",
+    "Checklist templates aren't isolated per company.",
+    "Editing a template later doesn't retroactively change tasks that already applied it.",
+    "No dashboards/reports beyond the on-task and list-view progress bars."
+  ]
+}
