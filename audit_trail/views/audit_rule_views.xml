@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_audit_rule_list" model="ir.ui.view">
+        <field name="name">audit.rule.list</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <list string="Watch Rules" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="detail_level"/>
+                <field name="track_create" optional="show"/>
+                <field name="track_write" optional="show"/>
+                <field name="track_unlink" optional="show"/>
+                <field name="track_export" optional="hide"/>
+                <field name="track_read" optional="show"/>
+                <field name="date_confirmed" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_rule_form" model="ir.ui.view">
+        <field name="name">audit.rule.form</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <form string="Watch Rule">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" type="object" string="Set to Draft"
+                            invisible="state != 'active'"/>
+                    <button name="action_view_logs" type="object" string="View Logs"
+                            invisible="not id"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Contacts - full audit"
+                                   readonly="state == 'active'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="model_id" options="{'no_create': True, 'no_open': True}"
+                                   readonly="state == 'active'"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state == 'active'"/>
+                        </group>
+                        <group>
+                            <field name="date_confirmed"/>
+                        </group>
+                    </group>
+                    <group string="Detail Level">
+                        <field name="detail_level" widget="radio" nolabel="1"
+                               readonly="state == 'active'"/>
+                        <div colspan="2" class="text-muted">
+                            <div><strong>Full</strong> stores the old value and the new value of every changed field.</div>
+                            <div><strong>Light</strong> stores the new value only; the old value column stays blank.</div>
+                        </div>
+                        <div colspan="2" class="alert alert-warning" role="alert"
+                             invisible="detail_level != 'full'">
+                            Full detail costs one extra read of the record on every write to this
+                            model. On a model that is written to constantly, prefer Light.
+                        </div>
+                    </group>
+                    <group string="Recorded Actions">
+                        <field name="track_create" readonly="state == 'active'"/>
+                        <field name="track_write" readonly="state == 'active'"/>
+                        <field name="track_unlink" readonly="state == 'active'"/>
+                        <field name="keep_deleted_snapshot" readonly="state == 'active'"
+                               invisible="not track_unlink"/>
+                        <field name="track_export" readonly="state == 'active'"/>
+                        <field name="track_read" readonly="state == 'active'"/>
+                        <div colspan="2" class="alert alert-warning" role="alert"
+                             invisible="not track_read">
+                            Recording views creates one event per row displayed. Opening a list of
+                            80 records records 80 events.
+                        </div>
+                    </group>
+                    <group string="Exclusions">
+                        <field name="excluded_user_ids" widget="many2many_tags"
+                               readonly="state == 'active'"
+                               placeholder="Users whose actions are never recorded"/>
+                        <field name="excluded_field_ids" widget="many2many_tags"
+                               readonly="state == 'active'"
+                               options="{'no_create': True}"
+                               placeholder="Fields that never appear in recorded values"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_rule_search" model="ir.ui.view">
+        <field name="name">audit.rule.search</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <search string="Watch Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="model_name"/>
+                <filter name="filter_active" string="Active" domain="[('state', '=', 'active')]"/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <separator/>
+                <filter name="filter_full_detail" string="Full Detail"
+                        domain="[('detail_level', '=', 'full')]"/>
+                <filter name="filter_track_read" string="Records Views"
+                        domain="[('track_read', '=', True)]"/>
+                <separator/>
+                <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_by_model" string="Watched Model"
+                        context="{'group_by': 'model_id'}"/>
+                <filter name="group_by_detail_level" string="Detail Level"
+                        context="{'group_by': 'detail_level'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_rule" model="ir.actions.act_window">
+        <field name="name">Watch Rules</field>
+        <field name="res_model">audit.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_rule_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define what the audit trail watches</p>
+            <p>
+                One rule per kind of record, per company. Nothing is recorded until
+                the rule is confirmed.
+            </p>
+        </field>
+    </record>
+
+</odoo>
