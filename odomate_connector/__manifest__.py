@@ -31,10 +31,10 @@ dependencies. The export is plain, pretty-printed JSON — open it and inspect
 exactly what leaves your system before you share it.
     """,
     'author': "OdoMate",
-    'website': "https://www.odomate.pro",
+    'website': "https://odomate.pro/m/connector?v=site",
     'support': "support@odomate.pro",
     'category': 'Technical',
-    'version': '19.0.1.7.0',
+    'version': '19.0.1.7.1',
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [

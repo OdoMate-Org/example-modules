@@ -1,0 +1,60 @@
+{
+  "module_name": "OdoMate Connector",
+  "slug": "odomate-connector",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">OdoMate</span> <span style=\"color:#a98bf5;\">Connector</span>",
+  "intro_html": "Tells OdoMate what your Odoo actually looks like. Without it, a generated module is written blind — against a stock database with none of your apps, none of your custom fields, none of your settings — and the mismatch only surfaces when you try to install it. This module exports a redacted structural snapshot of your database, so the next module OdoMate builds for you is built against your real environment and tested on a replica of it.",
+
+  "short_link": {
+    "slug": "connector",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+
+  "features": [
+    {"icon": "magic", "title": "Modules That Fit Your Setup", "desc": "OdoMate generates against your actual installed apps, custom fields and settings — not a blank database."},
+    {"icon": "check-square-o", "title": "Tested On Your Replica", "desc": "Your module is validated on an environment rebuilt from your snapshot, so install-time surprises surface before delivery."},
+    {"icon": "list-ol", "title": "Dependencies Accounted For", "desc": "Every installed module is reported and classified — core, OCA, third-party or custom — so generated code targets what you actually have."},
+    {"icon": "shield", "title": "Structure Only, Never Records", "desc": "No business records, no partner or user data, no names, no emails. Record counts only."},
+    {"icon": "lock", "title": "No Credentials, No Network", "desc": "The module never asks for a credential and makes no network calls at all. You press a button and get a file."},
+    {"icon": "file-text-o", "title": "Readable Before You Share It", "desc": "Plain, pretty-printed JSON. Open it and see exactly what would leave your database — the decision stays yours."},
+    {"icon": "exchange", "title": "Two-Stage Redaction", "desc": "An allowlist decides what is even considered, then a pattern rule drops anything resembling a key, secret, token or password."},
+    {"icon": "clock-o", "title": "Re-Export Whenever It Changes", "desc": "Install an app, add a field, flip a setting — take a fresh snapshot. It stores nothing, so there is nothing to clean up."}
+  ],
+
+  "panels_section": {
+    "title": "What the snapshot contains",
+    "subtitle": "Structural context, never your business records.",
+    "panels": [
+      {"title": "Included", "tone": "positive", "items": [
+        "Installed modules, classified core / Enterprise / OCA / third-party / custom, with the manifest website and licence",
+        "Models and fields, including Studio and x_ customizations, with type, storage and relation detail",
+        "Views you have customized or inherited",
+        "Configuration toggles and allowlisted system parameters",
+        "Security groups, with a user count each",
+        "Automated actions: name, model, trigger, and the shape of the condition — the fields it tests, with any comparison value that could name a record replaced by <redacted>. Never the code body",
+        "Per-model record counts"
+      ]},
+      {"title": "Never included", "tone": "negative", "items": [
+        "Business records of any kind",
+        "Partner, employee or user data — no names, no emails",
+        "Credentials, API keys or tokens",
+        "Secret system parameters",
+        "The raw database UUID (a SHA-256 hash only)",
+        "Automated-action code bodies"
+      ]}
+    ]
+  },
+
+  "doc_guide": {
+    "cover_image": "assets/doc/docs-cover.png",
+    "en_pdf_url": "https://docs.odomate.pro/environment-context-setup/",
+    "en_qr_base64_file": "static/description/assets/doc/docs-qr.b64"
+  },
+
+  "limitations": [
+    "OdoMate currently targets Odoo Community. Enterprise environments are outside what OdoMate generates for today — the snapshot will still describe an Enterprise installation accurately, but generation is not aimed at it.",
+    "The snapshot records commercial third-party modules by name, version and public schema — not their code. Whether that is enough for OdoMate to reliably account for such a module's behaviour during generation is not yet verified, so treat it as unconfirmed rather than supported.",
+    "The test replica cannot install commercial modules. A generated module is therefore never automatically tested against them; anything depending on a paid module needs your own testing before you rely on it.",
+    "Automated actions are exported with their trigger and the shape of their condition, so generated code does not duplicate or contradict them. A comparison value is kept only where it is part of the schema — a selection value such as done, a number, a boolean; anything that could name a record becomes <redacted>. Code bodies are never exported.",
+    "A snapshot is capped at 25 MB. A larger database degrades in disclosed stages, ordered by how easily the content can be found elsewhere: field lists of standard Odoo models first, then OCA ones, then empty record counts, and your customized view bodies only last. Your own custom fields are never dropped, and anything that was is listed in the file's truncated field."
+  ]
+}
