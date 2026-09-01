@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_audit_config_form" model="ir.ui.view">
+        <field name="name">audit.config.form</field>
+        <field name="model">audit.config</field>
+        <field name="arch" type="xml">
+            <form string="Audit Trail Clean-up">
+                <sheet>
+                    <group>
+                        <field name="cleanup_enabled"/>
+                        <field name="retention_days" invisible="not cleanup_enabled"
+                               required="cleanup_enabled"/>
+                        <field name="batch_size" invisible="not cleanup_enabled"
+                               required="cleanup_enabled"/>
+                    </group>
+                    <div class="alert alert-info" role="alert" invisible="cleanup_enabled">
+                        Clean-up is off. No recorded event is ever deleted automatically.
+                    </div>
+                    <div class="alert alert-warning" role="alert" invisible="not cleanup_enabled">
+                        Once saved, the daily job permanently deletes events older than the
+                        retention period, together with their recorded field changes, and
+                        retires the sessions and screens left empty by that clean-up.
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="action_save" type="object" string="Save" class="btn-primary"/>
+                    <button name="action_run_cleanup_now" type="object" string="Save &amp; Run Now"
+                            class="btn-secondary" invisible="not cleanup_enabled"
+                            confirm="This permanently deletes every recorded event older than the retention period. Continue?"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_audit_config" model="ir.actions.act_window">
+        <field name="name">Clean-up Settings</field>
+        <field name="res_model">audit.config</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_audit_config_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

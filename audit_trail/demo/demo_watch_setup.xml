@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_user_integration" model="res.users">
+            <field name="name">Integration User</field>
+            <field name="login">audit_integration</field>
+            <field name="group_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+        </record>
+
+        <record id="demo_partner_northwind" model="res.partner">
+            <field name="name">Northwind Traders</field>
+            <field name="is_company" eval="True"/>
+            <field name="email">accounts@example.com</field>
+            <field name="phone">+1 555 0142</field>
+            <field name="city">Boston</field>
+            <field name="website">https://northwind.example.com</field>
+        </record>
+
+        <record id="demo_partner_lakeside" model="res.partner">
+            <field name="name">Lakeside Consulting</field>
+            <field name="is_company" eval="True"/>
+            <field name="email">hello@example.org</field>
+            <field name="phone">+1 555 0177</field>
+            <field name="city">Denver</field>
+        </record>
+
+        <record id="demo_partner_bridgeport" model="res.partner">
+            <field name="name">Bridgeport Analytics</field>
+            <field name="is_company" eval="True"/>
+            <field name="email">contact@example.com</field>
+            <field name="phone">+1 555 0193</field>
+            <field name="city">Seattle</field>
+        </record>
+
+        <record id="demo_partner_orchard" model="res.partner">
+            <field name="name">Orchard Supply Co.</field>
+            <field name="is_company" eval="True"/>
+            <field name="email">orders@example.net</field>
+            <field name="phone">+1 555 0128</field>
+            <field name="city">Austin</field>
+        </record>
+
+        <record id="demo_partner_marek" model="res.partner">
+            <field name="name">Marek Halloway</field>
+            <field name="parent_id" ref="demo_partner_northwind"/>
+            <field name="function">Procurement Lead</field>
+            <field name="email">m.halloway@example.com</field>
+            <field name="phone">+1 555 0155</field>
+        </record>
+
+        <record id="demo_audit_rule_partner" model="audit.rule">
+            <field name="name">Contacts - full audit</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="detail_level">full</field>
+            <field name="track_create" eval="True"/>
+            <field name="track_write" eval="True"/>
+            <field name="track_unlink" eval="True"/>
+            <field name="track_export" eval="True"/>
+            <field name="track_read" eval="False"/>
+            <field name="keep_deleted_snapshot" eval="True"/>
+            <field name="excluded_user_ids" eval="[(6, 0, [ref('demo_user_integration')])]"/>
+            <field name="state">active</field>
+            <field name="date_confirmed"
+                   eval="(DateTime.now() - timedelta(days=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_audit_config" model="audit.config">
+            <field name="cleanup_enabled" eval="False"/>
+            <field name="retention_days">180</field>
+            <field name="batch_size">1000</field>
+        </record>
+
+    </data>
+</odoo>

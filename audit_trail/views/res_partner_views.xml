@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_audit_trail" model="ir.ui.view">
+        <field name="name">res.partner.form.audit.trail</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_audit_logs" type="object"
+                        class="oe_stat_button" icon="fa-history"
+                        invisible="not id"
+                        groups="audit_trail.group_audit_user">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">View</span>
+                        <span class="o_stat_text">Logs</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

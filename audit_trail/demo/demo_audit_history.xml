@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_session_admin_today" model="audit.session">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() - timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(minutes=95)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_session_admin_yesterday" model="audit.session">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() - timedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(days=1, hours=3, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_session_demo_user" model="audit.session">
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() - timedelta(hours=6)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(hours=5, minutes=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_page_action_contacts_admin" model="audit.page.action">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(minutes=95)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_page_action_customers_admin" model="audit.page.action">
+            <field name="name">Customers</field>
+            <field name="res_model">res.partner</field>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_page_action_contacts_yesterday" model="audit.page.action">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="session_id" ref="demo_session_admin_yesterday"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(days=1, hours=3, minutes=32)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_page_action_contacts_demo_user" model="audit.page.action">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="session_id" ref="demo_session_demo_user"/>
+            <field name="last_activity_datetime"
+                   eval="(DateTime.now() - timedelta(hours=5, minutes=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_log_create_northwind" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_northwind')"/>
+            <field name="record_name">Northwind Traders</field>
+            <field name="action">create</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__name'), 'field_description': 'Name', 'old_value': '', 'new_value': 'Northwind Traders'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__email'), 'field_description': 'Email', 'old_value': '', 'new_value': 'accounts@example.com'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__phone'), 'field_description': 'Phone', 'old_value': '', 'new_value': '+1 555 0100'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__city'), 'field_description': 'City', 'old_value': '', 'new_value': 'Boston'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_create_lakeside" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_lakeside')"/>
+            <field name="record_name">Lakeside Consulting</field>
+            <field name="action">create</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=55)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__name'), 'field_description': 'Name', 'old_value': '', 'new_value': 'Lakeside Consulting'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__email'), 'field_description': 'Email', 'old_value': '', 'new_value': 'hello@example.org'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__city'), 'field_description': 'City', 'old_value': '', 'new_value': 'Boulder'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_northwind_phone" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_northwind')"/>
+            <field name="record_name">Northwind Traders</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__phone'), 'field_description': 'Phone', 'old_value': '+1 555 0100', 'new_value': '+1 555 0142'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_northwind_email" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_northwind')"/>
+            <field name="record_name">Northwind Traders</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__email'), 'field_description': 'Email', 'old_value': 'info@example.com', 'new_value': 'accounts@example.com'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__website'), 'field_description': 'Website Link', 'old_value': '', 'new_value': 'https://northwind.example.com'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_lakeside_city" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_lakeside')"/>
+            <field name="record_name">Lakeside Consulting</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=40)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__city'), 'field_description': 'City', 'old_value': 'Boulder', 'new_value': 'Denver'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__phone'), 'field_description': 'Phone', 'old_value': '', 'new_value': '+1 555 0177'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_export_contacts" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id">0</field>
+            <field name="record_name">4 records</field>
+            <field name="action">export</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_customers_admin"/>
+            <field name="exported_res_ids"
+                   eval="'[%s, %s, %s, %s]' % (ref('demo_partner_northwind'), ref('demo_partner_lakeside'), ref('demo_partner_bridgeport'), ref('demo_partner_orchard'))"/>
+        </record>
+
+        <record id="demo_log_write_bridgeport_website" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_bridgeport')"/>
+            <field name="record_name">Bridgeport Analytics</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2, minutes=20)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__website'), 'field_description': 'Website Link', 'old_value': 'http://bridgeport.example.com', 'new_value': 'https://bridgeport.example.com'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_unlink_fenwick" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id">999999</field>
+            <field name="record_name">Fenwick Brothers Ltd.</field>
+            <field name="action">unlink</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+            <field name="deleted_snapshot">{
+  "city": "Portland",
+  "email": "accounts@example.net",
+  "is_company": "True",
+  "name": "Fenwick Brothers Ltd.",
+  "phone": "+1 555 0164",
+  "website": "https://fenwick.example.net"
+}</field>
+        </record>
+
+        <record id="demo_log_read_northwind" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_northwind')"/>
+            <field name="record_name">Northwind Traders</field>
+            <field name="action">read</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(minutes=100)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+        </record>
+
+        <record id="demo_log_read_lakeside" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_lakeside')"/>
+            <field name="record_name">Lakeside Consulting</field>
+            <field name="action">read</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(minutes=97)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_today"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_admin"/>
+        </record>
+
+        <record id="demo_log_create_bridgeport" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_bridgeport')"/>
+            <field name="record_name">Bridgeport Analytics</field>
+            <field name="action">create</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(days=1, hours=4)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_yesterday"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_yesterday"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__name'), 'field_description': 'Name', 'old_value': '', 'new_value': 'Bridgeport Analytics'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__city'), 'field_description': 'City', 'old_value': '', 'new_value': 'Seattle'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_bridgeport_phone" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_bridgeport')"/>
+            <field name="record_name">Bridgeport Analytics</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(days=1, hours=3, minutes=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_yesterday"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_yesterday"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__phone'), 'field_description': 'Phone', 'old_value': '+1 555 0190', 'new_value': '+1 555 0193'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_bridgeport_email" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_bridgeport')"/>
+            <field name="record_name">Bridgeport Analytics</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(days=1, hours=3, minutes=40)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_yesterday"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_yesterday"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__email'), 'field_description': 'Email', 'old_value': 'hello@example.com', 'new_value': 'contact@example.com'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_orchard_city" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_orchard')"/>
+            <field name="record_name">Orchard Supply Co.</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(days=1, hours=3, minutes=32)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_admin_yesterday"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_yesterday"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__city'), 'field_description': 'City', 'old_value': 'Houston', 'new_value': 'Austin'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__email'), 'field_description': 'Email', 'old_value': 'sales@example.net', 'new_value': 'orders@example.net'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_create_marek" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_marek')"/>
+            <field name="record_name">Marek Halloway</field>
+            <field name="action">create</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=6)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_demo_user"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_demo_user"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__name'), 'field_description': 'Name', 'old_value': '', 'new_value': 'Marek Halloway'}),
+                (0, 0, {'field_id': ref('base.field_res_partner__function'), 'field_description': 'Job Position', 'old_value': '', 'new_value': 'Buyer'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_marek_function" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_marek')"/>
+            <field name="record_name">Marek Halloway</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=5, minutes=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_demo_user"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_demo_user"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__function'), 'field_description': 'Job Position', 'old_value': 'Buyer', 'new_value': 'Procurement Lead'}),
+            ]"/>
+        </record>
+
+        <record id="demo_log_write_marek_phone" model="audit.log">
+            <field name="rule_id" ref="demo_audit_rule_partner"/>
+            <field name="res_model">res.partner</field>
+            <field name="res_id" eval="ref('demo_partner_marek')"/>
+            <field name="record_name">Marek Halloway</field>
+            <field name="action">write</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="date"
+                   eval="(DateTime.now() - timedelta(hours=5, minutes=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="detail_level">full</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="session_id" ref="demo_session_demo_user"/>
+            <field name="page_action_id" ref="demo_page_action_contacts_demo_user"/>
+            <field name="line_ids" eval="[
+                (0, 0, {'field_id': ref('base.field_res_partner__phone'), 'field_description': 'Phone', 'old_value': '', 'new_value': '+1 555 0155'}),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>
