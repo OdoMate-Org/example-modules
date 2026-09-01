@@ -30,7 +30,7 @@
        copy of the block (QR base64 and all) in there. -->
     <div style="margin:16px 0 0; padding:22px; border-radius:16px; background-color:#f0f8f5; border:1px solid #c7ddd2; font-size:0; text-align:left;">
     <div style="display:inline-block; vertical-align:middle; width:100%; max-width:370px;">
-      <div style="font-weight:800; font-size:18px; color:#09090b; margin-bottom:4px;">Generate your modules for free while we're in beta</div>
+      <div style="font-weight:800; font-size:20px; color:#09090b; margin-bottom:6px; line-height:1.35;">Generate your modules <span style="color:#047857;">for free</span><br>while we're in beta</div>
       <div style="font-weight:500; font-size:15px; color:#3f3f46;">All we ask for is your feedback. Inspect this one, then request access to try OdoMate on your own spec.</div>
     </div>
     <div style="display:inline-block; vertical-align:middle; width:100%; max-width:405px; text-align:right; margin-top:14px;">
@@ -102,7 +102,7 @@
       <div style="display:inline-block; vertical-align:top; width:100%; max-width:200px; text-align:center;">
         <div style="margin:0 5px 10px; background-color:#047857; border:1px solid #0b7a5c; border-radius:14px; padding:20px 12px; min-height:196px;">
           <div style="font-weight:800; font-size:34px; color:#a7f3d0; line-height:1.1;">&lt; $85</div>
-          <div style="font-weight:800; font-size:14px; color:#ffffff; margin-top:8px;">Total compute</div>
+          <div style="font-weight:800; font-size:14px; color:#ffffff; margin-top:8px;">Total cost</div>
           <div style="font-weight:500; font-size:13px; color:#d1fae5; margin-top:6px; line-height:1.45;">Across all 5 versions — generation and every enhancement</div>
         </div>
       </div>
@@ -207,14 +207,14 @@
         <h2 style="font-weight:700; font-size:27px; color:#09090b; margin:32px 0 20px; text-align:center;">User Guide</h2>
   <div style="background-color:#047857; border-radius:10px; padding-left:4px;">
     <div style="padding:20px; border-radius:10px; background-color:#f0f8f5; border:1px solid #c7ddd2; font-size:0; text-align:left;">
-      <div style="display:inline-block; vertical-align:top; width:100%; max-width:140px;"><img src="assets/doc/guide-cover-en.png" alt="User guide cover" style="width:100%; max-width:130px; border-radius:8px; border:1px solid #e4e4e7; display:block; margin:0 10px 10px 0;"></div>
-      <div style="display:inline-block; vertical-align:top; width:100%; max-width:440px; font-weight:500; font-size:17px;">
+      <div style="display:inline-block; vertical-align:middle; width:100%; max-width:140px;"><img src="assets/doc/guide-cover-en.png" alt="User guide cover" style="width:100%; max-width:130px; border-radius:8px; border:1px solid #e4e4e7; display:block; margin:0 10px 10px 0;"></div>
+      <div style="display:inline-block; vertical-align:middle; width:100%; max-width:440px; font-weight:500; font-size:17px;">
         <h3 style="font-weight:700; font-size:18px; color:#09090b; margin:0 0 6px;">Read the guide</h3>
         <p style="font-weight:500; font-size:16px; color:#3f3f46; margin:0 0 12px;">The full user guide for this module, written in English and Ukrainian.</p>
         <div style="margin-bottom:8px;"><span style="display:inline-block; min-width:34px; font-weight:700; color:#09090b; font-size:15px;">EN</span><a href="https://github.com/OdoMate-Org/example-modules/blob/19.0/sale_discount_approval_21072026/doc/USER_GUIDE.pdf" style="color:#047857; font-weight:700; text-decoration:none; font-size:15px;">github.com/<wbr>OdoMate-Org/<wbr>example-modules/<wbr>blob/<wbr>19.0/<wbr>sale_discount_approval_21072026/<wbr>doc/<wbr>USER_GUIDE.pdf</a></div>
         <div><span style="display:inline-block; min-width:34px; font-weight:700; color:#09090b; font-size:15px;">UK</span><a href="https://github.com/OdoMate-Org/example-modules/blob/19.0/sale_discount_approval_21072026/doc/USER_GUIDE.uk.pdf" style="color:#047857; font-weight:700; text-decoration:none; font-size:15px;">github.com/<wbr>OdoMate-Org/<wbr>example-modules/<wbr>blob/<wbr>19.0/<wbr>sale_discount_approval_21072026/<wbr>doc/<wbr>USER_GUIDE.uk.pdf</a></div>
       </div>
-      <div style="display:inline-block; vertical-align:top; width:100%; max-width:150px;">
+      <div style="display:inline-block; vertical-align:middle; width:100%; max-width:150px;">
         <div style="margin:0 0 10px;">
           <img src="assets/qr/guide-en.png" width="135" height="135" alt="QR code linking to the English user guide PDF" style="display:block; border:1px solid #e4e4e7; border-radius:8px;">
           <div style="text-align:center; font-size:12px; font-weight:700; color:#09090b; margin-top:4px;">EN guide</div>
@@ -232,37 +232,46 @@
       <!-- ================= ABOUT ODOMATE ================= -->
       <div class="tab-pane fade" id="saledisc-about" role="tabpanel">
 
-        <div style="margin:24px 0 0;">
+        <!-- The About tab is four logical blocks, and each one is drawn as a
+             block: a heading, then its content, on its own tinted panel. Run
+             together without that framing it reads as a loose stack of boxes
+             and the reader can't tell where one idea stops. The "What you get"
+             box below already worked this way; the rest now match it. -->
+
+        <div style="margin:24px 0 0; padding:28px 22px; border-radius:16px; background-color:#fafafa; border:1px solid #e4e4e7;">
+          <h2 style="font-weight:800; font-size:27px; color:#09090b; margin:0 0 18px; text-align:center;">What you do, what OdoMate does</h2>
             <div style="margin:0 0 12px; padding:20px 24px; border-radius:12px; background-color:#ffffff; border:1px solid #e4e4e7; font-weight:500; font-size:17px; color:#27272a; max-width:780px;"><b style=\"color:#09090b;\">You write the spec, not the code.</b> Describe what you need in your own language; OdoMate handles the OCA-structured scaffolding, the tests, and the documentation.</div>
   <div style="margin:0 0 12px; padding:20px 24px; border-radius:12px; background-color:#f0f8f5; border:2px solid #047857; font-weight:500; font-size:17px; color:#27272a; max-width:780px;"><b style=\"color:#09090b;\">Generation runs unattended.</b> Refine your spec, click Generate, and walk away — join your next call, plan the next module, whatever's next. <b style=\"color:#09090b;\">Come back to a finished result.</b></div>
-  <div style="margin:0 0 12px; padding:20px 24px; border-radius:12px; background-color:#ffffff; border:1px solid #e4e4e7; font-weight:500; font-size:17px; color:#27272a; max-width:780px;"><b style=\"color:#09090b;\">Verify it yourself.</b> Every module ships with real, runnable tests and OCA-standard structure — so you can check what it actually produced instead of taking our word for it.</div>
+  <div style="margin:0 0 12px; padding:20px 24px; border-radius:12px; background-color:#ffffff; border:1px solid #e4e4e7; font-weight:500; font-size:17px; color:#27272a; max-width:780px;"><b style=\"color:#09090b;\">Proof, not promises.</b> Every module ships with real, runnable tests and OCA-standard structure — so you can check what it actually produced instead of taking our word for it.</div>
         </div>
 
-        <h2 style="font-weight:700; font-size:27px; color:#09090b; margin:36px 0 4px; text-align:center;">Who is OdoMate designed for</h2>
-        <p style="text-align:center; font-weight:500; color:#52525b; font-size:16px; margin:0 0 20px;">Three ways teams actually use it.</p>
-        <div style="text-align:center; font-size:0;">
+        <div style="margin:28px 0 0; padding:28px 22px; border-radius:16px; background-color:#fafafa; border:1px solid #e4e4e7;">
+          <h2 style="font-weight:800; font-size:27px; color:#09090b; margin:0 0 4px; text-align:center;">Who is OdoMate designed for</h2>
+          <p style="text-align:center; font-weight:500; color:#52525b; font-size:16px; margin:0 0 20px;">Three ways teams actually use it.</p>
+          <div style="text-align:center; font-size:0;">
   <div style="display:inline-block; vertical-align:top; width:100%; max-width:280px; text-align:left;">
     <div style="margin:0 6px 12px; background-color:#eef7f3; border:1px solid #c7ddd2; border-radius:12px; padding:16px; min-height:220px;">
-      <div style="font-size:13px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#047857; margin-bottom:6px;">Integrators & agencies</div>
+      <div style="font-size:15px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#047857; margin-bottom:6px;">Integrators & agencies</div>
       <div style="font-weight:700; font-size:15px; color:#09090b; margin-bottom:6px;">Prototype and deliver faster</div>
       <div style="font-weight:500; font-size:15px; color:#3f3f46;">BAs prototype and deliver faster; developers save real time on complex engineering instead of writing scaffolding by hand.</div>
     </div>
   </div>
   <div style="display:inline-block; vertical-align:top; width:100%; max-width:280px; text-align:left;">
     <div style="margin:0 6px 12px; background-color:#f4f1fc; border:1px solid #ddd3f7; border-radius:12px; padding:16px; min-height:220px;">
-      <div style="font-size:13px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#7c3aed; margin-bottom:6px;">Freelance BAs & devs</div>
+      <div style="font-size:15px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#7c3aed; margin-bottom:6px;">Freelance BAs & devs</div>
       <div style="font-weight:700; font-size:15px; color:#09090b; margin-bottom:6px;">More work, same quality bar</div>
       <div style="font-weight:500; font-size:15px; color:#3f3f46;">speed up delivery and take on more of it, without cutting the quality your clients expect.</div>
     </div>
   </div>
   <div style="display:inline-block; vertical-align:top; width:100%; max-width:280px; text-align:left;">
     <div style="margin:0 6px 12px; background-color:#eef6fc; border:1px solid #c9e2f4; border-radius:12px; padding:16px; min-height:220px;">
-      <div style="font-size:13px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#0369a1; margin-bottom:6px;">Companies running Odoo</div>
+      <div style="font-size:15px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#0369a1; margin-bottom:6px;">Companies running Odoo</div>
       <div style="font-weight:700; font-size:15px; color:#09090b; margin-bottom:6px;">Prototype before you brief a dev</div>
       <div style="font-weight:500; font-size:15px; color:#3f3f46;">faster delivery, and business users can see what a module would look like before ever briefing a developer.</div>
     </div>
   </div>
 </div>
+        </div>
 
         <div style="margin:36px 0 0; background-color:#047857; border-radius:14px; padding-left:4px;">
   <div style="background-color:#f0f8f5; border:1px solid #c7ddd2; border-radius:14px; padding:22px 24px;">
@@ -284,12 +293,14 @@
   </div>
 </div>
 
-        <div style="margin:36px 0 0; text-align:center; font-size:0;">
+        <div style="margin:28px 0 0; padding:28px 22px; border-radius:16px; background-color:#fafafa; border:1px solid #e4e4e7;">
+          <h2 style="font-weight:800; font-size:27px; color:#09090b; margin:0 0 18px; text-align:center;">Work with your team and your stack</h2>
+          <div style="margin:36px 0 0; text-align:center; font-size:0;">
   <div style="display:inline-block; vertical-align:top; width:100%; max-width:434px; text-align:left;">
     <div style="margin:0 8px 16px; background-color:#ffffff; border:1px solid #e4e4e7; border-radius:14px; padding:20px; min-height:268px;">
       <img src="assets/icons/users-plain.png" width="30" height="30" style="display:block; margin-bottom:10px; background-color:#eef7f3; border-radius:8px; padding:6px;" alt="">
       <h3 style="font-weight:700; font-size:18px; color:#09090b; margin:0 0 6px;">Work as a team</h3>
-      <p style="font-weight:500; font-size:15px; color:#27272a; margin:0;">Every teammate gets access to the same GitHub repo your generated modules land in — no passing zip files around.</p>
+      <p style="font-weight:500; font-size:15px; color:#27272a; margin:0;">Every teammate gets access to the same <strong>GitHub repo</strong> your generated modules land in — no passing zip files around.</p>
       
     </div>
   </div>
@@ -302,9 +313,11 @@
     </div>
   </div>
 </div>
+        </div>
 
-        <h2 style="font-weight:700; font-size:27px; color:#09090b; margin:36px 0 20px; text-align:center;">Check out the platform capabilities yourself</h2>
-        <div style="text-align:center; font-size:0;">
+        <div style="margin:28px 0 0; padding:28px 22px; border-radius:16px; background-color:#fafafa; border:1px solid #e4e4e7;">
+          <h2 style="font-weight:800; font-size:27px; color:#09090b; margin:0 0 18px; text-align:center;">Check out the platform capabilities yourself</h2>
+          <div style="text-align:center; font-size:0;">
   <div style="display:inline-block; vertical-align:top; width:100%; max-width:280px;">
     <div style="margin:0 6px 12px; border:1px solid #e4e4e7; border-radius:12px; padding:20px 14px; text-align:center; color:#27272a; font-size:15px; font-weight:600; min-height:150px;">
       <div style="display:inline-block; width:30px; height:30px; border-radius:8px; background-color:#eef2f1; color:#047857; font-weight:800; font-size:14px; line-height:30px; margin-bottom:10px;">1</div>
@@ -324,8 +337,7 @@
     </div>
   </div>
 </div>
-
-        <div style="background-color:#3f3f46; border-radius:10px; padding-left:4px;">
+          <div style="margin:18px 0 0;"><div style="background-color:#3f3f46; border-radius:10px; padding-left:4px;">
   <div style="background-color:#ffffff; border:1px solid #e4e4e7; border-radius:10px; padding:20px; font-size:0; text-align:left;">
     <div style="display:inline-block; vertical-align:top; width:100%; max-width:280px;"><img src="assets/video/video-preview.png" alt="OdoMate" style="width:100%; max-width:270px; border-radius:8px; display:block; margin:0 10px 10px 0;"></div>
     <div style="display:inline-block; vertical-align:middle; width:100%; max-width:500px; font-weight:500; font-size:17px;">
@@ -334,7 +346,8 @@
       <img src="assets/icons/youtube-play-plain.png" width="20" height="20" style="vertical-align:middle; margin-right:8px;" alt=""><a href="https://www.youtube.com/@odomate-ai" style="vertical-align:middle; color:#047857; font-weight:700; text-decoration:none; font-size:16px;">youtube.com/@odomate-ai</a>
     </div>
   </div>
-</div>
+</div></div>
+        </div>
 
         <div style="margin:32px 0 0; padding:32px; border-radius:16px; background-color:#f0f8f5; border:1px solid #e4e4e7;">
           <span style="display:inline-block; font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#047857; margin-bottom:14px;">Free Early Beta Access</span>
