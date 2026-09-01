@@ -4,7 +4,6 @@
   "hero_title_html": "<span style=\"color:#5fe7b0;\">Audit</span> <span style=\"color:#a98bf5;\">Trail</span>",
   "intro_html": "Keeps a history book for the records you choose to watch: who created, changed, deleted, exported or opened each one, and what every changed value was before and after — so \"who changed this supplier's bank account, and when?\" becomes a question you can answer.",
   "test_count": 43,
-  "stats_caption": "time and cost across generation and every enhancement round, measured by the platform as it built this module.",
   "stats": [
     {
       "value": "59m 34s",
@@ -18,7 +17,7 @@
     },
     {
       "value": "$105.75",
-      "label": "Total compute",
+      "label": "Total cost",
       "caption": "Every version — generation, review, discussion and browser tests"
     },
     {
