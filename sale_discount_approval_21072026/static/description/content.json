@@ -4,20 +4,32 @@
   "hero_title_html": "<span style=\"color:#5fe7b0;\">Sale Discount</span> <span style=\"color:#a98bf5;\">Approval</span>",
   "intro_html": "Turns line-by-line discounting into one input — set a single Percent or Amount discount on an order or invoice and it fans out to every line automatically, with an optional Sales Manager approval gate so large discounts never slip through unreviewed.",
   "test_count": 30,
-
-  "stats_caption": "time and cost across spec preparation, generation, and every enhancement round.",
   "stats": [
-    {"value": "~65 min", "label": "First generated version", "caption": "From spec to a working, tested module"},
-    {"value": "5", "label": "Versions", "caption": "v1 original generation + 4 enhancement rounds"},
-    {"value": "< $85", "label": "Total compute", "caption": "Across all 5 versions — generation and every enhancement"},
-    {"value": "30", "label": "Automated tests", "caption": "Generated and run with the module itself"}
+    {
+      "value": "~65 min",
+      "label": "First generated version",
+      "caption": "From spec to a working, tested module"
+    },
+    {
+      "value": "5",
+      "label": "Versions",
+      "caption": "v1 original generation + 4 enhancement rounds"
+    },
+    {
+      "value": "< $85",
+      "label": "Total compute",
+      "caption": "Across all 5 versions — generation and every enhancement"
+    },
+    {
+      "value": "30",
+      "label": "Automated tests",
+      "caption": "Generated and run with the module itself"
+    }
   ],
-
   "short_link": {
     "slug": "discount",
     "qr_base64_file": "static/description/ribbon-qr.b64"
   },
-
   "doc_guide": {
     "cover_image": "assets/doc/guide-cover-en.png",
     "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/sale_discount_approval_21072026/doc/USER_GUIDE.pdf",
@@ -25,18 +37,48 @@
     "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/sale_discount_approval_21072026/doc/USER_GUIDE.uk.pdf",
     "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
   },
-
   "features": [
-    {"icon": "magic", "title": "One discount, every line", "desc": "Enter a single Percent or Amount discount and it fans out automatically across every order or invoice line — no manual line-by-line editing."},
-    {"icon": "exchange", "title": "Percent or fixed Amount", "desc": "Switch between a percentage rate or a fixed currency amount; Amount mode converts itself into a uniform per-line percentage."},
-    {"icon": "shield", "title": "Manager approval gate", "desc": "Set a company-wide average-discount limit — orders above it move to Waiting Approval instead of confirming."},
-    {"icon": "check-square-o", "title": "Approve or reject in one click", "desc": "A Sales Manager sees dedicated Approve / Reject buttons on any order waiting for review; Reject sends it back to Draft."},
-    {"icon": "refresh", "title": "Carries over to invoices", "desc": "Invoice the order and its discount type, rate, and total come along automatically, pre-filled and ready."},
-    {"icon": "tachometer", "title": "Surcharges, not just discounts", "desc": "A negative rate works as a price increase, fanned out the same way — no floor validation blocking it."},
-    {"icon": "file-text-o", "title": "Shows up on printed documents", "desc": "The discount appears as its own line on printed quotations, invoices, the customer portal, and in analysis reports."},
-    {"icon": "info-circle", "title": "Informational total, always visible", "desc": "A running Discount total sits next to the order/invoice totals — exact to the amount entered, with no manual line-discount addition needed."}
+    {
+      "icon": "magic",
+      "title": "One discount, every line",
+      "desc": "Enter a single Percent or Amount discount and it fans out automatically across every order or invoice line — no manual line-by-line editing."
+    },
+    {
+      "icon": "exchange",
+      "title": "Percent or fixed Amount",
+      "desc": "Switch between a percentage rate or a fixed currency amount; Amount mode converts itself into a uniform per-line percentage."
+    },
+    {
+      "icon": "shield",
+      "title": "Manager approval gate",
+      "desc": "Set a company-wide average-discount limit — orders above it move to Waiting Approval instead of confirming."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Approve or reject in one click",
+      "desc": "A Sales Manager sees dedicated Approve / Reject buttons on any order waiting for review; Reject sends it back to Draft."
+    },
+    {
+      "icon": "refresh",
+      "title": "Carries over to invoices",
+      "desc": "Invoice the order and its discount type, rate, and total come along automatically, pre-filled and ready."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Surcharges, not just discounts",
+      "desc": "A negative rate works as a price increase, fanned out the same way — no floor validation blocking it."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "Shows up on printed documents",
+      "desc": "The discount appears as its own line on printed quotations, invoices, the customer portal, and in analysis reports."
+    },
+    {
+      "icon": "info-circle",
+      "title": "Informational total, always visible",
+      "desc": "A running Discount total sits next to the order/invoice totals — exact to the amount entered, with no manual line-discount addition needed."
+    }
   ],
-
   "limitations": [
     "For Amount-type discounts, individual line discount percentages are rounded to 2 decimals, so a single line's discounted subtotal can be off by a few cents from a perfectly even split — the order/invoice Discount total itself is exact to the amount entered.",
     "The approval-gate average is unweighted and includes 0% and negative lines — a single steep discount can be diluted below the limit by other lines on the same order. This is confirmed intended behavior, not a defect.",
