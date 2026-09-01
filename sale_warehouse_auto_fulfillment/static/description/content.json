@@ -1,0 +1,46 @@
+{
+  "module_name": "Sale Warehouse Auto Fulfillment",
+  "slug": "sale-warehouse-auto-fulfillment",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Sale Warehouse</span> <span style=\"color:#a98bf5;\">Auto Fulfillment</span>",
+  "intro_html": "Turns the four clicks and three screens that follow every routine sales order — validate the delivery, create the invoice, post it — into a single Confirm, for the warehouses where none of that needs a human decision.",
+  "test_count": 12,
+
+  "stats": [
+    {"value": "~65 min", "label": "First generated version", "caption": "From spec to a working, tested module"},
+    {"value": "1", "label": "Versions", "caption": "v1 — no enhancement rounds needed"},
+    {"value": "< $20", "label": "Total cost", "caption": "Generation and browser testing, all in"},
+    {"value": "12", "label": "Automated tests", "caption": "Generated and run with the module itself"}
+  ],
+
+  "short_link": {
+    "slug": "warehouse",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/sale_warehouse_auto_fulfillment/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64"
+  },
+
+  "features": [
+    {"icon": "truck", "title": "Ship on confirm", "desc": "Validates the delivery in full the moment the order is confirmed — all lines, full quantity, no backorder."},
+    {"icon": "file-text-o", "title": "Invoice on confirm", "desc": "Runs exactly what the manual Create Invoice button runs, so every product keeps its own invoicing policy."},
+    {"icon": "check-square-o", "title": "Posted, not draft", "desc": "The invoice this run just created goes straight to Posted — nothing waits in a draft queue for someone to notice."},
+    {"icon": "building", "title": "Set per warehouse", "desc": "Automate the warehouse that ships routine orders and leave the project warehouse fully manual. Three independent switches."},
+    {"icon": "shield", "title": "All-or-nothing", "desc": "Every step runs in one transaction. If anything fails, the order stays a quotation — no stray delivery, no orphan invoice."},
+    {"icon": "info-circle", "title": "A message, not a traceback", "desc": "A failure names the stage that broke and the reason in plain words, so the person confirming the order knows what to fix."},
+    {"icon": "magic", "title": "Nothing to invoice is fine", "desc": "When there is genuinely nothing invoiceable yet, that step is skipped, noted in the chatter, and the order confirms normally."},
+    {"icon": "sliders", "title": "Nothing new to learn", "desc": "Three checkboxes on the warehouse form. No new menu, no new screen, no new model — the Confirm button your team already uses does the rest."}
+  ],
+
+  "limitations": [
+    "No partial shipping — automatic delivery is all-or-nothing for the whole order.",
+    "No stock availability check — negative stock is intended behaviour on automatic warehouses.",
+    "Lot- and serial-tracked products are out of scope: a required lot is a real failure, not a silent skip.",
+    "No per-order override and no exceptions list — the switches are per warehouse only.",
+    "Invoices are posted, never emailed to the customer.",
+    "A rolled-back order shows no trace of the attempt; the audit trail is developer-facing only.",
+    "Nothing is retried — a failed confirmation must be confirmed again by hand once the cause is fixed."
+  ]
+}
