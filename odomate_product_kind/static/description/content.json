@@ -1,0 +1,87 @@
+{
+  "module_name": "Product Kind — Manufacturing Classification",
+  "slug": "product-kind",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Product Kind</span> <span style=\"color:#8fb8e8;\">—</span> <span style=\"color:#a98bf5;\">Manufacturing Classification</span>",
+  "intro_html": "Turns product classification into a system your production and sales history can actually trust: reclassify a product any time, and while its bill of materials updates immediately, every already-confirmed sale order line and manufacturing order keeps the classification it had the moment it was confirmed — so past documents never quietly change meaning.",
+  "test_count": 22,
+  "stats": [
+    {
+      "value": "~31 min",
+      "label": "First generated version",
+      "caption": "From spec to a working, tested module"
+    },
+    {
+      "value": "7",
+      "label": "Versions",
+      "caption": "v1 original generation + 6 enhancement rounds"
+    },
+    {
+      "value": "< $110",
+      "label": "Total cost",
+      "caption": "Across all 7 versions — generation and every enhancement"
+    },
+    {
+      "value": "22",
+      "label": "Automated tests",
+      "caption": "Generated and run with the module itself"
+    }
+  ],
+  "short_link": {
+    "slug": "kinds",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_product_kind/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_product_kind/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "features": [
+    {
+      "icon": "list-ol",
+      "title": "Hierarchical Kind Catalog",
+      "desc": "A draggable multi-level tree with List, Kanban and Form views, plus route type and manufacturing mode per kind."
+    },
+    {
+      "icon": "info-circle",
+      "title": "Different From Product Category",
+      "desc": "Odoo's built-in Category is accounting-focused and offers no history protection. Product Kind is production-focused, and freezes onto confirmed documents instead of rewriting history."
+    },
+    {
+      "icon": "exchange",
+      "title": "Live Product Link",
+      "desc": "Products and bills of materials always reflect a kind's current classification — reclassify anytime and everything downstream updates immediately."
+    },
+    {
+      "icon": "lock",
+      "title": "Frozen Sale & MO Snapshots",
+      "desc": "Confirming a sale order or creating a manufacturing order freezes the kind at that moment, so history never silently changes."
+    },
+    {
+      "icon": "shield",
+      "title": "Manager-Only Snapshot Edits",
+      "desc": "Once frozen, only a Product Kind Manager can correct a snapshot — enforced at the model level, even against direct API or import writes."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Subtree Smart Buttons",
+      "desc": "Jump from any kind to the Products, BoMs, Sale Lines and Manufacturing Orders across its entire subtree, counts included."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "Snapshot-Aware Reporting",
+      "desc": "Sales Analysis groups by Product Kind and Route Type using the same snapshot-first, live-fallback rule as the rest of the module."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Safe Archiving & Deletion",
+      "desc": "A kind can't be archived while active sub-kinds exist, and only a leaf kind can be deleted — no accidental subtree wipeouts."
+    }
+  ],
+  "limitations": [
+    "The manufacturing-order snapshot inherits from a sale order line only if your installation links MOs to sale lines; otherwise every MO snapshots the product's current kind at creation.",
+    "The manufacturing-mode field records intent for reporting and automation — it doesn't itself alter Odoo's procurement routes.",
+    "Smart-button counters are computed on read (not stored) and reflect the current database state each time the form is opened."
+  ]
+}

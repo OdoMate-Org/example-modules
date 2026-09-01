@@ -24,7 +24,7 @@ route type, snapshot, sale order, manufacturing order, bill of materials.
     'website': "https://odomate.pro/m/kinds?v=site",
     'support': "support@odomate.pro",
     'category': 'Manufacturing',
-    'version': '19.0.1.0.6',
+    'version': '19.0.1.0.7',
     'license': 'LGPL-3',
     'depends': [
         'mrp',
