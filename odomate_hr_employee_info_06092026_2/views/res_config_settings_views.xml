@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_odomate_employee_info" model="ir.ui.view">
+        <field name="name">res.config.settings.form.odomate.employee.info</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='hr']" position="inside">
+                <block title="Employee Records" id="odomate_employee_records">
+                    <setting id="odomate_identification_expiry_setting"
+                             string="Identification Expiry Warning"
+                             help="Days before the identification expiry date at which the daily job warns the employee.">
+                        <field name="hr_identification_expiry_warning_days"/>
+                        <span class="text-muted">days of lead time</span>
+                    </setting>
+                    <setting id="odomate_passport_expiry_setting"
+                             string="Passport Expiry Warning"
+                             help="Days before the passport expiry date at which the daily job warns the employee.">
+                        <field name="hr_passport_expiry_warning_days"/>
+                        <span class="text-muted">days of lead time</span>
+                    </setting>
+                    <setting id="odomate_auto_create_employee_setting"
+                             string="Create Employee From New Login"
+                             help="Create an employee record automatically for every new internal user of this company.">
+                        <field name="hr_auto_create_employee"/>
+                    </setting>
+                    <setting id="odomate_default_notice_period_setting"
+                             string="Default Notice Period"
+                             help="Value proposed on newly created employee versions. Existing versions are never changed.">
+                        <field name="hr_default_notice_period_days"/>
+                        <span class="text-muted">days</span>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

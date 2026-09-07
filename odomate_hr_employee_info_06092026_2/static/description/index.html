@@ -1,0 +1,101 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Employee Dependants &amp; Identity Documents</h2>
+        <h3 class="oe_slogan">Dependants, identity document expiry reminders and login-to-employee integrity for Odoo 19</h3>
+        <p class="oe_mt32">
+            Every HR team ends up keeping family details and passport expiry dates in a spreadsheet
+            beside Odoo. This module brings them back into the employee file: a dependants list with
+            exactly one enforced emergency contact, expiry dates and scans for the identification
+            reference and the passport, and a daily reminder that fires once — on the day your
+            configured lead time is reached — instead of nagging every morning.
+        </p>
+        <p class="oe_mt32">
+            It also closes two small gaps that cost HR time: a stored <b>Joining Date</b> computed from
+            the employee's own version history, and an optional switch that creates the employee record
+            automatically whenever a new internal login is added.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Key features</h2>
+        <div class="oe_span6">
+            <p class="oe_mt32">
+                <ul>
+                    <li><b>Dependants per employee</b> — name, relationship, phone and date of birth on the HR-only Private Information page (<code>odomate.hr.dependant</code>).</li>
+                    <li><b>Editable relationship master list</b> — Spouse, Father, Mother, Son and Daughter ship with the module; add Guardian or anything else from Employees &rarr; Configuration (<code>odomate.hr.relationship</code>).</li>
+                    <li><b>One emergency contact, guaranteed</b> — enforced in <code>create</code> and <code>write</code> and backed by a partial unique index, so imports and API calls obey the same rule as the form.</li>
+                    <li><b>Automatic Spouse dependant</b> — filled in from <code>spouse_complete_name</code> and <code>spouse_birthdate</code>, idempotent so re-saving never duplicates it.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="oe_span6">
+            <p class="oe_mt32">
+                <ul>
+                    <li><b>Identity document expiry</b> — <code>identification_expiry_date</code> plus multi-file scan attachments for both the identification reference and the passport.</li>
+                    <li><b>Edge-triggered daily reminder</b> — an <code>ir.cron</code> that matches <i>today + lead time</i> exactly, so nobody is warned twice, plus two "send now" buttons.</li>
+                    <li><b>Editable e-mail templates</b> — wording and translations go through the standard <code>mail.template</code> mechanism.</li>
+                    <li><b>Joining Date and Notice Period</b> — a stored read-only joining date, and a per-version notice period defaulted once from a company setting.</li>
+                    <li><b>Multi-company by design</b> — every setting lives on <code>res.company</code>, and dependants carry a company record rule.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">How it works</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                <ol>
+                    <li>Install the module. <code>hr</code> and <code>mail</code> come along automatically, and five relationships are seeded.</li>
+                    <li>Open <b>Settings &rarr; Employees &rarr; Employee Records</b> and set the identification lead time (14 days by default), the passport lead time (180 days), the automatic employee creation switch and the default notice period (30 days).</li>
+                    <li>Open an employee and go to <b>Private Information</b>. Add dependants, tick one of them as the emergency contact — the employee's <b>Emergency Contact</b> and <b>Emergency Phone</b> update immediately, and any previously flagged dependant is unticked.</li>
+                    <li>Record the <b>Identification Expiry Date</b> and the <b>Passport Expiration Date</b>, and upload the scans. The two envelope buttons appear as soon as a date is filled in.</li>
+                    <li>Leave the rest to <b>HR: Identity Document Expiry Warnings</b>. Running on 06/09/2026 with the default 14-day lead time, it e-mails only the employees whose identification expires on 20/09/2026 — not the ones expiring in 45 or 365 days, and not the same person again tomorrow.</li>
+                </ol>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Security</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                No new security group is created. <b>HR Officer</b> (<code>hr.group_hr_user</code>) manages
+                dependants, <b>HR Administrator</b> (<code>hr.group_hr_manager</code>) additionally owns the
+                relationship master list and the notice period. Ordinary internal users can read only their
+                own employee's dependants, enforced by a record rule rather than by hiding a field.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Documentation</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                The full user guide ships inside the module: <code>doc/USER_GUIDE.md</code> (English) and
+                <code>doc/USER_GUIDE.uk.md</code> (Ukrainian). Both cover configuration, worked expiry-date
+                examples, the demo data walkthrough and an honest list of limitations. Ukrainian UI strings
+                are supplied in <code>i18n/uk.po</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p class="oe_mt32 text-center">
+                <a href="https://odomate.pro">odomate.pro</a> &middot; support@odomate.pro
+            </p>
+        </div>
+    </div>
+</section>

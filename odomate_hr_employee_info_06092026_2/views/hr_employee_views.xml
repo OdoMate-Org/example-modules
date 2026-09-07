@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form_odomate_employee_info" model="ir.ui.view">
+        <field name="name">hr.employee.form.odomate.employee.info</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='identification_id']" position="after">
+                <field name="identification_expiry_date"/>
+                <field name="identification_attachment_ids"
+                       widget="many2many_binary"
+                       string="Identification Scans"/>
+                <button name="action_send_identification_expiry_warning"
+                        type="object"
+                        class="btn-link ps-0"
+                        icon="fa-envelope-o"
+                        string="Send Identification Expiry Warning"
+                        invisible="not identification_expiry_date"/>
+            </xpath>
+
+            <xpath expr="//field[@name='passport_expiration_date']" position="after">
+                <field name="passport_attachment_ids"
+                       widget="many2many_binary"
+                       string="Passport Scans"/>
+                <button name="action_send_passport_expiry_warning"
+                        type="object"
+                        class="btn-link ps-0"
+                        icon="fa-envelope-o"
+                        string="Send Passport Expiry Warning"
+                        invisible="not passport_expiration_date"/>
+            </xpath>
+
+            <xpath expr="//page[@name='personal_information']" position="inside">
+                <separator string="Dependants"/>
+                <field name="dependant_ids" nolabel="1">
+                    <list string="Dependants" editable="bottom">
+                        <field name="name"/>
+                        <field name="relationship_id" options="{'no_quick_create': True}"/>
+                        <field name="phone" widget="phone"/>
+                        <field name="birthdate"/>
+                        <field name="is_emergency_contact" widget="boolean_toggle"/>
+                    </list>
+                </field>
+            </xpath>
+
+            <xpath expr="//field[@name='work_location_id']" position="after">
+                <field name="joining_date" readonly="1"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

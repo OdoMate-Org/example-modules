@@ -1,0 +1,405 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_hr_employee_info_06092026_2
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-06 00:00+0000\n"
+"PO-Revision-Date: 2026-09-06 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.actions.act_window,help:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_action
+msgid "<p class=\"o_view_nocontent_smiling_face\">Add a relationship</p><p>Relationships describe how a dependant is linked to an employee: Spouse, Father, Mother, Son, Daughter, Guardian and so on.</p>"
+msgstr "<p class=\"o_view_nocontent_smiling_face\">Додати зв'язок</p><p>Зв'язки описують, як утриманець пов'язаний зі співробітником: Дружина/Чоловік, Батько, Мати, Син, Дочка, Опікун тощо.</p>"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_relationship__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_odomate_hr_relationship__active
+msgid ""
+"Archived relationships stay on existing dependants but can no longer be "
+"selected."
+msgstr ""
+"Архівовані зв'язки залишаються на наявних утриманцях, але їх більше не можна "
+"обрати."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_version__odomate_notice_period_editable
+msgid "Can Edit Notice Period"
+msgstr "Може редагувати строк попередження"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_company__hr_auto_create_employee
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_auto_create_employee
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "Create Employee From New Login"
+msgstr "Створювати співробітника з нового облікового запису"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid ""
+"Create an employee record automatically for every new internal user of this "
+"company."
+msgstr ""
+"Автоматично створювати запис співробітника для кожного нового внутрішнього "
+"користувача цієї компанії."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_company__hr_auto_create_employee
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_auto_create_employee
+msgid ""
+"Create an employee record automatically for every new internal user of this "
+"company. Evaluated when the login is created; existing logins are never "
+"touched, and removing a login never deletes its employee."
+msgstr ""
+"Автоматично створювати запис співробітника для кожного нового внутрішнього "
+"користувача цієї компанії. Перевіряється в момент створення облікового "
+"запису; наявні облікові записи ніколи не змінюються, а видалення облікового "
+"запису ніколи не видаляє співробітника."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__birthdate
+msgid "Date of Birth"
+msgstr "Дата народження"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid ""
+"Days before the identification expiry date at which the daily job warns the "
+"employee."
+msgstr ""
+"Кількість днів до дати завершення дії посвідчення особи, коли щоденне "
+"завдання попереджає співробітника."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid ""
+"Days before the passport expiry date at which the daily job warns the "
+"employee."
+msgstr ""
+"Кількість днів до дати завершення дії закордонного паспорта, коли щоденне "
+"завдання попереджає співробітника."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_company__hr_default_notice_period_days
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_default_notice_period_days
+msgid "Default Notice Period (Days)"
+msgstr "Типовий строк попередження (днів)"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "Default Notice Period"
+msgstr "Типовий строк попередження"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_form
+msgid "Dependant Relationship"
+msgstr "Зв'язок з утриманцем"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.actions.act_window,name:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_action
+#: model:ir.ui.menu,name:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_menu
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_search
+msgid "Dependant Relationships"
+msgstr "Зв'язки з утриманцями"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_employee__dependant_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.view_employee_form_odomate_employee_info
+msgid "Dependants"
+msgstr "Утриманці"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_hr_employee__joining_date
+msgid "Earliest start date across all versions of this employee's record."
+msgstr "Найраніша дата початку серед усіх версій запису цього співробітника."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__is_emergency_contact
+msgid "Emergency Contact"
+msgstr "Контакт для екстрених випадків"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__employee_id
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model,name:odomate_hr_employee_info_06092026_2.model_odomate_hr_dependant
+msgid "Employee Dependant"
+msgstr "Утриманець співробітника"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model,name:odomate_hr_employee_info_06092026_2.model_odomate_hr_relationship
+msgid "Employee Dependant Relationship"
+msgstr "Зв'язок утриманця співробітника"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "Employee Records"
+msgstr "Записи співробітників"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_hr_employee__identification_expiry_date
+msgid "Expiry date of the identification reference recorded above."
+msgstr "Дата завершення дії посвідчення особи, зазначеного вище."
+
+#. module: odomate_hr_employee_info_06092026_2
+#. odoo-python
+#: code:addons/odomate_hr_employee_info_06092026_2/models/hr_employee.py:0
+msgid "Expiry warning queued for %s."
+msgstr "Попередження про завершення дії поставлено в чергу для %s."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.cron,cron_name:odomate_hr_employee_info_06092026_2.ir_cron_odomate_hr_identity_expiry
+msgid "HR: Identity Document Expiry Warnings"
+msgstr "Кадри: попередження про завершення дії документів, що посвідчують особу"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_employee__identification_expiry_date
+msgid "Identification Expiry Date"
+msgstr "Дата завершення дії посвідчення особи"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_company__hr_identification_expiry_warning_days
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_identification_expiry_warning_days
+msgid "Identification Expiry Lead Time (Days)"
+msgstr "Завчасність попередження про посвідчення особи (днів)"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "Identification Expiry Warning"
+msgstr "Попередження про завершення дії посвідчення особи"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_employee__identification_attachment_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.view_employee_form_odomate_employee_info
+msgid "Identification Scans"
+msgstr "Скани посвідчення особи"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_employee__joining_date
+msgid "Joining Date"
+msgstr "Дата працевлаштування"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_odomate_hr_relationship__name
+msgid ""
+"Label shown when picking the link between an employee and a dependant, for "
+"example Spouse, Father or Guardian."
+msgstr ""
+"Підпис, який показується під час вибору зв'язку між співробітником та "
+"утриманцем, наприклад Дружина/Чоловік, Батько або Опікун."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__name
+msgid "Name"
+msgstr "Ім'я"
+
+#. module: odomate_hr_employee_info_06092026_2
+#. odoo-python
+#: code:addons/odomate_hr_employee_info_06092026_2/models/hr_employee.py:0
+msgid "No e-mail address on file, nothing was sent."
+msgstr "Адреса електронної пошти відсутня, нічого не надіслано."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_version__notice_period
+msgid "Notice Period (Days)"
+msgstr "Строк попередження (днів)"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_company__hr_identification_expiry_warning_days
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_identification_expiry_warning_days
+msgid ""
+"Number of days before the identification expiry date at which the daily job "
+"sends the warning e-mail. The check is an exact date match, so each employee "
+"is warned once."
+msgstr ""
+"Кількість днів до дати завершення дії посвідчення особи, коли щоденне "
+"завдання надсилає попереджувальний лист. Перевірка виконується за точним "
+"збігом дати, тому кожен співробітник отримує попередження один раз."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_company__hr_passport_expiry_warning_days
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_passport_expiry_warning_days
+msgid ""
+"Number of days before the passport expiry date at which the daily job sends "
+"the warning e-mail."
+msgstr ""
+"Кількість днів до дати завершення дії закордонного паспорта, коли щоденне "
+"завдання надсилає попереджувальний лист."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_hr_version__notice_period
+msgid ""
+"Number of days of notice attached to this version. Filled in from the company "
+"default when the version is created; later changes to the company default do "
+"not alter versions that already exist."
+msgstr ""
+"Кількість днів попередження, прив'язана до цієї версії. Заповнюється з "
+"типового значення компанії під час створення версії; подальші зміни типового "
+"значення компанії не змінюють уже наявні версії."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__is_emergency_contact
+msgid ""
+"Only one dependant per employee can be the emergency contact. Ticking this "
+"box unticks the others and copies the name and phone onto the employee "
+"record."
+msgstr ""
+"Лише один утриманець співробітника може бути контактом для екстрених "
+"випадків. Позначення цього поля знімає позначку з інших та копіює ім'я і "
+"телефон до запису співробітника."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_company__hr_passport_expiry_warning_days
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_passport_expiry_warning_days
+msgid "Passport Expiry Lead Time (Days)"
+msgstr "Завчасність попередження про закордонний паспорт (днів)"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "Passport Expiry Warning"
+msgstr "Попередження про завершення дії закордонного паспорта"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_hr_employee__passport_attachment_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.view_employee_form_odomate_employee_info
+msgid "Passport Scans"
+msgstr "Скани закордонного паспорта"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_dependant__relationship_id
+#: model:ir.model.fields,field_description:odomate_hr_employee_info_06092026_2.field_odomate_hr_relationship__name
+msgid "Relationship"
+msgstr "Зв'язок"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.view_employee_form_odomate_employee_info
+msgid "Send Identification Expiry Warning"
+msgstr "Надіслати попередження про посвідчення особи"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.view_employee_form_odomate_employee_info
+msgid "Send Passport Expiry Warning"
+msgstr "Надіслати попередження про закордонний паспорт"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.constraint,message:odomate_hr_employee_info_06092026_2.constraint_odomate_hr_relationship_name_uniq
+msgid "A relationship with this name already exists."
+msgstr "Зв'язок з такою назвою вже існує."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.constraint,message:odomate_hr_employee_info_06092026_2.constraint_res_company_hr_default_notice_period_positive
+msgid "The default notice period cannot be negative."
+msgstr "Типовий строк попередження не може бути від'ємним."
+
+#. module: odomate_hr_employee_info_06092026_2
+#. odoo-python
+#: code:addons/odomate_hr_employee_info_06092026_2/models/hr_employee.py:0
+msgid "The identification expiry e-mail template is missing."
+msgstr "Відсутній шаблон листа про завершення дії посвідчення особи."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.constraint,message:odomate_hr_employee_info_06092026_2.constraint_res_company_hr_identification_lead_time_positive
+msgid "The identification expiry lead time cannot be negative."
+msgstr "Завчасність попередження про посвідчення особи не може бути від'ємною."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.constraint,message:odomate_hr_employee_info_06092026_2.constraint_hr_version_notice_period_positive
+msgid "The notice period cannot be negative."
+msgstr "Строк попередження не може бути від'ємним."
+
+#. module: odomate_hr_employee_info_06092026_2
+#. odoo-python
+#: code:addons/odomate_hr_employee_info_06092026_2/models/hr_employee.py:0
+msgid "The passport expiry e-mail template is missing."
+msgstr "Відсутній шаблон листа про завершення дії закордонного паспорта."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.constraint,message:odomate_hr_employee_info_06092026_2.constraint_res_company_hr_passport_lead_time_positive
+msgid "The passport expiry lead time cannot be negative."
+msgstr "Завчасність попередження про закордонний паспорт не може бути від'ємною."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_company__hr_default_notice_period_days
+#: model:ir.model.fields,help:odomate_hr_employee_info_06092026_2.field_res_config_settings__hr_default_notice_period_days
+msgid ""
+"Value proposed for the notice period of a newly created employee version. "
+"Changing it later does not modify versions that already exist."
+msgstr ""
+"Значення, яке пропонується для строку попередження нової версії "
+"співробітника. Подальша зміна не змінює вже наявні версії."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid ""
+"Value proposed on newly created employee versions. Existing versions are "
+"never changed."
+msgstr ""
+"Значення, яке пропонується для нових версій співробітника. Наявні версії "
+"ніколи не змінюються."
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:mail.template,subject:odomate_hr_employee_info_06092026_2.mail_template_identification_expiry
+msgid "Your identification document expires on {{ object.identification_expiry_date }}"
+msgstr "Дія вашого посвідчення особи завершується {{ object.identification_expiry_date }}"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:mail.template,body_html:odomate_hr_employee_info_06092026_2.mail_template_identification_expiry
+msgid "<div style=\"margin: 0px; padding: 0px; font-size: 13px;\"><p>Dear <t t-out=\"object.name\">Employee</t>,</p><p>Your identification document <t t-out=\"object.identification_id\">ID-0000</t> expires on <t t-out=\"object.identification_expiry_date\">01/01/2026</t>.</p><p>Please start the renewal now and send the new document to the HR department so that your employee file stays up to date.</p><p>Kind regards,</p><p><t t-out=\"object.company_id.name\">Your Company</t> HR Department</p></div>"
+msgstr "<div style=\"margin: 0px; padding: 0px; font-size: 13px;\"><p>Шановний(-а) <t t-out=\"object.name\">Employee</t>,</p><p>Дія вашого посвідчення особи <t t-out=\"object.identification_id\">ID-0000</t> завершується <t t-out=\"object.identification_expiry_date\">01/01/2026</t>.</p><p>Будь ласка, розпочніть оновлення вже зараз і надішліть новий документ до відділу кадрів, щоб ваша особова справа залишалася актуальною.</p><p>З повагою,</p><p>Відділ кадрів <t t-out=\"object.company_id.name\">Your Company</t></p></div>"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:mail.template,subject:odomate_hr_employee_info_06092026_2.mail_template_passport_expiry
+msgid "Your passport expires on {{ object.passport_expiration_date }}"
+msgstr "Дія вашого закордонного паспорта завершується {{ object.passport_expiration_date }}"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model:mail.template,body_html:odomate_hr_employee_info_06092026_2.mail_template_passport_expiry
+msgid "<div style=\"margin: 0px; padding: 0px; font-size: 13px;\"><p>Dear <t t-out=\"object.name\">Employee</t>,</p><p>Your passport <t t-out=\"object.passport_id\">P-0000</t> expires on <t t-out=\"object.passport_expiration_date\">01/01/2026</t>.</p><p>Passport renewal often takes several months. Please begin the process now and send the renewed passport to the HR department.</p><p>Kind regards,</p><p><t t-out=\"object.company_id.name\">Your Company</t> HR Department</p></div>"
+msgstr "<div style=\"margin: 0px; padding: 0px; font-size: 13px;\"><p>Шановний(-а) <t t-out=\"object.name\">Employee</t>,</p><p>Дія вашого закордонного паспорта <t t-out=\"object.passport_id\">P-0000</t> завершується <t t-out=\"object.passport_expiration_date\">01/01/2026</t>.</p><p>Оформлення нового закордонного паспорта часто триває кілька місяців. Будь ласка, розпочніть процес зараз і надішліть оновлений паспорт до відділу кадрів.</p><p>З повагою,</p><p>Відділ кадрів <t t-out=\"object.company_id.name\">Your Company</t></p></div>"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "days"
+msgstr "днів"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.res_config_settings_view_form_odomate_employee_info
+msgid "days of lead time"
+msgstr "днів завчасності"
+
+#. module: odomate_hr_employee_info_06092026_2
+#: model_terms:ir.ui.view,arch_db:odomate_hr_employee_info_06092026_2.odomate_hr_relationship_view_form
+msgid "e.g. Guardian"
+msgstr "напр. Опікун"
