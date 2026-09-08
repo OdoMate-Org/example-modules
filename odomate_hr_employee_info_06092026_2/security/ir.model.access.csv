@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_dependant_hr_user,odomate.hr.dependant HR officer,model_odomate_hr_dependant,hr.group_hr_user,1,1,1,1
+access_odomate_hr_dependant_employee,odomate.hr.dependant own records,model_odomate_hr_dependant,base.group_user,1,0,0,0
+access_odomate_hr_relationship_hr_user,odomate.hr.relationship HR officer,model_odomate_hr_relationship,hr.group_hr_user,1,0,0,0
+access_odomate_hr_relationship_hr_manager,odomate.hr.relationship HR administrator,model_odomate_hr_relationship,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_relationship_employee,odomate.hr.relationship read only,model_odomate_hr_relationship,base.group_user,1,0,0,0

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="mail_template_identification_expiry" model="mail.template">
+        <field name="name">Employee: Identification Expiry Warning</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="subject">Your identification document expires on {{ object.identification_expiry_date }}</field>
+        <field name="email_from">{{ object.company_id.email or user.email_formatted }}</field>
+        <field name="email_to">{{ object.work_email or object.private_email }}</field>
+        <field name="lang">{{ object.lang or object.company_id.partner_id.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="description">Sent to an employee when the identification reference is about to expire.</field>
+        <field name="body_html" type="html"><div style="margin: 0px; padding: 0px; font-size: 13px;"><p>Dear <t t-out="object.name">Employee</t>,</p><p>Your identification document <t t-out="object.identification_id">ID-0000</t> expires on <t t-out="object.identification_expiry_date">01/01/2026</t>.</p><p>Please start the renewal now and send the new document to the HR department so that your employee file stays up to date.</p><p>Kind regards,</p><p><t t-out="object.company_id.name">Your Company</t> HR Department</p></div></field>
+    </record>
+
+    <record id="mail_template_passport_expiry" model="mail.template">
+        <field name="name">Employee: Passport Expiry Warning</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="subject">Your passport expires on {{ object.passport_expiration_date }}</field>
+        <field name="email_from">{{ object.company_id.email or user.email_formatted }}</field>
+        <field name="email_to">{{ object.work_email or object.private_email }}</field>
+        <field name="lang">{{ object.lang or object.company_id.partner_id.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="description">Sent to an employee when the passport is about to expire.</field>
+        <field name="body_html" type="html"><div style="margin: 0px; padding: 0px; font-size: 13px;"><p>Dear <t t-out="object.name">Employee</t>,</p><p>Your passport <t t-out="object.passport_id">P-0000</t> expires on <t t-out="object.passport_expiration_date">01/01/2026</t>.</p><p>Passport renewal often takes several months. Please begin the process now and send the renewed passport to the HR department.</p><p>Kind regards,</p><p><t t-out="object.company_id.name">Your Company</t> HR Department</p></div></field>
+    </record>
+
+</odoo>

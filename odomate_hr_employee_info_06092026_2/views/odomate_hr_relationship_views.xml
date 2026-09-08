@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odomate_hr_relationship_view_list" model="ir.ui.view">
+        <field name="name">odomate.hr.relationship.list</field>
+        <field name="model">odomate.hr.relationship</field>
+        <field name="arch" type="xml">
+            <list string="Dependant Relationships" editable="bottom">
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="odomate_hr_relationship_view_form" model="ir.ui.view">
+        <field name="name">odomate.hr.relationship.form</field>
+        <field name="model">odomate.hr.relationship</field>
+        <field name="arch" type="xml">
+            <form string="Dependant Relationship">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <group>
+                        <field name="name" placeholder="e.g. Guardian"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odomate_hr_relationship_view_search" model="ir.ui.view">
+        <field name="name">odomate.hr.relationship.search</field>
+        <field name="model">odomate.hr.relationship</field>
+        <field name="arch" type="xml">
+            <search string="Dependant Relationships">
+                <field name="name"/>
+                <filter name="filter_inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="odomate_hr_relationship_action" model="ir.actions.act_window">
+        <field name="name">Dependant Relationships</field>
+        <field name="res_model">odomate.hr.relationship</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">Add a relationship</p><p>Relationships describe how a dependant is linked to an employee: Spouse, Father, Mother, Son, Daughter, Guardian and so on.</p></field>
+    </record>
+
+    <menuitem id="odomate_hr_relationship_menu"
+              name="Dependant Relationships"
+              parent="hr.menu_human_resources_configuration"
+              action="odomate_hr_relationship_action"
+              groups="hr.group_hr_manager"
+              sequence="90"/>
+
+</odoo>
