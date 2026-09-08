@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the document that expires — a portrait sheet, deliberately not
+       module 1's landscape ID card. -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="72" y="104" width="196" height="252" rx="24"/>
+  </g>
+
+  <!-- ACTION: the chase. A bell reads instantly at 128px and contrasts with both
+       the sheet's rectangle and module 1's hourglass. -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M316 344 V 310 a 52 52 0 0 1 104 0 V 344"/>
+    <path d="M302 344 H 434"/>
+    <path d="M368 258 V 244"/>
+  </g>
+
+  <!-- CONTEXT: the superseded copy behind, the writing on the front, the clapper. -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <path d="M128 68 H288 a24 24 0 0 1 24 24 V236"/>
+    <path d="M110 186 H230"/>
+    <path d="M110 228 H230"/>
+    <path d="M110 270 H196"/>
+    <path d="M352 366 a 16 16 0 0 0 32 0"/>
+  </g>
+</svg>

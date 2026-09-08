@@ -1,0 +1,93 @@
+{
+  "module_name": "Employee Document Expiry Tracking",
+  "slug": "employee-document-expiry-tracking",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee</span> <span style=\"color:#8fb8e8;\">Document</span> <span style=\"color:#a98bf5;\">Expiry Tracking</span>",
+  "intro_html": "Keeps the permits, licences and certificates your people have to keep current out of the spreadsheet nobody opens — one record each, with its scan and its dates, and a daily run that emails the holder and puts a to-do on their manager <em>before</em> the date passes, instead of the week after.",
+  "test_count": 54,
+  "features": [
+    {
+      "icon": "files-o",
+      "title": "Every Document, One Record",
+      "desc": "A work permit, a driving licence, a first-aid certificate — each with its own reference number, its issue and expiry dates, and its scan attached to the record."
+    },
+    {
+      "icon": "calendar",
+      "title": "Four Ways To Chase",
+      "desc": "On the expiry date, once a set number of days before, every day up to it, or every day after. Choose per document type; the daily run follows it."
+    },
+    {
+      "icon": "envelope",
+      "title": "The Holder And The Manager",
+      "desc": "Every chase emails the employee and puts a to-do on their manager, dated on the expiry day. An open to-do is refreshed, never duplicated."
+    },
+    {
+      "icon": "refresh",
+      "title": "Renew Without Losing The Old",
+      "desc": "Renewal asks for new dates, a new scan and a reason, then moves the superseded scans onto a history row rather than overwriting them."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "One Valid Document Per Type",
+      "desc": "Enforced in the database as well as the form, so two simultaneous imports cannot slip a duplicate through. Drafts and expired copies may coexist."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Read The List, Not The Dates",
+      "desc": "Expired rows are red, drafts are greyed, and the Days Remaining column says Expired 20 days, Today, Tomorrow, or a plain number."
+    },
+    {
+      "icon": "lock",
+      "title": "Nobody Reads A Colleague's Permit",
+      "desc": "An ordinary employee sees their own documents and no one else's — not through the list, and not by opening the address directly."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "Blank Forms To Hand Out",
+      "desc": "Expense claims, change-of-address notifications, equipment loan agreements: the paperwork everyone asks HR for, kept beside the documents you track."
+    }
+  ],
+  "limitations": [
+    "No approval workflow. An HR officer marks a document valid alone; nobody countersigns it.",
+    "No employee self-service. Employees read their own documents but cannot upload a scan or start a renewal — HR does both.",
+    "An expired document raises a flag, it does not block. Scheduling, payroll and leave carry on.",
+    "No OCR. Scans are stored as attachments, so expiry dates are always typed in by hand.",
+    "No escalation ladder. One email to the employee and one to-do for the direct manager; nothing goes further up if both are ignored.",
+    "No printable register. There is no PDF of the document list.",
+    "Odoo's own passport and work-permit fields on the employee are left alone — a document recorded here is a separate record, by design.",
+    "Reminders depend on Odoo's scheduled action running. If the cron is disabled, nothing expires and nothing is chased."
+  ],
+  "short_link": {
+    "slug": "documents",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "stats": [
+    {
+      "value": "~55 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "2",
+      "label": "Generated versions",
+      "caption": "The original build plus one enhancement round, both by OdoMate"
+    },
+    {
+      "value": "$27.16",
+      "label": "Total spend",
+      "caption": "Specification, generation, the enhancement round and every test"
+    },
+    {
+      "value": "54",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and the enhancement round.",
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_documents/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_documents/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  }
+}

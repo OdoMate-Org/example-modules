@@ -17,7 +17,7 @@ the chasing pattern configured on each document type.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/documents?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Human Resources/Employees',
@@ -42,6 +42,7 @@ the chasing pattern configured on each document type.
     'demo': [
         'demo/demo.xml',
     ],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': False,
     'auto_install': False,
