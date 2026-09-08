@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_employee_kravets" model="hr.employee">
+            <field name="name">Olena Kravets</field>
+            <field name="private_email">olena.kravets@example.com</field>
+            <field name="private_phone">+380 44 555 0101</field>
+            <field name="identification_id">ID-2019-4471</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=14)).strftime('%Y-%m-%d')"/>
+            <field name="passport_id">FA-882014</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=400)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_petrenko" model="hr.employee">
+            <field name="name">Marko Petrenko</field>
+            <field name="private_email">marko.petrenko@example.com</field>
+            <field name="private_phone">+380 44 555 0102</field>
+            <field name="identification_id">ID-2021-1180</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="passport_id">FB-114509</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=180)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_bondarenko" model="hr.employee">
+            <field name="name">Sofia Bondarenko</field>
+            <field name="private_email">sofia.bondarenko@example.com</field>
+            <field name="private_phone">+380 44 555 0103</field>
+            <field name="identification_id">ID-2020-7732</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=520)).strftime('%Y-%m-%d')"/>
+            <field name="spouse_complete_name">Bohdan Bondarenko</field>
+            <field name="spouse_birthdate">1986-02-17</field>
+        </record>
+
+        <record id="demo_employee_shevchuk" model="hr.employee">
+            <field name="name">Andriy Shevchuk</field>
+            <field name="private_email">andriy.shevchuk@example.com</field>
+            <field name="private_phone">+380 44 555 0104</field>
+            <field name="identification_id">ID-2018-3390</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=260)).strftime('%Y-%m-%d')"/>
+            <field name="passport_id">FC-330187</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=910)).strftime('%Y-%m-%d')"/>
+            <field name="emergency_contact">Halyna Shevchuk</field>
+            <field name="emergency_phone">+380 44 555 0204</field>
+        </record>
+
+        <record id="demo_employee_melnyk" model="hr.employee">
+            <field name="name">Iryna Melnyk</field>
+            <field name="private_email">iryna.melnyk@example.com</field>
+            <field name="private_phone">+380 44 555 0105</field>
+            <field name="identification_id">ID-2017-9021</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=95)).strftime('%Y-%m-%d')"/>
+            <field name="passport_id">FD-560022</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=1200)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_kovalenko" model="hr.employee">
+            <field name="name">Dmytro Kovalenko</field>
+            <field name="private_email">dmytro.kovalenko@example.com</field>
+            <field name="private_phone">+380 44 555 0106</field>
+            <field name="identification_id">ID-2022-4408</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=730)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_tkachenko" model="hr.employee">
+            <field name="name">Nadiya Tkachenko</field>
+            <field name="private_email">nadiya.tkachenko@example.com</field>
+            <field name="private_phone">+380 44 555 0107</field>
+            <field name="identification_id">ID-2016-2277</field>
+            <field name="passport_id">FE-771903</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=640)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_boyko" model="hr.employee">
+            <field name="name">Yuriy Boyko</field>
+            <field name="private_email">yuriy.boyko@example.com</field>
+            <field name="private_phone">+380 44 555 0108</field>
+            <field name="identification_id">ID-2023-6612</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=1080)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_lysenko" model="hr.employee">
+            <field name="name">Kateryna Lysenko</field>
+            <field name="private_email">kateryna.lysenko@example.com</field>
+            <field name="private_phone">+380 44 555 0109</field>
+            <field name="identification_id">ID-2015-8845</field>
+            <field name="passport_id">FF-208844</field>
+            <field name="passport_expiration_date" eval="(DateTime.today() + timedelta(days=210)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_employee_moroz" model="hr.employee">
+            <field name="name">Taras Moroz</field>
+            <field name="private_email">taras.moroz@example.com</field>
+            <field name="private_phone">+380 44 555 0110</field>
+            <field name="identification_id">ID-2024-1053</field>
+            <field name="identification_expiry_date" eval="(DateTime.today() + timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        </record>
+
+    </data>
+</odoo>

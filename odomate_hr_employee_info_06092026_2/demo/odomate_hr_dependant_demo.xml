@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_dependant_kravets_spouse" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_kravets"/>
+            <field name="name">Viktor Kravets</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_spouse"/>
+            <field name="phone">+380 44 555 0301</field>
+            <field name="birthdate">1985-06-08</field>
+        </record>
+
+        <record id="demo_dependant_kravets_daughter" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_kravets"/>
+            <field name="name">Zoya Kravets</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_daughter"/>
+            <field name="birthdate">2014-03-22</field>
+        </record>
+
+        <record id="demo_dependant_kravets_mother" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_kravets"/>
+            <field name="name">Larysa Kravets</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_mother"/>
+            <field name="phone">+380 44 555 0302</field>
+            <field name="birthdate">1958-11-30</field>
+        </record>
+
+        <record id="demo_dependant_petrenko_spouse" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_petrenko"/>
+            <field name="name">Oksana Petrenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_spouse"/>
+            <field name="phone">+380 44 555 0303</field>
+            <field name="birthdate">1989-01-14</field>
+        </record>
+
+        <record id="demo_dependant_petrenko_son" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_petrenko"/>
+            <field name="name">Ihor Petrenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_son"/>
+            <field name="birthdate">2016-09-05</field>
+        </record>
+
+        <record id="demo_dependant_shevchuk_spouse" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_shevchuk"/>
+            <field name="name">Halyna Shevchuk</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_spouse"/>
+            <field name="phone">+380 44 555 0204</field>
+            <field name="birthdate">1987-07-19</field>
+            <field name="is_emergency_contact" eval="True"/>
+        </record>
+
+        <record id="demo_dependant_shevchuk_father" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_shevchuk"/>
+            <field name="name">Petro Shevchuk</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_father"/>
+            <field name="phone">+380 44 555 0304</field>
+            <field name="birthdate">1955-04-11</field>
+        </record>
+
+        <record id="demo_dependant_melnyk_son" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_melnyk"/>
+            <field name="name">Roman Melnyk</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_son"/>
+            <field name="birthdate">2011-12-02</field>
+        </record>
+
+        <record id="demo_dependant_melnyk_daughter" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_melnyk"/>
+            <field name="name">Solomiya Melnyk</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_daughter"/>
+            <field name="birthdate">2018-05-27</field>
+        </record>
+
+        <record id="demo_dependant_melnyk_mother" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_melnyk"/>
+            <field name="name">Vira Melnyk</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_mother"/>
+            <field name="phone">+380 44 555 0305</field>
+            <field name="birthdate">1961-08-16</field>
+        </record>
+
+        <record id="demo_dependant_kovalenko_spouse" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_kovalenko"/>
+            <field name="name">Alina Kovalenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_spouse"/>
+            <field name="phone">+380 44 555 0306</field>
+            <field name="birthdate">1992-10-09</field>
+        </record>
+
+        <record id="demo_dependant_kovalenko_father" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_kovalenko"/>
+            <field name="name">Serhiy Kovalenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_father"/>
+            <field name="birthdate">1960-02-03</field>
+        </record>
+
+        <record id="demo_dependant_tkachenko_daughter" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_tkachenko"/>
+            <field name="name">Milana Tkachenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_daughter"/>
+            <field name="birthdate">2013-01-25</field>
+        </record>
+
+        <record id="demo_dependant_boyko_mother" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_boyko"/>
+            <field name="name">Nina Boyko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_mother"/>
+            <field name="phone">+380 44 555 0307</field>
+            <field name="birthdate">1957-06-21</field>
+        </record>
+
+        <record id="demo_dependant_lysenko_son" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_lysenko"/>
+            <field name="name">Ostap Lysenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_son"/>
+            <field name="birthdate">2009-04-30</field>
+        </record>
+
+        <record id="demo_dependant_lysenko_father" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_lysenko"/>
+            <field name="name">Bohdan Lysenko</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_father"/>
+            <field name="phone">+380 44 555 0308</field>
+            <field name="birthdate">1954-09-13</field>
+        </record>
+
+        <record id="demo_dependant_moroz_daughter" model="odomate.hr.dependant">
+            <field name="employee_id" ref="demo_employee_moroz"/>
+            <field name="name">Yaryna Moroz</field>
+            <field name="relationship_id" ref="odomate_hr_relationship_daughter"/>
+            <field name="birthdate">2020-07-07</field>
+        </record>
+
+    </data>
+</odoo>

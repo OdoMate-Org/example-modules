@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="odomate_hr_relationship_spouse" model="odomate.hr.relationship">
+        <field name="name">Spouse</field>
+    </record>
+
+    <record id="odomate_hr_relationship_father" model="odomate.hr.relationship">
+        <field name="name">Father</field>
+    </record>
+
+    <record id="odomate_hr_relationship_mother" model="odomate.hr.relationship">
+        <field name="name">Mother</field>
+    </record>
+
+    <record id="odomate_hr_relationship_son" model="odomate.hr.relationship">
+        <field name="name">Son</field>
+    </record>
+
+    <record id="odomate_hr_relationship_daughter" model="odomate.hr.relationship">
+        <field name="name">Daughter</field>
+    </record>
+
+</odoo>
