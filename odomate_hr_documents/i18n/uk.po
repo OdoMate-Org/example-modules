@@ -1,0 +1,538 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_documents
+#: model:ir.model.constraint,message:odomate_hr_documents.constraint_odomate_hr_document_type_name_uniq
+msgid "A document type with this name already exists."
+msgstr "Тип документа з такою назвою вже існує."
+
+#. module: odomate_hr_documents
+#: model:ir.model.constraint,message:odomate_hr_documents.constraint_odomate_hr_form_template_name_uniq
+msgid "A form or template with this name already exists."
+msgstr "Форма або шаблон з такою назвою вже існує."
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_type__active
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_form_template__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: odomate_hr_documents
+#: model:mail.template,subject:odomate_hr_documents.mail_template_document_reminder
+msgid ""
+"Action required: your {{ object.document_type_id.name }} expires on {{ "
+"format_date(object.date_expiry) }}"
+msgstr ""
+"Потрібна дія: ваш документ «{{ object.document_type_id.name }}» діє до {{ "
+"format_date(object.date_expiry) }}"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_search
+msgid "Archived"
+msgstr "Заархівовано"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid "Attach at least one scan of the renewed document."
+msgstr "Додайте щонайменше один скан оновленого документа."
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_form
+msgid "Chasing"
+msgstr "Нагадування"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_type__chasing_pattern
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_search
+msgid "Chasing Pattern"
+msgstr "Схема нагадувань"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__company_id
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__days_remaining_label
+msgid "Days Remaining"
+msgstr "Залишилось днів"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__description
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Description"
+msgstr "Опис"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__document_id
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_renew__document_id
+msgid "Document"
+msgstr "Документ"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__document_type_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_form
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: odomate_hr_documents
+#: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document_type
+#: model:ir.ui.menu,name:odomate_hr_documents.menu_odomate_hr_document_type
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_search
+msgid "Document Types"
+msgstr "Типи документів"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_hr_employee__document_count
+msgid "Document Count"
+msgstr "Кількість документів"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_hr_employee__document_ids
+#: model:ir.ui.menu,name:odomate_hr_documents.menu_odomate_hr_document
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_employee_form_inherit_odomate_documents
+msgid "Documents"
+msgstr "Документи"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid "Document renewed; the new expiry date is %(new_date)s."
+msgstr "Документ оновлено; нова дата закінчення — %(new_date)s."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid ""
+"Document set back to draft: the expiry date this to-do chased no longer "
+"applies."
+msgstr ""
+"Документ повернуто в чернетку: дата закінчення, яку відстежувало це "
+"завдання, більше не діє."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document_type.py:0
+msgid ""
+"Document type %(name)s uses a chasing pattern that needs a reminder delay, "
+"so Reminder Days must be greater than zero."
+msgstr ""
+"Тип документа %(name)s використовує схему нагадувань, яка потребує затримки, "
+"тому «Днів для нагадування» має бути більшим за нуль."
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__employee_id
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+#: model:ir.model,name:odomate_hr_documents.model_odomate_hr_document
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Employee Document"
+msgstr "Документ співробітника"
+
+#. module: odomate_hr_documents
+#: model:ir.model,name:odomate_hr_documents.model_odomate_hr_document_history
+msgid "Employee Document Renewal History"
+msgstr "Історія оновлення документів співробітників"
+
+#. module: odomate_hr_documents
+#: model:ir.model,name:odomate_hr_documents.model_odomate_hr_document_type
+msgid "Employee Document Type"
+msgstr "Тип документа співробітника"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/hr_employee.py:0
+#: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document
+#: model:ir.ui.menu,name:odomate_hr_documents.menu_odomate_hr_documents_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Employee Documents"
+msgstr "Документи співробітників"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document_type__chasing_pattern__daily_before
+msgid "Every day from N days before expiry until expiry"
+msgstr "Щодня, починаючи за N днів до закінчення і до самої дати закінчення"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document_type__chasing_pattern__daily_after
+msgid "Every day from expiry until N days after expiry"
+msgstr "Щодня від дати закінчення і ще N днів після неї"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document__state__expired
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Expired"
+msgstr "Прострочено"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid "Expired %(days)s days"
+msgstr "Прострочено на %(days)s дн."
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Expiring within 30 days"
+msgstr "Спливає протягом 30 днів"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Expiring within 7 days"
+msgstr "Спливає протягом 7 днів"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__date_expiry
+msgid "Expiry Date"
+msgstr "Дата закінчення"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Expiry Month"
+msgstr "Місяць закінчення"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_form
+msgid "Form / Template"
+msgstr "Форма / шаблон"
+
+#. module: odomate_hr_documents
+#: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_form_template
+#: model:ir.ui.menu,name:odomate_hr_documents.menu_odomate_hr_form_template
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_search
+msgid "Forms & Templates"
+msgstr "Форми та шаблони"
+
+#. module: odomate_hr_documents
+#: model:ir.model,name:odomate_hr_documents.model_odomate_hr_form_template
+msgid "HR Form / Template"
+msgstr "Кадрова форма / шаблон"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Holder"
+msgstr "Власник"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_form
+msgid ""
+"How and when this form should be used. Attach the file itself in the chatter"
+" below."
+msgstr ""
+"Як і коли слід використовувати цю форму. Прикріпіть сам файл у чаті нижче."
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__date_issued
+msgid "Issue Date"
+msgstr "Дата видачі"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Issuing authority, document number, restrictions..."
+msgstr "Орган видачі, номер документа, обмеження..."
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__last_reminder_sent_date
+msgid "Last Reminder Sent"
+msgstr "Останнє нагадування надіслано"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Mark Valid"
+msgstr "Позначити дійсним"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_type__name
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_form_template__name
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_form
+msgid "Name"
+msgstr "Назва"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid "New"
+msgstr "Новий"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_renew__new_date_expiry
+msgid "New Expiry Date"
+msgstr "Нова дата закінчення"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_renew__new_date_issued
+msgid "New Issue Date"
+msgstr "Нова дата видачі"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_renew__new_attachment_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
+msgid "New Scan(s)"
+msgstr "Нові скани"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_form_template__note
+msgid "Note"
+msgstr "Примітка"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,help:odomate_hr_documents.field_odomate_hr_document_type__reminder_days
+msgid ""
+"Number of days used by the chasing pattern to decide when reminders fire."
+msgstr ""
+"Кількість днів, за якою схема нагадувань визначає, коли надсилати "
+"нагадування."
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document_type__chasing_pattern__on_expiry
+msgid "On the expiry date only"
+msgstr "Лише в день закінчення"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document_type__chasing_pattern__before_expiry
+msgid "Once, N days before expiry"
+msgstr "Один раз, за N днів до закінчення"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid ""
+"Only a valid or expired document can be renewed. %(reference)s is still a "
+"draft."
+msgstr ""
+"Оновити можна лише дійсний або прострочений документ. %(reference)s ще є "
+"чернеткою."
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_form
+msgid "Options"
+msgstr "Параметри"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__date_expiry
+msgid "Previous Expiry Date"
+msgstr "Попередня дата закінчення"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__date_issued
+msgid "Previous Issue Date"
+msgstr "Попередня дата видачі"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__reason
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_renew__reason
+msgid "Reason"
+msgstr "Причина"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__reference
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Reference"
+msgstr "Номер"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_type__reminder_days
+msgid "Reminder Days"
+msgstr "Днів для нагадування"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document_type.py:0
+msgid "Reminder Days on %(name)s cannot be negative."
+msgstr "Значення «Днів для нагадування» для %(name)s не може бути від'ємним."
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
+msgid "Renew"
+msgstr "Оновити"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid "Renew %(document_type)s for %(employee)s (%(reference)s)"
+msgstr "Оновити «%(document_type)s» для %(employee)s (%(reference)s)"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+#: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document_renew
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
+msgid "Renew Document"
+msgstr "Оновлення документа"
+
+#. module: odomate_hr_documents
+#: model:ir.model,name:odomate_hr_documents.model_odomate_hr_document_renew
+msgid "Renew Employee Document"
+msgstr "Оновлення документа співробітника"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_history_form
+msgid "Renewal"
+msgstr "Оновлення"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+#: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document_history
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__history_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_history_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_history_list
+msgid "Renewal History"
+msgstr "Історія оновлень"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__history_count
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Renewals"
+msgstr "Оновлень"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid ""
+"Renewed: expiry moved from %(old_date)s to %(new_date)s. Reason: %(reason)s"
+msgstr ""
+"Оновлено: дату закінчення перенесено з %(old_date)s на %(new_date)s. "
+"Причина: %(reason)s"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__renewed_by
+msgid "Renewed By"
+msgstr "Хто оновив"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__renewed_date
+msgid "Renewed On"
+msgstr "Дата оновлення"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Send Reminder Now"
+msgstr "Надіслати нагадування зараз"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document_history__attachment_count
+msgid "Superseded Scans"
+msgstr "Замінені скани"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_history_form
+msgid "Superseded Values"
+msgstr "Замінені значення"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid "The new expiry date must be later than the new issue date."
+msgstr "Нова дата закінчення має бути пізнішою за нову дату видачі."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid "The new expiry date must be later than today."
+msgstr "Нова дата закінчення має бути пізнішою за сьогоднішню."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid "Today"
+msgstr "Сьогодні"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#. module: odomate_hr_documents
+#: model:ir.model.fields.selection,name:odomate_hr_documents.selection__odomate_hr_document__state__valid
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_search
+msgid "Valid"
+msgstr "Дійсний"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
+msgid "Validity"
+msgstr "Термін дії"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_form_template_form
+msgid "e.g. Expense claim form"
+msgstr "напр. Форма авансового звіту"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
+msgid "e.g. Renewed at the town hall on 3 March"
+msgstr "напр. Оновлено в мерії 3 березня"
+
+#. module: odomate_hr_documents
+#: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_type_form
+msgid "e.g. Work permit"
+msgstr "напр. Дозвіл на роботу"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
+msgid "not set"
+msgstr "не вказано"
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid ""
+"%(employee)s already holds a valid %(document_type)s. Renew the existing "
+"document instead of adding a second one."
+msgstr ""
+"%(employee)s вже має дійсний документ типу «%(document_type)s». Оновіть "
+"наявний документ замість створення другого."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid ""
+"%(reference)s expired on %(date)s and cannot be marked valid. Use Renew to "
+"record a new issue and expiry date."
+msgstr ""
+"%(reference)s втратив чинність %(date)s, тому його не можна позначити "
+"дійсним. Скористайтеся кнопкою «Оновити», щоб внести нові дати видачі та "
+"закінчення."
+
+#. module: odomate_hr_documents
+#: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
+msgid ""
+"%(reference)s is still a draft, so it is not chased. Mark it valid first."
+msgstr ""
+"%(reference)s ще є чернеткою, тому нагадування не надсилаються. Спершу "
+"позначте його дійсним."

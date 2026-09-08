@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_document_type_list" model="ir.ui.view">
+        <field name="name">odomate.hr.document.type.list</field>
+        <field name="model">odomate.hr.document.type</field>
+        <field name="arch" type="xml">
+            <list string="Document Types">
+                <field name="name"/>
+                <field name="chasing_pattern"/>
+                <field name="reminder_days"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_type_form" model="ir.ui.view">
+        <field name="name">odomate.hr.document.type.form</field>
+        <field name="model">odomate.hr.document.type</field>
+        <field name="arch" type="xml">
+            <form string="Document Type">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name" string="Document Type"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Work permit"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Chasing">
+                            <field name="chasing_pattern" widget="radio"/>
+                            <field name="reminder_days"
+                                   invisible="chasing_pattern == 'on_expiry'"
+                                   required="chasing_pattern != 'on_expiry'"/>
+                        </group>
+                        <group string="Options">
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_type_search" model="ir.ui.view">
+        <field name="name">odomate.hr.document.type.search</field>
+        <field name="model">odomate.hr.document.type</field>
+        <field name="arch" type="xml">
+            <search string="Document Types">
+                <field name="name"/>
+                <filter string="Archived" name="filter_inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Chasing Pattern" name="group_chasing_pattern"
+                        context="{'group_by': 'chasing_pattern'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_document_type" model="ir.actions.act_window">
+        <field name="name">Document Types</field>
+        <field name="res_model">odomate.hr.document.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_document_type_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first document type</p>
+            <p>A document type carries the chasing pattern and the reminder delay used to chase every employee document of that type.</p>
+        </field>
+    </record>
+</odoo>

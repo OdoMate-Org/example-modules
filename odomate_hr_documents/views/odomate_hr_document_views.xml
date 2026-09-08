@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_document_list" model="ir.ui.view">
+        <field name="name">odomate.hr.document.list</field>
+        <field name="model">odomate.hr.document</field>
+        <field name="arch" type="xml">
+            <list string="Employee Documents"
+                  decoration-danger="state == 'expired'"
+                  decoration-bf="state == 'expired'"
+                  decoration-muted="state == 'draft'">
+                <field name="reference"/>
+                <field name="employee_id"/>
+                <field name="document_type_id"/>
+                <field name="date_expiry"/>
+                <field name="days_remaining_label"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'valid'"
+                       decoration-danger="state == 'expired'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_form" model="ir.ui.view">
+        <field name="name">odomate.hr.document.form</field>
+        <field name="model">odomate.hr.document</field>
+        <field name="arch" type="xml">
+            <form string="Employee Document">
+                <header>
+                    <button name="action_mark_valid" type="object" string="Mark Valid"
+                            class="btn-primary" invisible="state != 'draft'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_open_renew_wizard" type="object" string="Renew"
+                            class="btn-primary" invisible="state not in ('valid', 'expired')"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_send_reminder_now" type="object" string="Send Reminder Now"
+                            invisible="state == 'draft'" groups="hr.group_hr_user"/>
+                    <button name="action_set_to_draft" type="object" string="Set to Draft"
+                            invisible="state == 'draft'" groups="hr.group_hr_user"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,valid,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_history" type="object"
+                                class="oe_stat_button" icon="fa-history">
+                            <field name="history_count" widget="statinfo" string="Renewals"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="reference" string="Reference"/>
+                        <h1>
+                            <field name="reference"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Holder">
+                            <field name="employee_id"/>
+                            <field name="document_type_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Validity">
+                            <field name="date_issued"/>
+                            <field name="date_expiry"/>
+                            <field name="days_remaining_label"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" nolabel="1"
+                                   placeholder="Issuing authority, document number, restrictions..."/>
+                        </page>
+                        <page string="Renewal History" name="history">
+                            <field name="history_ids" readonly="1">
+                                <list string="Renewal History" create="false" edit="false" delete="false">
+                                    <field name="renewed_date"/>
+                                    <field name="renewed_by"/>
+                                    <field name="date_issued"/>
+                                    <field name="date_expiry"/>
+                                    <field name="reason"/>
+                                    <field name="attachment_count"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_search" model="ir.ui.view">
+        <field name="name">odomate.hr.document.search</field>
+        <field name="model">odomate.hr.document</field>
+        <field name="arch" type="xml">
+            <search string="Employee Documents">
+                <field name="reference"/>
+                <field name="employee_id"/>
+                <field name="document_type_id"/>
+                <filter string="Valid" name="filter_valid" domain="[('state', '=', 'valid')]"/>
+                <filter string="Expired" name="filter_expired" domain="[('state', '=', 'expired')]"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <separator/>
+                <filter string="Expiring within 7 days" name="filter_expiring_7"
+                        domain="[('state', '=', 'valid'), ('days_remaining_label', '&gt;=', 0), ('days_remaining_label', '&lt;=', 7)]"/>
+                <filter string="Expiring within 30 days" name="filter_expiring_30"
+                        domain="[('state', '=', 'valid'), ('days_remaining_label', '&gt;=', 0), ('days_remaining_label', '&lt;=', 30)]"/>
+                <separator/>
+                <filter string="Employee" name="group_employee" context="{'group_by': 'employee_id'}"/>
+                <filter string="Document Type" name="group_document_type" context="{'group_by': 'document_type_id'}"/>
+                <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                <filter string="Expiry Month" name="group_expiry" context="{'group_by': 'date_expiry:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_document" model="ir.actions.act_window">
+        <field name="name">Employee Documents</field>
+        <field name="res_model">odomate.hr.document</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="search_view_id" ref="view_odomate_hr_document_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record your first employee document</p>
+            <p>Track work permits, licences and certificates. The daily scheduled action expires them automatically and chases the employee and their manager according to the document type's chasing pattern.</p>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_history_list" model="ir.ui.view">
+        <field name="name">odomate.hr.document.history.list</field>
+        <field name="model">odomate.hr.document.history</field>
+        <field name="arch" type="xml">
+            <list string="Renewal History" create="false" edit="false" delete="false">
+                <field name="renewed_date"/>
+                <field name="document_id"/>
+                <field name="employee_id"/>
+                <field name="renewed_by"/>
+                <field name="date_issued"/>
+                <field name="date_expiry"/>
+                <field name="reason"/>
+                <field name="attachment_count"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_document_history_form" model="ir.ui.view">
+        <field name="name">odomate.hr.document.history.form</field>
+        <field name="model">odomate.hr.document.history</field>
+        <field name="arch" type="xml">
+            <form string="Renewal History" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group string="Superseded Values">
+                            <field name="document_id"/>
+                            <field name="employee_id"/>
+                            <field name="date_issued"/>
+                            <field name="date_expiry"/>
+                        </group>
+                        <group string="Renewal">
+                            <field name="renewed_date"/>
+                            <field name="renewed_by"/>
+                            <field name="reason"/>
+                            <field name="attachment_count"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_document_history" model="ir.actions.act_window">
+        <field name="name">Renewal History</field>
+        <field name="res_model">odomate.hr.document.history</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'create': False}</field>
+    </record>
+</odoo>

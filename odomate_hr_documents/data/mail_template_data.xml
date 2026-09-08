@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_document_reminder" model="mail.template">
+        <field name="name">Employee Document: Expiry Reminder</field>
+        <field name="model_id" ref="model_odomate_hr_document"/>
+        <field name="subject">Action required: your {{ object.document_type_id.name }} expires on {{ format_date(object.date_expiry) }}</field>
+        <field name="email_to">{{ object.employee_id.work_email or object.employee_id.private_email or '' }}</field>
+        <field name="lang">{{ object.employee_id.user_id.lang or object.employee_id.lang or user.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="description">Sent by the daily scheduled action to an employee whose document is approaching or past its expiry date.</field>
+        <field name="body_html" type="html">
+            <div style="margin:0px;padding:0px;font-size:13px;">
+                <p>Dear colleague,</p>
+                <p t-if="object.state == 'expired'">A document in your employee file has expired.</p>
+                <p t-else="">A document in your employee file is approaching its expiry date.</p>
+                <table style="border-collapse:collapse;">
+                    <tr>
+                        <td style="padding:2px 16px 2px 0;">Document type</td>
+                        <td style="padding:2px 0;"><t t-out="object.document_type_id.name or ''">Work permit</t></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:2px 16px 2px 0;">Reference</td>
+                        <td style="padding:2px 0;"><t t-out="object.reference or ''">EMPDOC/00001</t></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:2px 16px 2px 0;">Expiry date</td>
+                        <td style="padding:2px 0;"><t t-out="format_date(object.date_expiry) or ''">01/01/2026</t></td>
+                    </tr>
+                </table>
+                <p>Please send an up-to-date copy to the HR department so your record can be renewed.</p>
+                <p>Thank you,</p>
+                <p>HR Department</p>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_document_type_internal,odomate.hr.document.type.internal,model_odomate_hr_document_type,base.group_user,1,0,0,0
+access_odomate_hr_document_type_manager,odomate.hr.document.type.manager,model_odomate_hr_document_type,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_document_internal,odomate.hr.document.internal,model_odomate_hr_document,base.group_user,1,0,0,0
+access_odomate_hr_document_hr_user,odomate.hr.document.hr.user,model_odomate_hr_document,hr.group_hr_user,1,1,1,0
+access_odomate_hr_document_hr_manager,odomate.hr.document.hr.manager,model_odomate_hr_document,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_document_history_internal,odomate.hr.document.history.internal,model_odomate_hr_document_history,base.group_user,1,0,0,0
+access_odomate_hr_document_history_hr_user,odomate.hr.document.history.hr.user,model_odomate_hr_document_history,hr.group_hr_user,1,1,1,0
+access_odomate_hr_document_history_hr_manager,odomate.hr.document.history.hr.manager,model_odomate_hr_document_history,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_form_template_internal,odomate.hr.form.template.internal,model_odomate_hr_form_template,base.group_user,1,0,0,0
+access_odomate_hr_form_template_hr_user,odomate.hr.form.template.hr.user,model_odomate_hr_form_template,hr.group_hr_user,1,1,1,0
+access_odomate_hr_form_template_hr_manager,odomate.hr.form.template.hr.manager,model_odomate_hr_form_template,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_document_renew_hr_user,odomate.hr.document.renew.hr.user,model_odomate_hr_document_renew,hr.group_hr_user,1,1,1,1
