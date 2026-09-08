@@ -10,24 +10,7 @@ The Notion task tracker is the state machine; this file is the recipe.
 - Useful, non-confidential business scenario; real-looking, not a toy.
 - Vary complexity across the repo so viewers can gauge the tool at multiple levels.
 
-## 2. Security review (before any publish)
-
-Reviewer works through the full checklist in the internal `apps-store-showcase-workflow`
-doc. Minimum bar, per module:
-
-- [ ] `ir.model.access.csv` covers every model; no over-broad `group_user` write/unlink
-- [ ] Record rules for any multi-user/multi-company data isolation the spec implies
-- [ ] No `sudo()` on user-triggered paths without a documented reason
-- [ ] HTTP controllers (if any): `auth='user'` unless deliberately public; no open JSON
-      endpoints leaking records
-- [ ] No raw SQL string interpolation; ORM domains only
-- [ ] No `eval` / `safe_eval` on user input
-- [ ] No secrets, tokens, URLs to internal infra, or customer data anywhere (code, data
-      files, tests, SPEC.md, git history)
-- [ ] Demo/data XML doesn't modify core records beyond what the module owns
-- [ ] Tests pass on a clean Odoo 19 Community install
-
-## 3. Repo requirements per module
+## 2. Repo requirements per module
 
 - Standard layout, top-level folder named with the technical name (no `odoo_` prefix)
 - `SPEC.md` inside the module folder: the original business specification + a one-line
@@ -36,7 +19,7 @@ doc. Minimum bar, per module:
   becomes the Apps Store listing page
 - `README.md` table in the repo root updated with the new module row
 
-## 4. Manifest requirements (Apps Store scans these)
+## 3. Manifest requirements (Apps Store scans these)
 
 ```python
 {
@@ -65,7 +48,7 @@ product; "… for Odoo" phrasing in the summary is fine.
 also carries attribution. Register the slug there *first*; the manifest field is a
 same-origin redirect either way, so this is a same-day, one-line change per module.
 
-## 5. Apps Store submission (Maryana's dashboard)
+## 4. Apps Store submission (Maryana's dashboard)
 
 The Apps Store does not take uploads — it **scans a registered git repository**:
 
@@ -79,12 +62,12 @@ The Apps Store does not take uploads — it **scans a registered git repository*
    the dashboard).
 4. Free apps: set no price. The listing page renders `static/description/index.html`.
 
-## 6. Cadence
+## 5. Cadence
 
 A stale repo reads worse than no repo: land a fresh example module every **4–6 weeks**
 during beta (content calendar owns the reminder).
 
-## 7. Repo hygiene
+## 6. Repo hygiene
 
 Commit messages carry no AI co-author/session trailers — plain project history
 only. A `commit-msg` hook enforces it; enable once per clone:

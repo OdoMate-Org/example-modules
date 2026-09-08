@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the identity document the module tracks. -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="56" y="116" width="284" height="232" rx="26"/>
+  </g>
+
+  <!-- ACTION: it runs out of time. An hourglass, so the action's form contrasts
+       with the card's rectangle and the portrait's circle. -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M344 344 H452"/>
+    <path d="M344 456 H452"/>
+    <path d="M352 344 L398 400 L352 456"/>
+    <path d="M444 344 L398 400 L444 456"/>
+  </g>
+
+  <!-- CONTEXT: the person on the card. -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <circle cx="126" cy="190" r="28"/>
+    <path d="M92 252 q34 -32 68 0"/>
+    <path d="M200 176 H304"/>
+    <path d="M200 216 H280"/>
+    <path d="M200 256 H304"/>
+  </g>
+</svg>

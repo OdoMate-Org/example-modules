@@ -1,0 +1,90 @@
+{
+  "module_name": "Employee Dependants & Identity Documents",
+  "slug": "employee-dependants-identity-documents",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee Dependants</span> <span style=\"color:#8fb8e8;\">&amp;</span> <span style=\"color:#a98bf5;\">Identity Documents</span>",
+  "intro_html": "Puts the two things HR always ends up keeping in a spreadsheet — who to call in an emergency, and when somebody's ID or passport stops being valid — back on the employee record, and warns the right person once, on the right day, instead of every morning until the document expires.",
+  "test_count": 29,
+  "features": [
+    {
+      "icon": "users",
+      "title": "Dependants On The Record",
+      "desc": "Name, relationship, phone and date of birth for every family member, on the HR-only private page — and a spouse already recorded on the personal page is added for you, without duplicating on re-save."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "One Emergency Contact, Always",
+      "desc": "Flagging a dependant copies their name and number onto the employee and unflags anyone else. Enforced in the database, not just the form, so imports and API calls obey the same rule."
+    },
+    {
+      "icon": "sliders",
+      "title": "Your Own Relationship List",
+      "desc": "Spouse, Father, Mother, Son and Daughter ship with the module; add Guardian or anything else from Employees → Configuration."
+    },
+    {
+      "icon": "files-o",
+      "title": "ID And Passport, With Scans",
+      "desc": "An expiry date for the identification reference, and somewhere to attach the scans for both it and the passport, right beside the numbers themselves."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Warned Once, On The Right Day",
+      "desc": "The daily job matches today plus your lead time exactly, so nobody is e-mailed twice — plus a send-now button for chasing somebody today rather than waiting."
+    },
+    {
+      "icon": "envelope",
+      "title": "Wording You Control",
+      "desc": "Both warning e-mails are standard editable templates, so you can rewrite or translate them without touching code."
+    },
+    {
+      "icon": "calendar",
+      "title": "A Joining Date That Is Right",
+      "desc": "Computed from the employee's own employment history and not typeable over — not through the form, not through an import, not through the API — so it stops drifting from the truth."
+    },
+    {
+      "icon": "shield",
+      "title": "A Login Always Has An Employee",
+      "desc": "Every new internal login creates the matching employee record, linked both ways. Customer-facing and technical accounts never do, and the whole behaviour can be switched off."
+    }
+  ],
+  "limitations": [
+    "Only the identification reference and the passport are tracked. Visas, work permits, driving licences and professional certifications are out of scope.",
+    "No employee self-service. HR maintains dependants; an employee has no menu for their own.",
+    "Document numbers are stored as free text — nothing validates a format or a checksum.",
+    "The automation runs one way only: a new internal login creates an employee, but creating an employee never creates a login.",
+    "Notice Period is read-only for HR Officers in the form rather than blocked at the server, and it is not backfilled onto employment records that already existed when the module was installed."
+  ],
+  "short_link": {
+    "slug": "dependants",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_employee_info_06092026_2/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_employee_info_06092026_2/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "stats": [
+    {
+      "value": "~59 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "2",
+      "label": "Generated versions",
+      "caption": "The original build plus one enhancement round, both by OdoMate"
+    },
+    {
+      "value": "$51.44",
+      "label": "Total spend",
+      "caption": "Specification, generation, the enhancement round and every browser test"
+    },
+    {
+      "value": "29",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and every enhancement and test round."
+}

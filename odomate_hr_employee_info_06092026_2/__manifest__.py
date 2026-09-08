@@ -19,7 +19,7 @@ employee creation for every new internal login.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/dependants?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Human Resources',
@@ -43,6 +43,7 @@ employee creation for every new internal login.
         'demo/odomate_hr_employee_demo.xml',
         'demo/odomate_hr_dependant_demo.xml',
     ],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': False,
     'auto_install': False,
