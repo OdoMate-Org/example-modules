@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_form_template_list" model="ir.ui.view">
+        <field name="name">odomate.hr.form.template.list</field>
+        <field name="model">odomate.hr.form.template</field>
+        <field name="arch" type="xml">
+            <list string="Forms &amp; Templates">
+                <field name="name"/>
+                <field name="note" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_form_template_form" model="ir.ui.view">
+        <field name="name">odomate.hr.form.template.form</field>
+        <field name="model">odomate.hr.form.template</field>
+        <field name="arch" type="xml">
+            <form string="Form / Template">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name" string="Name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Expense claim form"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="active"/>
+                    </group>
+                    <group string="Note">
+                        <field name="note" nolabel="1"
+                               placeholder="How and when this form should be used. Attach the file itself in the chatter below."/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_form_template_search" model="ir.ui.view">
+        <field name="name">odomate.hr.form.template.search</field>
+        <field name="model">odomate.hr.form.template</field>
+        <field name="arch" type="xml">
+            <search string="Forms &amp; Templates">
+                <field name="name"/>
+                <field name="note"/>
+                <filter string="Archived" name="filter_inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_form_template" model="ir.actions.act_window">
+        <field name="name">Forms &amp; Templates</field>
+        <field name="res_model">odomate.hr.form.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_form_template_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Publish your first HR form</p>
+            <p>Blank forms and templates every employee can download. Attach the file in the chatter; there are no dates and no expiry chasing here.</p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_odomate_hr_documents_root"
+              name="Employee Documents"
+              parent="hr.menu_hr_root"
+              sequence="35"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_odomate_hr_document"
+              name="Documents"
+              parent="menu_odomate_hr_documents_root"
+              action="action_odomate_hr_document"
+              sequence="10"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_odomate_hr_form_template"
+              name="Forms &amp; Templates"
+              parent="menu_odomate_hr_documents_root"
+              action="action_odomate_hr_form_template"
+              sequence="20"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_odomate_hr_document_type"
+              name="Document Types"
+              parent="menu_odomate_hr_documents_root"
+              action="action_odomate_hr_document_type"
+              sequence="30"
+              groups="hr.group_hr_manager"/>
+</odoo>
