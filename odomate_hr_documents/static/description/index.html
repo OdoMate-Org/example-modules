@@ -1,0 +1,164 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Employee Document Expiry Tracking</h2>
+        <h3 class="oe_slogan">Work permits, licences and certificates that chase themselves</h3>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-center">
+                Keep one record per expiring employee document and stop discovering the
+                expiry a week after it happened. A daily scheduled action expires what
+                has lapsed, emails the employee, and puts a dated To-Do on their manager
+                — following the chasing pattern you configure per document type.
+                Renewal keeps the old dates and the old scans as history instead of
+                overwriting them.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan">Key Features</h2>
+    <div class="oe_row">
+        <div class="oe_span6">
+            <h4>Four chasing patterns</h4>
+            <p>
+                Each <code>odomate.hr.document.type</code> carries a pattern and a
+                reminder delay: on the expiry date only, once N days before, every day
+                from N days before until expiry, or every day from expiry until N days
+                after.
+            </p>
+            <h4>Automatic expiry, then notification</h4>
+            <p>
+                One daily run: Valid documents past their date become Expired first,
+                then every Valid or Expired document is checked against its pattern.
+                Drafts are never touched.
+            </p>
+            <h4>Employee email + manager To-Do</h4>
+            <p>
+                Each chase sends the <em>Employee Document: Expiry Reminder</em>
+                template to the employee and creates or refreshes a To-Do on
+                <code>employee_id.parent_id.user_id</code>, dated on the expiry date.
+                No manager on file means email only.
+            </p>
+            <h4>No double sends</h4>
+            <p>
+                <code>last_reminder_sent_date</code> stops a second automatic reminder
+                on the same calendar day — without suppressing tomorrow's send in a
+                daily pattern.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h4>Renewal that preserves history</h4>
+            <p>
+                The renewal wizard copies the current dates into an
+                <code>odomate.hr.document.history</code> row and re-points the existing
+                <code>ir.attachment</code> records onto it — the same records, moved,
+                not copied — then gives the document its new dates and scans.
+            </p>
+            <h4>One valid document per type</h4>
+            <p>
+                Enforced by <code>@api.constrains</code> on create and on write, and
+                backed by a partial unique index so concurrent imports cannot slip a
+                duplicate through. Draft and Expired copies may coexist.
+            </p>
+            <h4>Readable urgency</h4>
+            <p>
+                <code>days_remaining_label</code> reads <em>Expired 12 days</em>,
+                <em>Today</em>, <em>Tomorrow</em> or a plain number, and its paired
+                search method turns the "expiring within 7 / 30 days" filters into a
+                plain <code>date_expiry</code> range — nothing stored, nothing stale.
+            </p>
+            <h4>Correct access out of the box</h4>
+            <p>
+                Employees see their own documents read-only, enforced by a record rule
+                rather than a filtered list. HR officers manage everything; HR managers
+                delete. Multi-company rules on documents and history.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h2 class="oe_slogan">How it works</h2>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <ol>
+                <li>
+                    <strong>Configure the types.</strong> Employees → Employee Documents →
+                    Document Types. Set <em>Chasing Pattern</em> and <em>Reminder Days</em>
+                    for each kind of document you issue.
+                </li>
+                <li>
+                    <strong>Record a document.</strong> Employees → Employee Documents →
+                    Documents. Pick the employee and the type, enter the dates, drag the
+                    scan into the chatter. The reference <code>EMPDOC/00001</code> is
+                    assigned automatically.
+                </li>
+                <li>
+                    <strong>Mark it valid.</strong> Refused if the expiry date is already
+                    in the past, and refused if the employee already holds a valid
+                    document of that type.
+                </li>
+                <li>
+                    <strong>Let the cron work.</strong> The daily scheduled action expires
+                    and chases. Expired rows turn red and bold in the list; the manager
+                    finds a dated To-Do in their activity view.
+                </li>
+                <li>
+                    <strong>Renew.</strong> Four fields — new issue date, new expiry date,
+                    new scans, reason. The old dates and scans move to the history row,
+                    the document returns to Valid, and the open To-Do is marked done.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan">Documentation</h2>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <p class="text-center">
+                The full user guide — including worked examples of all four chasing
+                patterns and the complete access matrix — ships with the module:
+            </p>
+            <ul>
+                <li><code>doc/USER_GUIDE.md</code> — English</li>
+                <li><code>doc/USER_GUIDE.uk.md</code> — Ukrainian</li>
+                <li><code>README.rst</code> — installation and feature summary</li>
+            </ul>
+            <p class="text-center">
+                Ukrainian interface translation (<code>i18n/uk.po</code>) is included:
+                chasing-pattern labels, days-remaining wording, every refusal message,
+                the reminder email and the manager to-do summary.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h2 class="oe_slogan">What this module deliberately does not do</h2>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <p class="text-center">
+                No approval workflow. No blocking of payroll, leave or scheduling. No
+                employee self-service upload. No OCR of scans. No escalation beyond one
+                email and one manager to-do. No printable report. The standard
+                <code>identification_id</code>, <code>passport_id</code> and
+                <code>work_permit_*</code> fields on <code>hr.employee</code> are left
+                untouched.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h3 class="oe_slogan" style="color:#875A7B;">OdoMate</h3>
+            <p>
+                Built by OdoMate — <a href="https://odomate.pro">https://odomate.pro</a><br/>
+                Support: <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>
