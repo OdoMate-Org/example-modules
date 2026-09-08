@@ -71,14 +71,14 @@
       "caption": "From the finalized specification to a working, tested module"
     },
     {
-      "value": "2",
+      "value": "3",
       "label": "Generated versions",
-      "caption": "The original build plus one enhancement round, both by OdoMate"
+      "caption": "The original build plus two enhancement rounds, all by OdoMate"
     },
     {
-      "value": "$51.44",
+      "value": "$61.09",
       "label": "Total spend",
-      "caption": "Specification, generation, the enhancement round and every browser test"
+      "caption": "Specification, generation, both enhancement rounds and every browser test"
     },
     {
       "value": "29",
