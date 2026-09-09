@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the equipment handed out -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="56" y="168" width="198" height="132" rx="14"/>
+    <rect x="38" y="312" width="234" height="26" rx="13"/>
+  </g>
+
+  <!-- SUBJECT: the document it is signed out on, with a folded corner -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 318 152 H 408 L 462 206 V 386 Q 462 400 448 400 H 318 Q 304 400 304 386 V 166 Q 304 152 318 152 Z"/>
+    <path d="M 406 154 V 206 H 460"/>
+  </g>
+
+  <!-- ACTION: it is signed for -->
+  <g fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 330 316 C 344 276, 360 356, 376 310 S 410 268, 434 308"/>
+  </g>
+
+  <!-- CONTEXT: the signature line -->
+  <g fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" opacity="0.85">
+    <path d="M 328 352 H 438"/>
+  </g>
+</svg>

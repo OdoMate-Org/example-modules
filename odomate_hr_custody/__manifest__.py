@@ -1,9 +1,13 @@
 {
     'name': "Employee Custody Management",
 
-    'summary': "Track company property handed to employees: custody register, "
-               "request and approval workflow, overdue reminders and a "
-               "printable handover document",
+    'summary': "Odoo Employee Custody Management module tracks company property "
+               "handed to employees, running each item through a request, approval "
+               "and return workflow with automatic overdue reminders and a printable "
+               "handover document. employee custody | company property tracking | "
+               "asset handover | custody request approval | overdue return reminders | "
+               "hr asset register | employee equipment tracking | property handover "
+               "document | borrowed equipment log",
 
     'description': """
 Employee Custody Management
@@ -15,12 +19,12 @@ a signed handover document.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/custody?v=site",
     'support': "support@odomate.pro",
     'maintainer': "OdoMate",
 
-    'category': 'Human Resources/Employees',
-    'version': '19.0.1.0.0',
+    'category': 'Human Resources',
+    'version': '19.0.1.0.1',
     'license': 'LGPL-3',
 
     'depends': [
@@ -48,7 +52,7 @@ a signed handover document.
     'demo': [
         'demo/odomate_hr_custody_demo.xml',
     ],
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,

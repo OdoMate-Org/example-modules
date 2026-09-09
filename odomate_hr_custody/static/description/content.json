@@ -1,0 +1,95 @@
+{
+  "module_name": "Employee Custody Management",
+  "slug": "employee-custody-management",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee</span> <span style=\"color:#8fb8e8;\">Custody</span> <span style=\"color:#a98bf5;\">Management</span>",
+  "intro_html": "Turns \"who has the projector?\" from a question nobody can answer into a register anybody can read — every laptop, vehicle key and access card you hand out, recorded, approved, chased when it comes back late, and backed by a document the person actually <em>signed</em>.",
+  "test_count": 33,
+  "features": [
+    {
+      "icon": "files-o",
+      "title": "One Register For What You Lend",
+      "desc": "Laptops, phones, vehicle keys, access cards, instruments — each with its own description, photo and company, and an optional link to a catalogue product."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Request, Approve, Return",
+      "desc": "A request is raised as a draft, sent for approval, approved or refused by an HR officer, then closed when the item comes back."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "A Handover Document They Sign",
+      "desc": "One printable page carrying the holder, the item and its description, the reason, the return date, an undertaking and two signature lines."
+    },
+    {
+      "icon": "lock",
+      "title": "The Same Item Is Never Promised Twice",
+      "desc": "Approving an item somebody already holds is refused outright, and the message names who holds it and under which request."
+    },
+    {
+      "icon": "envelope",
+      "title": "Overdue Returns Chase Themselves",
+      "desc": "A daily job emails the holder from the day before the return date onwards, and a manager can send a reminder by hand at any time."
+    },
+    {
+      "icon": "calendar",
+      "title": "Extensions And Refusals Stay On Record",
+      "desc": "A refusal must carry a written reason. An extension records the new date without destroying the one originally promised."
+    },
+    {
+      "icon": "users",
+      "title": "Every Employee's Holdings, One Click",
+      "desc": "Two counters on the employee form: everything that person has ever held, and what they are holding right now."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Analysis By Item, Person Or Status",
+      "desc": "A pivot over the register showing what gets requested most, who tends to run late, and what is approved against what is refused."
+    }
+  ],
+  "limitations": [
+    "No quantities or stock integration. One register row is one physical item; the optional product link is descriptive and moves nothing in Inventory.",
+    "No condition, damage or maintenance tracking, and no repair workflow.",
+    "No financial value, depreciation or insurance fields.",
+    "No multi-level approval. One officer approval is final.",
+    "No escalation. Reminders go to the holder only, never to a manager.",
+    "No barcode scanning, and no on-screen signature capture — the handover document is printed and signed on paper.",
+    "No per-item history model. The request records are the history.",
+    "The reminder schedule is fixed at daily 05:00, with no settings screen.",
+    "Overdue status is calculated rather than stored, so it cannot be grouped on directly. Use the Overdue search filter.",
+    "Regular employees cannot delete their own requests. An HR Administrator removes a mistaken record."
+  ],
+  "stats": [
+    {
+      "value": "~78 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "1",
+      "label": "Generated version",
+      "caption": "One build, published exactly as OdoMate generated it"
+    },
+    {
+      "value": "$31.71",
+      "label": "Total spend",
+      "caption": "Specification, generation and every automated test run"
+    },
+    {
+      "value": "33",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_custody/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_custody/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "short_link": {
+    "slug": "custody",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  }
+}
