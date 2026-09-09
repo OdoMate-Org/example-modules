@@ -34,7 +34,7 @@ exactly what leaves your system before you share it.
     'website': "https://odomate.pro/m/connector?v=site",
     'support': "support@odomate.pro",
     'category': 'Technical',
-    'version': '19.0.1.7.2',
+    'version': '19.0.1.7.3',
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [

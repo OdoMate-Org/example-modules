@@ -19,7 +19,7 @@ stamp themselves automatically.
     'website': "https://odomate.pro/m/checklist?v=site",
     'support': "support@odomate.pro",
     'category': 'Services/Project',
-    'version': '19.0.1.0.4',
+    'version': '19.0.1.0.5',
     'license': 'LGPL-3',
     'depends': ['project'],
     'data': [

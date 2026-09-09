@@ -21,7 +21,7 @@ the chasing pattern configured on each document type.
     'support': "support@odomate.pro",
 
     'category': 'Human Resources',
-    'version': '19.0.1.0.3',
+    'version': '19.0.1.0.4',
     'license': 'LGPL-3',
 
     'depends': ['hr', 'mail'],

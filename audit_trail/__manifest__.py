@@ -27,7 +27,7 @@ the five actions to record: create, write, unlink, export and read.
     'support': "support@odomate.pro",
 
     'category': 'Tools',
-    'version': '19.0.1.0.7',
+    'version': '19.0.1.0.8',
     'license': 'LGPL-3',
 
     'depends': ['base', 'web'],
