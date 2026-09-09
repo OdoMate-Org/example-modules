@@ -20,8 +20,8 @@ the chasing pattern configured on each document type.
     'website': "https://odomate.pro/m/documents?v=site",
     'support': "support@odomate.pro",
 
-    'category': 'Human Resources/Employees',
-    'version': '19.0.1.0.1',
+    'category': 'Human Resources',
+    'version': '19.0.1.0.2',
     'license': 'LGPL-3',
 
     'depends': ['hr', 'mail'],
