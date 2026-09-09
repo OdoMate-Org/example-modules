@@ -38,7 +38,7 @@ Key features
     'support': "support@odomate.pro",
 
     'category': 'Sales/Sales',
-    'version': '19.0.1.0.4',
+    'version': '19.0.1.0.5',
     'license': 'LGPL-3',
 
     'depends': [
@@ -61,5 +61,5 @@ Key features
     'installable': True,
     'application': False,
     'auto_install': False,
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
 }

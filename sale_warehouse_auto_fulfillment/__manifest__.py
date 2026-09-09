@@ -28,7 +28,7 @@ so a failure leaves the order as a quotation with nothing half-done.
     'support': "support@odomate.pro",
 
     'category': 'Sales/Sales',
-    'version': '19.0.1.0.1',
+    'version': '19.0.1.0.2',
     'license': 'LGPL-3',
 
     'depends': [
@@ -49,5 +49,5 @@ so a failure leaves the order as a quotation with nothing half-done.
     'installable': True,
     'application': False,
     'auto_install': False,
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
 }

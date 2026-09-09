@@ -21,7 +21,7 @@ the chasing pattern configured on each document type.
     'support': "support@odomate.pro",
 
     'category': 'Human Resources',
-    'version': '19.0.1.0.2',
+    'version': '19.0.1.0.3',
     'license': 'LGPL-3',
 
     'depends': ['hr', 'mail'],
@@ -42,7 +42,7 @@ the chasing pattern configured on each document type.
     'demo': [
         'demo/demo.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,

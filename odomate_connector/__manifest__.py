@@ -34,14 +34,14 @@ exactly what leaves your system before you share it.
     'website': "https://odomate.pro/m/connector?v=site",
     'support': "support@odomate.pro",
     'category': 'Technical',
-    'version': '19.0.1.7.1',
+    'version': '19.0.1.7.2',
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
         'views/export_wizard_views.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
 }

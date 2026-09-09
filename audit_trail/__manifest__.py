@@ -27,7 +27,7 @@ the five actions to record: create, write, unlink, export and read.
     'support': "support@odomate.pro",
 
     'category': 'Tools',
-    'version': '19.0.1.0.6',
+    'version': '19.0.1.0.7',
     'license': 'LGPL-3',
 
     'depends': ['base', 'web'],
@@ -47,7 +47,7 @@ the five actions to record: create, write, unlink, export and read.
         'demo/demo_watch_setup.xml',
         'demo/demo_audit_history.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': True,
     'auto_install': False,

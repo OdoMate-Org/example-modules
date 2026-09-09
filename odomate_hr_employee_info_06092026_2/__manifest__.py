@@ -23,7 +23,7 @@ employee creation for every new internal login.
     'support': "support@odomate.pro",
 
     'category': 'Human Resources',
-    'version': '19.0.1.0.2',
+    'version': '19.0.1.0.3',
     'license': 'LGPL-3',
 
     'depends': ['hr', 'mail'],
@@ -43,7 +43,7 @@ employee creation for every new internal login.
         'demo/odomate_hr_employee_demo.xml',
         'demo/odomate_hr_dependant_demo.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,
