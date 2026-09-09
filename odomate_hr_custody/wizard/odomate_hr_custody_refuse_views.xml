@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_custody_refuse_form" model="ir.ui.view">
+        <field name="name">odomate.hr.custody.refuse.form</field>
+        <field name="model">odomate.hr.custody.refuse</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Custody Request">
+                <group>
+                    <field name="request_id" invisible="1"/>
+                    <field name="is_extension" invisible="1"/>
+                </group>
+                <div class="alert alert-info" role="alert" invisible="not is_extension">
+                    Refusing an extension keeps the item in custody with the original
+                    return date. The reason below is recorded as the extension refusal.
+                </div>
+                <group>
+                    <field name="reason" placeholder="Explain why the request is refused..." nolabel="1"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Refuse" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_custody_refuse" model="ir.actions.act_window">
+        <field name="name">Refuse Custody Request</field>
+        <field name="res_model">odomate.hr.custody.refuse</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+</odoo>

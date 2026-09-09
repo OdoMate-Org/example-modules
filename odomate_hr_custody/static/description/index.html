@@ -1,0 +1,149 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color:#875A7B;">Employee Custody Management</h2>
+            <h3 class="oe_slogan">Know who has the company laptop — and when it is coming back</h3>
+            <p class="oe_mt32 text-center">
+                Register every piece of company property you hand to an employee, run each
+                handover through a request and approval workflow, and let Odoo chase the
+                overdue returns for you. Everything lives inside the Employees app, next to
+                the people it concerns — no separate asset module to learn, no spreadsheet
+                to reconcile.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_row_img oe_mt16">
+                <h4>A real register, not a text field</h4>
+                <p>
+                    Each item gets its own record with a photo, a description, the owning
+                    company and an optional link to a product. A kanban board shows at a
+                    glance what is available and who is holding the rest.
+                </p>
+                <h4>Request, approve, return</h4>
+                <p>
+                    Requests move through <b>Draft → Waiting Approval → Approved →
+                    Returned</b>, with <b>Refused</b> as the terminal branch. Every request
+                    gets a sequence reference such as <code>CUST/00001</code>.
+                </p>
+                <h4>One holder at a time — really</h4>
+                <p>
+                    The rule is enforced inside the approval method and backed by a partial
+                    unique database index, so an import, an RPC call or two officers
+                    clicking at the same moment all hit the same guard.
+                </p>
+                <h4>Extensions without losing the original promise</h4>
+                <p>
+                    The holder proposes a later date; it is stored separately until an
+                    officer approves it. Refusing an extension records its own reason and
+                    restores the original return date.
+                </p>
+            </div>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_row_img oe_mt16">
+                <h4>Automatic overdue chasing</h4>
+                <p>
+                    A scheduled action runs every day at 05:00, finds every approved
+                    request due within a day, and emails the holder a reminder containing a
+                    direct link to the record. The same template powers the manual
+                    <b>Send Reminder</b> button.
+                </p>
+                <h4>A handover document you can sign</h4>
+                <p>
+                    A one-page QWeb PDF on Odoo's standard external layout: your logo and
+                    address, the holder's details, the item, the undertaking text and two
+                    signature lines. Printable from the form or from a list selection.
+                </p>
+                <h4>Access rights that hold up</h4>
+                <p>
+                    Employees see and create only their own requests, enforced by a record
+                    rule. The approve, refuse and return actions raise an access error in
+                    Python for anyone outside the HR Officer group — the buttons are not
+                    merely hidden. Multi-company record rules apply to both models.
+                </p>
+                <h4>Reporting where you expect it</h4>
+                <p>
+                    A pivot over the requests themselves — group by item, employee, status
+                    or month — plus two smart buttons on every employee form.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol class="oe_mt32">
+                <li>
+                    <b>Register the items.</b> Go to <b>Employees → Custody → Items</b> and
+                    add a record for each laptop, phone, toolkit or access card, with a
+                    photo and a description.
+                </li>
+                <li>
+                    <b>File a request.</b> Under <b>Employees → Custody → Custody
+                    Requests</b>, pick the employee, the item, a reason and a promised
+                    return date, then click <b>Send for Approval</b>.
+                </li>
+                <li>
+                    <b>Approve or refuse.</b> An HR Officer approves, or refuses with a
+                    reason. Approving marks the item as held; the kanban card flips from
+                    green to amber.
+                </li>
+                <li>
+                    <b>Print the handover document</b> and have the employee sign it.
+                </li>
+                <li>
+                    <b>Let Odoo chase.</b> If the return date passes, the row turns red and
+                    the daily reminder starts going out to the holder.
+                </li>
+                <li>
+                    <b>Close the loop.</b> Click <b>Returned</b>. The actual return date is
+                    stamped alongside the promised one, and the item becomes available again.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Documentation</h3>
+            <p class="text-center">
+                The full walkthrough — roles, workflow, field reference and honest
+                limitations — ships with the module:
+            </p>
+            <p class="text-center">
+                <code>doc/USER_GUIDE.md</code> (English) &nbsp;·&nbsp;
+                <code>doc/USER_GUIDE.uk.md</code> (Українською)
+            </p>
+            <p class="text-center oe_mt32">
+                A Ukrainian interface translation (<code>i18n/uk.po</code>) is included and
+                covers the status labels, buttons, workflow messages, the reminder email
+                and every fixed word on the printed handover document.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p>
+                <a href="https://odomate.pro">odomate.pro</a> &nbsp;·&nbsp;
+                <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>
