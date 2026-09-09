@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_custody_handover_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <h2 class="mt-0">Custody Handover Document</h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <div class="fw-bold">Reference: <span class="fw-normal" t-field="doc.name"/></div>
+                                <div class="fw-bold">Date: <span class="fw-normal" t-field="doc.request_date"/></div>
+                            </div>
+                        </div>
+
+                        <h4>Holder</h4>
+                        <table class="table table-sm mb-4">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold" style="width: 35%;">Name</td>
+                                    <td><span t-out="doc.employee_id.name or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Job Position</td>
+                                    <td><span t-out="doc.employee_id.job_title or doc.employee_id.job_id.name or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Department</td>
+                                    <td><span t-out="doc.employee_id.department_id.name or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Identification Reference</td>
+                                    <td><span t-out="doc.employee_id.identification_id or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Emergency Contact</td>
+                                    <td><span t-out="doc.employee_id.emergency_contact or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Emergency Phone</td>
+                                    <td><span t-out="doc.employee_id.emergency_phone or ''"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Item Handed Over</h4>
+                        <table class="table table-sm mb-4">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold" style="width: 35%;">Item</td>
+                                    <td><span t-out="doc.item_id.name or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Description</td>
+                                    <td><span t-out="doc.item_id.description or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Reason</td>
+                                    <td><span t-out="doc.reason or ''"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Return Date</td>
+                                    <td><span t-field="doc.return_date"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Undertaking</h4>
+                        <p>
+                            I confirm that I have received the item described above in good
+                            working order. I undertake to use it for professional purposes
+                            only, to keep it in good condition, and to return it to the
+                            company on or before the return date stated above, or earlier on
+                            request. I accept responsibility for any loss or damage caused by
+                            negligent use while the item is in my custody.
+                        </p>
+
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div style="border-top: 1px solid #000; padding-top: 4px;">
+                                    Employee signature
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="border-top: 1px solid #000; padding-top: 4px;">
+                                    Authorised by (HR)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

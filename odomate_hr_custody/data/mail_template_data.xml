@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_custody_return_reminder" model="mail.template">
+            <field name="name">Custody: Return Reminder</field>
+            <field name="model_id" ref="model_odomate_hr_custody"/>
+            <field name="subject">Reminder: please return {{ object.item_id.name }} ({{ object.name }})</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.employee_id.user_id.partner_id.id or object.employee_id.work_contact_id.id or '' }}</field>
+            <field name="description">Sent to the holder of a custody item whose return date is due or overdue.</field>
+            <field name="lang">{{ object.employee_id.user_id.lang or object.employee_id.lang }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="html"><div><p>Dear <t t-out="object.employee_id.name or ''">Employee</t>,</p><p>Our records show that the following item is still in your custody and its return date has been reached.</p><p><b>Reference:</b> <t t-out="object.name or ''">CUST/00001</t><br/><b>Item:</b> <t t-out="object.item_id.name or ''">Laptop</t><br/><b>Return date:</b> <t t-out="format_date(object.return_date) or ''">01/01/2026</t></p><p>Please hand the item back to your HR contact, or request an extension of the return date from the custody request:</p><p><a t-attf-href="{{ object.get_base_url() }}/odoo/action-odomate_hr_custody.action_odomate_hr_custody/{{ object.id }}" style="background-color:#714B67;padding:8px 16px;text-decoration:none;color:#ffffff;border-radius:5px;">Open the custody request</a></p><p>Thank you,<br/><t t-out="object.company_id.name or ''">Company</t></p></div></field>
+        </record>
+    </data>
+</odoo>

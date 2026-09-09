@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_odomate_hr_custody_item_company" model="ir.rule">
+        <field name="name">Custody Item: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_custody_item"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_odomate_hr_custody_company" model="ir.rule">
+        <field name="name">Custody Request: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_custody"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_odomate_hr_custody_own" model="ir.rule">
+        <field name="name">Custody Request: own requests only</field>
+        <field name="model_id" ref="model_odomate_hr_custody"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_odomate_hr_custody_all" model="ir.rule">
+        <field name="name">Custody Request: all requests</field>
+        <field name="model_id" ref="model_odomate_hr_custody"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_custody_item_employee,odomate.hr.custody.item employee,model_odomate_hr_custody_item,base.group_user,1,0,0,0
+access_odomate_hr_custody_item_hr_user,odomate.hr.custody.item hr user,model_odomate_hr_custody_item,hr.group_hr_user,1,1,1,0
+access_odomate_hr_custody_item_hr_manager,odomate.hr.custody.item hr manager,model_odomate_hr_custody_item,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_custody_employee,odomate.hr.custody employee,model_odomate_hr_custody,base.group_user,1,1,1,0
+access_odomate_hr_custody_hr_user,odomate.hr.custody hr user,model_odomate_hr_custody,hr.group_hr_user,1,1,1,0
+access_odomate_hr_custody_hr_manager,odomate.hr.custody hr manager,model_odomate_hr_custody,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_custody_extend_employee,odomate.hr.custody.extend employee,model_odomate_hr_custody_extend,base.group_user,1,1,1,1
+access_odomate_hr_custody_extend_hr_user,odomate.hr.custody.extend hr user,model_odomate_hr_custody_extend,hr.group_hr_user,1,1,1,1
+access_odomate_hr_custody_refuse_hr_user,odomate.hr.custody.refuse hr user,model_odomate_hr_custody_refuse,hr.group_hr_user,1,1,1,1
+access_odomate_hr_custody_refuse_hr_manager,odomate.hr.custody.refuse hr manager,model_odomate_hr_custody_refuse,hr.group_hr_manager,1,1,1,1

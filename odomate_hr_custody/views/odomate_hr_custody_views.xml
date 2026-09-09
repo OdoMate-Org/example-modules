@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_custody_form" model="ir.ui.view">
+        <field name="name">odomate.hr.custody.form</field>
+        <field name="model">odomate.hr.custody</field>
+        <field name="arch" type="xml">
+            <form string="Custody Request">
+                <header>
+                    <button name="action_send_for_approval" type="object"
+                            string="Send for Approval" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            invisible="state != 'waiting_approval'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_open_refuse_wizard" type="object"
+                            string="Refuse"
+                            invisible="state != 'waiting_approval'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_set_to_draft" type="object"
+                            string="Set to Draft"
+                            invisible="is_extension or state not in ('waiting_approval', 'refused')"/>
+                    <button name="action_open_extend_wizard" type="object"
+                            string="Extend"
+                            invisible="state != 'approved'"/>
+                    <button name="action_returned" type="object"
+                            string="Returned" class="btn-primary"
+                            invisible="state != 'approved'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_send_reminder" type="object"
+                            string="Send Reminder"
+                            invisible="state != 'approved'"
+                            groups="hr.group_hr_user"/>
+                    <button name="%(action_report_custody_handover)d" type="action"
+                            string="Print Handover Document"
+                            invisible="state not in ('approved', 'returned')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,waiting_approval,approved,returned"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not is_overdue">
+                        This item is overdue: the promised return date has passed.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"
+                                   readonly="state not in ('draft', 'waiting_approval')"
+                                   options="{'no_create': True}"/>
+                            <field name="item_id"
+                                   readonly="state not in ('draft', 'waiting_approval')"/>
+                            <field name="reason"
+                                   readonly="state in ('returned', 'refused')"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="request_date"
+                                   readonly="state not in ('draft', 'waiting_approval')"/>
+                            <label for="return_date"/>
+                            <div class="o_row">
+                                <field name="return_date"
+                                       readonly="state not in ('draft', 'waiting_approval')"/>
+                                <span invisible="not extend_new_return_date" class="mx-2 text-muted">
+                                    requested:
+                                </span>
+                                <field name="extend_new_return_date" readonly="1"
+                                       invisible="not extend_new_return_date"/>
+                            </div>
+                            <field name="actual_return_date" invisible="not actual_return_date"/>
+                            <field name="is_extension" invisible="1"/>
+                            <field name="is_overdue" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Refusal Reason" invisible="not refusal_reason">
+                        <field name="refusal_reason" nolabel="1" readonly="1"/>
+                    </group>
+                    <group string="Extension Refusal Reason" invisible="not extension_refusal_reason">
+                        <field name="extension_refusal_reason" nolabel="1" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Internal notes about this custody..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_custody_list" model="ir.ui.view">
+        <field name="name">odomate.hr.custody.list</field>
+        <field name="model">odomate.hr.custody</field>
+        <field name="arch" type="xml">
+            <list string="Custody Requests" decoration-danger="is_overdue"
+                  decoration-muted="state in ('returned', 'refused')">
+                <field name="is_overdue" column_invisible="True"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="request_date"/>
+                <field name="return_date"/>
+                <field name="actual_return_date" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'waiting_approval'"
+                       decoration-success="state == 'approved'"
+                       decoration-danger="state == 'refused'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_custody_search" model="ir.ui.view">
+        <field name="name">odomate.hr.custody.search</field>
+        <field name="model">odomate.hr.custody</field>
+        <field name="arch" type="xml">
+            <search string="Custody Requests">
+                <field name="name" string="Reference"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <filter name="filter_my_requests" string="My Requests"
+                        domain="[('employee_id.user_id', '=', uid)]"/>
+                <separator/>
+                <filter name="filter_waiting" string="Waiting Approval"
+                        domain="[('state', '=', 'waiting_approval')]"/>
+                <filter name="filter_approved" string="In Custody"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_returned" string="Returned"
+                        domain="[('state', '=', 'returned')]"/>
+                <separator/>
+                <filter name="filter_overdue" string="Overdue"
+                        domain="[('state', '=', 'approved'), ('return_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="filter_pending_extension" string="Pending Extension"
+                        domain="[('is_extension', '=', True)]"/>
+                <separator/>
+                <filter name="filter_request_date" string="Request Date"
+                        date="request_date"/>
+                <group name="group_by">
+                    <filter name="group_by_employee" string="Employee"
+                            context="{'group_by': 'employee_id'}"/>
+                    <filter name="group_by_item" string="Item"
+                            context="{'group_by': 'item_id'}"/>
+                    <filter name="group_by_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_by_month" string="Request Month"
+                            context="{'group_by': 'request_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_custody_pivot" model="ir.ui.view">
+        <field name="name">odomate.hr.custody.pivot</field>
+        <field name="model">odomate.hr.custody</field>
+        <field name="arch" type="xml">
+            <pivot string="Custody Analysis">
+                <field name="item_id" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_custody" model="ir.actions.act_window">
+        <field name="name">Custody Requests</field>
+        <field name="res_model">odomate.hr.custody</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_custody_search"/>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">Create the first custody request</p><p>A custody request records who asked for a piece of company property, why, and when they promised to give it back.</p></field>
+    </record>
+
+    <record id="action_odomate_hr_custody_analysis" model="ir.actions.act_window">
+        <field name="name">Custody Analysis</field>
+        <field name="res_model">odomate.hr.custody</field>
+        <field name="view_mode">pivot,list</field>
+        <field name="search_view_id" ref="view_odomate_hr_custody_search"/>
+        <field name="context">{'search_default_group_by_item': 1, 'search_default_group_by_state': 1}</field>
+    </record>
+</odoo>

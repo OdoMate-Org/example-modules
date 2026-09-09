@@ -1,0 +1,730 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_custody
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-07 00:00+0000\n"
+"PO-Revision-Date: 2026-09-07 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_custody
+#: model:ir.model,name:odomate_hr_custody.model_odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_extend__request_id
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_refuse__request_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Custody Request"
+msgstr "Заявка на відповідальне зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.model,name:odomate_hr_custody.model_odomate_hr_custody_item
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_form
+msgid "Custody Item"
+msgstr "Об'єкт зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.model,name:odomate_hr_custody.model_odomate_hr_custody_extend
+msgid "Extend Custody Return Date"
+msgstr "Продовжити дату повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model,name:odomate_hr_custody.model_odomate_hr_custody_refuse
+#: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_refuse
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_refuse_form
+msgid "Refuse Custody Request"
+msgstr "Відхилити заявку"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__name
+msgid "Item Name"
+msgstr "Назва об'єкта"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__image_1920
+msgid "Photo"
+msgstr "Фото"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__description
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Description"
+msgstr "Опис"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__company_id
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__company_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__product_id
+msgid "Related Product"
+msgstr "Пов'язаний товар"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,help:odomate_hr_custody.field_odomate_hr_custody_item__product_id
+msgid ""
+"Optional link to a product record. Selecting a product fills in the item name"
+" once; the two are not kept synchronised afterwards."
+msgstr ""
+"Необов'язкове посилання на товар. Вибір товару один раз заповнює назву "
+"об'єкта; надалі значення не синхронізуються."
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__custody_ids
+#: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody
+#: model:ir.ui.menu,name:odomate_hr_custody.menu_odomate_hr_custody_request
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody_item.py:0
+#: code:addons/odomate_hr_custody/models/hr_employee.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Custody Requests"
+msgstr "Заявки на зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__current_custody_id
+msgid "Current Custody"
+msgstr "Поточна заявка"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__current_holder_id
+msgid "Current Holder"
+msgstr "Поточний утримувач"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__is_available
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_kanban
+msgid "Available"
+msgstr "Доступний"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__name
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Reference"
+msgstr "Номер"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__item_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Item"
+msgstr "Об'єкт"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__reason
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_refuse__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Reason"
+msgstr "Підстава"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__request_date
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_extend__request_date
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Request Date"
+msgstr "Дата заявки"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__return_date
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Return Date"
+msgstr "Дата повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,help:odomate_hr_custody.field_odomate_hr_custody__return_date
+msgid "Date on which the employee undertakes to return the item."
+msgstr "Дата, до якої співробітник зобов'язується повернути об'єкт."
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__actual_return_date
+msgid "Actual Return Date"
+msgstr "Фактична дата повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__notes
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__is_extension
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Pending Extension"
+msgstr "Продовження на розгляді"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,help:odomate_hr_custody.field_odomate_hr_custody__is_extension
+msgid ""
+"Set while an extension of the return date is waiting for approval. A request"
+" in this situation can only be approved or refused."
+msgstr ""
+"Встановлюється, поки продовження дати повернення очікує на затвердження. "
+"Таку заявку можна лише затвердити або відхилити."
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__extend_new_return_date
+msgid "Proposed Return Date"
+msgstr "Запропонована дата повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,help:odomate_hr_custody.field_odomate_hr_custody__extend_new_return_date
+msgid ""
+"Return date proposed by the employee. It replaces the return date only once "
+"the extension is approved."
+msgstr ""
+"Дата повернення, запропонована співробітником. Вона замінює дату повернення "
+"лише після затвердження продовження."
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__refusal_reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Refusal Reason"
+msgstr "Причина відмови"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__extension_refusal_reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Extension Refusal Reason"
+msgstr "Причина відмови у продовженні"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody__is_overdue
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Overdue"
+msgstr "Прострочено"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_hr_employee__custody_count
+msgid "Custody Records"
+msgstr "Записи зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_hr_employee__custody_current_count
+#: code:addons/odomate_hr_custody/models/hr_employee.py:0
+msgid "Items Currently Held"
+msgstr "Об'єкти на руках"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_extend__current_return_date
+msgid "Current Return Date"
+msgstr "Поточна дата повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_extend__new_return_date
+msgid "New Return Date"
+msgstr "Нова дата повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_refuse__is_extension
+msgid "Refusing an Extension"
+msgstr "Відмова у продовженні"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields.selection,name:odomate_hr_custody.selection__odomate_hr_custody__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields.selection,name:odomate_hr_custody.selection__odomate_hr_custody__state__waiting_approval
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Waiting Approval"
+msgstr "Очікує затвердження"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields.selection,name:odomate_hr_custody.selection__odomate_hr_custody__state__approved
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields.selection,name:odomate_hr_custody.selection__odomate_hr_custody__state__returned
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Returned"
+msgstr "Повернено"
+
+#. module: odomate_hr_custody
+#: model:ir.model.fields.selection,name:odomate_hr_custody.selection__odomate_hr_custody__state__refused
+msgid "Refused"
+msgstr "Відхилено"
+
+#. module: odomate_hr_custody
+#: model:ir.ui.menu,name:odomate_hr_custody.menu_odomate_hr_custody_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_employee_form_inherit_custody
+msgid "Custody"
+msgstr "Зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.ui.menu,name:odomate_hr_custody.menu_odomate_hr_custody_item
+msgid "Items"
+msgstr "Об'єкти"
+
+#. module: odomate_hr_custody
+#: model:ir.ui.menu,name:odomate_hr_custody.menu_odomate_hr_custody_analysis
+msgid "Analysis"
+msgstr "Аналітика"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_item
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_search
+msgid "Custody Items"
+msgstr "Об'єкти зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_analysis
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_pivot
+msgid "Custody Analysis"
+msgstr "Аналіз зберігання"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_extend
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_extend_form
+msgid "Extend Return Date"
+msgstr "Продовжити дату повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.report,name:odomate_hr_custody.action_report_custody_handover
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Custody Handover Document"
+msgstr "Акт передавання на відповідальне зберігання"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Send for Approval"
+msgstr "Надіслати на затвердження"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Approve"
+msgstr "Затвердити"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_refuse_form
+msgid "Refuse"
+msgstr "Відхилити"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Extend"
+msgstr "Продовжити"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Send Reminder"
+msgstr "Надіслати нагадування"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Print Handover Document"
+msgstr "Друкувати акт передавання"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "This item is overdue: the promised return date has passed."
+msgstr "Об'єкт прострочено: обіцяна дата повернення вже минула."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "requested:"
+msgstr "запитано:"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_form
+msgid "Internal notes about this custody..."
+msgstr "Внутрішні примітки щодо цієї заявки..."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "My Requests"
+msgstr "Мої заявки"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_search
+msgid "In Custody"
+msgstr "На зберіганні"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_search
+msgid "Request Month"
+msgstr "Місяць заявки"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.act_window,help:odomate_hr_custody.action_odomate_hr_custody
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">Create the first custody request</p>\n"
+"<p>A custody request records who asked for a piece of company property, why, and when they promised to give it back.</p>"
+msgstr ""
+"<p class=\"o_view_nocontent_smiling_face\">Створіть першу заявку на зберігання</p>\n"
+"<p>Заявка на зберігання фіксує, хто попросив майно компанії, з якою метою та коли зобов'язався його повернути.</p>"
+
+#. module: odomate_hr_custody
+#: model:ir.actions.act_window,help:odomate_hr_custody.action_odomate_hr_custody_item
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">Register your first custody item</p>\n"
+"<p>Custody items are the pieces of company property you hand over to employees: laptops, phones, tools, access cards, vehicles.</p>"
+msgstr ""
+"<p class=\"o_view_nocontent_smiling_face\">Зареєструйте перший об'єкт зберігання</p>\n"
+"<p>Об'єкти зберігання — це майно компанії, яке ви передаєте співробітникам: ноутбуки, телефони, інструменти, картки доступу, транспортні засоби.</p>"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_form
+msgid "<span class=\"o_stat_text\">Custody History</span>"
+msgstr "<span class=\"o_stat_text\">Історія зберігання</span>"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_form
+msgid "e.g. Dell Latitude 5540"
+msgstr "напр. Dell Latitude 5540"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_form
+msgid "Serial number, accessories, condition at purchase..."
+msgstr "Серійний номер, комплектація, стан на момент придбання..."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_kanban
+msgid "Held by"
+msgstr "Утримувач:"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_kanban
+msgid "Product"
+msgstr "Товар"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_item_kanban
+msgid "No photo"
+msgstr "Без фото"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_employee_form_inherit_custody
+msgid "Held Now"
+msgstr "Зараз на руках"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_extend_form
+msgid "Request Extension"
+msgstr "Запросити продовження"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_extend_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_refuse_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_refuse_form
+msgid ""
+"Refusing an extension keeps the item in custody with the original return "
+"date. The reason below is recorded as the extension refusal."
+msgstr ""
+"Відмова у продовженні залишає об'єкт на зберіганні з початковою датою "
+"повернення. Причину нижче буде записано як відмову у продовженні."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_refuse_form
+msgid "Explain why the request is refused..."
+msgstr "Поясніть, чому заявку відхилено..."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Reference:"
+msgstr "Номер:"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Date:"
+msgstr "Дата:"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Holder"
+msgstr "Утримувач"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Name"
+msgstr "ПІБ"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Department"
+msgstr "Підрозділ"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Identification Reference"
+msgstr "Ідентифікаційний номер"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Emergency Contact"
+msgstr "Контактна особа на випадок нагальної потреби"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Emergency Phone"
+msgstr "Телефон на випадок нагальної потреби"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Item Handed Over"
+msgstr "Переданий об'єкт"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Undertaking"
+msgstr "Зобов'язання"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid ""
+"I confirm that I have received the item described above in good working "
+"order. I undertake to use it for professional purposes only, to keep it in "
+"good condition, and to return it to the company on or before the return date"
+" stated above, or earlier on request. I accept responsibility for any loss "
+"or damage caused by negligent use while the item is in my custody."
+msgstr ""
+"Підтверджую, що отримав(ла) описаний вище об'єкт у справному стані. "
+"Зобов'язуюсь використовувати його виключно у службових цілях, підтримувати "
+"його у належному стані та повернути компанії не пізніше зазначеної вище дати "
+"повернення або раніше на вимогу. Приймаю відповідальність за втрату чи "
+"пошкодження, спричинені недбалим використанням протягом часу перебування "
+"об'єкта на моєму відповідальному зберіганні."
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Employee signature"
+msgstr "Підпис співробітника"
+
+#. module: odomate_hr_custody
+#: model_terms:ir.ui.view,arch_db:odomate_hr_custody.report_custody_handover_document
+msgid "Authorised by (HR)"
+msgstr "Затверджено (відділ кадрів)"
+
+#. module: odomate_hr_custody
+#: model:mail.template,name:odomate_hr_custody.mail_template_custody_return_reminder
+msgid "Custody: Return Reminder"
+msgstr "Зберігання: нагадування про повернення"
+
+#. module: odomate_hr_custody
+#: model:mail.template,subject:odomate_hr_custody.mail_template_custody_return_reminder
+msgid "Reminder: please return {{ object.item_id.name }} ({{ object.name }})"
+msgstr "Нагадування: поверніть, будь ласка, {{ object.item_id.name }} ({{ object.name }})"
+
+#. module: odomate_hr_custody
+#: model:mail.template,body_html:odomate_hr_custody.mail_template_custody_return_reminder
+msgid ""
+"<div><p>Dear <t t-out=\"object.employee_id.name or ''\">Employee</t>,</p><p>Our"
+" records show that the following item is still in your custody and its return"
+" date has been reached.</p><p><b>Reference:</b> <t t-out=\"object.name or"
+" ''\">CUST/00001</t><br/><b>Item:</b> <t t-out=\"object.item_id.name or"
+" ''\">Laptop</t><br/><b>Return date:</b> <t"
+" t-out=\"format_date(object.return_date) or ''\">01/01/2026</t></p><p>Please"
+" hand the item back to your HR contact, or request an extension of the return"
+" date from the custody request:</p><p><a t-attf-href=\"{{"
+" object.get_base_url() }}/odoo/action-odomate_hr_custody.action_odomate_hr_custody/{{"
+" object.id }}\" style=\"background-color:#714B67;padding:8px"
+" 16px;text-decoration:none;color:#ffffff;border-radius:5px;\">Open the custody"
+" request</a></p><p>Thank you,<br/><t t-out=\"object.company_id.name or"
+" ''\">Company</t></p></div>"
+msgstr ""
+"<div><p>Шановний(а) <t t-out=\"object.employee_id.name or"
+" ''\">Employee</t>,</p><p>За нашими даними, наведений нижче об'єкт досі"
+" перебуває на вашому відповідальному зберіганні, а дата повернення вже"
+" настала.</p><p><b>Номер:</b> <t t-out=\"object.name or"
+" ''\">CUST/00001</t><br/><b>Об'єкт:</b> <t t-out=\"object.item_id.name or"
+" ''\">Laptop</t><br/><b>Дата повернення:</b> <t"
+" t-out=\"format_date(object.return_date) or ''\">01/01/2026</t></p><p>Будь"
+" ласка, поверніть об'єкт вашому контакту у відділі кадрів або запросіть"
+" продовження дати повернення у самій заявці:</p><p><a t-attf-href=\"{{"
+" object.get_base_url() }}/odoo/action-odomate_hr_custody.action_odomate_hr_custody/{{"
+" object.id }}\" style=\"background-color:#714B67;padding:8px"
+" 16px;text-decoration:none;color:#ffffff;border-radius:5px;\">Відкрити заявку"
+" на зберігання</a></p><p>Дякуємо,<br/><t t-out=\"object.company_id.name or"
+" ''\">Company</t></p></div>"
+
+#. module: odomate_hr_custody
+#: model:ir.cron,name:odomate_hr_custody.ir_cron_custody_return_reminder
+msgid "Custody: Daily Return Reminders"
+msgstr "Зберігання: щоденні нагадування про повернення"
+
+#. module: odomate_hr_custody
+#: model:ir.sequence,name:odomate_hr_custody.seq_odomate_hr_custody
+msgid "Custody Request Reference"
+msgstr "Нумерація заявок на зберігання"
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "New"
+msgstr "Новий"
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "The return date cannot be earlier than the request date."
+msgstr "Дата повернення не може бути раніше за дату заявки."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid ""
+"Only members of the Employees / Officer group may approve, refuse or close a"
+" custody request."
+msgstr ""
+"Лише учасники групи «Співробітники / Керівник» можуть затверджувати, "
+"відхиляти або закривати заявки на зберігання."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid ""
+"%(item)s is already in the custody of %(holder)s under request "
+"%(reference)s. Close that request before approving this one."
+msgstr ""
+"%(item)s уже перебуває на зберіганні у %(holder)s за заявкою %(reference)s. "
+"Закрийте ту заявку, перш ніж затверджувати цю."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "another employee"
+msgstr "іншого співробітника"
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Only a draft request can be sent for approval."
+msgstr "На затвердження можна надіслати лише заявку в статусі чернетки."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Only a request waiting for approval can be approved."
+msgstr "Затвердити можна лише заявку, що очікує затвердження."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Extension approved. New return date: %(date)s."
+msgstr "Продовження затверджено. Нова дата повернення: %(date)s."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Custody request approved."
+msgstr "Заявку на зберігання затверджено."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
+msgid "Only a request waiting for approval can be refused."
+msgstr "Відхилити можна лише заявку, що очікує затвердження."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Refuse Extension"
+msgstr "Відхилити продовження"
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
+msgid "Only an item currently in custody can have its return date extended."
+msgstr "Продовжити дату повернення можна лише для об'єкта, що зараз на зберіганні."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Only an item currently in custody can be marked as returned."
+msgstr "Позначити повернутим можна лише об'єкт, що зараз на зберіганні."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid ""
+"A request with a pending extension cannot be set back to draft. Approve or "
+"refuse the extension instead."
+msgstr ""
+"Заявку з продовженням на розгляді не можна повернути в чернетку. Натомість "
+"затвердіть або відхиліть продовження."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Only a request that has never been approved can be set back to draft."
+msgstr "Повернути в чернетку можна лише ніколи не затверджену заявку."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "Reset to draft. Previous refusal reason: %(reason)s"
+msgstr "Повернуто в чернетку. Попередня причина відмови: %(reason)s"
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid "A reminder can only be sent for an item currently in custody."
+msgstr "Нагадування можна надіслати лише щодо об'єкта, що зараз на зберіганні."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
+msgid ""
+"No reminder could be sent: the employee has no linked user and no work "
+"contact to send the email to."
+msgstr ""
+"Нагадування не надіслано: у співробітника немає ані пов'язаного користувача, "
+"ані робочого контакту для надсилання листа."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
+msgid "There is no custody request to extend."
+msgstr "Немає заявки, для якої можна продовжити дату."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
+msgid "The new return date must be later than the request date (%(date)s)."
+msgstr "Нова дата повернення має бути пізнішою за дату заявки (%(date)s)."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
+msgid "Extension requested: new return date %(date)s."
+msgstr "Запитано продовження: нова дата повернення %(date)s."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
+msgid "There is no custody request to refuse."
+msgstr "Немає заявки, яку можна відхилити."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
+msgid "Extension refused: %(reason)s The original return date stands."
+msgstr "Продовження відхилено: %(reason)s Початкова дата повернення лишається."
+
+#. module: odomate_hr_custody
+#: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
+msgid "Request refused: %(reason)s"
+msgstr "Заявку відхилено: %(reason)s"

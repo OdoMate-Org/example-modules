@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_product_laptop" model="product.product">
+            <field name="name">Business Laptop 14"</field>
+            <field name="type">consu</field>
+            <field name="list_price">1450.00</field>
+        </record>
+
+        <record id="demo_item_laptop_dell" model="odomate.hr.custody.item">
+            <field name="name">Dell Latitude 5540 (SN DL-5540-0031)</field>
+            <field name="description">14" business laptop, 32 GB RAM, 1 TB SSD.
+Supplied with a 65 W USB-C charger and a padded sleeve.</field>
+            <field name="product_id" ref="demo_product_laptop"/>
+        </record>
+
+        <record id="demo_item_macbook" model="odomate.hr.custody.item">
+            <field name="name">MacBook Pro 14" (SN MBP-14-0207)</field>
+            <field name="description">Design workstation, 18 GB RAM.
+Supplied with a 96 W charger and a USB-C hub.</field>
+        </record>
+
+        <record id="demo_item_iphone" model="odomate.hr.custody.item">
+            <field name="name">iPhone 15 (IMEI 356938035643809)</field>
+            <field name="description">Company mobile with a corporate data plan.
+Case and screen protector included.</field>
+        </record>
+
+        <record id="demo_item_projector" model="odomate.hr.custody.item">
+            <field name="name">Epson EB-1795F Projector</field>
+            <field name="description">Portable full-HD projector for customer
+presentations. Carry case, HDMI cable and remote included.</field>
+        </record>
+
+        <record id="demo_item_toolkit" model="odomate.hr.custody.item">
+            <field name="name">Field Engineer Toolkit (Kit 07)</field>
+            <field name="description">Torque screwdriver set, multimeter,
+cable tester and crimping pliers in a hard case.</field>
+        </record>
+
+        <record id="demo_item_access_card" model="odomate.hr.custody.item">
+            <field name="name">Access Card A-118 (Server Room)</field>
+            <field name="description">Grants badge access to the server room
+and the second-floor archive.</field>
+        </record>
+
+        <record id="demo_item_van_keys" model="odomate.hr.custody.item">
+            <field name="name">Company Van Keys (Van 3)</field>
+            <field name="description">Two keys and the fuel card for the
+white Renault Trafic, plate 1-ABC-234.</field>
+        </record>
+
+        <record id="demo_item_headset" model="odomate.hr.custody.item">
+            <field name="name">Jabra Evolve2 65 Headset</field>
+            <field name="description">Noise-cancelling headset with USB
+dongle and charging stand.</field>
+        </record>
+
+        <record id="demo_custody_overdue" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="item_id" ref="demo_item_laptop_dell"/>
+            <field name="reason">Replacement machine while the desktop is repaired</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-45)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=-12)).strftime('%Y-%m-%d')"/>
+            <field name="state">approved</field>
+            <field name="notes">Employee asked for a few extra days by email; no formal extension was filed.</field>
+        </record>
+
+        <record id="demo_custody_pending_extension" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_al"/>
+            <field name="item_id" ref="demo_item_toolkit"/>
+            <field name="reason">On-site installation at the Brussels customer</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-30)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+            <field name="extend_new_return_date" eval="(DateTime.today() + relativedelta(days=24)).strftime('%Y-%m-%d')"/>
+            <field name="is_extension" eval="True"/>
+            <field name="state">waiting_approval</field>
+        </record>
+
+        <record id="demo_custody_refused" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_qdp"/>
+            <field name="item_id" ref="demo_item_van_keys"/>
+            <field name="reason">Weekend move of the trade-fair stand</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-18)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=-15)).strftime('%Y-%m-%d')"/>
+            <field name="state">refused</field>
+            <field name="refusal_reason">The van is booked for the warehouse
+delivery round that weekend. Please use the rental service instead.</field>
+        </record>
+
+        <record id="demo_custody_returned" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="item_id" ref="demo_item_iphone"/>
+            <field name="reason">Temporary phone during the sales tour</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-90)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=-60)).strftime('%Y-%m-%d')"/>
+            <field name="actual_return_date" eval="(DateTime.today() + relativedelta(days=-58)).strftime('%Y-%m-%d')"/>
+            <field name="state">returned</field>
+        </record>
+
+        <record id="demo_custody_in_use_macbook" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_al"/>
+            <field name="item_id" ref="demo_item_macbook"/>
+            <field name="reason">Primary workstation for the design team</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-20)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=40)).strftime('%Y-%m-%d')"/>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_custody_in_use_projector" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_qdp"/>
+            <field name="item_id" ref="demo_item_projector"/>
+            <field name="reason">Customer demo sessions this quarter</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-7)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_custody_waiting" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="item_id" ref="demo_item_headset"/>
+            <field name="reason">Daily customer calls from home</field>
+            <field name="request_date" eval="(DateTime.today() + relativedelta(days=-2)).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=180)).strftime('%Y-%m-%d')"/>
+            <field name="state">waiting_approval</field>
+        </record>
+
+        <record id="demo_custody_draft" model="odomate.hr.custody">
+            <field name="employee_id" ref="hr.employee_al"/>
+            <field name="item_id" ref="demo_item_access_card"/>
+            <field name="reason">Server maintenance window next month</field>
+            <field name="request_date" eval="(DateTime.today()).strftime('%Y-%m-%d')"/>
+            <field name="return_date" eval="(DateTime.today() + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+            <field name="state">draft</field>
+        </record>
+
+    </data>
+</odoo>

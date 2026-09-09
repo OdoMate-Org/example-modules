@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_custody_handover" model="ir.actions.report">
+        <field name="name">Custody Handover Document</field>
+        <field name="model">odomate.hr.custody</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odomate_hr_custody.report_custody_handover_document</field>
+        <field name="report_file">odomate_hr_custody.report_custody_handover_document</field>
+        <field name="print_report_name">'Custody - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_odomate_hr_custody"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
