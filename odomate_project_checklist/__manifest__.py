@@ -19,7 +19,7 @@ stamp themselves automatically.
     'website': "https://odomate.pro/m/checklist?v=site",
     'support': "support@odomate.pro",
     'category': 'Services/Project',
-    'version': '19.0.1.0.3',
+    'version': '19.0.1.0.4',
     'license': 'LGPL-3',
     'depends': ['project'],
     'data': [
@@ -32,7 +32,7 @@ stamp themselves automatically.
     'demo': [
         'demo/demo.xml',
     ],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,
