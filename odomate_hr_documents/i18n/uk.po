@@ -50,6 +50,7 @@ msgid "Archived"
 msgstr "Заархівовано"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid "Attach at least one scan of the renewed document."
 msgstr "Додайте щонайменше один скан оновленого документа."
@@ -121,11 +122,13 @@ msgid "Documents"
 msgstr "Документи"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid "Document renewed; the new expiry date is %(new_date)s."
 msgstr "Документ оновлено; нова дата закінчення — %(new_date)s."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid ""
 "Document set back to draft: the expiry date this to-do chased no longer "
@@ -135,6 +138,7 @@ msgstr ""
 "завдання, більше не діє."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document_type.py:0
 msgid ""
 "Document type %(name)s uses a chasing pattern that needs a reminder delay, "
@@ -157,6 +161,7 @@ msgid "Employee"
 msgstr "Співробітник"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 #: model:ir.model,name:odomate_hr_documents.model_odomate_hr_document
 #: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_form
@@ -174,6 +179,7 @@ msgid "Employee Document Type"
 msgstr "Тип документа співробітника"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/hr_employee.py:0
 #: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document
 #: model:ir.ui.menu,name:odomate_hr_documents.menu_odomate_hr_documents_root
@@ -199,6 +205,7 @@ msgid "Expired"
 msgstr "Прострочено"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid "Expired %(days)s days"
 msgstr "Прострочено на %(days)s дн."
@@ -282,6 +289,7 @@ msgid "Name"
 msgstr "Назва"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid "New"
 msgstr "Новий"
@@ -326,6 +334,7 @@ msgid "Once, N days before expiry"
 msgstr "Один раз, за N днів до закінчення"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid ""
 "Only a valid or expired document can be renewed. %(reference)s is still a "
@@ -367,6 +376,7 @@ msgid "Reminder Days"
 msgstr "Днів для нагадування"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document_type.py:0
 msgid "Reminder Days on %(name)s cannot be negative."
 msgstr "Значення «Днів для нагадування» для %(name)s не може бути від'ємним."
@@ -378,11 +388,13 @@ msgid "Renew"
 msgstr "Оновити"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid "Renew %(document_type)s for %(employee)s (%(reference)s)"
 msgstr "Оновити «%(document_type)s» для %(employee)s (%(reference)s)"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 #: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document_renew
 #: model_terms:ir.ui.view,arch_db:odomate_hr_documents.view_odomate_hr_document_renew_form
@@ -400,6 +412,7 @@ msgid "Renewal"
 msgstr "Оновлення"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 #: model:ir.actions.act_window,name:odomate_hr_documents.action_odomate_hr_document_history
 #: model:ir.model.fields,field_description:odomate_hr_documents.field_odomate_hr_document__history_ids
@@ -416,6 +429,7 @@ msgid "Renewals"
 msgstr "Оновлень"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid ""
 "Renewed: expiry moved from %(old_date)s to %(new_date)s. Reason: %(reason)s"
@@ -460,21 +474,25 @@ msgid "Superseded Values"
 msgstr "Замінені значення"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid "The new expiry date must be later than the new issue date."
 msgstr "Нова дата закінчення має бути пізнішою за нову дату видачі."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid "The new expiry date must be later than today."
 msgstr "Нова дата закінчення має бути пізнішою за сьогоднішню."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid "Today"
 msgstr "Сьогодні"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid "Tomorrow"
 msgstr "Завтра"
@@ -506,11 +524,13 @@ msgid "e.g. Work permit"
 msgstr "напр. Дозвіл на роботу"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/wizard/odomate_hr_document_renew.py:0
 msgid "not set"
 msgstr "не вказано"
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid ""
 "%(employee)s already holds a valid %(document_type)s. Renew the existing "
@@ -520,6 +540,7 @@ msgstr ""
 "наявний документ замість створення другого."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid ""
 "%(reference)s expired on %(date)s and cannot be marked valid. Use Renew to "
@@ -530,6 +551,7 @@ msgstr ""
 "закінчення."
 
 #. module: odomate_hr_documents
+#. odoo-python
 #: code:addons/odomate_hr_documents/models/odomate_hr_document.py:0
 msgid ""
 "%(reference)s is still a draft, so it is not chased. Mark it valid first."

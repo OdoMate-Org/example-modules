@@ -36,6 +36,7 @@ msgid "Extend Custody Return Date"
 msgstr "Продовжити дату повернення"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: model:ir.model,name:odomate_hr_custody.model_odomate_hr_custody_refuse
 #: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_refuse
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
@@ -83,6 +84,7 @@ msgstr ""
 "об'єкта; надалі значення не синхронізуються."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: model:ir.model.fields,field_description:odomate_hr_custody.field_odomate_hr_custody_item__custody_ids
 #: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody
 #: model:ir.ui.menu,name:odomate_hr_custody.menu_odomate_hr_custody_request
@@ -223,6 +225,7 @@ msgid "Custody Records"
 msgstr "Записи зберігання"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: model:ir.model.fields,field_description:odomate_hr_custody.field_hr_employee__custody_current_count
 #: code:addons/odomate_hr_custody/models/hr_employee.py:0
 msgid "Items Currently Held"
@@ -301,6 +304,7 @@ msgid "Custody Analysis"
 msgstr "Аналіз зберігання"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: model:ir.actions.act_window,name:odomate_hr_custody.action_odomate_hr_custody_extend
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 #: model_terms:ir.ui.view,arch_db:odomate_hr_custody.view_odomate_hr_custody_extend_form
@@ -592,16 +596,19 @@ msgid "Custody Request Reference"
 msgstr "Нумерація заявок на зберігання"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "New"
 msgstr "Новий"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "The return date cannot be earlier than the request date."
 msgstr "Дата повернення не може бути раніше за дату заявки."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid ""
 "Only members of the Employees / Officer group may approve, refuse or close a"
@@ -611,6 +618,7 @@ msgstr ""
 "відхиляти або закривати заявки на зберігання."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid ""
 "%(item)s is already in the custody of %(holder)s under request "
@@ -620,53 +628,63 @@ msgstr ""
 "Закрийте ту заявку, перш ніж затверджувати цю."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "another employee"
 msgstr "іншого співробітника"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Only a draft request can be sent for approval."
 msgstr "На затвердження можна надіслати лише заявку в статусі чернетки."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Only a request waiting for approval can be approved."
 msgstr "Затвердити можна лише заявку, що очікує затвердження."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Extension approved. New return date: %(date)s."
 msgstr "Продовження затверджено. Нова дата повернення: %(date)s."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Custody request approved."
 msgstr "Заявку на зберігання затверджено."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
 msgid "Only a request waiting for approval can be refused."
 msgstr "Відхилити можна лише заявку, що очікує затвердження."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Refuse Extension"
 msgstr "Відхилити продовження"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
 msgid "Only an item currently in custody can have its return date extended."
 msgstr "Продовжити дату повернення можна лише для об'єкта, що зараз на зберіганні."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Only an item currently in custody can be marked as returned."
 msgstr "Позначити повернутим можна лише об'єкт, що зараз на зберіганні."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid ""
 "A request with a pending extension cannot be set back to draft. Approve or "
@@ -676,21 +694,25 @@ msgstr ""
 "затвердіть або відхиліть продовження."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Only a request that has never been approved can be set back to draft."
 msgstr "Повернути в чернетку можна лише ніколи не затверджену заявку."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "Reset to draft. Previous refusal reason: %(reason)s"
 msgstr "Повернуто в чернетку. Попередня причина відмови: %(reason)s"
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid "A reminder can only be sent for an item currently in custody."
 msgstr "Нагадування можна надіслати лише щодо об'єкта, що зараз на зберіганні."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/models/odomate_hr_custody.py:0
 msgid ""
 "No reminder could be sent: the employee has no linked user and no work "
@@ -700,31 +722,37 @@ msgstr ""
 "ані робочого контакту для надсилання листа."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
 msgid "There is no custody request to extend."
 msgstr "Немає заявки, для якої можна продовжити дату."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
 msgid "The new return date must be later than the request date (%(date)s)."
 msgstr "Нова дата повернення має бути пізнішою за дату заявки (%(date)s)."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_extend.py:0
 msgid "Extension requested: new return date %(date)s."
 msgstr "Запитано продовження: нова дата повернення %(date)s."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
 msgid "There is no custody request to refuse."
 msgstr "Немає заявки, яку можна відхилити."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
 msgid "Extension refused: %(reason)s The original return date stands."
 msgstr "Продовження відхилено: %(reason)s Початкова дата повернення лишається."
 
 #. module: odomate_hr_custody
+#. odoo-python
 #: code:addons/odomate_hr_custody/wizard/odomate_hr_custody_refuse.py:0
 msgid "Request refused: %(reason)s"
 msgstr "Заявку відхилено: %(reason)s"

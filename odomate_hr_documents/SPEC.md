@@ -22,9 +22,22 @@ and the rest are framework checks it runs against the module), its Ukrainian
 translation is complete (88 of 88 strings), and all twenty-five acceptance
 criteria were walked by hand against the running database.
 
+**One correction applied by hand, and why.** The Ukrainian catalogue shipped complete
+and correct, and Odoo loaded none of it: every message the module raises from Python
+came out in English on a Ukrainian installation. The cause is not the translation.
+Odoo's `PoFileReader` requires each code entry to carry the extracted comment
+`#. odoo-python`, and it merges a module's own `.pot` over its `.po` before reading,
+which strips that comment. The generated catalogue carried the comment on no entry,
+and the generated `.pot` overrode it either way. Two edits fix it: the comment is
+added to each of the 22 code entries in `i18n/uk.po`, and
+`i18n/odomate_hr_documents.pot` is not shipped. With that, 22 of 22 load.
+Nothing else in the module was touched, no translation text was changed, and the
+same fault is present in every module of this suite — it is reported to the
+platform rather than treated as this module's problem.
+
 Generated with OdoMate (https://www.odomate.pro) — September 2026, Odoo 19
 Community. Published unedited apart from publication metadata (store listing
-page, banner and icon).
+page, banner and icon) and the one translation correction described above.
 
 **Two rounds, both of them the generator's own work.** The module was generated
 from this document, then enhanced once, from a written brief and never by hand:
