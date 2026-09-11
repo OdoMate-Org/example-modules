@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odomate_hr_salary_advance_refuse_view_form" model="ir.ui.view">
+        <field name="name">odomate.hr.salary.advance.refuse.form</field>
+        <field name="model">odomate.hr.salary.advance.refuse</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Salary Advance">
+                <field name="advance_id" invisible="1"/>
+                <group>
+                    <field name="refusal_reason" nolabel="1"
+                           placeholder="Explain why this advance is refused. The reason stays on the record permanently."/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Refuse" type="object"
+                            class="btn-primary"/>
+                    <button string="Discard" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="odomate_hr_salary_advance_pay_view_form" model="ir.ui.view">
+        <field name="name">odomate.hr.salary.advance.pay.form</field>
+        <field name="model">odomate.hr.salary.advance.pay</field>
+        <field name="arch" type="xml">
+            <form string="Pay Salary Advance">
+                <field name="advance_id" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <group>
+                    <field name="payment_date"/>
+                    <field name="journal_id" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Pay" type="object"
+                            class="btn-primary"/>
+                    <button string="Discard" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

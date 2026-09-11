@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odomate_hr_salary_advance_view_form" model="ir.ui.view">
+        <field name="name">odomate.hr.salary.advance.form</field>
+        <field name="model">odomate.hr.salary.advance</field>
+        <field name="arch" type="xml">
+            <form string="Salary Advance">
+                <header>
+                    <button name="action_submit" string="Submit" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_approve" string="Approve" type="object"
+                            class="oe_highlight" invisible="state != 'submitted'"/>
+                    <button name="action_open_refuse_wizard" string="Refuse" type="object"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_open_pay_wizard" string="Pay" type="object"
+                            class="oe_highlight" invisible="state != 'approved'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state not in ('draft', 'submitted', 'approved')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved,paid,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_payment" type="object"
+                                class="oe_stat_button" icon="fa-money"
+                                invisible="state not in ('paid', 'closed') or not has_payment">
+                            <span class="o_stat_text">Payment</span>
+                        </button>
+                        <button name="action_view_journal_entry" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                invisible="state not in ('paid', 'closed') or not has_payment">
+                            <span class="o_stat_text">Journal Entry</span>
+                        </button>
+                    </div>
+                    <field name="has_payment" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group name="request">
+                            <field name="employee_id"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                            <field name="department_id"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group name="amount">
+                            <field name="amount"
+                                   readonly="state in ('paid', 'closed', 'refused', 'cancelled')"/>
+                        </group>
+                    </group>
+                    <group string="Eligibility" name="eligibility">
+                        <group>
+                            <field name="monthly_wage"/>
+                            <field name="max_allowed_amount"/>
+                        </group>
+                        <group>
+                            <field name="already_outstanding_amount"/>
+                            <field name="available_amount"/>
+                        </group>
+                    </group>
+                    <group string="Disbursement &amp; Recovery" name="disbursement"
+                           invisible="state not in ('paid', 'closed')">
+                        <group>
+                            <field name="payment_date"/>
+                            <field name="journal_id" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="recovered_amount"/>
+                            <field name="outstanding_amount"/>
+                        </group>
+                    </group>
+                    <group string="Refusal" name="refusal" invisible="state != 'refused'">
+                        <field name="refusal_reason" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"
+                                   placeholder="Why is this advance needed?"
+                                   readonly="state not in ('draft', 'submitted')"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="odomate_hr_salary_advance_view_list" model="ir.ui.view">
+        <field name="name">odomate.hr.salary.advance.list</field>
+        <field name="model">odomate.hr.salary.advance</field>
+        <field name="arch" type="xml">
+            <list string="Salary Advances"
+                  decoration-muted="state in ('refused', 'cancelled')"
+                  decoration-success="state == 'closed'"
+                  decoration-warning="state == 'paid' and outstanding_amount &gt; 0">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id" optional="show"/>
+                <field name="date"/>
+                <field name="amount" sum="Total Advanced"/>
+                <field name="outstanding_amount" sum="Total Outstanding"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'closed'"
+                       decoration-info="state in ('submitted', 'approved')"
+                       decoration-danger="state == 'refused'"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="odomate_hr_salary_advance_view_search" model="ir.ui.view">
+        <field name="name">odomate.hr.salary.advance.search</field>
+        <field name="model">odomate.hr.salary.advance</field>
+        <field name="arch" type="xml">
+            <search string="Salary Advances">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_submitted" string="To Approve"
+                        domain="[('state', '=', 'submitted')]"/>
+                <filter name="filter_approved" string="Approved"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_paid" string="Paid"
+                        domain="[('state', '=', 'paid')]"/>
+                <filter name="filter_closed" string="Closed"
+                        domain="[('state', '=', 'closed')]"/>
+                <separator/>
+                <filter name="filter_outstanding" string="Outstanding"
+                        domain="[('state', 'in', ('approved', 'paid'))]"/>
+                <separator/>
+                <filter name="filter_date" string="Request Date" date="date"/>
+                <separator/>
+                <filter name="group_by_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_by_employee" string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_by_department" string="Department"
+                        context="{'group_by': 'department_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="odomate_hr_salary_advance_action" model="ir.actions.act_window">
+        <field name="name">Salary Advances</field>
+        <field name="res_model">odomate.hr.salary.advance</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="odomate_hr_salary_advance_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Record a salary advance request
+            </p>
+            <p>
+                An advance is checked against the company policy on submit and
+                again on approval, disbursed through a real payment, and
+                recovered on the employee's next payslip.
+            </p>
+        </field>
+    </record>
+
+    <record id="odomate_hr_salary_advance_action_my" model="ir.actions.act_window">
+        <field name="name">My Advances</field>
+        <field name="res_model">odomate.hr.salary.advance</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="odomate_hr_salary_advance_view_search"/>
+        <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        <field name="context">{'create': False, 'edit': False, 'delete': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No salary advance yet
+            </p>
+            <p>
+                Salary advances recorded for you by HR appear here, together
+                with the balance still to be recovered.
+            </p>
+        </field>
+    </record>
+
+</odoo>
