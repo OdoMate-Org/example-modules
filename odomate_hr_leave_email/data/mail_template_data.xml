@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="mail_template_leave_email_failure" model="mail.template">
+        <field name="name">Time Off by Email: Request Refused</field>
+        <field name="model_id" ref="model_odomate_hr_leave_email_log"/>
+        <field name="subject">Your time off request could not be created</field>
+        <field name="email_to">{{ object.email_from }}</field>
+        <field name="lang">{{ object.employee_id.lang }}</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                <p>Hello,</p>
+                <p>We could not turn your message into a time off request.</p>
+                <p t-if="object.failure_reason == 'unknown_sender'">The address you wrote from is not linked to any employee record. Please write from your work address, or ask HR to add this address to your employee file.</p>
+                <p t-if="object.failure_reason == 'no_date'">No date was found in your message.</p>
+                <p t-if="object.failure_reason == 'reversed_dates'">The end date you gave comes before the start date.</p>
+                <p t-if="object.failure_reason == 'no_leave_type'">Time off requests by email are not fully configured yet. Please contact your HR team.</p>
+                <p t-if="object.failure_reason == 'other'">Something went wrong while creating the request. Please contact your HR team.</p>
+                <p>Write the first day and the last day of your absence in the body of the message, using either the format YYYY-MM-DD (for example 2026-03-09) or the format DD/MM/YYYY (for example 09/03/2026). The first date found is the first day off, the second one is the last day off. With a single date, one day off is requested.</p>
+                <p>Thank you.</p>
+            </div>
+        </field>
+    </record>
+
+</odoo>

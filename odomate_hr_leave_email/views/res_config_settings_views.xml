@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_odomate_hr_leave_email" model="ir.ui.view">
+        <field name="name">res.config.settings.form.odomate.hr.leave.email</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Time Off" string="Time Off" name="hr_holidays"
+                     groups="hr_holidays.group_hr_holidays_manager">
+                    <block title="Time Off Requests by Email" id="odomate_leave_email_block">
+                        <setting id="odomate_leave_email_enabled_setting"
+                                 string="Requests by Email"
+                                 help="Turn a message sent to the published Time Off address into a Time Off request for the employee who sent it.">
+                            <field name="leave_email_enabled"/>
+                            <div class="content-group mt16" invisible="not leave_email_enabled">
+                                <div class="text-warning" invisible="not leave_email_domain_missing">No alias domain is configured yet, so the address cannot receive anything. Set one under Settings / General Settings / Discuss / Alias Domain first.</div>
+                                <div invisible="leave_email_domain_missing">
+                                    <label for="leave_email_address" class="o_light_label"/>
+                                    <field name="leave_email_address" readonly="1" class="oe_inline ms-2"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="odomate_leave_email_type_setting"
+                                 string="Time Off Type for Email Requests"
+                                 help="Type given to every request created from an email. Emails are refused while this is empty."
+                                 invisible="not leave_email_enabled">
+                            <field name="leave_email_type_id"
+                                   options="{'no_create': True}"
+                                   domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                        </setting>
+                        <setting id="odomate_leave_email_reply_setting"
+                                 string="Reply on Refusal"
+                                 help="Answer the sender with the accepted date formats when the message could not be turned into a request."
+                                 invisible="not leave_email_enabled">
+                            <field name="leave_email_reply_on_failure"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

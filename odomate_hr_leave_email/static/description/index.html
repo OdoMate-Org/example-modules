@@ -1,0 +1,127 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color:#875A7B;">Time Off Requests by Email</h2>
+            <h3 class="oe_slogan">One published address. Ordinary Time Off requests. No guessing.</h3>
+            <p class="oe_mt32" style="text-align:center; max-width:800px; margin:0 auto;">
+                Employees write a plain email with the first and last day of their
+                absence. Odoo turns it into a normal <code>hr.leave</code> request for
+                the person who sent it — same approval flow, same calendar, same
+                reporting. When a message cannot be resolved to an employee, a date or
+                a configured Time Off type, it is refused, recorded, and answered with
+                the accepted date formats. The mail gateway is never allowed to fail on
+                a bad message.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <h4>One shipped alias</h4>
+            <p>
+                A single <code>mail.alias</code> pointing at <code>hr.leave</code>,
+                restricted to authenticated employees. Publish the address exactly as
+                the settings screen shows it.
+            </p>
+            <h4>Sender resolution that makes sense</h4>
+            <p>
+                Matched against the user's login, the user's email, and the employee's
+                <code>work_email</code> for employees with no user account. In a
+                multi-company database, the employee in the sender's own company wins.
+            </p>
+            <h4>Two date formats, clearly documented</h4>
+            <p>
+                <code>YYYY-MM-DD</code> and <code>DD/MM/YYYY</code>. First date is the
+                first day off, second is the last. A single date requests one day.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h4>A log that answers "what happened to my email?"</h4>
+            <p>
+                <strong>Time Off → Reporting → Email Requests</strong> lists one
+                read-only row per message, green when a request was created and red
+                when it was refused, with the reason and a link to the request.
+            </p>
+            <h4>An explanation back to the sender</h4>
+            <p>
+                On refusal the sender receives a reply naming the reason and restating
+                both accepted date formats with worked examples — so they can retry
+                without asking anyone.
+            </p>
+            <h4>The missing alias domain, made visible</h4>
+            <p>
+                A fresh database has no <code>mail.alias.domain</code>, so an alias
+                receives nothing. The settings screen says so plainly instead of
+                showing an address that cannot work.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol style="max-width:800px; margin:0 auto;">
+                <li>
+                    Set an alias domain under <strong>Settings → General Settings →
+                    Discuss → Alias Domain</strong> and point an incoming mail server
+                    or catch-all at Odoo.
+                </li>
+                <li>
+                    Under <strong>Settings → Employees → Time Off Requests by
+                    Email</strong>, switch <em>Requests by Email</em> on and choose the
+                    <em>Time Off Type for Email Requests</em>. The feature ships off.
+                </li>
+                <li>
+                    Publish the address shown in <em>Time Off Email Address</em>, for
+                    example <code>timeoff-request@ourcompany.com</code>.
+                </li>
+                <li>
+                    An employee writes: <em>"Hi, I'd like 2026-03-09 to 2026-03-13
+                    off."</em> A Time Off request for 9–13 March appears in
+                    <strong>To Approve</strong>.
+                </li>
+                <li>
+                    Time Off officers follow every message — created or refused — under
+                    <strong>Time Off → Reporting → Email Requests</strong>.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Documentation</h3>
+            <p style="text-align:center;">
+                The full user guide ships with the module:
+                <code>doc/USER_GUIDE.md</code> (English) and
+                <code>doc/USER_GUIDE.uk.md</code> (Ukrainian). It covers configuration,
+                every refusal reason, access rights, multi-company behaviour and the
+                honest list of limitations.
+            </p>
+            <p style="text-align:center;">
+                Requires <code>hr_holidays</code> and <code>mail</code>. Odoo 19.0,
+                LGPL-3.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <p style="text-align:center;">
+                Built by <a href="https://odomate.pro">OdoMate</a> —
+                support@odomate.pro
+            </p>
+        </div>
+    </div>
+</section>

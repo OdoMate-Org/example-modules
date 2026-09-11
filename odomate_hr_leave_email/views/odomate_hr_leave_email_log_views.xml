@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odomate_hr_leave_email_log_view_list" model="ir.ui.view">
+        <field name="name">odomate.hr.leave.email.log.list</field>
+        <field name="model">odomate.hr.leave.email.log</field>
+        <field name="arch" type="xml">
+            <list string="Email Requests" create="false" edit="false"
+                  decoration-success="state == 'created'"
+                  decoration-danger="state == 'rejected'">
+                <field name="received_date"/>
+                <field name="email_from"/>
+                <field name="subject"/>
+                <field name="employee_id" optional="show"/>
+                <field name="state"/>
+                <field name="failure_reason"/>
+                <field name="leave_id" widget="many2one"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="odomate_hr_leave_email_log_view_form" model="ir.ui.view">
+        <field name="name">odomate.hr.leave.email.log.form</field>
+        <field name="model">odomate.hr.leave.email.log</field>
+        <field name="arch" type="xml">
+            <form string="Email Request" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="received_date"/>
+                            <field name="email_from"/>
+                            <field name="subject"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="failure_reason"/>
+                            <field name="leave_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Details">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odomate_hr_leave_email_log_view_search" model="ir.ui.view">
+        <field name="name">odomate.hr.leave.email.log.search</field>
+        <field name="model">odomate.hr.leave.email.log</field>
+        <field name="arch" type="xml">
+            <search string="Email Requests">
+                <field name="email_from"/>
+                <field name="subject"/>
+                <field name="employee_id"/>
+                <filter name="filter_created" string="Created"
+                        domain="[('state', '=', 'created')]"/>
+                <filter name="filter_rejected" string="Rejected"
+                        domain="[('state', '=', 'rejected')]"/>
+                <separator/>
+                <filter name="filter_unknown_sender" string="Unknown Sender"
+                        domain="[('failure_reason', '=', 'unknown_sender')]"/>
+                <filter name="filter_no_date" string="No Date Found"
+                        domain="[('failure_reason', '=', 'no_date')]"/>
+                <filter name="filter_no_leave_type" string="Type Not Configured"
+                        domain="[('failure_reason', '=', 'no_leave_type')]"/>
+                <separator/>
+                <filter name="group_by_state" string="Result"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_by_failure_reason" string="Reason"
+                        context="{'group_by': 'failure_reason'}"/>
+                <filter name="group_by_employee" string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_by_received_date" string="Received On"
+                        context="{'group_by': 'received_date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="odomate_hr_leave_email_log_action" model="ir.actions.act_window">
+        <field name="name">Time Off Email Requests</field>
+        <field name="res_model">odomate.hr.leave.email.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="odomate_hr_leave_email_log_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No email has reached the Time Off address yet
+            </p>
+            <p>
+                Every message sent to the published Time Off address is recorded here,
+                whether it produced a request or was refused.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_odomate_hr_leave_email_log"
+              name="Email Requests"
+              parent="hr_holidays.menu_hr_holidays_report"
+              action="odomate_hr_leave_email_log_action"
+              groups="hr_holidays.group_hr_holidays_user"
+              sequence="90"/>
+
+</odoo>
