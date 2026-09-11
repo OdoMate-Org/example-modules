@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_salary_advance" model="ir.ui.view">
+        <field name="name">res.config.settings.form.salary.advance</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='hr']" position="inside">
+                <block title="Salary Advances" name="odomate_salary_advance_block">
+                    <setting id="odomate_advance_max_percent"
+                             string="Maximum Advance"
+                             help="Share of the monthly salary an employee may take as an advance.">
+                        <field name="advance_currency_id" invisible="1"/>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <label for="advance_max_percent" class="o_light_label"/>
+                                <field name="advance_max_percent" class="oe_inline"/>
+                                <span class="oe_inline"> %</span>
+                            </div>
+                            <div class="mt16">
+                                <label for="advance_max_amount" class="o_light_label"/>
+                                <field name="advance_max_amount" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="odomate_advance_allow_multiple"
+                             help="Let an employee hold more than one advance that has not been fully recovered.">
+                        <field name="advance_allow_multiple"/>
+                    </setting>
+                    <setting id="odomate_advance_journal"
+                             string="Salary Advance Journal"
+                             help="Bank or cash journal used to disburse advances. Required before any advance can be paid.">
+                        <field name="advance_journal_id" options="{'no_create': True}"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

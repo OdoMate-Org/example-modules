@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- No account.payment is created or posted by these demo records:
+             posting into a demo company's books fails wherever accounting is
+             not configured, so every advance below reaches "paid" with
+             payment_id deliberately left empty. -->
+
+        <!-- Dated within the last few days of install time (rather than the
+             months-back offsets used previously) so each request date falls
+             on or after the date_version of the hr.version already in force
+             for the demo employee - otherwise _get_version_at_date() finds
+             no contract and every eligibility figure reads 0.00. -->
+
+        <record id="demo_advance_paid" model="odomate.hr.salary.advance">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+            <field name="amount">1200.00</field>
+            <field name="reason">Relocation deposit for a new flat closer to the office.</field>
+            <field name="payment_date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="recovered_amount">0.00</field>
+            <field name="state">paid</field>
+        </record>
+
+        <record id="demo_advance_partially_recovered" model="odomate.hr.salary.advance">
+            <field name="employee_id" search="[('id', '!=', ref('hr.employee_admin'))]"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+            <field name="amount">900.00</field>
+            <field name="reason">Emergency dental treatment not covered by the health plan.</field>
+            <field name="payment_date" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+            <field name="recovered_amount">350.00</field>
+            <field name="state">paid</field>
+        </record>
+
+        <record id="demo_advance_closed" model="odomate.hr.salary.advance">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=4)).strftime('%Y-%m-%d')"/>
+            <field name="amount">600.00</field>
+            <field name="reason">School fees due before the start of the autumn term.</field>
+            <field name="payment_date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+            <field name="recovered_amount">600.00</field>
+            <field name="state">closed</field>
+        </record>
+
+        <record id="demo_advance_refused" model="odomate.hr.salary.advance">
+            <field name="employee_id" search="[('id', '!=', ref('hr.employee_admin'))]"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="amount">4500.00</field>
+            <field name="reason">Deposit on a second-hand car.</field>
+            <field name="refusal_reason">Requested amount is well above half a month's salary, and a previous advance is still being recovered. Resubmit for a smaller amount next quarter.</field>
+            <field name="state">refused</field>
+        </record>
+
+    </data>
+</odoo>
