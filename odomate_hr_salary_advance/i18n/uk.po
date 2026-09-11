@@ -1,0 +1,550 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_hr_salary_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance
+msgid "Employee Salary Advance"
+msgstr "Аванс із заробітної плати працівника"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance_refuse
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid "Refuse Salary Advance"
+msgstr "Відмовити в авансі із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance_pay
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+msgid "Pay Salary Advance"
+msgstr "Виплатити аванс із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/hr_employee.py:0
+#: model:ir.actions.act_window,name:odomate_hr_salary_advance.odomate_hr_salary_advance_action
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_all
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Salary Advances"
+msgstr "Аванси із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.actions.act_window,name:odomate_hr_salary_advance.odomate_hr_salary_advance_action_my
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_my
+msgid "My Advances"
+msgstr "Мої аванси"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_hr_payslip_input__advance_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Salary Advance"
+msgstr "Аванс із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: model:hr.salary.rule,name:odomate_hr_salary_advance.hr_salary_rule_advance_deduction
+#: code:addons/odomate_hr_salary_advance/models/hr_payslip.py:0
+msgid "Salary Advance Deduction"
+msgstr "Утримання авансу із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__name
+msgid "Reference"
+msgstr "Номер"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Department"
+msgstr "Відділ"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__company_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__date
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Request Date"
+msgstr "Дата запиту"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_odomate_hr_salary_advance__date
+msgid ""
+"Date of the request. The wage and the contract in force are resolved against"
+" this date."
+msgstr ""
+"Дата запиту. Заробітна плата та чинний контракт визначаються станом на цю "
+"дату."
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__amount
+msgid "Advance Amount"
+msgstr "Сума авансу"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Reason"
+msgstr "Причина"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__refusal_reason
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_refuse__refusal_reason
+msgid "Refusal Reason"
+msgstr "Причина відмови"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__payment_date
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__payment_date
+msgid "Payment Date"
+msgstr "Дата виплати"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__journal_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__journal_id
+msgid "Payment Journal"
+msgstr "Журнал виплати"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__payment_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Payment"
+msgstr "Платіж"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__has_payment
+msgid "Has Payment"
+msgstr "Має платіж"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__recovered_amount
+msgid "Recovered"
+msgstr "Утримано"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__outstanding_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Outstanding"
+msgstr "Заборгованість"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__monthly_wage
+msgid "Monthly Salary"
+msgstr "Місячна заробітна плата"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__max_allowed_amount
+msgid "Maximum Allowed"
+msgstr "Максимально дозволено"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__already_outstanding_amount
+msgid "Already Outstanding"
+msgstr "Уже в заборгованості"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__available_amount
+msgid "Available"
+msgstr "Доступно"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_hr_employee__advance_count
+msgid "Outstanding Advances"
+msgstr "Непогашені аванси"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_max_percent
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_max_percent
+msgid "Max Advance (% of Monthly Salary)"
+msgstr "Максимальний аванс (% місячної зарплати)"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_max_percent
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_max_percent
+msgid ""
+"Share of the employee's monthly salary that may be advanced. 50 means half a"
+" month's wage."
+msgstr ""
+"Частка місячної заробітної плати працівника, яку можна видати авансом. 50 "
+"означає половину місячної зарплати."
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_max_amount
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_max_amount
+msgid "Max Advance Amount"
+msgstr "Максимальна сума авансу"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_max_amount
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_max_amount
+msgid ""
+"Absolute ceiling applied on top of the percentage. Leave at 0 for no hard "
+"ceiling."
+msgstr ""
+"Абсолютна межа, що застосовується поверх відсотка. Залиште 0, щоб не "
+"встановлювати жорсткої межі."
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_allow_multiple
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_allow_multiple
+msgid "Allow Multiple Open Advances"
+msgstr "Дозволити кілька відкритих авансів"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_allow_multiple
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_allow_multiple
+msgid ""
+"Allow an employee to hold more than one advance that has not been fully "
+"recovered yet."
+msgstr ""
+"Дозволити працівникові мати більше одного авансу, який ще не повністю "
+"утримано."
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_journal_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_journal_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Salary Advance Journal"
+msgstr "Журнал авансів із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_journal_id
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_journal_id
+msgid ""
+"Bank or cash journal used to disburse salary advances. Required before any "
+"advance can be paid."
+msgstr ""
+"Банківський або касовий журнал для виплати авансів із зарплати. Обов'язковий "
+"перед виплатою будь-якого авансу."
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__submitted
+msgid "Submitted"
+msgstr "Подано"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__approved
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__paid
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Paid"
+msgstr "Виплачено"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__closed
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Closed"
+msgstr "Закрито"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__refused
+msgid "Refused"
+msgstr "Відмовлено"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__cancelled
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Submit"
+msgstr "Подати"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Approve"
+msgstr "Затвердити"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Refuse"
+msgstr "Відмовити"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Pay"
+msgstr "Виплатити"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid "Discard"
+msgstr "Відхилити"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Eligibility"
+msgstr "Право на аванс"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Disbursement & Recovery"
+msgstr "Виплата та утримання"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Refusal"
+msgstr "Відмова"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Journal Entry"
+msgstr "Бухгалтерський запис"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Why is this advance needed?"
+msgstr "Навіщо потрібен цей аванс?"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid ""
+"Explain why this advance is refused. The reason stays on the record "
+"permanently."
+msgstr ""
+"Поясніть, чому цей аванс відхилено. Причина назавжди залишиться в записі."
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.hr_employee_view_form_salary_advance
+msgid "Advances"
+msgstr "Аванси"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+msgid "Total Advanced"
+msgstr "Усього видано"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+msgid "Total Outstanding"
+msgstr "Усього заборгованості"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "To Approve"
+msgstr "На затвердження"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_currency_id
+msgid "Salary Advance Currency"
+msgstr "Валюта авансу із зарплати"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Maximum Advance"
+msgstr "Максимальний аванс"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Share of the monthly salary an employee may take as an advance."
+msgstr "Частка місячної зарплати, яку працівник може взяти авансом."
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid ""
+"Let an employee hold more than one advance that has not been fully "
+"recovered."
+msgstr ""
+"Дозволити працівникові мати більше одного не повністю утриманого авансу."
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid ""
+"Bank or cash journal used to disburse advances. Required before any advance "
+"can be paid."
+msgstr ""
+"Банківський або касовий журнал для виплати авансів. Обов'язковий перед "
+"виплатою будь-якого авансу."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only HR officers can process salary advance requests."
+msgstr "Лише кадрові спеціалісти можуть обробляти запити на аванс із зарплати."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s has no contract in force on %(date)s. A salary advance can only"
+" be granted against an active contract."
+msgstr ""
+"%(employee)s не має чинного контракту станом на %(date)s. Аванс із зарплати "
+"можна надати лише за наявності чинного контракту."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s already has an outstanding salary advance (%(refs)s). Enable "
+"\"Allow Multiple Open Advances\" in the company settings to grant a second "
+"one."
+msgstr ""
+"%(employee)s уже має непогашений аванс із зарплати (%(refs)s). Увімкніть "
+"«Дозволити кілька відкритих авансів» у налаштуваннях компанії, щоб надати "
+"другий."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"The requested amount exceeds what %(employee)s may take. Maximum allowed: "
+"%(maximum)s; already outstanding: %(outstanding)s; still available: "
+"%(available)s."
+msgstr ""
+"Запитана сума перевищує ліміт для %(employee)s. Максимально дозволено: "
+"%(maximum)s; уже в заборгованості: %(outstanding)s; ще доступно: "
+"%(available)s."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "The payment journal %(journal)s does not belong to %(company)s."
+msgstr "Журнал виплати %(journal)s не належить компанії %(company)s."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"The amount of an advance that has already been paid can no longer be changed"
+" (%s)."
+msgstr "Суму авансу, який уже виплачено, більше не можна змінити (%s)."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "A salary advance that has been disbursed cannot be deleted (%s)."
+msgstr "Аванс із зарплати, який уже виплачено, неможливо видалити (%s)."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a draft advance can be submitted (%s)."
+msgstr "Подати можна лише аванс у стані чернетки (%s)."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a submitted advance can be approved (%s)."
+msgstr "Затвердити можна лише поданий аванс (%s)."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "A %(state)s advance can no longer be cancelled (%(name)s)."
+msgstr "Аванс у стані «%(state)s» більше не можна скасувати (%(name)s)."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a submitted advance can be refused."
+msgstr "Відмовити можна лише в поданому авансі."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only an approved advance can be paid."
+msgstr "Виплатити можна лише затверджений аванс."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Advance refused: %s"
+msgstr "Аванс відхилено: %s"
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"No salary advance journal is configured for %(company)s. Set \"Salary "
+"Advance Journal\" under Settings > Employees > Salary Advances before "
+"disbursing an advance."
+msgstr ""
+"Для компанії %(company)s не налаштовано журнал авансів із зарплати. Перед "
+"виплатою авансу вкажіть «Журнал авансів із зарплати» в меню Налаштування > "
+"Співробітники > Аванси із зарплати."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "The journal %(journal)s does not belong to %(company)s."
+msgstr "Журнал %(journal)s не належить компанії %(company)s."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s has no work contact. A work contact is required to disburse a "
+"salary advance; set it on the employee's HR Settings tab first."
+msgstr ""
+"%(employee)s не має робочого контакту. Для виплати авансу із зарплати "
+"потрібен робочий контакт; спершу вкажіть його на вкладці «Кадрові "
+"налаштування» працівника."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Advance disbursed on %(date)s through journal %(journal)s."
+msgstr "Аванс виплачено %(date)s через журнал %(journal)s."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "This advance has no payment yet."
+msgstr "Цей аванс ще не має платежу."
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "This advance has no journal entry yet."
+msgstr "Цей аванс ще не має бухгалтерського запису."
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "<span class=\"o_stat_text\">Payment</span>"
+msgstr "<span class=\"o_stat_text\">Платіж</span>"
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "<span class=\"o_stat_text\">Journal Entry</span>"
+msgstr "<span class=\"o_stat_text\">Бухгалтерський запис</span>"

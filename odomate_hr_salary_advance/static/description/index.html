@@ -1,0 +1,136 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color:#875A7B;">Employee Salary Advance</h2>
+            <h3 class="oe_slogan">Ask, approve, pay, recover — the whole advance in one record</h3>
+            <p class="oe_mt32" style="text-align:center; max-width:820px; margin:0 auto;">
+                An employee needs money before payday. This module turns that conversation
+                into a tracked record: it checks the request against your company policy,
+                disburses it through a <em>real</em> posted <code>account.payment</code>, and
+                pushes the outstanding balance onto the next payslip as an
+                <code>ADV_DEDUCT</code> deduction. When the balance reaches zero, the advance
+                closes itself.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <h4>Policy-driven eligibility</h4>
+            <p>
+                A percentage of the monthly wage, an optional absolute ceiling, and a
+                switch for holding more than one open advance. Four figures —
+                <strong>Monthly Salary</strong>, <strong>Maximum Allowed</strong>,
+                <strong>Already Outstanding</strong> and <strong>Available</strong> —
+                are computed live on the form, before the amount is even entered.
+            </p>
+            <h4>Wage resolved by date, not by guesswork</h4>
+            <p>
+                Both the wage and the "is there an active contract" check read the
+                <code>hr.version</code> in force on the request date. Backdate a request
+                and the module reads the contract that was in force <em>then</em>, so the
+                two answers can never disagree.
+            </p>
+            <h4>Checks that an import cannot bypass</h4>
+            <p>
+                Submit and Approve run the same <code>@api.constrains</code>, and the
+                workflow methods check the HR group themselves — hiding a button is not
+                the only thing standing between an employee and an approval.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h4>A real payment, or nothing at all</h4>
+            <p>
+                The Pay wizard creates and posts an outbound <code>account.payment</code>
+                to the employee's work contact. It refuses outright when the disbursement
+                journal is unconfigured or the employee has no work contact — naming the
+                requirement rather than guessing. If posting fails, the whole transaction
+                rolls back: no state change, no orphaned draft payment.
+            </p>
+            <h4>Automatic payroll recovery</h4>
+            <p>
+                A <code>ADV_DEDUCT</code> input line is appended to the next payslip.
+                Confirmation writes back whatever that line <em>actually</em> says — so a
+                payroll officer can spread the repayment by editing the amount — clamped
+                so an advance can never be over-recovered or counted twice.
+            </p>
+            <h4>Multi-company and localized</h4>
+            <p>
+                Policy lives on <code>res.company</code>, backed by a global company
+                record rule. Ships with a full Ukrainian translation.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol style="max-width:820px; margin:0 auto;">
+                <li>
+                    <strong>Configure once.</strong> Under
+                    <em>Settings &rarr; Employees &rarr; Salary Advances</em>, set the
+                    maximum percentage, the optional ceiling, and the
+                    <strong>Salary Advance Journal</strong>. Then add the shipped
+                    <strong>Salary Advance Deduction</strong> rule to the salary structures
+                    that should recover advances — the module ships the rule but
+                    deliberately never attaches it for you.
+                </li>
+                <li>
+                    <strong>Record the request.</strong> Under
+                    <em>Employees &rarr; Salary Advances</em>, pick the employee, enter the
+                    amount and the reason. The reference (<code>ADV/00001</code>) is
+                    assigned on save and the eligibility block updates as you type.
+                </li>
+                <li>
+                    <strong>Submit and approve.</strong> Both steps re-check the amount
+                    against <em>Available</em>, the one-open-advance policy, and the
+                    contract in force on the request date.
+                </li>
+                <li>
+                    <strong>Pay.</strong> The wizard posts the payment and moves the
+                    advance to <em>Paid</em> in a single transaction. Smart buttons open
+                    the payment and its journal entry — and fail closed for users without
+                    accounting rights.
+                </li>
+                <li>
+                    <strong>Let payroll do the rest.</strong> The deduction appears on the
+                    next payslip; confirming it records the recovery and closes the
+                    advance once the balance reaches zero.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Documentation</h3>
+            <p style="text-align:center;">
+                Full documentation, including worked numerical examples, the field
+                reference and an honest list of limitations, ships inside the module:
+                <code>doc/USER_GUIDE.md</code> (English) and
+                <code>doc/USER_GUIDE.uk.md</code> (Ukrainian).
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12" style="text-align:center;">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p>
+                <a href="https://odomate.pro">odomate.pro</a> &middot;
+                support@odomate.pro
+            </p>
+        </div>
+    </div>
+</section>

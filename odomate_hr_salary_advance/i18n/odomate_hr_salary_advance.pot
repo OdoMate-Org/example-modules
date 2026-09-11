@@ -1,0 +1,521 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_hr_salary_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance
+msgid "Employee Salary Advance"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance_refuse
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid "Refuse Salary Advance"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model,name:odomate_hr_salary_advance.model_odomate_hr_salary_advance_pay
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+msgid "Pay Salary Advance"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/hr_employee.py:0
+#: model:ir.actions.act_window,name:odomate_hr_salary_advance.odomate_hr_salary_advance_action
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_all
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Salary Advances"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.actions.act_window,name:odomate_hr_salary_advance.odomate_hr_salary_advance_action_my
+#: model:ir.ui.menu,name:odomate_hr_salary_advance.menu_odomate_hr_salary_advance_my
+msgid "My Advances"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_hr_payslip_input__advance_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Salary Advance"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:hr.salary.rule,name:odomate_hr_salary_advance.hr_salary_rule_advance_deduction
+#: code:addons/odomate_hr_salary_advance/models/hr_payslip.py:0
+msgid "Salary Advance Deduction"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__name
+msgid "Reference"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Employee"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Department"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__company_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__company_id
+msgid "Company"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__date
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Request Date"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_odomate_hr_salary_advance__date
+msgid ""
+"Date of the request. The wage and the contract in force are resolved against"
+" this date."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__amount
+msgid "Advance Amount"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Reason"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Status"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__refusal_reason
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_refuse__refusal_reason
+msgid "Refusal Reason"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__payment_date
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__payment_date
+msgid "Payment Date"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__journal_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance_pay__journal_id
+msgid "Payment Journal"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__payment_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Payment"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__has_payment
+msgid "Has Payment"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__recovered_amount
+msgid "Recovered"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__outstanding_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Outstanding"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__monthly_wage
+msgid "Monthly Salary"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__max_allowed_amount
+msgid "Maximum Allowed"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__already_outstanding_amount
+msgid "Already Outstanding"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_odomate_hr_salary_advance__available_amount
+msgid "Available"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_hr_employee__advance_count
+msgid "Outstanding Advances"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_max_percent
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_max_percent
+msgid "Max Advance (% of Monthly Salary)"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_max_percent
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_max_percent
+msgid ""
+"Share of the employee's monthly salary that may be advanced. 50 means half a"
+" month's wage."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_max_amount
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_max_amount
+msgid "Max Advance Amount"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_max_amount
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_max_amount
+msgid ""
+"Absolute ceiling applied on top of the percentage. Leave at 0 for no hard "
+"ceiling."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_allow_multiple
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_allow_multiple
+msgid "Allow Multiple Open Advances"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_allow_multiple
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_allow_multiple
+msgid ""
+"Allow an employee to hold more than one advance that has not been fully "
+"recovered yet."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_company__advance_journal_id
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_journal_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Salary Advance Journal"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_company__advance_journal_id
+#: model:ir.model.fields,help:odomate_hr_salary_advance.field_res_config_settings__advance_journal_id
+msgid ""
+"Bank or cash journal used to disburse salary advances. Required before any "
+"advance can be paid."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Draft"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__submitted
+msgid "Submitted"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__approved
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Approved"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__paid
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Paid"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__closed
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "Closed"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__refused
+msgid "Refused"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields.selection,name:odomate_hr_salary_advance.selection__odomate_hr_salary_advance__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Submit"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Approve"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Refuse"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Pay"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_pay_view_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Eligibility"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Disbursement & Recovery"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Refusal"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Journal Entry"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "Why is this advance needed?"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_refuse_view_form
+msgid ""
+"Explain why this advance is refused. The reason stays on the record "
+"permanently."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.hr_employee_view_form_salary_advance
+msgid "Advances"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+msgid "Total Advanced"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_list
+msgid "Total Outstanding"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_search
+msgid "To Approve"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model:ir.model.fields,field_description:odomate_hr_salary_advance.field_res_config_settings__advance_currency_id
+msgid "Salary Advance Currency"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Maximum Advance"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid "Share of the monthly salary an employee may take as an advance."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid ""
+"Let an employee hold more than one advance that has not been fully "
+"recovered."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.res_config_settings_view_form_salary_advance
+msgid ""
+"Bank or cash journal used to disburse advances. Required before any advance "
+"can be paid."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only HR officers can process salary advance requests."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s has no contract in force on %(date)s. A salary advance can only"
+" be granted against an active contract."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s already has an outstanding salary advance (%(refs)s). Enable "
+"\"Allow Multiple Open Advances\" in the company settings to grant a second "
+"one."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"The requested amount exceeds what %(employee)s may take. Maximum allowed: "
+"%(maximum)s; already outstanding: %(outstanding)s; still available: "
+"%(available)s."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "The payment journal %(journal)s does not belong to %(company)s."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"The amount of an advance that has already been paid can no longer be changed"
+" (%s)."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "A salary advance that has been disbursed cannot be deleted (%s)."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a draft advance can be submitted (%s)."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a submitted advance can be approved (%s)."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "A %(state)s advance can no longer be cancelled (%(name)s)."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only a submitted advance can be refused."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Only an approved advance can be paid."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Advance refused: %s"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"No salary advance journal is configured for %(company)s. Set \"Salary "
+"Advance Journal\" under Settings > Employees > Salary Advances before "
+"disbursing an advance."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "The journal %(journal)s does not belong to %(company)s."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid ""
+"%(employee)s has no work contact. A work contact is required to disburse a "
+"salary advance; set it on the employee's HR Settings tab first."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "Advance disbursed on %(date)s through journal %(journal)s."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "This advance has no payment yet."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: code:addons/odomate_hr_salary_advance/models/odomate_hr_salary_advance.py:0
+msgid "This advance has no journal entry yet."
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "<span class=\"o_stat_text\">Payment</span>"
+msgstr ""
+
+#. module: odomate_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:odomate_hr_salary_advance.odomate_hr_salary_advance_view_form
+msgid "<span class=\"o_stat_text\">Journal Entry</span>"
+msgstr ""
