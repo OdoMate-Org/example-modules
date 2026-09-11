@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_transfer_hr_user,odomate.hr.transfer.hr.user,model_odomate_hr_transfer,hr.group_hr_user,1,1,1,0
+access_odomate_hr_transfer_hr_manager,odomate.hr.transfer.hr.manager,model_odomate_hr_transfer,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_transfer_refuse_hr_user,odomate.hr.transfer.refuse.hr.user,model_odomate_hr_transfer_refuse,hr.group_hr_user,1,1,1,1
+access_odomate_hr_transfer_refuse_hr_manager,odomate.hr.transfer.refuse.hr.manager,model_odomate_hr_transfer_refuse,hr.group_hr_manager,1,1,1,1

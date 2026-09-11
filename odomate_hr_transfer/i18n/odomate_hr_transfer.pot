@@ -1,0 +1,437 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_transfer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_hr_transfer
+#: model:ir.actions.act_window,help:odomate_hr_transfer.action_odomate_hr_transfer
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                Record a new employee transfer\n"
+"            </p>\n"
+"            <p>\n"
+"                A transfer records a dated move — department, job position, work\n"
+"                location, manager or company. Once approved and applied it adds a\n"
+"                new dated version to the employee's history; it never overwrites\n"
+"                or duplicates the employee record.\n"
+"            </p>"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.cron,name:odomate_hr_transfer.ir_cron_odomate_hr_transfer_apply
+msgid "Employee Transfer: Apply Due Transfers"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.rule,name:odomate_hr_transfer.odomate_hr_transfer_company_rule
+msgid "Employee Transfer: multi-company"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model,name:odomate_hr_transfer.model_odomate_hr_transfer
+#: model:ir.sequence,name:odomate_hr_transfer.seq_odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Employee Transfer"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.actions.act_window,name:odomate_hr_transfer.action_odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Employee Transfers"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model,name:odomate_hr_transfer.model_odomate_hr_transfer_refuse
+msgid "Refuse Employee Transfer"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__name
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Reference"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Employee"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__effective_date
+msgid "Effective Date"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Reason"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__new_department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_list
+msgid "To Department"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__new_job_id
+msgid "To Job Position"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__new_work_location_id
+msgid "To Work Location"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__new_parent_id
+msgid "To Manager"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__new_company_id
+msgid "To Company"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__current_department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_list
+msgid "From Department"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__current_job_id
+msgid "From Job Position"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__current_work_location_id
+msgid "From Work Location"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__current_parent_id
+msgid "From Manager"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__current_company_id
+msgid "From Company"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__state
+msgid "Status"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__applied_date
+msgid "Applied On"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__version_id
+msgid "Created Version"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__refuse_reason
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer_refuse__refuse_reason
+msgid "Refusal Reason"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer__apply_ready
+msgid "Effective Date Reached"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_odomate_hr_transfer_refuse__transfer_id
+msgid "Transfer"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/hr_employee.py:0
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_hr_employee__odomate_transfer_ids
+#: model:ir.ui.menu,name:odomate_hr_transfer.menu_odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_employee_form_inherit_odomate_hr_transfer
+msgid "Transfers"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields,field_description:odomate_hr_transfer.field_hr_employee__odomate_transfer_count
+msgid "Transfer Count"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Draft"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__to_approve
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "To Approve"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__approved
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Approved"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__applied
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Applied"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__refused
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Refused"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.model.fields.selection,name:odomate_hr_transfer.selection__odomate_hr_transfer__state__cancelled
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Send for Approval"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Approve"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Apply now"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Refuse"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Cancel"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid ""
+"Applying is final: it writes a new dated version on the employee record and "
+"cannot be undone from this screen. Reversing this move means recording "
+"another transfer. Continue?"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid ""
+"Approved and waiting for the effective date. The <b>Apply now</b> button "
+"appears once that date has arrived, or the nightly scheduled action applies "
+"it automatically."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "<b>Refused.</b>"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Application"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "What Changes"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Current"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "New"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "No change"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_form
+msgid "Why is this employee being transferred?"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Due for Application"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Group by Employee"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Group by Status"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Group by Department"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Group by Company"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_search
+msgid "Group by Effective Date"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model:ir.actions.act_window,name:odomate_hr_transfer.action_odomate_hr_transfer_refuse
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_refuse_form
+msgid "Refuse Transfer"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_refuse_form
+msgid "Discard"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: model_terms:ir.ui.view,arch_db:odomate_hr_transfer.view_odomate_hr_transfer_refuse_form
+msgid ""
+"Explain why this transfer is refused. The employee record is left untouched."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"Transfer %s must change at least one of department, job position, work "
+"location, manager or company."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"%(label)s is already %(value)s for %(employee)s. A transfer must record an "
+"actual change."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"The effective date of transfer %(name)s must be later than %(date)s, the "
+"date of the most recent version of %(employee)s."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"Transfer %s has already been applied and can no longer be changed. Record a "
+"new transfer to reverse or correct this move."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Approve employee transfer %s"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Only an HR Manager can approve employee transfer %s."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"You cannot approve transfer %(name)s: it moves the employee to %(company)s, "
+"which is not one of your allowed companies."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Only a draft transfer can be sent for approval; %s is not draft."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"Only a transfer waiting for approval can be approved; %s is not waiting for "
+"approval."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer approved."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer %s can no longer be cancelled."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer cancelled."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer %s can no longer be refused."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer refused: %s"
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid "Transfer %s must be approved before it can be applied."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"Transfer %(name)s takes effect on %(date)s and cannot be applied before that "
+"date."
+msgstr ""
+
+#. module: odomate_hr_transfer
+#: code:addons/odomate_hr_transfer/models/odomate_hr_transfer.py:0
+msgid ""
+"Transfer applied: a new version dated %s was added to the employee's history."
+msgstr ""

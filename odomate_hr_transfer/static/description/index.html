@@ -1,0 +1,103 @@
+<section class="oe_container" style="font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; color: #2b2b2b;">
+    <div class="oe_row oe_spaced" style="padding: 32px 16px; text-align: center;">
+        <h2 class="oe_slogan" style="color: #875A7B; font-size: 38px; margin-bottom: 8px;">Employee Transfer</h2>
+        <h3 class="oe_slogan" style="color: #666; font-weight: 300; font-size: 21px; margin-top: 0;">
+            Dated employee moves recorded as real version history &mdash; never as an overwrite
+        </h3>
+        <p class="oe_mt32" style="max-width: 820px; margin: 24px auto 0; font-size: 16px; line-height: 1.6; text-align: left;">
+            An employee changes department on 1 October. In standard Odoo you open the employee form,
+            overwrite the department, and the previous value is gone. This module replaces that with a
+            small auditable record &mdash; model <code>odomate.hr.transfer</code> &mdash; carrying an
+            effective date, an approval step and a chatter trail. When the transfer is applied it
+            <strong>creates a new <code>hr.version</code> entry</strong> dated on the effective date.
+            It never overwrites the existing version, never duplicates the employee record and never
+            archives one. Built for HR Officers and HR Managers using the standard Employees app.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark" style="background: #f4f2f5; font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+    <div class="oe_row oe_spaced" style="padding: 32px 16px;">
+        <h2 class="oe_slogan" style="color: #875A7B; text-align: center; font-size: 30px;">Key Features</h2>
+        <div class="oe_span6" style="display: inline-block; vertical-align: top; width: 47%; min-width: 280px; padding: 0 1.5%;">
+            <h3 class="oe_slogan" style="color: #875A7B; font-size: 20px;">Recording the move</h3>
+            <ul style="font-size: 15px; line-height: 1.7; color: #333;">
+                <li>Five dimensions in one record: <strong>To Department</strong>, <strong>To Job Position</strong>, <strong>To Work Location</strong>, <strong>To Manager</strong>, <strong>To Company</strong>.</li>
+                <li>Two-column before/after layout &mdash; <strong>From Department</strong> next to <strong>To Department</strong>, and so on. An empty row means &quot;no change&quot;.</li>
+                <li>Automatic references from the <code>odomate.hr.transfer</code> sequence: <code>TRF/00001</code>, <code>TRF/00002</code>&hellip;</li>
+                <li>Two guardrails: at least one target must be set and must actually differ from the current value; the effective date must be strictly later than the employee's most recent <code>hr.version</code>.</li>
+                <li>Full <code>mail.thread</code> chatter with tracking on employee, effective date, status and every target field.</li>
+            </ul>
+        </div>
+        <div class="oe_span6" style="display: inline-block; vertical-align: top; width: 47%; min-width: 280px; padding: 0 1.5%;">
+            <h3 class="oe_slogan" style="color: #875A7B; font-size: 20px;">Approving and applying</h3>
+            <ul style="font-size: 15px; line-height: 1.7; color: #333;">
+                <li>Status flow <code>draft &rarr; to_approve &rarr; approved &rarr; applied</code>, with <code>refused</code> and <code>cancelled</code> as alternate endings.</li>
+                <li><strong>Approve</strong> requires <code>hr.group_hr_manager</code> &mdash; checked inside <code>action_approve</code>, so scripts and API calls are blocked too, not just the button.</li>
+                <li>Cross-company moves can only be approved by someone whose allowed companies include the target company.</li>
+                <li><strong>Apply now</strong> appears only once the effective date has arrived; a daily scheduled action, <em>Employee Transfer: Apply Due Transfers</em>, applies due transfers automatically.</li>
+                <li><strong>Refuse</strong> (with a mandatory reason) and <strong>Cancel</strong> write nothing at all to the employee record.</li>
+                <li>Applied transfers become immutable: employee, dates, targets and status are locked.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container" style="font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+    <div class="oe_row oe_spaced" style="padding: 32px 16px;">
+        <h2 class="oe_slogan" style="color: #875A7B; text-align: center; font-size: 30px;">How it works</h2>
+        <div class="oe_span12" style="max-width: 860px; margin: 0 auto;">
+            <p class="oe_mt32" style="font-size: 16px; line-height: 1.65;">
+                Everything lives under <strong>Employees &#9656; Transfers</strong> (visible to
+                <code>hr.group_hr_user</code>), plus a <strong>Transfers</strong> smart button on every
+                employee form. An HR Officer creates a transfer, picks the employee and the effective
+                date, fills one or more &quot;To &hellip;&quot; fields, and clicks <strong>Send for
+                Approval</strong> &mdash; which schedules a <em>To Do</em> activity for the HR Managers
+                who cover the companies involved. An HR Manager clicks <strong>Approve</strong>. On the
+                effective date, <strong>Apply now</strong> becomes available (or the nightly scheduled
+                action fires first) and the move is committed.
+            </p>
+            <p style="font-size: 16px; line-height: 1.65;">
+                <strong>Worked example.</strong> Marc Demo is in Sales; his latest version is dated
+                2026-06-11. <code>TRF/00007</code> moves him to Customer Success effective 2026-10-01.
+                After applying, his history holds two rows &mdash; 2026-06-11 &rarr; Sales and
+                2026-10-01 &rarr; Customer Success &mdash; and there is still exactly one Marc Demo in
+                the employee list. Job position and work location carry over untouched because those
+                fields were left empty. Asking &quot;which department was he in on 15 August 2026?&quot;
+                correctly returns Sales.
+            </p>
+            <p style="font-size: 15px; line-height: 1.6; background: #fff8e6; border-left: 4px solid #e0a800; padding: 12px 16px; margin-top: 24px;">
+                <strong>Worth knowing up front.</strong> Applying is final &mdash; there is no undo, and
+                reversing a move means recording another transfer. Department, job position and work
+                location become real dated history in <code>hr.version</code>; manager
+                (<code>parent_id</code>) and company (<code>company_id</code>) are written straight onto
+                the employee because Odoo does not version those two fields, so this module cannot tell
+                you who an employee's manager was on a past date. There are no pay or contract changes,
+                no bulk transfers, no org-chart preview, no transfer letters or PDF reports, and no
+                cross-company &quot;Receive&quot; handshake.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark" style="background: #f4f2f5; font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+    <div class="oe_row oe_spaced" style="padding: 28px 16px;">
+        <h2 class="oe_slogan" style="color: #875A7B; text-align: center; font-size: 26px;">For full documentation</h2>
+        <div class="oe_span12" style="max-width: 860px; margin: 0 auto;">
+            <p class="oe_mt32" style="font-size: 15px; line-height: 1.6; text-align: center;">
+                See <code>doc/USER_GUIDE.md</code> bundled with this module for the step-by-step user
+                guide, the button-by-state reference, the worked version-history example, the access-role
+                and multi-company reference, and the complete list of known limitations.
+                A Ukrainian translation is available at <code>doc/USER_GUIDE.uk.md</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container" style="font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+    <div class="oe_row oe_spaced">
+        <p class="oe_mt32" style="text-align: center; color: #777; font-size: 14px; padding: 20px 0;">
+            Generated by <strong>OdoMate</strong> &mdash; <a href="https://odomate.pro" style="color: #875A7B;">odomate.pro</a>
+        </p>
+    </div>
+</section>
