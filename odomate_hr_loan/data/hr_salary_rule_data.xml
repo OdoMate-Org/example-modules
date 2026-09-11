@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_salary_rule_loan_repayment" model="hr.salary.rule">
+        <field name="name">Loan Repayment</field>
+        <field name="code">LOAN_REPAY</field>
+        <field name="sequence">200</field>
+        <field name="appears_on_payslip" eval="True"/>
+        <field name="company_id" eval="False"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">total = 0.0
+for line in payslip.input_line_ids:
+    if line.code == 'LOAN_REPAY':
+        total += line.amount
+result = total != 0.0</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = 0.0
+for line in payslip.input_line_ids:
+    if line.code == 'LOAN_REPAY':
+        total += line.amount
+result = -total</field>
+        <field name="note">Recovers employee loan instalments that fall due in the payslip
+period. One payslip input line is generated per due instalment; this rule sums
+them into a single deduction line.
+
+This rule is NOT attached to any salary structure automatically. Add it to the
+salary structure actually in use before the deduction reaches a payslip.</field>
+    </record>
+
+    <record id="hr_rule_input_loan_repayment" model="hr.rule.input">
+        <field name="name">Loan Repayment</field>
+        <field name="code">LOAN_REPAY</field>
+        <field name="input_id" ref="hr_salary_rule_loan_repayment"/>
+    </record>
+
+    <function model="hr.salary.rule" name="_odomate_assign_loan_deduction_category"/>
+
+</odoo>

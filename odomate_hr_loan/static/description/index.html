@@ -1,0 +1,141 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan" style="color:#875A7B;">Employee Loans</h2>
+    <h3 class="oe_slogan">Lend, schedule, and recover from payroll — without a spreadsheet</h3>
+    <div class="oe_span12">
+      <p class="oe_mt32 text-center">
+        Record a loan for an employee, build a fixed repayment schedule the
+        moment it is approved, and let payroll do the rest. Every instalment
+        falling due in a payslip period is added to that payslip automatically
+        and marked as recovered once the payslip is confirmed. Deferrals,
+        early settlement and a full audit trail are built in.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Key Features</h2>
+    <div class="oe_span6">
+      <h4 class="oe_slogan">A real repayment schedule</h4>
+      <p class="oe_mt16">
+        Approval builds one <code>odomate.hr.loan.instalment</code> record per
+        instalment, with due date, principal, interest and total. Flat interest
+        is spread evenly and rounding remainders land on the last row, so the
+        figures always add up exactly.
+      </p>
+    </div>
+    <div class="oe_span6">
+      <h4 class="oe_slogan">Automatic payslip recovery</h4>
+      <p class="oe_mt16">
+        A shipped <code>LOAN_REPAY</code> salary rule sums every due instalment
+        into a single deduction line. Recovery is keyed off payslip
+        confirmation, not computation, so a payslip can be recomputed freely
+        and confirming twice never recovers twice.
+      </p>
+    </div>
+  </div>
+  <div class="oe_row oe_spaced">
+    <div class="oe_span6">
+      <h4 class="oe_slogan">Defer and settle early</h4>
+      <p class="oe_mt16">
+        Push an instalment — and every later one — forward by a month, with the
+        reason posted to the chatter. Or settle the loan early: remaining
+        instalments are cancelled rather than deleted, so the schedule still
+        reads as history.
+      </p>
+    </div>
+    <div class="oe_span6">
+      <h4 class="oe_slogan">Policy you control</h4>
+      <p class="oe_mt16">
+        Per company, decide whether an employee may hold more than one running
+        loan, and cap the principal that may be approved. Both are enforced at
+        approval time, against the principal only.
+      </p>
+    </div>
+  </div>
+  <div class="oe_row oe_spaced">
+    <div class="oe_span6">
+      <h4 class="oe_slogan">Locked down properly</h4>
+      <p class="oe_mt16">
+        Employees see only their own loans, enforced by record rules rather
+        than hidden buttons — opening a colleague's loan by URL is refused
+        server-side. Amounts and terms freeze once a loan is approved, for ORM
+        and RPC writes too.
+      </p>
+    </div>
+    <div class="oe_span6">
+      <h4 class="oe_slogan">Ready for accounting</h4>
+      <p class="oe_mt16">
+        Instalments are stored as first-class records with real columns —
+        never computed on the fly or packed into JSON — so a future accounting
+        module can read principal, interest, state and payslip link directly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">How it works</h2>
+    <div class="oe_span12">
+      <ol class="oe_mt32">
+        <li><b>Capture</b> — HR opens <i>Employees &rarr; Loans &rarr; Loan Requests</i>
+            and records the employee, amount, purpose, instalment count, first
+            instalment date and optional interest rate.</li>
+        <li><b>Build the schedule</b> — one click fills the instalment table.
+            Editing the terms while still in draft clears the schedule, so a
+            stale plan can never be submitted.</li>
+        <li><b>Submit and approve</b> — the one-loan-at-a-time rule and the
+            maximum amount ceiling are checked at approval.</li>
+        <li><b>Run payroll</b> — instalments due in the period are added to the
+            payslip and summed into a single <i>Loan Repayment</i> deduction.</li>
+        <li><b>Confirm</b> — the instalments become <i>Recovered</i> and the loan
+            closes itself once nothing is left outstanding.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">One-time setup</h2>
+    <div class="oe_span12">
+      <p class="oe_mt32 text-center">
+        The module ships the <b>Loan Repayment</b> salary rule but deliberately
+        does not attach it to a salary structure — it cannot know which one your
+        company uses. Add it once under
+        <i>Payroll &rarr; Configuration &rarr; Salary Structures</i>, and every
+        payslip on that structure picks it up from then on.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Documentation</h2>
+    <div class="oe_span12">
+      <p class="oe_mt32 text-center">
+        The full guide — worked interest examples, field reference, access
+        rights and honest limitations — ships with the module at
+        <code>doc/USER_GUIDE.md</code>, with a Ukrainian translation at
+        <code>doc/USER_GUIDE.uk.md</code>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 class="oe_slogan">OdoMate</h3>
+      <p class="oe_mt32 text-center">
+        Built by OdoMate &mdash;
+        <a href="https://odomate.pro">odomate.pro</a> &mdash;
+        support@odomate.pro
+      </p>
+    </div>
+  </div>
+</section>

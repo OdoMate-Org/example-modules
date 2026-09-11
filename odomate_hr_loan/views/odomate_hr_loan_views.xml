@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_loan_form" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.form</field>
+        <field name="model">odomate.hr.loan</field>
+        <field name="arch" type="xml">
+            <form string="Employee Loan">
+                <header>
+                    <button name="action_build_schedule" type="object"
+                            string="Build the schedule" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_submit" type="object"
+                            string="Submit" class="btn-primary"
+                            invisible="state != 'draft' or not has_schedule"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_refuse" type="object"
+                            string="Refuse"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            invisible="state not in ('draft', 'submitted')"/>
+                    <button name="action_open_defer_wizard" type="object"
+                            string="Defer an instalment"
+                            invisible="state != 'approved' or outstanding_amount == 0"/>
+                    <button name="action_open_settle_wizard" type="object"
+                            string="Settle early"
+                            invisible="state != 'approved' or outstanding_amount == 0"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <field name="has_schedule" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <group>
+                        <group string="Borrower">
+                            <field name="employee_id"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                            <field name="department_id" readonly="1"/>
+                            <field name="job_id" readonly="1"/>
+                            <field name="company_id" readonly="1"
+                                   groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Loan Terms">
+                            <field name="amount"/>
+                            <field name="purpose"/>
+                            <field name="instalment_count"/>
+                            <field name="first_instalment_date"/>
+                            <field name="interest_percentage"/>
+                        </group>
+                    </group>
+                    <group string="Refusal" invisible="state not in ('submitted', 'refused')">
+                        <field name="refusal_reason" nolabel="1"
+                               placeholder="Why is this loan refused?"
+                               readonly="state != 'submitted'"/>
+                    </group>
+                    <group string="Early Settlement" invisible="not settlement_date">
+                        <field name="settlement_date" readonly="1"/>
+                        <field name="settlement_reference" readonly="1"/>
+                    </group>
+                    <separator string="Balance"/>
+                    <group col="6">
+                        <field name="total_amount"/>
+                        <field name="recovered_amount"/>
+                        <field name="outstanding_amount"/>
+                    </group>
+                    <separator string="Repayment Schedule"/>
+                    <field name="instalment_ids" readonly="1">
+                        <list string="Instalments" create="false" delete="false"
+                              decoration-success="state == 'recovered'"
+                              decoration-muted="state == 'cancelled'">
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="sequence" string="No."/>
+                            <field name="due_date"/>
+                            <field name="principal_amount" sum="Principal"/>
+                            <field name="interest_amount" sum="Interest"/>
+                            <field name="total_amount" sum="Total"/>
+                            <field name="state" widget="badge"
+                                   decoration-success="state == 'recovered'"
+                                   decoration-muted="state == 'cancelled'"/>
+                            <field name="payslip_id"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_loan_list" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.list</field>
+        <field name="model">odomate.hr.loan</field>
+        <field name="arch" type="xml">
+            <list string="Employee Loans"
+                  decoration-muted="outstanding_amount == 0">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id" optional="show"/>
+                <field name="amount" sum="Loan Amount"/>
+                <field name="outstanding_amount" sum="Outstanding"/>
+                <field name="instalments_remaining"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'approved'"
+                       decoration-info="state == 'submitted'"
+                       decoration-danger="state == 'refused'"
+                       decoration-muted="state in ('cancelled', 'closed')"/>
+                <field name="company_id" optional="hide"
+                       groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_loan_search" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.search</field>
+        <field name="model">odomate.hr.loan</field>
+        <field name="arch" type="xml">
+            <search string="Employee Loans">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="purpose"/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_submitted" string="Submitted"
+                        domain="[('state', '=', 'submitted')]"/>
+                <filter name="filter_approved" string="Approved"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_closed" string="Closed"
+                        domain="[('state', '=', 'closed')]"/>
+                <filter name="filter_refused" string="Refused"
+                        domain="[('state', '=', 'refused')]"/>
+                <filter name="filter_cancelled" string="Cancelled"
+                        domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="filter_outstanding" string="Still Outstanding"
+                        domain="[('outstanding_amount', '&gt;', 0)]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_department" string="Department"
+                        context="{'group_by': 'department_id'}"/>
+                <filter name="group_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_loan" model="ir.actions.act_window">
+        <field name="name">Loan Requests</field>
+        <field name="res_model">odomate.hr.loan</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_loan_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record a loan for an employee</p>
+            <p>Capture the amount and the number of instalments, build the
+            repayment schedule, then submit it for approval. Approved
+            instalments are recovered automatically from the payslip of the
+            month they fall due in.</p>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_loan_my" model="ir.actions.act_window">
+        <field name="name">My Loans</field>
+        <field name="res_model">odomate.hr.loan</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_loan_search"/>
+        <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        <field name="context">{'create': False, 'edit': False, 'delete': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">You have no loan on record</p>
+            <p>Loans are raised by HR on your behalf. Once approved, the
+            repayment schedule below shows what is recovered from each
+            payslip.</p>
+        </field>
+    </record>
+
+</odoo>

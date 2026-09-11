@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_odomate_hr_loan_root"
+              name="Loans"
+              parent="hr.menu_hr_root"
+              groups="base.group_user"
+              sequence="80"/>
+
+    <menuitem id="menu_odomate_hr_loan_my"
+              name="My Loans"
+              parent="menu_odomate_hr_loan_root"
+              action="action_odomate_hr_loan_my"
+              groups="base.group_user"
+              sequence="10"/>
+
+    <menuitem id="menu_odomate_hr_loan_all"
+              name="Loan Requests"
+              parent="menu_odomate_hr_loan_root"
+              action="action_odomate_hr_loan"
+              groups="hr.group_hr_user"
+              sequence="20"/>
+
+    <menuitem id="menu_odomate_hr_loan_config"
+              name="Loan Policy"
+              parent="menu_odomate_hr_loan_root"
+              action="action_odomate_hr_loan_config_settings"
+              groups="hr.group_hr_manager"
+              sequence="90"/>
+
+</odoo>
