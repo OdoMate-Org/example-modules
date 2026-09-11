@@ -1,0 +1,679 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_loan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Employee Loan"
+msgstr "Позика працівника"
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_instalment
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_form
+msgid "Employee Loan Instalment"
+msgstr "Платіж за позикою працівника"
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_defer
+msgid "Defer a Loan Instalment"
+msgstr "Відтермінувати платіж за позикою"
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_settle
+msgid "Settle a Loan Early"
+msgstr "Достроково погасити позику"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__name
+msgid "Reference"
+msgstr "Номер"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Department"
+msgstr "Відділ"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__job_id
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__company_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__currency_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+msgid "Loan Amount"
+msgstr "Сума позики"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__purpose
+msgid "Purpose"
+msgstr "Призначення"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalment_count
+msgid "Number of Instalments"
+msgstr "Кількість платежів"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__first_instalment_date
+msgid "First Instalment Date"
+msgstr "Дата першого платежу"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__interest_percentage
+msgid "Interest (%)"
+msgstr "Відсоток (%)"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__state
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__refusal_reason
+msgid "Refusal Reason"
+msgstr "Причина відмови"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__settlement_date
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__settlement_date
+msgid "Settlement Date"
+msgstr "Дата погашення"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__settlement_reference
+msgid "Settlement Reference"
+msgstr "Реквізити погашення"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalment_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Repayment Schedule"
+msgstr "Графік погашення"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__has_schedule
+msgid "Has a Schedule"
+msgstr "Має графік"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__total_amount
+msgid "Total Repayable"
+msgstr "Загальна сума до сплати"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__recovered_amount
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__recovered
+msgid "Recovered"
+msgstr "Утримано"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__outstanding_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+msgid "Outstanding"
+msgstr "Залишок"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalments_remaining
+msgid "Instalments Remaining"
+msgstr "Залишилось платежів"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__loan_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__loan_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__loan_id
+msgid "Loan"
+msgstr "Позика"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__sequence
+msgid "Instalment No."
+msgstr "№ платежу"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__due_date
+msgid "Due Date"
+msgstr "Дата платежу"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__principal_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Principal"
+msgstr "Основна сума"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__interest_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Interest"
+msgstr "Відсотки"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__total_amount
+msgid "Instalment"
+msgstr "Платіж"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__payslip_id
+msgid "Payslip"
+msgstr "Розрахунковий лист"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__instalment_id
+msgid "Instalment to Defer"
+msgstr "Платіж для відтермінування"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__reason
+msgid "Reason"
+msgstr "Причина"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__payment_reference
+msgid "Payment Reference"
+msgstr "Реквізити платежу"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_hr_employee__loan_count
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_employee_form_inherit_loan
+msgid "Loans"
+msgstr "Позики"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_company__loan_allow_multiple
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_config_settings__loan_allow_multiple
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Allow Multiple Running Loans"
+msgstr "Дозволити кілька активних позик"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_company__loan_max_amount
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_config_settings__loan_max_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Maximum Loan Amount"
+msgstr "Максимальна сума позики"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__amount
+msgid "Principal lent to the employee. Interest is added on top of it."
+msgstr "Основна сума, надана працівникові. Відсотки нараховуються понад неї."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__purpose
+msgid "One sentence describing why the loan is requested."
+msgstr "Одне речення про те, навіщо потрібна позика."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__first_instalment_date
+msgid "Month in which the first instalment falls due."
+msgstr "Місяць, у якому настає строк першого платежу."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__interest_percentage
+msgid ""
+"Flat rate applied once to the whole loan amount, then spread evenly over the "
+"instalments."
+msgstr ""
+"Фіксована ставка, що нараховується один раз на всю суму позики та рівномірно "
+"розподіляється між платежами."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__total_amount
+msgid "Principal plus interest, as scheduled."
+msgstr "Основна сума разом із відсотками, згідно з графіком."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__outstanding_amount
+msgid ""
+"Sum of the instalments still to be recovered. Cancelled instalments are "
+"excluded."
+msgstr ""
+"Сума платежів, які ще належить утримати. Скасовані платежі не враховуються."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan_instalment__total_amount
+msgid "Principal plus interest. This is the amount recovered from the payslip."
+msgstr "Основна сума разом із відсотками. Саме ця сума утримується з розрахункового листа."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_res_company__loan_allow_multiple
+msgid ""
+"When disabled, an employee cannot get a second loan approved while an earlier "
+"one still has an outstanding balance."
+msgstr ""
+"Якщо вимкнено, працівник не може отримати схвалення другої позики, доки за "
+"попередньою залишається непогашений залишок."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_res_company__loan_max_amount
+msgid "Largest principal that may be approved. Zero means no cap."
+msgstr "Найбільша сума, яку можна схвалити. Нуль означає відсутність обмеження."
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__submitted
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Submitted"
+msgstr "Подано"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__approved
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Approved"
+msgstr "Схвалено"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__refused
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Refused"
+msgstr "Відхилено"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__cancelled
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__closed
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Closed"
+msgstr "Закрито"
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__scheduled
+msgid "Scheduled"
+msgstr "Заплановано"
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_all
+msgid "Loan Requests"
+msgstr "Заявки на позику"
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan_my
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_my
+msgid "My Loans"
+msgstr "Мої позики"
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan_config_settings
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_config
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Loan Policy"
+msgstr "Політика позик"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Build the schedule"
+msgstr "Побудувати графік"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Submit"
+msgstr "Подати"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Approve"
+msgstr "Схвалити"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Refuse"
+msgstr "Відхилити"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Defer an instalment"
+msgstr "Відтермінувати платіж"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Settle early"
+msgstr "Погасити достроково"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Borrower"
+msgstr "Позичальник"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Loan Terms"
+msgstr "Умови позики"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Refusal"
+msgstr "Відмова"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Why is this loan refused?"
+msgstr "Чому цю позику відхилено?"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Early Settlement"
+msgstr "Дострокове погашення"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Balance"
+msgstr "Баланс"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Instalments"
+msgstr "Платежі"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "No."
+msgstr "№"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "Total"
+msgstr "Разом"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Employee Loans"
+msgstr "Позики працівникам"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Still Outstanding"
+msgstr "З непогашеним залишком"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "Loan Instalments"
+msgstr "Платежі за позиками"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_form
+msgid "Loan Instalment"
+msgstr "Платіж за позикою"
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Defer an Instalment"
+msgstr "Відтермінувати платіж"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid ""
+"The selected instalment and every scheduled instalment after it move forward "
+"by one month. Amounts do not change."
+msgstr ""
+"Вибраний платіж і всі заплановані платежі після нього переносяться на один "
+"місяць уперед. Суми не змінюються."
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Why is this instalment deferred?"
+msgstr "Чому цей платіж відтерміновано?"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Defer"
+msgstr "Відтермінувати"
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Settle the Loan Early"
+msgstr "Достроково погасити позику"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid ""
+"Every instalment still scheduled is cancelled and kept in the schedule as "
+"history. The loan is then closed."
+msgstr ""
+"Усі ще заплановані платежі скасовуються та залишаються у графіку як історія. "
+"Після цього позику буде закрито."
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Bank transfer reference, receipt number, ..."
+msgstr "Реквізити банківського переказу, номер квитанції, ..."
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Settle"
+msgstr "Погасити"
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid ""
+"Let an employee hold more than one approved loan with an outstanding balance "
+"at the same time."
+msgstr ""
+"Дозволити працівникові одночасно мати кілька схвалених позик із непогашеним "
+"залишком."
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Largest principal that may be approved. Leave at zero for no cap."
+msgstr "Найбільша сума, яку можна схвалити. Залиште нуль, щоб не встановлювати обмеження."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/hr_payslip.py:0
+msgid "Loan repayment — %(loan)s #%(number)s"
+msgstr "Погашення позики — %(loan)s №%(number)s"
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s: its amount, interest, number of instalments and "
+"first instalment date can no longer be changed."
+msgstr ""
+"Позика %(loan)s має статус %(state)s: її суму, відсотки, кількість платежів "
+"та дату першого платежу вже не можна змінити."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s has left the draft stage: the borrower can no longer be changed."
+msgstr ""
+"Позика %(loan)s вже не є чернеткою: позичальника змінити неможливо."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s and cannot be deleted. Settle it instead, so the "
+"repayment history is kept."
+msgstr ""
+"Позика %(loan)s має статус %(state)s, тому її не можна видалити. Погасіть її, "
+"щоб зберегти історію погашення."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"The repayment schedule of loan %s can only be built while it is still a draft."
+msgstr ""
+"Графік погашення позики %s можна побудувати лише поки вона є чернеткою."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Loan %s needs at least one instalment."
+msgstr "Позика %s потребує щонайменше одного платежу."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Set the first instalment date on loan %s before building its schedule."
+msgstr ""
+"Вкажіть дату першого платежу для позики %s, перш ніж будувати її графік."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a draft loan can be submitted (%s is not)."
+msgstr "Подати можна лише позику-чернетку (%s нею не є)."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %s has no repayment schedule. Use 'Build the schedule' before submitting "
+"it for approval."
+msgstr ""
+"Позика %s не має графіка погашення. Скористайтеся кнопкою «Побудувати графік» "
+"перед поданням на схвалення."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"%(employee)s already has a running loan (%(running)s) with an outstanding "
+"balance. Settle it first, or allow multiple concurrent loans in the loan "
+"policy settings."
+msgstr ""
+"%(employee)s вже має активну позику (%(running)s) з непогашеним залишком. "
+"Спершу погасіть її або дозвольте кілька одночасних позик у налаштуваннях "
+"політики позик."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s asks for %(amount)s, which is above the maximum loan amount of "
+"%(maximum)s set for %(company)s."
+msgstr ""
+"У позиці %(loan)s запитано %(amount)s, що перевищує максимальну суму позики "
+"%(maximum)s, встановлену для %(company)s."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a submitted loan can be approved (%s is not)."
+msgstr "Схвалити можна лише подану позику (%s нею не є)."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a submitted loan can be refused (%s is not)."
+msgstr "Відхилити можна лише подану позику (%s нею не є)."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Give a refusal reason on loan %s before refusing it."
+msgstr "Вкажіть причину відмови для позики %s, перш ніж відхиляти її."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s: only a draft or submitted loan can be cancelled."
+msgstr ""
+"Позика %(loan)s має статус %(state)s: скасувати можна лише позику-чернетку "
+"або подану позику."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Every instalment has been recovered. The loan is now closed."
+msgstr "Усі платежі утримано. Позику закрито."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Loan %s must be approved before this operation."
+msgstr "Перед цією операцією позику %s потрібно схвалити."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid "Only an approved loan can have instalments deferred (%s is not)."
+msgstr "Відтерміновувати платежі можна лише за схваленою позикою (%s нею не є)."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid "Instalment %(instalment)s does not belong to loan %(loan)s."
+msgstr "Платіж %(instalment)s не належить до позики %(loan)s."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid ""
+"Instalment %(instalment)s is %(state)s and can no longer be deferred."
+msgstr ""
+"Платіж %(instalment)s має статус %(state)s, тому його вже не можна "
+"відтермінувати."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid ""
+"Instalment #%(number)s and the %(count)s scheduled instalment(s) after it "
+"were deferred by one month. Reason: %(reason)s"
+msgstr ""
+"Платіж №%(number)s та наступні заплановані платежі (%(count)s) відтерміновано "
+"на один місяць. Причина: %(reason)s"
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid "Only an approved loan can be settled early (%s is not)."
+msgstr "Достроково погасити можна лише схвалену позику (%s нею не є)."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid "Loan %s has no outstanding instalment left to settle."
+msgstr "За позикою %s не залишилося непогашених платежів."
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid ""
+"Loan settled early on %(date)s for %(amount)s covering %(count)s remaining "
+"instalment(s). Reference: %(reference)s"
+msgstr ""
+"Позику достроково погашено %(date)s на суму %(amount)s, що покриває "
+"%(count)s платежів, які залишалися. Реквізити: %(reference)s"

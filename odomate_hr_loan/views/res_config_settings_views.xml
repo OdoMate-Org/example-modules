@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_loan" model="ir.ui.view">
+        <field name="name">res.config.settings.form.odomate.hr.loan</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Employee Loans" name="odomate_hr_loan"
+                     groups="hr.group_hr_manager">
+                    <block title="Loan Policy" name="odomate_hr_loan_policy">
+                        <setting id="odomate_loan_allow_multiple"
+                                 string="Allow Multiple Running Loans"
+                                 help="Let an employee hold more than one approved loan with an outstanding balance at the same time.">
+                            <field name="loan_allow_multiple"/>
+                        </setting>
+                        <setting id="odomate_loan_max_amount"
+                                 string="Maximum Loan Amount"
+                                 help="Largest principal that may be approved. Leave at zero for no cap.">
+                            <field name="loan_currency_id" invisible="1"/>
+                            <field name="loan_max_amount"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_loan_config_settings" model="ir.actions.act_window">
+        <field name="name">Loan Policy</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'odomate_hr_loan'}</field>
+    </record>
+
+</odoo>

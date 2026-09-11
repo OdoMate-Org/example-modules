@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_loan_instalment_list" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.instalment.list</field>
+        <field name="model">odomate.hr.loan.instalment</field>
+        <field name="arch" type="xml">
+            <list string="Loan Instalments" create="false"
+                  decoration-success="state == 'recovered'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="loan_id"/>
+                <field name="sequence" string="No."/>
+                <field name="due_date"/>
+                <field name="principal_amount" sum="Principal"/>
+                <field name="interest_amount" sum="Interest"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="state" widget="badge"/>
+                <field name="payslip_id"/>
+                <field name="company_id" optional="hide"
+                       groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_loan_instalment_form" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.instalment.form</field>
+        <field name="model">odomate.hr.loan.instalment</field>
+        <field name="arch" type="xml">
+            <form string="Loan Instalment">
+                <sheet>
+                    <field name="currency_id" invisible="1"/>
+                    <group>
+                        <group>
+                            <field name="loan_id"/>
+                            <field name="sequence"/>
+                            <field name="due_date"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="principal_amount"/>
+                            <field name="interest_amount"/>
+                            <field name="total_amount"/>
+                            <field name="payslip_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

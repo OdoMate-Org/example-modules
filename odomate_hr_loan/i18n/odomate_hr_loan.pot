@@ -1,0 +1,645 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_loan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Employee Loan"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_instalment
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_form
+msgid "Employee Loan Instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_defer
+msgid "Defer a Loan Instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model,name:odomate_hr_loan.model_odomate_hr_loan_settle
+msgid "Settle a Loan Early"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__name
+msgid "Reference"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Employee"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Department"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__job_id
+msgid "Job Position"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__company_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__company_id
+msgid "Company"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__currency_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+msgid "Loan Amount"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__purpose
+msgid "Purpose"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalment_count
+msgid "Number of Instalments"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__first_instalment_date
+msgid "First Instalment Date"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__interest_percentage
+msgid "Interest (%)"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__state
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Status"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__refusal_reason
+msgid "Refusal Reason"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__settlement_date
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__settlement_date
+msgid "Settlement Date"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__settlement_reference
+msgid "Settlement Reference"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalment_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Repayment Schedule"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__has_schedule
+msgid "Has a Schedule"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__total_amount
+msgid "Total Repayable"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__recovered_amount
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__recovered
+msgid "Recovered"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__outstanding_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+msgid "Outstanding"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan__instalments_remaining
+msgid "Instalments Remaining"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__loan_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__loan_id
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__loan_id
+msgid "Loan"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__sequence
+msgid "Instalment No."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__due_date
+msgid "Due Date"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__principal_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Principal"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__interest_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Interest"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__total_amount
+msgid "Instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_instalment__payslip_id
+msgid "Payslip"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__instalment_id
+msgid "Instalment to Defer"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_defer__reason
+msgid "Reason"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_odomate_hr_loan_settle__payment_reference
+msgid "Payment Reference"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_hr_employee__loan_count
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_employee_form_inherit_loan
+msgid "Loans"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_company__loan_allow_multiple
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_config_settings__loan_allow_multiple
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Allow Multiple Running Loans"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_company__loan_max_amount
+#: model:ir.model.fields,field_description:odomate_hr_loan.field_res_config_settings__loan_max_amount
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Maximum Loan Amount"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__amount
+msgid "Principal lent to the employee. Interest is added on top of it."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__purpose
+msgid "One sentence describing why the loan is requested."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__first_instalment_date
+msgid "Month in which the first instalment falls due."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__interest_percentage
+msgid ""
+"Flat rate applied once to the whole loan amount, then spread evenly over the "
+"instalments."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__total_amount
+msgid "Principal plus interest, as scheduled."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan__outstanding_amount
+msgid ""
+"Sum of the instalments still to be recovered. Cancelled instalments are "
+"excluded."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_odomate_hr_loan_instalment__total_amount
+msgid "Principal plus interest. This is the amount recovered from the payslip."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_res_company__loan_allow_multiple
+msgid ""
+"When disabled, an employee cannot get a second loan approved while an earlier "
+"one still has an outstanding balance."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields,help:odomate_hr_loan.field_res_company__loan_max_amount
+msgid "Largest principal that may be approved. Zero means no cap."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Draft"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__submitted
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Submitted"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__approved
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Approved"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__refused
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Refused"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__cancelled
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan__state__closed
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Closed"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.model.fields.selection,name:odomate_hr_loan.selection__odomate_hr_loan_instalment__state__scheduled
+msgid "Scheduled"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_all
+msgid "Loan Requests"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan_my
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_my
+msgid "My Loans"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model:ir.actions.act_window,name:odomate_hr_loan.action_odomate_hr_loan_config_settings
+#: model:ir.ui.menu,name:odomate_hr_loan.menu_odomate_hr_loan_config
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Loan Policy"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Build the schedule"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Submit"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Approve"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Refuse"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Cancel"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Defer an instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Settle early"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Borrower"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Loan Terms"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Refusal"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Why is this loan refused?"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Early Settlement"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Balance"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+msgid "Instalments"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "No."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "Total"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Employee Loans"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_search
+msgid "Still Outstanding"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_list
+msgid "Loan Instalments"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_instalment_form
+msgid "Loan Instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Defer an Instalment"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid ""
+"The selected instalment and every scheduled instalment after it move forward "
+"by one month. Amounts do not change."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Why is this instalment deferred?"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_defer_form
+msgid "Defer"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Settle the Loan Early"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid ""
+"Every instalment still scheduled is cancelled and kept in the schedule as "
+"history. The loan is then closed."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Bank transfer reference, receipt number, ..."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.view_odomate_hr_loan_settle_form
+msgid "Settle"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid ""
+"Let an employee hold more than one approved loan with an outstanding balance "
+"at the same time."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan.res_config_settings_view_form_loan
+msgid "Largest principal that may be approved. Leave at zero for no cap."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/hr_payslip.py:0
+msgid "Loan repayment — %(loan)s #%(number)s"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s: its amount, interest, number of instalments and "
+"first instalment date can no longer be changed."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s has left the draft stage: the borrower can no longer be changed."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s and cannot be deleted. Settle it instead, so the "
+"repayment history is kept."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"The repayment schedule of loan %s can only be built while it is still a draft."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Loan %s needs at least one instalment."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Set the first instalment date on loan %s before building its schedule."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a draft loan can be submitted (%s is not)."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %s has no repayment schedule. Use 'Build the schedule' before submitting "
+"it for approval."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"%(employee)s already has a running loan (%(running)s) with an outstanding "
+"balance. Settle it first, or allow multiple concurrent loans in the loan "
+"policy settings."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s asks for %(amount)s, which is above the maximum loan amount of "
+"%(maximum)s set for %(company)s."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a submitted loan can be approved (%s is not)."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Only a submitted loan can be refused (%s is not)."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Give a refusal reason on loan %s before refusing it."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %(loan)s is %(state)s: only a draft or submitted loan can be cancelled."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Every instalment has been recovered. The loan is now closed."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/models/odomate_hr_loan.py:0
+msgid "Loan %s must be approved before this operation."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid "Only an approved loan can have instalments deferred (%s is not)."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid "Instalment %(instalment)s does not belong to loan %(loan)s."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid ""
+"Instalment %(instalment)s is %(state)s and can no longer be deferred."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_defer.py:0
+msgid ""
+"Instalment #%(number)s and the %(count)s scheduled instalment(s) after it "
+"were deferred by one month. Reason: %(reason)s"
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid "Only an approved loan can be settled early (%s is not)."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid "Loan %s has no outstanding instalment left to settle."
+msgstr ""
+
+#. module: odomate_hr_loan
+#: code:addons/odomate_hr_loan/wizard/odomate_hr_loan_settle.py:0
+msgid ""
+"Loan settled early on %(date)s for %(amount)s covering %(count)s remaining "
+"instalment(s). Reference: %(reference)s"
+msgstr ""

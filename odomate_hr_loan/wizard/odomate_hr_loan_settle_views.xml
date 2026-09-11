@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_loan_settle_form" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.settle.form</field>
+        <field name="model">odomate.hr.loan.settle</field>
+        <field name="arch" type="xml">
+            <form string="Settle the Loan Early">
+                <p class="text-muted">
+                    Every instalment still scheduled is cancelled and kept in
+                    the schedule as history. The loan is then closed.
+                </p>
+                <group>
+                    <field name="loan_id" readonly="1"/>
+                    <field name="settlement_date"/>
+                    <field name="payment_reference"
+                           placeholder="Bank transfer reference, receipt number, ..."/>
+                </group>
+                <footer>
+                    <button name="action_settle" type="object" string="Settle"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

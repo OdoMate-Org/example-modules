@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_loan_defer_form" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.defer.form</field>
+        <field name="model">odomate.hr.loan.defer</field>
+        <field name="arch" type="xml">
+            <form string="Defer an Instalment">
+                <p class="text-muted">
+                    The selected instalment and every scheduled instalment
+                    after it move forward by one month. Amounts do not change.
+                </p>
+                <group>
+                    <field name="loan_id" readonly="1"/>
+                    <field name="instalment_id" options="{'no_create': True}"/>
+                    <field name="reason" placeholder="Why is this instalment deferred?"/>
+                </group>
+                <footer>
+                    <button name="action_defer" type="object" string="Defer"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
