@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_leave_email_log_holidays_user,odomate.hr.leave.email.log.holidays.user,model_odomate_hr_leave_email_log,hr_holidays.group_hr_holidays_user,1,0,0,0
+access_odomate_hr_leave_email_log_holidays_manager,odomate.hr.leave.email.log.holidays.manager,model_odomate_hr_leave_email_log,hr_holidays.group_hr_holidays_manager,1,0,0,1
