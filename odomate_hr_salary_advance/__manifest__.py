@@ -16,12 +16,13 @@ next payslip.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/advance?v=site",
     'support': "support@odomate.pro",
 
-    'category': 'Human Resources/Payroll',
+    'category': 'Generic Modules/Human Resources',
     'version': '19.0.1.0.4',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.gif'],
 
     'depends': [
         'hr',

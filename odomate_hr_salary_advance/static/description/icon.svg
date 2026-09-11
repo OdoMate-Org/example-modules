@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The coin: the money handed over before payday. Modules 1, 2 and 3 are all
+       built on a rectangle - an ID card, a sheet of paper, a laptop - so this
+       one is deliberately round, which is what tells it apart in the grid. -->
+  <g fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="192" cy="292" r="104"/>
+  </g>
+
+  <!-- It goes out and it comes back: one angular U-turn returning into the coin.
+       Angular on purpose - a curved arrow beside a circle reads as an orbit. -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 192 152 H 424 V 376 H 316"/>
+    <path d="M 356 336 L 316 376 L 356 416"/>
+  </g>
+
+  <!-- The coin's inner rim, so the circle reads as money rather than as a ring. -->
+  <g fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <circle cx="192" cy="292" r="64"/>
+  </g>
+</svg>

@@ -1,0 +1,96 @@
+{
+  "module_name": "Employee Salary Advance",
+  "slug": "employee-salary-advance",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee</span> <span style=\"color:#8fb8e8;\">Salary</span> <span style=\"color:#a98bf5;\">Advance</span>",
+  "intro_html": "An employee asks for money before payday. This turns that conversation into a record: checked against a policy you set once, paid out through a <em>real</em> bank payment, and taken back off the payslips that follow until the balance reaches zero.",
+  "test_count": 55,
+  "features": [
+    {
+      "icon": "check-square-o",
+      "title": "Request, Approve, Pay",
+      "desc": "Draft, submitted, approved, paid, closed — with Refuse and Cancel where they belong. Each stage shows only the buttons that stage allows."
+    },
+    {
+      "icon": "sliders",
+      "title": "One Policy, Applied Every Time",
+      "desc": "A share of the monthly wage, an optional hard ceiling, and whether an employee may hold two advances at once. Set per company, checked on submit and again on approve."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Eligibility You Can See Before Saving",
+      "desc": "Monthly salary, maximum allowed, already outstanding and still available — four live figures on the form, recomputed as you type."
+    },
+    {
+      "icon": "exchange",
+      "title": "Paid Through A Real Payment",
+      "desc": "Approving is not paying. The Pay step creates and posts an outbound payment on the journal you configured, and the advance becomes Paid only once that succeeded."
+    },
+    {
+      "icon": "refresh",
+      "title": "Recovery Rides On The Payslip",
+      "desc": "The outstanding balance lands on the next payslip as its own deduction line, through a salary rule shipped with the module — in a batch payroll run as well as on the form."
+    },
+    {
+      "icon": "list-ol",
+      "title": "Partial Recovery Is Respected",
+      "desc": "Reduce the deduction to spread it over two months and the module records what was actually taken, keeps the rest open, and closes the advance only at zero."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "A Refusal Keeps Its Reason",
+      "desc": "Refusing requires a written reason, stored on the record and posted to the chatter. Refused and cancelled are final, and neither reports a balance the company is owed."
+    },
+    {
+      "icon": "lock",
+      "title": "HR Pays Without Seeing The Books",
+      "desc": "The permission to post the payment is scoped to that one call. An HR officer can disburse an advance and still gets an access error on the journal entry behind it."
+    }
+  ],
+  "limitations": [
+    "No instalment schedule. The whole outstanding balance goes onto the next payslip; spreading it means editing that line by hand each month. No repayment plan, no interest.",
+    "No accounting for the recovery leg. Disbursement posts a real payment; the recovery stays a payroll matter and the two are never reconciled against each other.",
+    "The one-open-advance rule is enforced in Python, not by a database constraint, because it depends on a setting that can be switched off. Two genuinely simultaneous submissions could both pass.",
+    "No self-service. Employees read their own advances under My Advances; only HR can create or progress one.",
+    "One approval step. A single HR officer approves — no chain, no delegation, no escalation.",
+    "No reminders, no scheduled job, and no notification when an advance sits unrecovered.",
+    "Departing employees are not flagged in the departure flow. The employee form shows an Advances counter, and that is the only surfacing the module does.",
+    "Single currency. Amounts are always in the company currency, with no conversion.",
+    "No link to leave, attendance or worked days, and no minimum service period before an employee becomes eligible.",
+    "Demo data reaches Paid without posting any payment, because posting into a demo company's books fails wherever accounting is not configured.",
+    "Requires the OCA payroll module. It is not published on the Odoo Apps Store for 19.0, so install it from the OCA repository before installing this module."
+  ],
+  "stats": [
+    {
+      "value": "~84 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "5",
+      "label": "Generated versions",
+      "caption": "Four defects found and fixed by regenerating, never by editing the code"
+    },
+    {
+      "value": "$74.87",
+      "label": "Total spend",
+      "caption": "Specification, generation and every automated test run"
+    },
+    {
+      "value": "55",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_salary_advance/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_salary_advance/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "short_link": {
+    "slug": "advance",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  }
+}
