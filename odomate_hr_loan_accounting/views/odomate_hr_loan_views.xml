@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_loan_form_accounting" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.form.accounting</field>
+        <field name="model">odomate.hr.loan</field>
+        <field name="inherit_id" ref="odomate_hr_loan.view_odomate_hr_loan_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet/div[hasclass('oe_title')]" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_account_moves" type="object"
+                            class="oe_stat_button" icon="fa-book"
+                            groups="account.group_account_invoice,account.group_account_readonly">
+                        <field name="account_move_count" widget="statinfo"
+                               string="Journal Entries"/>
+                    </button>
+                </div>
+            </xpath>
+
+            <xpath expr="//field[@name='instalment_ids']" position="after">
+                <notebook groups="account.group_account_invoice,account.group_account_readonly">
+                    <page string="Accounting" name="loan_accounting">
+                        <group>
+                            <group string="Posting Setup">
+                                <field name="journal_id"
+                                       options="{'no_create': True}"/>
+                                <field name="receivable_account_id"
+                                       options="{'no_create': True}"/>
+                                <field name="interest_account_id"
+                                       options="{'no_create': True}"
+                                       invisible="interest_percentage == 0"
+                                       required="interest_percentage != 0"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+
+            <xpath expr="//field[@name='instalment_ids']/list/field[@name='payslip_id']"
+                   position="after">
+                <field name="account_move_id" optional="show"
+                       groups="account.group_account_invoice,account.group_account_readonly"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_loan_instalment_list_accounting" model="ir.ui.view">
+        <field name="name">odomate.hr.loan.instalment.list.accounting</field>
+        <field name="model">odomate.hr.loan.instalment</field>
+        <field name="inherit_id"
+               ref="odomate_hr_loan.view_odomate_hr_loan_instalment_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payslip_id']" position="after">
+                <field name="account_move_id" optional="show"
+                       groups="account.group_account_invoice,account.group_account_readonly"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
