@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_view_form_salary_advance" model="ir.ui.view">
+        <field name="name">hr.employee.form.salary.advance</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_salary_advances" type="object"
+                        class="oe_stat_button" icon="fa-money"
+                        groups="hr.group_hr_user">
+                    <field name="advance_count" widget="statinfo"
+                           string="Advances"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
