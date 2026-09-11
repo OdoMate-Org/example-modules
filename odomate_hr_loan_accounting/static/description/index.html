@@ -1,0 +1,115 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h2 class="oe_slogan" style="color:#875A7B;">Employee Loans — Accounting Entries</h2>
+      <h3 class="oe_slogan">Every loan movement, posted to the ledger. Automatically, once, and only once.</h3>
+      <p class="oe_mt32" style="text-align:center; max-width:800px; margin:0 auto;">
+        <code>odomate_hr_loan</code> runs the employee loan workflow and stores every figure it needs.
+        This module is its accounting half: it posts a disbursement entry when a loan is approved,
+        one recovery entry per instalment as payroll recovers it, and a settlement entry when a loan
+        is settled early. Amounts are read off the records that already hold them — never recalculated —
+        so a deferred or hand-adjusted instalment posts exactly what it shows.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 class="oe_slogan">Key Features</h3>
+    </div>
+    <div class="oe_span6">
+      <h4>Three entries, no clicks</h4>
+      <p>
+        Approve a loan and the disbursement entry is posted. Confirm a payslip and the
+        instalment's entry is posted, dated the payroll period's end date. Settle early and
+        the closing entry is posted on the settlement date you typed.
+      </p>
+      <h4>Impossible to double-post</h4>
+      <p>
+        Each instalment carries its own <code>account_move_id</code>. Once it is set, that row
+        is done for ever — re-confirming or recomputing a payslip cannot produce a second entry.
+      </p>
+      <h4>Refuses before it breaks</h4>
+      <p>
+        A missing journal, a journal with no default account, a missing interest account or an
+        employee with no contact stops approval with a message naming the problem — the loan
+        stays submitted rather than half-processed.
+      </p>
+    </div>
+    <div class="oe_span6">
+      <h4>Configured once, per company</h4>
+      <p>
+        A loan journal, a loan receivable account and an interest income account on the Accounting
+        settings page. They become the defaults on every new loan, and every loan can override them.
+      </p>
+      <h4>No accounting rights needed</h4>
+      <p>
+        HR and payroll officers trigger the postings without holding accounting roles. Elevated
+        rights are scoped to the journal-entry create-and-post pair alone — never to the loan,
+        the instalment or the employee.
+      </p>
+      <h4>Nothing is ever rewritten</h4>
+      <p>
+        The module never reverses, unlinks or edits a posted entry. Reopening a loan leaves its
+        ledger history exactly as it is.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 class="oe_slogan">How it works</h3>
+      <p style="max-width:800px; margin:0 auto;">
+        A 12 000.00 loan over 4 monthly instalments at 10 % interest stores principal 3 000.00 and
+        interest 300.00 per instalment.
+      </p>
+      <ul style="max-width:800px; margin:16px auto;">
+        <li><strong>On approval</strong> — debit <em>Loans to Employees</em> 12 000.00, credit the journal's
+            default account 12 000.00, with the employee as partner.</li>
+        <li><strong>On each payslip</strong> — debit the counterpart 3 300.00, credit <em>Loans to Employees</em>
+            3 000.00 and <em>Interest Income</em> 300.00. The interest line is omitted entirely on
+            interest-free loans.</li>
+        <li><strong>On early settlement</strong> — debit the counterpart with the outstanding balance and
+            credit the principal and interest still open.</li>
+      </ul>
+      <p style="max-width:800px; margin:0 auto;">
+        Once the loan finishes — on schedule or settled early — its contribution to the receivable
+        account is exactly zero. The <strong>Journal Entries</strong> smart button on the loan opens
+        everything posted for it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 class="oe_slogan">Documentation</h3>
+      <p style="text-align:center;">
+        The full guide — configuration, the three entries line by line, a worked example, access
+        rights, limitations and troubleshooting — ships with the module:
+        <code>doc/USER_GUIDE.md</code> (English) and <code>doc/USER_GUIDE.uk.md</code> (Ukrainian).
+        The interface is translated into Ukrainian via <code>i18n/uk.po</code>.
+      </p>
+      <p style="text-align:center;">
+        Requires <code>account</code> and <code>odomate_hr_loan</code>. No demo data is shipped,
+        deliberately: demo records would depend on a chart of accounts this module does not control.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12" style="text-align:center;">
+      <h3 class="oe_slogan">OdoMate</h3>
+      <p>
+        <a href="https://odomate.pro">https://odomate.pro</a> — support@odomate.pro
+      </p>
+    </div>
+  </div>
+</section>

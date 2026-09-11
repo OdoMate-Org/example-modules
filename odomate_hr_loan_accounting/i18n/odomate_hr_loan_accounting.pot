@@ -1,0 +1,215 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* odomate_hr_loan_accounting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_company__loan_journal_id
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_config_settings__loan_journal_id
+msgid "Employee Loan Journal"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_company__loan_journal_id
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_config_settings__loan_journal_id
+msgid ""
+"Journal used for the disbursement, recovery and settlement entries of "
+"employee loans. Sale and purchase journals are excluded because these "
+"entries carry no customer or vendor document."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_company__loan_receivable_account_id
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_config_settings__loan_receivable_account_id
+msgid "Employee Loan Receivable Account"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_company__loan_receivable_account_id
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_config_settings__loan_receivable_account_id
+msgid ""
+"Asset account carrying what employees still owe. It is debited when a loan "
+"is paid out and credited as instalments come back."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_company__loan_interest_income_account_id
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_res_config_settings__loan_interest_income_account_id
+msgid "Employee Loan Interest Income Account"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_company__loan_interest_income_account_id
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_res_config_settings__loan_interest_income_account_id
+msgid ""
+"Income account credited with the interest part of every recovered "
+"instalment. Only needed for loans that carry interest."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__journal_id
+msgid "Journal"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_odomate_hr_loan__journal_id
+msgid ""
+"Journal the three loan entries are posted in. Its default account carries "
+"the counterpart of every line."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__receivable_account_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid "Loan Receivable Account"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_odomate_hr_loan__receivable_account_id
+msgid ""
+"Account debited when the loan is paid out and credited as the instalments "
+"come back."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__interest_account_id
+msgid "Interest Income Account"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,help:odomate_hr_loan_accounting.field_odomate_hr_loan__interest_account_id
+msgid ""
+"Account credited with the interest part of each recovered instalment. "
+"Required as soon as the loan carries interest."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__disbursement_move_id
+msgid "Disbursement Entry"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__settlement_move_id
+msgid "Settlement Entry"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan__account_move_count
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.view_odomate_hr_loan_form_accounting
+msgid "Journal Entries"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model:ir.model.fields,field_description:odomate_hr_loan_accounting.field_odomate_hr_loan_instalment__account_move_id
+msgid "Journal Entry"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.view_odomate_hr_loan_form_accounting
+msgid "Accounting"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.view_odomate_hr_loan_form_accounting
+msgid "Posting Setup"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid "Employee Loans"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid "Loan Journal"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid ""
+"Journal the disbursement, recovery and settlement entries of employee loans "
+"are posted in. Its default account carries the counterpart of every line."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid ""
+"Asset account carrying what employees still owe. Debited when a loan is paid "
+"out, credited as the instalments come back."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid "Loan Interest Income Account"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: model_terms:ir.ui.view,arch_db:odomate_hr_loan_accounting.res_config_settings_view_form_loan_accounting
+msgid ""
+"Income account credited with the interest part of every recovered "
+"instalment. Only needed for loans that carry interest."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid ""
+"%(employee)s has neither a work contact nor a linked user with a contact, so "
+"the entries of loan %(loan)s cannot name a partner. Set a work contact on "
+"the employee first."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %s has no journal. Pick one on the Accounting tab, or set a default "
+"journal for employee loans in the Accounting settings."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid ""
+"The journal %(journal)s has no default account, so the counterpart line of "
+"loan %(loan)s cannot be built. Set a default account on that journal first."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %s has no loan receivable account. Pick one on the Accounting tab, or "
+"set a default in the Accounting settings."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid ""
+"Loan %s carries interest, so it needs an interest income account. Pick one "
+"on the Accounting tab, or set a default in the Accounting settings."
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid "Loan %s - Disbursement"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan.py:0
+msgid "Loan %s - Settlement"
+msgstr ""
+
+#. module: odomate_hr_loan_accounting
+#: code:addons/odomate_hr_loan_accounting/models/odomate_hr_loan_instalment.py:0
+msgid "Loan %(loan)s - Instalment %(period)s"
+msgstr ""

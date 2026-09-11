@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_loan_accounting" model="ir.ui.view">
+        <field name="name">res.config.settings.form.odomate.hr.loan.accounting</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='account']" position="inside">
+                <block title="Employee Loans" name="odomate_hr_loan_accounting"
+                       groups="account.group_account_manager">
+                    <setting id="odomate_loan_journal"
+                             string="Loan Journal"
+                             help="Journal the disbursement, recovery and settlement entries of employee loans are posted in. Its default account carries the counterpart of every line.">
+                        <field name="loan_journal_id"
+                               options="{'no_create': True}"/>
+                    </setting>
+                    <setting id="odomate_loan_receivable_account"
+                             string="Loan Receivable Account"
+                             help="Asset account carrying what employees still owe. Debited when a loan is paid out, credited as the instalments come back.">
+                        <field name="loan_receivable_account_id"
+                               options="{'no_create': True}"/>
+                    </setting>
+                    <setting id="odomate_loan_interest_account"
+                             string="Loan Interest Income Account"
+                             help="Income account credited with the interest part of every recovered instalment. Only needed for loans that carry interest.">
+                        <field name="loan_interest_income_account_id"
+                               options="{'no_create': True}"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
