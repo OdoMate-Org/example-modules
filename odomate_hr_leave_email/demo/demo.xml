@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_leave_from_email" model="hr.leave">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="holiday_status_id"
+                   search="[('requires_allocation', '=', False), ('company_id', 'in', [False, ref('base.main_company')])]"/>
+            <field name="request_date_from"
+                   eval="(DateTime.today() + relativedelta(days=14, weekday=0)).strftime('%Y-%m-%d')"/>
+            <field name="request_date_to"
+                   eval="(DateTime.today() + relativedelta(days=14, weekday=0) + relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="name">Two days off, sent by email</field>
+        </record>
+
+        <record id="demo_log_created" model="odomate.hr.leave.email.log">
+            <field name="received_date"
+                   eval="(DateTime.today() - relativedelta(days=2, hours=-9)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="email_from">mitchell.admin@example.com</field>
+            <field name="subject">Two days off next week</field>
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="leave_id" ref="demo_leave_from_email"/>
+            <field name="state">created</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="notes">Both dates were read from the body of the message.</field>
+        </record>
+
+        <record id="demo_log_unknown_sender" model="odomate.hr.leave.email.log">
+            <field name="received_date"
+                   eval="(DateTime.today() - relativedelta(days=5, hours=-11)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="email_from">j.novak@example.org</field>
+            <field name="subject">Holiday next month</field>
+            <field name="state">rejected</field>
+            <field name="failure_reason">unknown_sender</field>
+            <field name="notes">No employee is linked to this address.</field>
+        </record>
+
+        <record id="demo_log_no_date" model="odomate.hr.leave.email.log">
+            <field name="received_date"
+                   eval="(DateTime.today() - relativedelta(days=4, hours=-14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="email_from">marc.demo@example.com</field>
+            <field name="subject">Taking a few days off soon</field>
+            <field name="employee_id" search="[('id', '!=', ref('hr.employee_admin'))]"/>
+            <field name="state">rejected</field>
+            <field name="failure_reason">no_date</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="notes">No date in the format YYYY-MM-DD or DD/MM/YYYY was found in the message.</field>
+        </record>
+
+        <record id="demo_log_reversed_dates" model="odomate.hr.leave.email.log">
+            <field name="received_date"
+                   eval="(DateTime.today() - relativedelta(days=1, hours=-8)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="email_from">mitchell.admin@example.com</field>
+            <field name="subject">Off from 12/05/2026 to 08/05/2026</field>
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="state">rejected</field>
+            <field name="failure_reason">reversed_dates</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="notes">The second date (2026-05-08) comes before the first one (2026-05-12).</field>
+        </record>
+
+    </data>
+</odoo>

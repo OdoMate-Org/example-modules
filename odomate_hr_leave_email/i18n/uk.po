@@ -1,0 +1,429 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_leave_email
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model,name:odomate_hr_leave_email.model_odomate_hr_leave_email_log
+msgid "Time Off Email Request Log"
+msgstr "Журнал запитів на відпустку з електронної пошти"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__received_date
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Received On"
+msgstr "Отримано"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__email_from
+msgid "From"
+msgstr "Від"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__subject
+msgid "Subject"
+msgstr "Тема"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_odomate_hr_leave_email_log__employee_id
+msgid ""
+"Employee the sender address was resolved to. Empty when no employee could be"
+" matched."
+msgstr ""
+"Співробітник, якому відповідає адреса відправника. Порожнє, якщо жодного "
+"співробітника не знайдено."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__leave_id
+msgid "Time Off Request"
+msgstr "Запит на відпустку"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_odomate_hr_leave_email_log__leave_id
+msgid "Time Off request created from this email."
+msgstr "Запит на відпустку, створений з цього листа."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Result"
+msgstr "Результат"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__failure_reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Reason"
+msgstr "Причина"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__notes
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_form
+msgid "Details"
+msgstr "Деталі"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_odomate_hr_leave_email_log__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_odomate_hr_leave_email_log__company_id
+msgid ""
+"Company of the resolved employee. Empty when the sender could not be matched"
+" to any employee."
+msgstr ""
+"Компанія знайденого співробітника. Порожнє, якщо відправника не вдалося "
+"зіставити з жодним співробітником."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__state__created
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Created"
+msgstr "Створено"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__state__rejected
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Rejected"
+msgstr "Відхилено"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__unknown_sender
+msgid "Unknown sender"
+msgstr "Невідомий відправник"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__no_date
+msgid "No date found"
+msgstr "Дату не знайдено"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__reversed_dates
+msgid "End date before start date"
+msgstr "Дата завершення раніше за дату початку"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__no_leave_type
+msgid "Time Off type not configured"
+msgstr "Тип відпустки не налаштовано"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__disabled
+msgid "Feature disabled"
+msgstr "Функцію вимкнено"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields.selection,name:odomate_hr_leave_email.selection__odomate_hr_leave_email_log__failure_reason__other
+msgid "Unexpected error"
+msgstr "Неочікувана помилка"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_company__leave_email_enabled
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_config_settings__leave_email_enabled
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid "Time Off Requests by Email"
+msgstr "Запити на відпустку електронною поштою"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_company__leave_email_enabled
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_config_settings__leave_email_enabled
+msgid "Turn emails sent to the Time Off address into Time Off requests."
+msgstr "Перетворювати листи на адресу для відпусток на запити на відпустку."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_company__leave_email_alias_id
+msgid "Time Off Email Alias"
+msgstr "Поштовий псевдонім для відпусток"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_company__leave_email_alias_id
+msgid ""
+"The single email alias shipped by this module. The address is the same for "
+"every company."
+msgstr ""
+"Єдиний поштовий псевдонім, який постачає цей модуль. Адреса однакова для всіх"
+" компаній."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_company__leave_email_type_id
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_config_settings__leave_email_type_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid "Time Off Type for Email Requests"
+msgstr "Тип відпустки для запитів з пошти"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_company__leave_email_type_id
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_config_settings__leave_email_type_id
+msgid ""
+"Type given to every Time Off request created from an email. Requests are "
+"refused while this is empty or archived."
+msgstr ""
+"Тип, який отримує кожен запит на відпустку, створений з листа. Поки поле "
+"порожнє або тип заархівовано, запити відхиляються."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_company__leave_email_reply_on_failure
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_config_settings__leave_email_reply_on_failure
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid "Reply on Refusal"
+msgstr "Відповідати у разі відмови"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_company__leave_email_reply_on_failure
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_config_settings__leave_email_reply_on_failure
+msgid ""
+"Send an explanatory answer back to the sender when the email could not be "
+"turned into a Time Off request."
+msgstr ""
+"Надсилати відправнику пояснювальну відповідь, коли лист не вдалося "
+"перетворити на запит на відпустку."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_config_settings__leave_email_address
+msgid "Time Off Email Address"
+msgstr "Поштова адреса для відпусток"
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,help:odomate_hr_leave_email.field_res_config_settings__leave_email_address
+msgid "Address employees write to. Publish it exactly as shown here."
+msgstr "Адреса для листів співробітників. Публікуйте її саме в такому вигляді."
+
+#. module: odomate_hr_leave_email
+#: model:ir.model.fields,field_description:odomate_hr_leave_email.field_res_config_settings__leave_email_domain_missing
+msgid "No Alias Domain Configured"
+msgstr "Домен псевдонімів не налаштовано"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+#: model:ir.ui.menu,name:odomate_hr_leave_email.menu_odomate_hr_leave_email_log
+msgid "Email Requests"
+msgstr "Запити з пошти"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_form
+msgid "Email Request"
+msgstr "Запит з пошти"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Unknown Sender"
+msgstr "Невідомий відправник"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "No Date Found"
+msgstr "Дату не знайдено"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.odomate_hr_leave_email_log_view_search
+msgid "Type Not Configured"
+msgstr "Тип не налаштовано"
+
+#. module: odomate_hr_leave_email
+#: model:ir.actions.act_window,name:odomate_hr_leave_email.odomate_hr_leave_email_log_action
+msgid "Time Off Email Requests"
+msgstr "Запити на відпустку з пошти"
+
+#. module: odomate_hr_leave_email
+#: model:ir.actions.act_window,help:odomate_hr_leave_email.odomate_hr_leave_email_log_action
+msgid "No email has reached the Time Off address yet"
+msgstr "На адресу для відпусток ще не надходило жодного листа"
+
+#. module: odomate_hr_leave_email
+#: model:ir.actions.act_window,help:odomate_hr_leave_email.odomate_hr_leave_email_log_action
+msgid ""
+"Every message sent to the published Time Off address is recorded here, "
+"whether it produced a request or was refused."
+msgstr ""
+"Тут записується кожен лист, надісланий на опубліковану адресу для відпусток, "
+"незалежно від того, створив він запит чи був відхилений."
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid "Time Off"
+msgstr "Відпустка"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid "Requests by Email"
+msgstr "Запити електронною поштою"
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid ""
+"Turn a message sent to the published Time Off address into a Time Off "
+"request for the employee who sent it."
+msgstr ""
+"Перетворювати лист, надісланий на опубліковану адресу для відпусток, на запит"
+" на відпустку для співробітника, який його надіслав."
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid ""
+"No alias domain is configured yet, so the address cannot receive anything. "
+"Set one under Settings / General Settings / Discuss / Alias Domain first."
+msgstr ""
+"Домен псевдонімів ще не налаштовано, тому адреса не може нічого отримувати. "
+"Спершу вкажіть його в Налаштування / Загальні налаштування / Обговорення / "
+"Домен псевдонімів."
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid ""
+"Type given to every request created from an email. Emails are refused while "
+"this is empty."
+msgstr ""
+"Тип, який отримує кожен запит, створений з листа. Поки поле порожнє, листи "
+"відхиляються."
+
+#. module: odomate_hr_leave_email
+#: model_terms:ir.ui.view,arch_db:odomate_hr_leave_email.res_config_settings_view_form_odomate_hr_leave_email
+msgid ""
+"Answer the sender with the accepted date formats when the message could not "
+"be turned into a request."
+msgstr ""
+"Надсилати відправнику допустимі формати дат, коли лист не вдалося "
+"перетворити на запит."
+
+#. module: odomate_hr_leave_email
+#: model:mail.template,name:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "Time Off by Email: Request Refused"
+msgstr "Відпустка поштою: запит відхилено"
+
+#. module: odomate_hr_leave_email
+#: model:mail.template,subject:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "Your time off request could not be created"
+msgstr "Ваш запит на відпустку не вдалося створити"
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "Hello,"
+msgstr "Вітаємо,"
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "We could not turn your message into a time off request."
+msgstr "Ми не змогли перетворити ваш лист на запит на відпустку."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid ""
+"The address you wrote from is not linked to any employee record. Please "
+"write from your work address, or ask HR to add this address to your employee"
+" file."
+msgstr ""
+"Адреса, з якої ви написали, не пов'язана з жодною карткою співробітника. "
+"Напишіть, будь ласка, з робочої адреси або попросіть відділ кадрів додати цю "
+"адресу до вашої картки."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "No date was found in your message."
+msgstr "У вашому листі не знайдено жодної дати."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "The end date you gave comes before the start date."
+msgstr "Вказана дата завершення передує даті початку."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid ""
+"Time off requests by email are not fully configured yet. Please contact your"
+" HR team."
+msgstr ""
+"Запити на відпустку електронною поштою ще не налаштовано повністю. "
+"Зверніться, будь ласка, до відділу кадрів."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid ""
+"Something went wrong while creating the request. Please contact your HR "
+"team."
+msgstr ""
+"Під час створення запиту сталася помилка. Зверніться, будь ласка, до відділу "
+"кадрів."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid ""
+"Write the first day and the last day of your absence in the body of the "
+"message, using either the format YYYY-MM-DD (for example 2026-03-09) or the "
+"format DD/MM/YYYY (for example 09/03/2026). The first date found is the "
+"first day off, the second one is the last day off. With a single date, one "
+"day off is requested."
+msgstr ""
+"Напишіть у тексті листа перший і останній день вашої відсутності у форматі "
+"YYYY-MM-DD (наприклад, 2026-03-09) або у форматі DD/MM/YYYY (наприклад, "
+"09/03/2026). Перша знайдена дата — це перший день відпустки, друга — "
+"останній. Якщо вказано лише одну дату, буде створено запит на один день."
+
+#. module: odomate_hr_leave_email
+#: model_terms:mail.template,body_html:odomate_hr_leave_email.mail_template_leave_email_failure
+msgid "Thank you."
+msgstr "Дякуємо."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid "No employee is linked to this address."
+msgstr "З цією адресою не пов'язано жодного співробітника."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid ""
+"No date in the format YYYY-MM-DD or DD/MM/YYYY was found in the message."
+msgstr ""
+"У листі не знайдено жодної дати у форматі YYYY-MM-DD або DD/MM/YYYY."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid "The second date (%(date_to)s) comes before the first one (%(date_from)s)."
+msgstr "Друга дата (%(date_to)s) передує першій (%(date_from)s)."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid "No usable Time Off type is configured for %(company)s."
+msgstr "Для компанії %(company)s не налаштовано придатного типу відпустки."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid "Time Off requested by email"
+msgstr "Відпустка, запитана електронною поштою"
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/hr_leave.py:0
+msgid ""
+"The request could not be created. The technical details are in the server "
+"log."
+msgstr ""
+"Запит не вдалося створити. Технічні подробиці записано в журнал сервера."
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/odomate_hr_leave_email_log.py:0
+msgid "(no subject)"
+msgstr "(без теми)"
+
+#. module: odomate_hr_leave_email
+#: code:addons/odomate_hr_leave_email/models/odomate_hr_leave_email_log.py:0
+msgid "unknown"
+msgstr "невідомо"
