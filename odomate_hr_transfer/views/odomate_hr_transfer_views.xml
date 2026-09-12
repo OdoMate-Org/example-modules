@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_transfer_form" model="ir.ui.view">
+        <field name="name">odomate.hr.transfer.form</field>
+        <field name="model">odomate.hr.transfer</field>
+        <field name="arch" type="xml">
+            <form string="Employee Transfer">
+                <header>
+                    <button name="action_send_for_approval" type="object"
+                            string="Send for Approval" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            invisible="state != 'to_approve'"
+                            groups="hr.group_hr_manager"/>
+                    <button name="action_apply" type="object"
+                            string="Apply now" class="btn-primary"
+                            invisible="state != 'approved' or not apply_ready"
+                            confirm="Applying is final: it writes a new dated version on the employee record and cannot be undone from this screen. Reversing this move means recording another transfer. Continue?"/>
+                    <button name="action_refuse" type="object"
+                            string="Refuse"
+                            invisible="state not in ('draft', 'to_approve')"/>
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            invisible="state not in ('draft', 'to_approve', 'approved')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,to_approve,approved,applied"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Reference"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <field name="apply_ready" invisible="1"/>
+                    <div class="alert alert-info" role="alert" invisible="state != 'approved' or apply_ready">Approved and waiting for the effective date. The <b>Apply now</b> button appears once that date has arrived, or the nightly scheduled action applies it automatically.</div>
+                    <div class="alert alert-danger" role="alert" invisible="state != 'refused'">
+                        <b>Refused.</b>
+                        <field name="refuse_reason" readonly="1" nolabel="1"/>
+                    </div>
+                    <group>
+                        <group string="Employee">
+                            <field name="employee_id"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                            <field name="effective_date" readonly="state == 'applied'"/>
+                        </group>
+                        <group string="Application">
+                            <field name="applied_date" invisible="state != 'applied'"/>
+                            <field name="version_id" invisible="state != 'applied'"/>
+                        </group>
+                    </group>
+                    <group string="What Changes">
+                        <group string="Current">
+                            <field name="current_department_id" readonly="1"/>
+                            <field name="current_job_id" readonly="1"/>
+                            <field name="current_work_location_id" readonly="1"/>
+                            <field name="current_parent_id" readonly="1"/>
+                            <field name="current_company_id" readonly="1"
+                                   groups="base.group_multi_company"/>
+                        </group>
+                        <group string="New">
+                            <field name="new_department_id"
+                                   readonly="state == 'applied'"
+                                   options="{'no_create': True}"
+                                   placeholder="No change"/>
+                            <field name="new_job_id"
+                                   readonly="state == 'applied'"
+                                   options="{'no_create': True}"
+                                   placeholder="No change"/>
+                            <field name="new_work_location_id"
+                                   readonly="state == 'applied'"
+                                   options="{'no_create': True}"
+                                   placeholder="No change"/>
+                            <field name="new_parent_id"
+                                   readonly="state == 'applied'"
+                                   options="{'no_create': True}"
+                                   placeholder="No change"/>
+                            <field name="new_company_id"
+                                   readonly="state == 'applied'"
+                                   options="{'no_create': True}"
+                                   groups="base.group_multi_company"
+                                   placeholder="No change"/>
+                        </group>
+                    </group>
+                    <group string="Reason">
+                        <field name="reason" nolabel="1"
+                               readonly="state == 'applied'"
+                               placeholder="Why is this employee being transferred?"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_transfer_list" model="ir.ui.view">
+        <field name="name">odomate.hr.transfer.list</field>
+        <field name="model">odomate.hr.transfer</field>
+        <field name="arch" type="xml">
+            <list string="Employee Transfers"
+                  decoration-muted="state in ('refused', 'cancelled')"
+                  decoration-success="state == 'applied'"
+                  decoration-info="state == 'approved'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="effective_date"/>
+                <field name="current_department_id" string="From Department"/>
+                <field name="new_department_id" string="To Department"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'applied'"
+                       decoration-danger="state == 'refused'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_transfer_search" model="ir.ui.view">
+        <field name="name">odomate.hr.transfer.search</field>
+        <field name="model">odomate.hr.transfer</field>
+        <field name="arch" type="xml">
+            <search string="Employee Transfers">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="new_department_id"/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_to_approve" string="To Approve"
+                        domain="[('state', '=', 'to_approve')]"/>
+                <filter name="filter_approved" string="Approved"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_applied" string="Applied"
+                        domain="[('state', '=', 'applied')]"/>
+                <filter name="filter_refused" string="Refused"
+                        domain="[('state', '=', 'refused')]"/>
+                <filter name="filter_cancelled" string="Cancelled"
+                        domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="filter_due" string="Due for Application"
+                        domain="[('state', '=', 'approved'), ('effective_date', '&lt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_employee" string="Group by Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Group by Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_department" string="Group by Department"
+                        context="{'group_by': 'new_department_id'}"/>
+                <filter name="group_company" string="Group by Company"
+                        context="{'group_by': 'new_company_id'}"/>
+                <filter name="group_effective_date" string="Group by Effective Date"
+                        context="{'group_by': 'effective_date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_transfer" model="ir.actions.act_window">
+        <field name="name">Employee Transfers</field>
+        <field name="res_model">odomate.hr.transfer</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_transfer_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Record a new employee transfer
+            </p>
+            <p>
+                A transfer records a dated move — department, job position, work
+                location, manager or company. Once approved and applied it adds a
+                new dated version to the employee's history; it never overwrites
+                or duplicates the employee record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

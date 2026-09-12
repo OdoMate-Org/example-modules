@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_department_customer_success" model="hr.department">
+            <field name="name">Customer Success</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_department_field_operations" model="hr.department">
+            <field name="name">Field Operations</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_version_applied" model="hr.version">
+            <field name="employee_id" model="hr.employee" search="[('name', '=', 'Marc Demo')]"/>
+            <field name="date_version" eval="(DateTime.today() - relativedelta(days=90)).strftime('%Y-%m-%d')"/>
+            <field name="department_id" ref="demo_department_customer_success"/>
+            <field name="hr_responsible_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="demo_transfer_applied" model="odomate.hr.transfer">
+            <field name="employee_id" model="hr.employee" search="[('name', '=', 'Marc Demo')]"/>
+            <field name="effective_date" eval="(DateTime.today() - relativedelta(days=90)).strftime('%Y-%m-%d')"/>
+            <field name="new_department_id" ref="demo_department_customer_success"/>
+            <field name="current_department_id" ref="hr.dep_rd"/>
+            <field name="reason">Reorganisation of the post-sales teams: moved to Customer Success to own the onboarding of new accounts.</field>
+            <field name="state">applied</field>
+            <field name="version_id" ref="demo_version_applied"/>
+            <field name="applied_date" eval="(DateTime.today() - relativedelta(days=90)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="demo_transfer_approved" model="odomate.hr.transfer">
+            <field name="employee_id" model="hr.employee" search="[('name', '=', 'Anita Oliver')]"/>
+            <field name="effective_date" eval="(DateTime.today() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+            <field name="new_department_id" ref="demo_department_field_operations"/>
+            <field name="reason">Approved ahead of time so the handover can be prepared. Takes effect next month.</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_transfer_draft" model="odomate.hr.transfer">
+            <field name="employee_id" model="hr.employee" search="[('name', '=', 'Barty McBly')]"/>
+            <field name="effective_date" eval="(DateTime.today() + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+            <field name="new_department_id" ref="demo_department_customer_success"/>
+            <field name="reason">Still being discussed with the current manager — not sent for approval yet.</field>
+        </record>
+
+    </data>
+</odoo>
