@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odomate_hr_transfer_refuse_form" model="ir.ui.view">
+        <field name="name">odomate.hr.transfer.refuse.form</field>
+        <field name="model">odomate.hr.transfer.refuse</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Transfer">
+                <group>
+                    <field name="transfer_id" invisible="1"/>
+                    <field name="refuse_reason" nolabel="1"
+                           placeholder="Explain why this transfer is refused. The employee record is left untouched."/>
+                </group>
+                <footer>
+                    <button name="action_confirm_refuse" type="object"
+                            string="Refuse Transfer" class="btn-primary"/>
+                    <button string="Discard" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_transfer_refuse" model="ir.actions.act_window">
+        <field name="name">Refuse Transfer</field>
+        <field name="res_model">odomate.hr.transfer.refuse</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_odomate_hr_transfer_refuse_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
