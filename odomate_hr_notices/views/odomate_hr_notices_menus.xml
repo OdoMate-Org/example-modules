@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_odomate_hr_notices_root"
+              name="Notices"
+              parent="hr.menu_hr_root"
+              sequence="45"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_odomate_hr_announcement_my"
+              name="Announcements"
+              parent="menu_odomate_hr_notices_root"
+              action="action_odomate_hr_announcement_my"
+              sequence="10"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_odomate_hr_announcement_all"
+              name="All Announcements"
+              parent="menu_odomate_hr_notices_root"
+              action="action_odomate_hr_announcement_all"
+              sequence="20"
+              groups="hr.group_hr_user"/>
+
+    <menuitem id="menu_odomate_hr_announcement_category"
+              name="Announcement Categories"
+              parent="hr.menu_human_resources_configuration"
+              action="action_odomate_hr_announcement_category"
+              sequence="90"
+              groups="hr.group_hr_user"/>
+
+    <menuitem id="menu_odomate_hr_reminder"
+              name="Date Reminders"
+              parent="hr.menu_human_resources_configuration"
+              action="action_odomate_hr_reminder"
+              sequence="95"
+              groups="hr.group_hr_user"/>
+
+</odoo>

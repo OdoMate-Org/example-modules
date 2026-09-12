@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_announcement_category_list" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.category.list</field>
+        <field name="model">odomate.hr.announcement.category</field>
+        <field name="arch" type="xml">
+            <list string="Announcement Categories">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_announcement_category_form" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.category.form</field>
+        <field name="model">odomate.hr.announcement.category</field>
+        <field name="arch" type="xml">
+            <form string="Announcement Category">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Policy"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_announcement_category_search" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.category.search</field>
+        <field name="model">odomate.hr.announcement.category</field>
+        <field name="arch" type="xml">
+            <search string="Announcement Categories">
+                <field name="name"/>
+                <filter name="filter_inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_announcement_category" model="ir.actions.act_window">
+        <field name="name">Announcement Categories</field>
+        <field name="res_model">odomate.hr.announcement.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first announcement category
+            </p>
+            <p>
+                Categories group announcements by topic, such as Policy, Safety,
+                Social or Benefits.
+            </p>
+        </field>
+    </record>
+
+</odoo>

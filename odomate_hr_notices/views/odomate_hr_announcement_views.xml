@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_announcement_list" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.list</field>
+        <field name="model">odomate.hr.announcement</field>
+        <field name="arch" type="xml">
+            <list string="Announcements">
+                <field name="reference"/>
+                <field name="title"/>
+                <field name="category_id"/>
+                <field name="priority" widget="priority"/>
+                <field name="state"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_announcement_form" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.form</field>
+        <field name="model">odomate.hr.announcement</field>
+        <field name="arch" type="xml">
+            <form string="Announcement">
+                <header>
+                    <button name="action_send_for_approval" type="object"
+                            string="Send for Approval" class="btn-primary"
+                            invisible="state != 'draft'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_publish" type="object"
+                            string="Publish" class="btn-primary"
+                            invisible="state != 'to_approve'"
+                            groups="hr.group_hr_manager"/>
+                    <button name="action_refuse" type="object"
+                            string="Refuse"
+                            invisible="state != 'to_approve'"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_reset_to_draft" type="object"
+                            string="Reset to Draft"
+                            invisible="state not in ('refused', 'expired')"
+                            groups="hr.group_hr_user"/>
+                    <button name="action_acknowledge" type="object"
+                            string="Acknowledge" class="btn-primary"
+                            invisible="state != 'published' or is_acknowledged_by_me"
+                            help="Records that you pressed this button. It is not a statement that you read and understood the announcement."/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,to_approve,published"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title"/>
+                        <h1>
+                            <field name="title" placeholder="e.g. Updated remote work policy"/>
+                        </h1>
+                        <h3>
+                            <field name="reference" readonly="1"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="is_acknowledged_by_me" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Audience">
+                        <field name="audience" widget="radio" options="{'horizontal': True}"/>
+                        <field name="employee_ids" widget="many2many_tags"
+                               invisible="audience != 'employee'"
+                               required="audience == 'employee'"/>
+                        <field name="department_ids" widget="many2many_tags"
+                               invisible="audience != 'department'"
+                               required="audience == 'department'"/>
+                        <field name="job_ids" widget="many2many_tags"
+                               invisible="audience != 'job'"
+                               required="audience == 'job'"/>
+                    </group>
+                    <group string="Refusal" invisible="state != 'refused'">
+                        <field name="refuse_reason" nolabel="1" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Announcement" name="body">
+                            <field name="body" placeholder="Write the announcement here..."/>
+                        </page>
+                        <page string="Acknowledgements" name="acknowledgements"
+                              groups="hr.group_hr_user">
+                            <group>
+                                <group>
+                                    <field name="acknowledged_count"/>
+                                    <field name="audience_count"/>
+                                </group>
+                                <group>
+                                    <button name="action_open_pending_employees"
+                                            type="object" class="btn-link"
+                                            string="Open the has-not-acknowledged list"
+                                            icon="fa-user-times"/>
+                                </group>
+                            </group>
+                            <div class="text-muted mb-2">
+                                Acknowledging records the button press only. It is not a
+                                statement that the announcement was read and understood.
+                            </div>
+                            <separator string="Has Not Acknowledged"/>
+                            <field name="pending_employee_ids" readonly="1"
+                                   widget="many2many_tags"/>
+                            <separator string="Acknowledged By"/>
+                            <field name="acknowledged_employee_ids" readonly="1"
+                                   widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_announcement_search" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.search</field>
+        <field name="model">odomate.hr.announcement</field>
+        <field name="arch" type="xml">
+            <search string="Announcements">
+                <field name="title"/>
+                <field name="reference"/>
+                <field name="category_id"/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_to_approve" string="Waiting for Approval"
+                        domain="[('state', '=', 'to_approve')]"/>
+                <filter name="filter_published" string="Published"
+                        domain="[('state', '=', 'published')]"/>
+                <filter name="filter_refused" string="Refused"
+                        domain="[('state', '=', 'refused')]"/>
+                <filter name="filter_expired" string="Expired"
+                        domain="[('state', '=', 'expired')]"/>
+                <separator/>
+                <filter name="filter_audience_all" string="Everyone"
+                        domain="[('audience', '=', 'all')]"/>
+                <filter name="filter_audience_employee" string="Selected Employees"
+                        domain="[('audience', '=', 'employee')]"/>
+                <filter name="filter_audience_department" string="Selected Departments"
+                        domain="[('audience', '=', 'department')]"/>
+                <filter name="filter_audience_job" string="Selected Job Positions"
+                        domain="[('audience', '=', 'job')]"/>
+                <separator/>
+                <filter name="group_by_category" string="Category"
+                        context="{'group_by': 'category_id'}"/>
+                <filter name="group_by_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_by_audience" string="Audience"
+                        context="{'group_by': 'audience'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_announcement_my" model="ir.actions.act_window">
+        <field name="name">Announcements</field>
+        <field name="res_model">odomate.hr.announcement</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_for_me', '=', True)]</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No announcements for you right now
+            </p>
+            <p>
+                Announcements addressed to you appear here while they are published
+                and inside their display period.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_announcement_all" model="ir.actions.act_window">
+        <field name="name">All Announcements</field>
+        <field name="res_model">odomate.hr.announcement</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first announcement
+            </p>
+            <p>
+                Draft an announcement, send it for approval, and publish it to the
+                audience of your choice.
+            </p>
+        </field>
+    </record>
+
+</odoo>

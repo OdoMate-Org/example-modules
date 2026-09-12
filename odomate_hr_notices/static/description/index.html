@@ -1,0 +1,132 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan">HR Notices, Announcements &amp; Acknowledgements</h2>
+            <h3 class="oe_slogan">Publish it once. Know exactly who acknowledged it.</h3>
+            <p class="oe_mt32 text-center">
+                Publish HR announcements to a precisely targeted audience, track who
+                pressed Acknowledge, and keep HR-only saved reminders over any date
+                field on employees, contract versions, applicants or time off.
+                A systray counter shows every user the announcements addressed to
+                them that they have not acknowledged yet.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key Features</h3>
+        </div>
+        <div class="oe_span6">
+            <h4>Approval workflow that cannot be skipped</h4>
+            <p>
+                Draft &rarr; Waiting for Approval &rarr; Published, with Refused and
+                Expired as terminal branches. Publishing is limited to HR
+                Administrators and enforced inside <code>action_publish</code>, not
+                merely hidden in the view.
+            </p>
+            <h4>Precise audience targeting</h4>
+            <p>
+                Address everyone in the company, selected employees, selected
+                departments (exact match &mdash; no hierarchy walk), or selected job
+                positions. Someone hired after publication is still included in an
+                "Everyone" announcement.
+            </p>
+            <h4>Acknowledgement tracking</h4>
+            <p>
+                See the acknowledged count, the audience size, and the list of people
+                who have not acknowledged. Acknowledging is idempotent, and the
+                acknowledgement fields are protected at field level, not just in the
+                view.
+            </p>
+        </div>
+        <div class="oe_span6">
+            <h4>Saved date reminders</h4>
+            <p>
+                Save the date questions HR asks every week &mdash; expiring work
+                permits, contract versions dated this year &mdash; over
+                <code>hr.employee</code>, <code>hr.version</code>,
+                <code>hr.applicant</code> and <code>hr.leave</code>. Counts are
+                evaluated as the calling user, so nobody sees records they cannot read.
+            </p>
+            <h4>Systray counter</h4>
+            <p>
+                A bullhorn in the top bar counts the published, in-window
+                announcements addressed to you that you have not acknowledged. No
+                polling, no websocket, and no asset loaded from any external address.
+            </p>
+            <h4>Multi-company and multilingual</h4>
+            <p>
+                Company record rules on every model, and a complete Ukrainian
+                translation covering states, audiences, reminder windows, buttons and
+                the systray itself.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol>
+                <li>
+                    Create your categories in
+                    <b>Employees &rarr; Configuration &rarr; Announcement Categories</b>.
+                </li>
+                <li>
+                    Draft an announcement in
+                    <b>Employees &rarr; Notices &rarr; All Announcements</b>, set the
+                    display window and pick the audience. The form reveals only the
+                    target field matching your choice.
+                </li>
+                <li>
+                    Click <b>Send for Approval</b>. A To-Do activity is scheduled for
+                    an HR Administrator, who clicks <b>Publish</b> &mdash; or
+                    <b>Refuse</b> with a mandatory reason that lands in the chatter.
+                </li>
+                <li>
+                    Employees see the announcement under
+                    <b>Employees &rarr; Notices &rarr; Announcements</b> and in the
+                    systray, and press <b>Acknowledge</b>.
+                </li>
+                <li>
+                    HR watches the <b>Acknowledgements</b> tab. A daily scheduled
+                    action expires announcements once their display window closes.
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Documentation</h3>
+            <p class="text-center">
+                The full user guide ships with the module:
+                <code>doc/USER_GUIDE.md</code> (English) and
+                <code>doc/USER_GUIDE.uk.md</code> (Ukrainian). It documents the
+                audience rules, the field reference, and the module's honest
+                limitations &mdash; including the fact that "acknowledged" records a
+                button press only, and is not evidence that anything was read or
+                understood.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p>
+                <a href="https://odomate.pro">odomate.pro</a>
+                &nbsp;&middot;&nbsp;
+                <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>
