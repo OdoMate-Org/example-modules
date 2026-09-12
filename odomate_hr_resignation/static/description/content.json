@@ -1,0 +1,90 @@
+{
+  "module_name": "Employee Resignation & Clearance",
+  "slug": "employee-resignation-clearance",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Resignation</span> <span style=\"color:#a98bf5;\">&amp; Clearance</span>",
+  "intro_html": "<strong>Employee Resignation &amp; Clearance</strong> turns a resignation into a record that carries itself to the end — the last working day worked out from the employee's own notice period, an approval trail behind every stage, a clearance checklist routed to the people who own each item, and a release that refuses outright while company property is still in their hands.",
+  "test_count": 38,
+  "features": [
+    {
+      "icon": "shield",
+      "title": "The Release Refuses, Live",
+      "desc": "The property register is re-read at the moment somebody presses Release. If anything is still out, the refusal names the item, its handover reference and the date it was due back."
+    },
+    {
+      "icon": "calendar",
+      "title": "Last Working Day, Worked Out",
+      "desc": "Read from the employee's own notice period the moment notice is given — and left alone for good the instant a person types a negotiated date over it."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "A Checklist With Owners",
+      "desc": "One line per clearance item, each routed to the person who owns it with a to-do in their inbox, and a progress figure above the list."
+    },
+    {
+      "icon": "list-ol",
+      "title": "Approval, Stage By Stage",
+      "desc": "Notice, the manager's sign-off, HR approval, clearance, release. Whether the manager step runs at all is one switch per company."
+    },
+    {
+      "icon": "users",
+      "title": "The Manager Sees One Record",
+      "desc": "There is no menu for resignations outside HR. The leaver's own manager reaches exactly the record they must approve, and every other ordinary user reaches none."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Released On The Day, By Itself",
+      "desc": "A daily run releases what is due and fully cleared, using the same two checks as the button — no shortcut, no elevated bypass."
+    },
+    {
+      "icon": "lock",
+      "title": "Final Once Released",
+      "desc": "Dates, reason and checklist lock in the code itself, not merely on the screen: a script or an API call is refused exactly like the form is."
+    },
+    {
+      "icon": "envelope",
+      "title": "Exit Interview, Tracked",
+      "desc": "Send the survey from the record and see whether it went out and whether it came back, with the answer one click away."
+    }
+  ],
+  "limitations": [
+    "When company property is still outstanding, the checklist shows Company Property twice — once as the ordinary pending line and once as a blocked line naming what is out, its handover reference and its due date. Both have to be cleared. With nothing outstanding the checklist is exactly the items you configured.",
+    "There is no way back to the calculated date. Once a last working day is typed in by hand it stays that way; putting it back to the proposed date needs a developer.",
+    "The property register is read, never written. Releasing somebody does not mark their items returned — that has to happen in the custody register first, or the release stays blocked. That is deliberate.",
+    "Archiving the login is skipped in two cases: when it is the system account, or when it is the very person pressing Release. Odoo forbids both writes; everything else in the release still completes.",
+    "No contract end date without a contract start date. Where the employee's current record has no start date, that one write is skipped and a note is posted on the record instead.",
+    "The Ukrainian pack covers every label, state, button and message the module raises. The five starter checklist item names are ordinary records, so their Ukrainian wording is a reference translation rather than a live one — renaming them is an administrator's job.",
+    "Out of scope entirely: no final settlement and no payslip, no dismissal workflow, no handover tasks, no exit-interview reporting, no self-service resignation and no generated documents."
+  ],
+  "stats": [
+    {
+      "value": "~60 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "2",
+      "label": "Generated versions",
+      "caption": "One defect found and fixed by generating again, never by editing the code"
+    },
+    {
+      "value": "$46.75",
+      "label": "Total spend",
+      "caption": "Specification, generation, review and every automated test run"
+    },
+    {
+      "value": "38",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_resignation/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64"
+  },
+  "short_link": {
+    "slug": "resignation",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  }
+}

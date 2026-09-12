@@ -1,10 +1,15 @@
 {
-    'name': "OdoMate HR Resignation & Clearance",
+    'name': "Employee Resignation & Clearance",
 
-    'summary': "Employee resignation workflow, notice period, exit clearance "
-               "checklist and offboarding - HR resignation, employee exit, "
-               "clearance certificate, notice period, company property handover, "
-               "exit interview survey",
+    'summary': "Odoo Employee Resignation & Clearance module records an "
+               "employee's notice, routes the exit clearance checklist to the "
+               "people who own each item and blocks the final release while "
+               "company property is still outstanding, so nobody leaves with "
+               "unreturned equipment or an unfinished handover. "
+               "employee resignation | exit clearance checklist | hr offboarding "
+               "| notice period tracking | resignation approval workflow | "
+               "employee exit process | company property clearance | exit "
+               "interview survey | employee offboarding checklist",
 
     'description': """
 Resignation and exit clearance tracking for the Odoo Employees app.
@@ -17,12 +22,13 @@ live at every attempt rather than trusting a stored snapshot.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/resignation?v=site",
     'support': "support@odomate.pro",
 
-    'category': 'Human Resources',
+    'category': 'Generic Modules/Human Resources',
     'version': '19.0.1.0.1',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.gif'],
 
     'depends': [
         'hr',
