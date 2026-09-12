@@ -1,6 +1,6 @@
-=============================
-OdoMate HR Overview Dashboard
-=============================
+====================================
+Employee Turnover & Absence Dashboard
+====================================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
@@ -51,7 +51,7 @@ Installation
 #. Copy ``odomate_hr_dashboard`` into your addons path.
 #. Restart the Odoo service.
 #. Go to **Apps**, click **Update Apps List**, search for
-   *OdoMate HR Overview Dashboard* and click **Install**.
+   *Employee Turnover & Absence Dashboard* and click **Install**.
 
 Dependencies (``hr``, ``hr_holidays``, ``web``) install automatically.
 

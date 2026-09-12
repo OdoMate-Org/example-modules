@@ -1,0 +1,91 @@
+{
+  "module_name": "Employee Turnover & Absence Dashboard",
+  "slug": "employee-turnover-absence-dashboard",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee Turnover</span> <span style=\"color:#8fb8e8;\">&amp;</span> <span style=\"color:#a98bf5;\">Absence Dashboard</span>",
+  "intro_html": "<strong>Employee Turnover &amp; Absence Dashboard</strong> answers the questions an HR manager gets asked in every management meeting &mdash; how many people we have, who joined, who left, what our turnover is &mdash; on one screen in Employees, with every figure clickable, so the answer comes out of the employee records instead of a spreadsheet kept alongside them.",
+  "test_count": 22,
+  "features": [
+    {
+      "icon": "tachometer",
+      "title": "Five figures, one screen",
+      "desc": "Headcount, joined, left, off today and turnover, side by side in the Employees app."
+    },
+    {
+      "icon": "link",
+      "title": "Every figure opens its list",
+      "desc": "Press a number and the list that opens holds exactly that many rows; both come from the same query."
+    },
+    {
+      "icon": "exchange",
+      "title": "Joiners and leavers over time",
+      "desc": "One line per arrival and per departure, groupable and chartable by month, department or reason."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Absence measured, not counted",
+      "desc": "Ranks by the Bradford factor, so eleven separate single days outrank one three-week holiday."
+    },
+    {
+      "icon": "calendar",
+      "title": "The period is yours to set",
+      "desc": "Defaults to the calendar year; the point-in-time figures ignore it and say so on the tile."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Approvals across the suite",
+      "desc": "Everything in the wider OdoMate HR suite that is awaiting approval, in one list - free at github.com/OdoMate-Org/example-modules. Without those modules it stays empty."
+    },
+    {
+      "icon": "lock",
+      "title": "Read-only, and provably so",
+      "desc": "Creates no records, grants no group to anybody and never uses sudo(); figures honour each reader's own permissions."
+    },
+    {
+      "icon": "building",
+      "title": "Multi-company aware",
+      "desc": "Record rules on both analysis models, so a reader sees their own companies and no others."
+    }
+  ],
+  "limitations": [
+    "Read-only by design. There is no way to correct a wrong figure from this screen; fix the underlying employee version or time-off record instead.",
+    "Arrivals depend on a contract start date. Employees whose versions carry no contract start date never appear as joiners and never count towards headcount at a date, so if your data is thin here, turnover will read low.",
+    "Headcount at a date is reconstructed from movements, not from a historical snapshot, so retroactive edits to a contract start or departure date change past figures.",
+    "The Bradford figures have no time window. Filters select employees, not date ranges of leave - which differs from tools that recompute the factor per period.",
+    "Time off sitting in Second Approval is excluded on purpose. If your leave types use two-step approval, those absences are invisible here until the second approval lands.",
+    "Off today uses UTC day boundaries. In a database spread across far-apart time zones, an employee at the very edge of the day may be counted a few hours early or late."
+  ],
+  "stats": [
+    {
+      "value": "~53 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "2",
+      "label": "Generated versions",
+      "caption": "One generation plus one enhancement round - nothing in it was corrected by hand"
+    },
+    {
+      "value": "$30.20",
+      "label": "Total spend",
+      "caption": "Specification, generation and every automated test run"
+    },
+    {
+      "value": "22",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "short_link": {
+    "slug": "hr-dashboard",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_dashboard/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_dashboard/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  }
+}
