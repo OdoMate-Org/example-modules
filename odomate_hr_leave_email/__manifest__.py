@@ -2,9 +2,12 @@
     'name': "Time Off Requests by Email",
 
     'summary': (
-        "Time off request by email - leave request mail gateway, "
-        "hr.leave mail alias, holiday request from email, "
-        "Time Off email inbox, leave email log"
+        "Odoo Time Off Requests by Email module turns a message sent to one "
+        "published company address into an ordinary time off request for the "
+        "employee who sent it, refusing and explaining anything it cannot read. "
+        "time off by email | leave request email | hr mail gateway | "
+        "email to leave request | time off mail alias | leave request automation | "
+        "employee leave email | holiday request by email | time off email log"
     ),
 
     'description': """
