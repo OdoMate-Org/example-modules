@@ -1,0 +1,376 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_hr_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model,name:odomate_hr_dashboard.model_odomate_hr_movement
+msgid "HR Arrivals and Departures"
+msgstr "Прибуття та вибуття персоналу"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model,name:odomate_hr_dashboard.model_odomate_hr_absence_factor
+msgid "Absence Concentration by Employee"
+msgstr "Концентрація відсутності за працівником"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+#: model:ir.actions.client,name:odomate_hr_dashboard.action_hr_overview
+#: model:ir.model,name:odomate_hr_dashboard.model_odomate_hr_dashboard
+#: model:ir.ui.menu,name:odomate_hr_dashboard.menu_hr_overview
+msgid "HR Overview"
+msgstr "Огляд HR"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__employee_id
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__department_id
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Department"
+msgstr "Відділ"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__company_id
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__direction
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Direction"
+msgstr "Напрямок"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_movement__departure_reason_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Departure Reason"
+msgstr "Причина звільнення"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__occurrence_count
+msgid "Occurrences"
+msgstr "Випадки"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__day_count
+msgid "Days"
+msgstr "Дні"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__bradford_factor
+msgid "Bradford Factor"
+msgstr "Фактор Бредфорда"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,field_description:odomate_hr_dashboard.field_odomate_hr_absence_factor__last_absence_date
+msgid "Last Absence"
+msgstr "Остання відсутність"
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,help:odomate_hr_dashboard.field_odomate_hr_absence_factor__day_count
+#: model:ir.model.fields,help:odomate_hr_dashboard.field_odomate_hr_absence_factor__occurrence_count
+msgid ""
+"Occurrences, days and the factor cover all approved, finished time off, "
+"narrowed by whatever filter you apply."
+msgstr ""
+"Випадки, дні та фактор охоплюють усі затверджені завершені відсутності, "
+"звужені будь-яким застосованим вами фільтром."
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,help:odomate_hr_dashboard.field_odomate_hr_absence_factor__bradford_factor
+msgid ""
+"Occurrences squared multiplied by days. Occurrences, days and the factor "
+"cover all approved, finished time off, narrowed by whatever filter you apply."
+msgstr ""
+"Квадрат кількості випадків, помножений на кількість днів. Випадки, дні та "
+"фактор охоплюють усі затверджені завершені відсутності, звужені будь-яким "
+"застосованим вами фільтром."
+
+#. module: odomate_hr_dashboard
+#: model:ir.model.fields,help:odomate_hr_dashboard.field_odomate_hr_absence_factor__last_absence_date
+msgid ""
+"End date of this employee's most recent approved, finished time off. The "
+"convenience filters select employees by this date; the figures themselves "
+"always cover all approved, finished time off."
+msgstr ""
+"Дата завершення останньої затвердженої завершеної відсутності цього "
+"працівника. Зручні фільтри відбирають працівників за цією датою; самі "
+"показники завжди охоплюють усі затверджені завершені відсутності."
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+#: model:ir.model.fields.selection,name:odomate_hr_dashboard.selection__odomate_hr_movement__direction__join
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Joined"
+msgstr "Прийнято"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+#: model:ir.model.fields.selection,name:odomate_hr_dashboard.selection__odomate_hr_movement__direction__leave
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Left"
+msgstr "Звільнено"
+
+#. module: odomate_hr_dashboard
+#: model:ir.ui.menu,name:odomate_hr_dashboard.menu_hr_overview_analysis
+msgid "HR Overview Analysis"
+msgstr "Аналітика огляду HR"
+
+#. module: odomate_hr_dashboard
+#: model:ir.actions.act_window,name:odomate_hr_dashboard.action_hr_movement
+#: model:ir.ui.menu,name:odomate_hr_dashboard.menu_hr_movement
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_graph
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_pivot
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Joiners and Leavers"
+msgstr "Прийняті та звільнені"
+
+#. module: odomate_hr_dashboard
+#: model:ir.actions.act_window,name:odomate_hr_dashboard.action_hr_absence_factor
+#: model:ir.ui.menu,name:odomate_hr_dashboard.menu_hr_absence_factor
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_graph
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_pivot
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+msgid "Absence by Employee"
+msgstr "Відсутність за працівником"
+
+#. module: odomate_hr_dashboard
+#: model:ir.actions.act_window,name:odomate_hr_dashboard.action_hr_department_headcount
+msgid "Headcount by Department"
+msgstr "Чисельність за відділами"
+
+#. module: odomate_hr_dashboard
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_list
+msgid ""
+"Occurrences, days and the factor cover all approved, finished time off, "
+"narrowed by whatever filter you apply"
+msgstr ""
+"Випадки, дні та фактор охоплюють усі затверджені завершені відсутності, "
+"звужені будь-яким застосованим вами фільтром"
+
+#. module: odomate_hr_dashboard
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "This Year"
+msgstr "Цей рік"
+
+#. module: odomate_hr_dashboard
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Last 12 Months"
+msgstr "Останні 12 місяців"
+
+#. module: odomate_hr_dashboard
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_movement_search
+msgid "Month"
+msgstr "Місяць"
+
+#. module: odomate_hr_dashboard
+#: model_terms:ir.ui.view,arch_db:odomate_hr_dashboard.view_hr_absence_factor_search
+msgid "Last Absence Month"
+msgstr "Місяць останньої відсутності"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Headcount"
+msgstr "Чисельність"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Off today"
+msgstr "Відсутні сьогодні"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+msgid "Turnover"
+msgstr "Плинність"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+msgid "Joiners and leavers"
+msgstr "Прийняті та звільнені"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+msgid "Absence by employee"
+msgstr "Відсутність за працівником"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+msgid "Headcount by department"
+msgstr "Чисельність за відділами"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/js/hr_overview.js:0
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "Waiting for approval"
+msgstr "Очікує затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "Read-only. Nothing here changes a record."
+msgstr "Лише для читання. Ніщо тут не змінює записи."
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "From"
+msgstr "З"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "To"
+msgstr "По"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "Loading the overview..."
+msgstr "Завантаження огляду..."
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "to"
+msgstr "по"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "as of today"
+msgstr "станом на сьогодні"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "How turnover is worked out"
+msgstr "Як розраховано плинність"
+
+#. module: odomate_hr_dashboard
+#. odoo-javascript
+#: code:addons/odomate_hr_dashboard/static/src/xml/hr_overview.xml:0
+msgid "Nothing from the HR suite is waiting for your approval."
+msgstr "Немає нічого з HR-набору, що очікує вашого затвердження."
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Loans to approve"
+msgstr "Позики на затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Salary advances to approve"
+msgstr "Аванси із зарплати на затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Resignations to approve"
+msgstr "Заяви про звільнення на затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Transfers to approve"
+msgstr "Переведення на затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Announcements to approve"
+msgstr "Оголошення на затвердження"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "Departures behind the turnover rate"
+msgstr "Звільнення, що формують показник плинності"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid "The HR Overview is available to HR officers and HR managers only."
+msgstr "Огляд HR доступний лише спеціалістам та менеджерам з персоналу."
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid ""
+"Turnover = departures in the selected period divided by average headcount "
+"over the period, where average headcount = (headcount on the first day of "
+"the period + headcount on the last day of the period) / 2."
+msgstr ""
+"Плинність = звільнення за обраний період, поділені на середню чисельність за "
+"період, де середня чисельність = (чисельність у перший день періоду + "
+"чисельність в останній день періоду) / 2."
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid ""
+"%(left)s departures / average headcount %(average)s (%(headcount_from)s on "
+"%(date_from)s, %(headcount_to)s on %(date_to)s) = %(rate)s%%"
+msgstr ""
+"%(left)s звільнень / середня чисельність %(average)s (%(headcount_from)s на "
+"%(date_from)s, %(headcount_to)s на %(date_to)s) = %(rate)s%%"
+
+#. module: odomate_hr_dashboard
+#. odoo-python
+#: code:addons/odomate_hr_dashboard/models/odomate_hr_dashboard.py:0
+msgid ""
+"%(left)s departures / average headcount 0 (%(headcount_from)s on "
+"%(date_from)s, %(headcount_to)s on %(date_to)s) - turnover cannot be "
+"computed without headcount"
+msgstr ""
+"%(left)s звільнень / середня чисельність 0 (%(headcount_from)s на "
+"%(date_from)s, %(headcount_to)s на %(date_to)s) - плинність неможливо "
+"обчислити без чисельності"

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_absence_factor_list" model="ir.ui.view">
+        <field name="name">odomate.hr.absence.factor.list</field>
+        <field name="model">odomate.hr.absence.factor</field>
+        <field name="arch" type="xml">
+            <list string="Occurrences, days and the factor cover all approved, finished time off, narrowed by whatever filter you apply"
+                  create="false" edit="false" delete="false" sample="1">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="occurrence_count"/>
+                <field name="day_count" digits="[16, 2]"/>
+                <field name="bradford_factor"/>
+                <field name="last_absence_date" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_absence_factor_graph" model="ir.ui.view">
+        <field name="name">odomate.hr.absence.factor.graph</field>
+        <field name="model">odomate.hr.absence.factor</field>
+        <field name="arch" type="xml">
+            <graph string="Absence by Employee" type="bar" sample="1">
+                <field name="employee_id"/>
+                <field name="day_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_hr_absence_factor_pivot" model="ir.ui.view">
+        <field name="name">odomate.hr.absence.factor.pivot</field>
+        <field name="model">odomate.hr.absence.factor</field>
+        <field name="arch" type="xml">
+            <pivot string="Absence by Employee" sample="1">
+                <field name="department_id" type="row"/>
+                <field name="occurrence_count" type="measure"/>
+                <field name="day_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_hr_absence_factor_search" model="ir.ui.view">
+        <field name="name">odomate.hr.absence.factor.search</field>
+        <field name="model">odomate.hr.absence.factor</field>
+        <field name="arch" type="xml">
+            <search string="Absence by Employee">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <filter name="filter_this_year" string="This Year"
+                        domain="[('last_absence_date', '&gt;=', context_today().strftime('%Y-01-01'))]"/>
+                <filter name="filter_last_12_months" string="Last 12 Months"
+                        domain="[('last_absence_date', '&gt;=', (context_today() - relativedelta(months=12)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_department" string="Department"
+                        context="{'group_by': 'department_id'}"/>
+                <filter name="group_employee" string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_last_absence_month" string="Last Absence Month"
+                        context="{'group_by': 'last_absence_date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_absence_factor" model="ir.actions.act_window">
+        <field name="name">Absence by Employee</field>
+        <field name="res_model">odomate.hr.absence.factor</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="search_view_id" ref="view_hr_absence_factor_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No approved, finished time off recorded yet
+            </p>
+            <p>
+                Occurrences, days and the Bradford factor (occurrences squared,
+                multiplied by days) cover all approved, finished time off — every
+                hr.leave in state Approved whose end date has already passed.
+                Requests still waiting for a second approval and time off starting
+                in the future count towards neither figure. The list opens
+                unfiltered and sorted by the highest factor first; narrowing is
+                your job, with the search panel.
+            </p>
+        </field>
+    </record>
+
+</odoo>

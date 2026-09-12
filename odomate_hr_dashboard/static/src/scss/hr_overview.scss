@@ -1,0 +1,31 @@
+.o_hr_overview {
+    overflow: auto;
+
+    .o_hr_overview_tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+        gap: 1rem;
+    }
+
+    .o_hr_overview_entries {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1rem;
+    }
+
+    .o_hr_overview_tile,
+    .o_hr_overview_entry,
+    .o_hr_overview_pending {
+        cursor: pointer;
+        transition: box-shadow 0.15s ease-in-out;
+    }
+
+    .o_hr_overview_tile:hover,
+    .o_hr_overview_entry:hover {
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+    }
+
+    .o_hr_overview_pending:hover {
+        text-decoration: underline;
+    }
+}

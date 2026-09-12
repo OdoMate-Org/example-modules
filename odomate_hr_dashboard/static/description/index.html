@@ -1,0 +1,96 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">OdoMate HR Overview Dashboard</h2>
+        <h3 class="oe_slogan">Five numbers your HR team actually acts on - and the exact records behind each one</h3>
+        <p class="oe_mt32">
+            A read-only management overview for Odoo 19 Employees. It answers five
+            questions on one screen - how many people do we have, who joined, who
+            left, who is off today, and what is our turnover rate - and every figure
+            is clickable, opening the precise list of records it was counted from.
+            Below the tiles it ranks absence concentration by the Bradford factor and
+            collects everything from the wider OdoMate HR suite that is waiting for
+            an approval.
+        </p>
+        <p class="oe_mt32">
+            The module only reads. It creates no records of its own, grants no
+            security group to anybody, and never uses <code>sudo()</code> - every
+            figure is computed with the permissions of the person looking at it.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Key Features</h2>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Five figure tiles</b> - Headcount, Joined, Left, Off today and
+                    Turnover, laid out on a responsive CSS grid.</li>
+                <li><b>Drill-down parity</b> - the row count of every opened list
+                    equals the figure that opened it, because both are built from the
+                    same domain in the same server call.</li>
+                <li><b>Period selector</b> - two plain date inputs, defaulting to the
+                    current calendar year. Headcount and Off today deliberately ignore
+                    it and say so, right on the tile.</li>
+                <li><b>Worked turnover arithmetic</b> - the tile shows
+                    "2 departures / average headcount 121.5 (122 on 2026-01-01,
+                    121 on 2026-12-31) = 1.6%", not a generic sentence.</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Joiners and leavers</b> - the <code>odomate.hr.movement</code>
+                    SQL view, one row per arrival and per departure, with list, graph,
+                    pivot and search views. Archived leavers included.</li>
+                <li><b>Absence concentration</b> - the
+                    <code>odomate.hr.absence.factor</code> SQL view ranks employees by
+                    the Bradford factor (occurrences squared, multiplied by days) over
+                    approved, finished time off.</li>
+                <li><b>Cross-suite approvals</b> - loans, salary advances,
+                    resignations, transfers and announcements are counted only when
+                    that module is installed and you may read it.</li>
+                <li><b>Multi-company by record rule</b> - both analysis models ship a
+                    company rule, and every server-side query is scoped to
+                    <code>self.env.companies</code>.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">How It Works</h2>
+        <p class="oe_mt32">
+            Open <b>Employees &gt; HR Overview</b>. The component makes one call to
+            <code>odomate.hr.dashboard.get_overview()</code> and renders the payload -
+            no arithmetic happens in the browser. Change either date input and the
+            call is repeated; the period-driven tiles relabel themselves with the dates
+            you picked.
+        </p>
+        <p class="oe_mt32">
+            Tap a tile to open its records. Tap <b>Joiners and leavers</b>,
+            <b>Absence by employee</b> or <b>Headcount by department</b> to open the
+            plain, unfiltered analysis lists and narrow them yourself with the search
+            panel - the same convention Odoo's own analysis views follow. Access is
+            limited to <code>hr.group_hr_user</code> and
+            <code>hr.group_hr_manager</code>; a plain internal user sees no menu and
+            cannot reach the data by address.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Documentation</h2>
+        <p class="oe_mt32">
+            Full documentation ships with the module:
+            <code>doc/USER_GUIDE.md</code> (English) and
+            <code>doc/USER_GUIDE.uk.md</code> (Ukrainian). The interface itself is
+            available in English and Ukrainian via <code>i18n/uk.po</code>.
+        </p>
+        <p class="oe_mt32">
+            Built by <a href="https://odomate.pro">OdoMate</a> -
+            support: <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+        </p>
+    </div>
+</section>
