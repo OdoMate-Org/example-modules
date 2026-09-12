@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- The demo resignations are attached to whichever demo employees this
+         database actually has, and the property-blocked line is copied from the
+         live odomate_hr_custody demo record, so the two registers always agree. -->
+    <function model="odomate.hr.resignation" name="_populate_demo_data"/>
+
+</odoo>

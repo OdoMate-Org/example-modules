@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_resignation_hr_user,odomate.hr.resignation HR officer,model_odomate_hr_resignation,hr.group_hr_user,1,1,1,0
+access_odomate_hr_resignation_hr_manager,odomate.hr.resignation HR manager,model_odomate_hr_resignation,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_resignation_line_manager,odomate.hr.resignation own team member,model_odomate_hr_resignation,base.group_user,1,1,0,0
+access_odomate_hr_clearance_item_hr_user,odomate.hr.clearance.item HR officer,model_odomate_hr_clearance_item,hr.group_hr_user,1,0,0,0
+access_odomate_hr_clearance_item_hr_manager,odomate.hr.clearance.item HR manager,model_odomate_hr_clearance_item,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_clearance_item_internal,odomate.hr.clearance.item internal read,model_odomate_hr_clearance_item,base.group_user,1,0,0,0
+access_odomate_hr_resignation_clearance_line_hr_user,odomate.hr.resignation.clearance.line HR officer,model_odomate_hr_resignation_clearance_line,hr.group_hr_user,1,1,1,0
+access_odomate_hr_resignation_clearance_line_hr_manager,odomate.hr.resignation.clearance.line HR manager,model_odomate_hr_resignation_clearance_line,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_resignation_clearance_line_responsible,odomate.hr.resignation.clearance.line responsible,model_odomate_hr_resignation_clearance_line,base.group_user,1,1,0,0
+access_odomate_hr_resignation_refuse_hr_user,odomate.hr.resignation.refuse HR officer,model_odomate_hr_resignation_refuse,hr.group_hr_user,1,1,1,1
+access_odomate_hr_resignation_refuse_hr_manager,odomate.hr.resignation.refuse HR manager,model_odomate_hr_resignation_refuse,hr.group_hr_manager,1,1,1,1

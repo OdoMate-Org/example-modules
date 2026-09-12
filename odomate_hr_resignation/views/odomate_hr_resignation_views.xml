@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_resignation_form" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.form</field>
+        <field name="model">odomate.hr.resignation</field>
+        <field name="arch" type="xml">
+            <form string="Resignation">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_manager_approve" type="object"
+                            string="Manager Approve" class="btn-primary"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_hr_approve" type="object" string="Approve"
+                            class="btn-primary" groups="hr.group_hr_user"
+                            invisible="state not in ('confirmed', 'manager_approved')"/>
+                    <button name="action_release" type="object" string="Release"
+                            class="btn-primary" groups="hr.group_hr_user"
+                            invisible="state != 'clearance'"/>
+                    <button name="action_send_exit_interview" type="object"
+                            string="Send Exit Interview"
+                            invisible="state not in ('manager_approved', 'clearance', 'released')"/>
+                    <button name="action_open_refuse_wizard" type="object" string="Refuse"
+                            groups="hr.group_hr_user"
+                            invisible="state not in ('draft', 'confirmed', 'manager_approved')"/>
+                    <button name="action_withdraw" type="object" string="Withdraw"
+                            invisible="state in ('released', 'refused', 'withdrawn')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,manager_approved,clearance,released"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Refused" bg_color="text-bg-danger"
+                            invisible="state != 'refused'"/>
+                    <widget name="web_ribbon" title="Withdrawn" bg_color="text-bg-warning"
+                            invisible="state != 'withdrawn'"/>
+                    <widget name="web_ribbon" title="Released" bg_color="text-bg-success"
+                            invisible="state != 'released'"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_outstanding_property" type="object"
+                                class="oe_stat_button" icon="fa-cubes"
+                                string="Outstanding Property">
+                            <field name="outstanding_property_count" widget="statinfo"
+                                   nolabel="1"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                         invisible="outstanding_property_count == 0 or state in ('released', 'refused', 'withdrawn')">
+                        This employee still holds company property that has not been
+                        returned. The release will stay blocked until the custody
+                        register is settled.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                            <field name="departure_reason_id"
+                                   readonly="state in ('released', 'refused', 'withdrawn')"
+                                   options="{'no_create': True}"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state != 'draft'"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="date_notified"
+                                   readonly="state in ('released', 'refused', 'withdrawn')"/>
+                            <field name="notice_period_days"/>
+                            <field name="proposed_last_working_day"/>
+                            <field name="last_working_day"
+                                   readonly="state in ('released', 'refused', 'withdrawn')"/>
+                            <field name="last_working_day_manual" invisible="1"/>
+                            <field name="release_date" invisible="not release_date"/>
+                        </group>
+                    </group>
+                    <group string="Reason">
+                        <field name="reason" nolabel="1"
+                               readonly="state in ('released', 'refused', 'withdrawn')"
+                               placeholder="Why is the employee leaving?"/>
+                    </group>
+                    <group string="Refusal Reason" invisible="not refusal_reason">
+                        <field name="refusal_reason" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Clearance Checklist" name="clearance">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <label for="clearance_progress"/>
+                                <field name="clearance_progress" widget="progressbar"
+                                       nolabel="1" class="w-25"/>
+                            </div>
+                            <field name="clearance_line_ids"
+                                   readonly="state in ('released', 'refused', 'withdrawn')">
+                                <list editable="bottom"
+                                      decoration-danger="state == 'blocked'"
+                                      decoration-muted="state == 'cleared'">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="clearance_item_id"
+                                           options="{'no_create': True}"/>
+                                    <field name="responsible_user_id"
+                                           widget="many2one_avatar_user"
+                                           options="{'no_create': True}"/>
+                                    <field name="remark"/>
+                                    <field name="cleared_date"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'cleared'"
+                                           decoration-danger="state == 'blocked'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Exit Interview" name="exit_interview">
+                            <group>
+                                <group>
+                                    <field name="exit_survey_id"
+                                           options="{'no_create': True}"
+                                           readonly="state in ('refused', 'withdrawn')"/>
+                                    <field name="exit_survey_sent"/>
+                                    <field name="exit_survey_answered"/>
+                                </group>
+                                <group>
+                                    <field name="exit_survey_input_id" invisible="1"/>
+                                    <button name="action_open_exit_interview_answer"
+                                            type="object" string="Open Answer"
+                                            class="btn-secondary"
+                                            invisible="not exit_survey_sent"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_resignation_list" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.list</field>
+        <field name="model">odomate.hr.resignation</field>
+        <field name="arch" type="xml">
+            <list string="Resignations"
+                  decoration-muted="state in ('refused', 'withdrawn')"
+                  decoration-success="state == 'released'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id" optional="show"/>
+                <field name="date_notified" optional="hide"/>
+                <field name="last_working_day"/>
+                <field name="clearance_progress" widget="progressbar"/>
+                <field name="outstanding_property_count" string="Property" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-info="state in ('confirmed', 'manager_approved')"
+                       decoration-warning="state == 'clearance'"
+                       decoration-success="state == 'released'"
+                       decoration-danger="state == 'refused'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_resignation_search" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.search</field>
+        <field name="model">odomate.hr.resignation</field>
+        <field name="arch" type="xml">
+            <search string="Resignations">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="departure_reason_id"/>
+                <filter name="filter_in_progress" string="In Progress"
+                        domain="[('state', 'in', ['draft', 'confirmed', 'manager_approved', 'clearance'])]"/>
+                <separator/>
+                <filter name="filter_released" string="Released"
+                        domain="[('state', '=', 'released')]"/>
+                <filter name="filter_refused" string="Refused"
+                        domain="[('state', '=', 'refused')]"/>
+                <filter name="filter_withdrawn" string="Withdrawn"
+                        domain="[('state', '=', 'withdrawn')]"/>
+                <separator/>
+                <filter name="filter_property_outstanding" string="Awaiting Clearance"
+                        domain="[('state', '=', 'clearance')]"/>
+                <filter name="filter_leaving_this_month" string="Leaving This Month"
+                        domain="[('last_working_day', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                 ('last_working_day', '&lt;=', (context_today() + relativedelta(day=31)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_department" string="Department"
+                        context="{'group_by': 'department_id'}"/>
+                <filter name="group_reason" string="Departure Reason"
+                        context="{'group_by': 'departure_reason_id'}"/>
+                <filter name="group_last_working_day" string="Last Working Day"
+                        context="{'group_by': 'last_working_day'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_resignation" model="ir.actions.act_window">
+        <field name="name">Resignations</field>
+        <field name="res_model">odomate.hr.resignation</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_resignation_search"/>
+        <field name="context">{'search_default_filter_in_progress': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smart_button">
+                Record a resignation
+            </p>
+            <p>
+                Track the notice period, run the exit clearance checklist and
+                release the employee only once every item is cleared and no
+                company property is still outstanding.
+            </p>
+        </field>
+    </record>
+
+</odoo>

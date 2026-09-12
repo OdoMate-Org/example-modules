@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="clearance_item_it_accounts" model="odomate.hr.clearance.item">
+        <field name="name">IT Accounts</field>
+        <field name="sequence">10</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="clearance_item_company_property" model="odomate.hr.clearance.item">
+        <field name="name">Company Property</field>
+        <field name="sequence">20</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="clearance_item_handover_notes" model="odomate.hr.clearance.item">
+        <field name="name">Handover Notes</field>
+        <field name="sequence">30</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="clearance_item_finance" model="odomate.hr.clearance.item">
+        <field name="name">Finance</field>
+        <field name="sequence">40</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="clearance_item_keys_passes" model="odomate.hr.clearance.item">
+        <field name="name">Keys &amp; Passes</field>
+        <field name="sequence">50</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

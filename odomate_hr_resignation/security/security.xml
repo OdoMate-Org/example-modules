@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- This module ships no res.groups and no res.users records on purpose:
+         it reuses hr.group_hr_user / hr.group_hr_manager, which HR staff
+         already hold, so every menu below is reachable right after install. -->
+
+    <record id="rule_resignation_company" model="ir.rule">
+        <field name="name">Resignation: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_resignation"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_resignation_hr" model="ir.rule">
+        <field name="name">Resignation: HR officers see all</field>
+        <field name="model_id" ref="model_odomate_hr_resignation"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_resignation_line_manager" model="ir.rule">
+        <field name="name">Resignation: only the resigning employee's own manager</field>
+        <field name="model_id" ref="model_odomate_hr_resignation"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.parent_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_clearance_line_company" model="ir.rule">
+        <field name="name">Clearance line: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_resignation_clearance_line"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_clearance_line_hr" model="ir.rule">
+        <field name="name">Clearance line: HR officers see all</field>
+        <field name="model_id" ref="model_odomate_hr_resignation_clearance_line"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_clearance_line_responsible" model="ir.rule">
+        <field name="name">Clearance line: own responsibilities</field>
+        <field name="model_id" ref="model_odomate_hr_resignation_clearance_line"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('responsible_user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_clearance_item_company" model="ir.rule">
+        <field name="name">Clearance item: company or global</field>
+        <field name="model_id" ref="model_odomate_hr_clearance_item"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

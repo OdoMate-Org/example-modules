@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_resignation_refuse_form" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.refuse.form</field>
+        <field name="model">odomate.hr.resignation.refuse</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Resignation">
+                <field name="resignation_id" invisible="1"/>
+                <group>
+                    <field name="reason" nolabel="1"
+                           placeholder="Explain why this resignation is refused. The reason is stored on the record and posted in the chatter."/>
+                </group>
+                <footer>
+                    <button name="action_confirm_refusal" type="object"
+                            string="Refuse" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
