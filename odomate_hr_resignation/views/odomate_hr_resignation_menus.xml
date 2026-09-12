@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_odomate_hr_resignation_root"
+              name="Resignations"
+              parent="hr.menu_hr_root"
+              action="action_odomate_hr_resignation"
+              groups="hr.group_hr_user"
+              sequence="70"/>
+
+    <menuitem id="menu_odomate_hr_clearance_item"
+              name="Clearance Items"
+              parent="hr.menu_human_resources_configuration"
+              action="action_odomate_hr_clearance_item"
+              groups="hr.group_hr_manager"
+              sequence="90"/>
+
+</odoo>

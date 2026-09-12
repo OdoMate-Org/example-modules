@@ -1,0 +1,137 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">OdoMate HR Resignation &amp; Clearance</h2>
+        <h3 class="oe_slogan">Offboard employees without losing the laptop</h3>
+        <p class="oe_mt32">
+            Track a resignation from the day notice is given, through manager and
+            HR approval, across an exit clearance checklist, to the final release
+            of the employee. The release stays blocked while the custody register
+            still shows company property in that employee's hands, so nobody
+            walks out with a projector still assigned to them.
+        </p>
+        <p>
+            The custody register is read, never written. It is re-read live at
+            every release attempt rather than trusting the snapshot taken at HR
+            approval - the two are allowed to disagree, and the live read always
+            wins.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Key Features</h2>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Full state machine</b> - draft, confirmed, manager approved,
+                    clearance, released, with refused and withdrawn as terminal
+                    branches.</li>
+                <li><b>Notice period from the contract</b> - read from the
+                    employee's current <code>hr.version</code>, with a proposed
+                    last working day that stops mirroring the moment a human
+                    edits it.</li>
+                <li><b>Configurable checklist</b> - per-company or globally
+                    shared clearance items, each routed to its own responsible
+                    user.</li>
+                <li><b>Optional manager approval</b> - one checkbox per company
+                    in the Employees settings.</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Two independent release blockers</b> - outstanding company
+                    property and an incomplete checklist, each with its own
+                    distinctly worded message naming exactly what is missing.</li>
+                <li><b>Post-release immutability</b> - enforced in
+                    <code>write()</code>, not merely read-only on the view.</li>
+                <li><b>Daily scheduled action</b> - auto-releases records once the
+                    last working day has passed, running the same two checks as
+                    the button, with no elevated bypass.</li>
+                <li><b>Exit interview</b> - through the standard
+                    <code>survey.invite</code> flow, with sent and answered
+                    indicators.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">How it works</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                <b>1. Record the notice.</b> In <b>Employees &rarr; Resignations</b>,
+                pick the employee and the notification date. The notice period is
+                read from their current version and the proposed last working day
+                is calculated: notice given on 8 September with a 30-day period
+                proposes <b>8 October</b>.
+            </p>
+            <p>
+                <b>2. Approve.</b> Confirm raises a To-Do activity on the
+                employee's manager. Manager Approve hands over to HR; HR Approve
+                builds the checklist from the active clearance items and raises
+                one activity per responsible user.
+            </p>
+            <p>
+                <b>3. Clear.</b> Anything still on loan from the custody register
+                is snapshotted into an extra blocked line naming each item, its
+                handover reference and its due date. Responsible users clear their
+                own line from their inbox - and see nothing else of the file.
+            </p>
+            <p>
+                <b>4. Release.</b> Once the checklist is complete and the live
+                custody re-read comes back empty, one atomic step writes the
+                departure date and reason on the employee, ends the current
+                contract version, archives the employee and archives their login.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Security</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                No new security groups are created - the module reuses
+                <code>hr.group_hr_user</code> and <code>hr.group_hr_manager</code>,
+                so HR staff can use it the moment it installs. There is no
+                resignation menu outside HR: the resigning employee's own manager
+                reaches exactly one record through their approval activity, and
+                every other internal user matches zero rows. Multi-company record
+                rules are shipped on every model.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Documentation</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                The full user guide - including the complete permission matrix,
+                a worked notice-period example and an honest list of what is out
+                of scope for this version - ships with the module at
+                <code>doc/USER_GUIDE.md</code>.
+            </p>
+            <p>
+                Requires <code>odomate_hr_custody</code>. Ukrainian translations
+                are included in <code>i18n/uk.po</code>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p class="oe_mt32" style="text-align: center;">
+                <a href="https://odomate.pro">https://odomate.pro</a>
+                &nbsp;&middot;&nbsp;
+                <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>

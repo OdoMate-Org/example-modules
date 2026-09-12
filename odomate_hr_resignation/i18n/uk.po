@@ -1,0 +1,657 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_hr_resignation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-08 00:00+0000\n"
+"PO-Revision-Date: 2026-09-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n%1==0 && n%10==1 && n%100!=11 ? 0 : n%1==0 && n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%1==0 && (n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)) ? 2 : 3);\n"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__confirmed
+msgid "Confirmed"
+msgstr "Підтверджено"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__manager_approved
+msgid "Manager Approved"
+msgstr "Схвалено керівником"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__clearance
+msgid "Clearance"
+msgstr "Обхідний лист"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__released
+msgid "Released"
+msgstr "Звільнено"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__refused
+msgid "Refused"
+msgstr "Відхилено"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation__state__withdrawn
+msgid "Withdrawn"
+msgstr "Відкликано"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation_clearance_line__state__pending
+msgid "Pending"
+msgstr "В очікуванні"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation_clearance_line__state__cleared
+msgid "Cleared"
+msgstr "Закрито"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields.selection,name:odomate_hr_resignation.selection__odomate_hr_resignation_clearance_line__state__blocked
+msgid "Blocked"
+msgstr "Заблоковано"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Manager Approve"
+msgstr "Схвалення керівника"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Approve"
+msgstr "Схвалити"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Release"
+msgstr "Звільнити"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Send Exit Interview"
+msgstr "Надіслати вихідне інтерв'ю"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Refuse"
+msgstr "Відхилити"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Withdraw"
+msgstr "Відкликати"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__outstanding_property_count
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Outstanding Property"
+msgstr "Неповернуте майно"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Open Answer"
+msgstr "Відкрити відповідь"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_form
+msgid "Mark as Cleared"
+msgstr "Позначити як закрите"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_form
+msgid "Mark as Blocked"
+msgstr "Позначити як заблоковане"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_form
+msgid "Reset to Pending"
+msgstr "Повернути в очікування"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_refuse_form
+msgid "Refuse Resignation"
+msgstr "Відхилити заяву про звільнення"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only a draft resignation can be confirmed."
+msgstr "Підтвердити можна лише заяву в стані чернетки."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only a confirmed resignation can be approved by the manager."
+msgstr "Керівник може схвалити лише підтверджену заяву."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only %(manager)s or an HR officer can approve this resignation."
+msgstr "Схвалити цю заяву може лише %(manager)s або співробітник відділу кадрів."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only an HR officer can approve a resignation and open the exit clearance."
+msgstr "Лише співробітник відділу кадрів може схвалити заяву та відкрити обхідний лист."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only a confirmed or manager-approved resignation can be approved by HR."
+msgstr "Відділ кадрів може схвалити лише підтверджену або схвалену керівником заяву."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only an HR officer can release an employee."
+msgstr "Лише співробітник відділу кадрів може звільнити працівника."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only a resignation that HR has not approved yet can be refused."
+msgstr "Відхилити можна лише заяву, яку відділ кадрів ще не схвалив."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Only a resignation whose exit clearance has been opened can be released."
+msgstr "Звільнити можна лише заяву, для якої відкрито обхідний лист."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(employee)s is still registered as holding company property. The custody register reports the following as not returned:\n%(items)s"
+msgstr "За %(employee)s досі рахується майно компанії. Реєстр відповідального зберігання показує як неповернуте:\n%(items)s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "The exit clearance checklist is not complete. The following entries are still open:\n%(items)s"
+msgstr "Обхідний лист не завершено. Досі відкриті такі пункти:\n%(items)s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "- %(item)s (handover %(reference)s, due %(due_date)s)"
+msgstr "- %(item)s (передача %(reference)s, термін %(due_date)s)"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "- %(item)s (%(status)s, %(responsible)s)"
+msgstr "- %(item)s (%(status)s, %(responsible)s)"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Company property still registered to this employee when HR approved the resignation:\n%(items)s"
+msgstr "Майно компанії, що рахувалося за працівником на момент схвалення заяви відділом кадрів:\n%(items)s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(reference)s has already been released. Its dates, reason and clearance checklist cannot be changed any more."
+msgstr "%(reference)s вже звільнено. Дати, причину та обхідний лист більше не можна змінювати."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(reference)s has already been released and can no longer be withdrawn."
+msgstr "%(reference)s вже звільнено, тому заяву неможливо відкликати."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "This resignation is already closed."
+msgstr "Цю заяву вже закрито."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(employee)s already has a resignation that is neither refused nor withdrawn (%(reference)s). Close that one before recording a new one."
+msgstr "У %(employee)s вже є заява, яку не відхилено й не відкликано (%(reference)s). Закрийте її, перш ніж створювати нову."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(employee)s cannot have two resignations recorded at once."
+msgstr "Для %(employee)s не можна створити дві заяви одночасно."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "The last working day cannot be earlier than the notification date."
+msgstr "Останній робочий день не може бути раніше дати повідомлення."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Approve the resignation of %s"
+msgstr "Схваліть заяву про звільнення: %s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "HR review of the resignation of %s"
+msgstr "Розгляд відділом кадрів заяви про звільнення: %s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Start the exit clearance for %s"
+msgstr "Розпочніть обхідний лист для %s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Exit clearance: %(item)s for %(employee)s"
+msgstr "Обхідний лист: %(item)s для %(employee)s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Notified on %(notified)s, proposed last working day %(last_day)s."
+msgstr "Повідомлено %(notified)s, запропонований останній робочий день %(last_day)s."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Approved by the manager."
+msgstr "Схвалено керівником."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Approved by HR."
+msgstr "Схвалено відділом кадрів."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Resignation refused."
+msgstr "Заяву про звільнення відхилено."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Resignation refused: %s"
+msgstr "Заяву про звільнення відхилено: %s"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Resignation withdrawn."
+msgstr "Заяву про звільнення відкликано."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Resignation withdrawn. The employee record is left untouched."
+msgstr "Заяву відкликано. Картку працівника не змінено."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Resignation released."
+msgstr "Звільнення проведено."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Released on %(release_date)s. The employee record has been archived."
+msgstr "Звільнено %(release_date)s. Картку працівника заархівовано."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "The current employee version has no contract start date, so no contract end date was set on it."
+msgstr "Поточна версія працівника не має дати початку контракту, тому дату завершення не встановлено."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "No clearance item is configured, so the outstanding company property could not be snapshotted. The release check still reads the custody register live."
+msgstr "Не налаштовано жодного пункту обхідного листа, тому знімок неповернутого майна не створено. Перевірка при звільненні все одно читає реєстр наживо."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "The exit interview can only be sent once the resignation has been approved."
+msgstr "Вихідне інтерв'ю можна надіслати лише після схвалення заяви."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Select an exit interview survey first."
+msgstr "Спочатку оберіть опитування для вихідного інтерв'ю."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "%(employee)s has no work contact or user, so no exit interview invitation can be addressed."
+msgstr "У %(employee)s немає робочого контакту чи користувача, тому запрошення на вихідне інтерв'ю нікому надіслати."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "The exit interview has not been answered yet."
+msgstr "На вихідне інтерв'ю ще не відповіли."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation.py:0
+msgid "Outstanding Company Property"
+msgstr "Неповернуте майно компанії"
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation_clearance_line.py:0
+msgid "Only %(responsible)s or an HR officer can update this clearance line."
+msgstr "Оновити цей пункт обхідного листа може лише %(responsible)s або співробітник відділу кадрів."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation_clearance_line.py:0
+msgid "The exit clearance of a released resignation can no longer be changed."
+msgstr "Обхідний лист після звільнення більше не можна змінювати."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/models/odomate_hr_resignation_clearance_line.py:0
+msgid "Add a remark explaining what blocks %(item)s before marking it as blocked."
+msgstr "Додайте примітку з поясненням, що блокує %(item)s, перш ніж позначати пункт як заблокований."
+
+#. module: odomate_hr_resignation
+#. odoo-python
+#: code:addons/odomate_hr_resignation/wizard/odomate_hr_resignation_refuse.py:0
+msgid "Please explain why this resignation is refused."
+msgstr "Будь ласка, поясніть, чому цю заяву відхилено."
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_clearance_item_search
+msgid "Available To All Companies"
+msgstr "Доступні всім компаніям"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_clearance_item_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_clearance_item_search
+msgid "Archived"
+msgstr "Заархівовано"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__responsible_user_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_clearance_item_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_search
+msgid "Responsible"
+msgstr "Відповідальний"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_clearance_item__company_id
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__company_id
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__company_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_clearance_item_search
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_employee_form_inherit_resignation
+msgid "Open it"
+msgstr "Відкрити"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__remark
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_form
+msgid "Remark"
+msgstr "Примітка"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_search
+msgid "My Tasks"
+msgstr "Мої завдання"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__employee_id
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__employee_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__state
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_clearance_line_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Reason"
+msgstr "Причина"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__refusal_reason
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_refuse__reason
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Refusal Reason"
+msgstr "Причина відхилення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__clearance_line_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Clearance Checklist"
+msgstr "Обхідний лист"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__exit_survey_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_form
+msgid "Exit Interview"
+msgstr "Вихідне інтерв'ю"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "In Progress"
+msgstr "В роботі"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Awaiting Clearance"
+msgstr "Очікує обхідного листа"
+
+#. module: odomate_hr_resignation
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Leaving This Month"
+msgstr "Звільняються цього місяця"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__department_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Department"
+msgstr "Відділ"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__departure_reason_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Departure Reason"
+msgstr "Причина звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__last_working_day
+#: model_terms:ir.ui.view,arch_db:odomate_hr_resignation.view_odomate_hr_resignation_search
+msgid "Last Working Day"
+msgstr "Останній робочий день"
+
+#. module: odomate_hr_resignation
+#: model:ir.actions.act_window,name:odomate_hr_resignation.action_odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_hr_employee__resignation_ids
+#: model:ir.ui.menu,name:odomate_hr_resignation.menu_odomate_hr_resignation_root
+msgid "Resignations"
+msgstr "Заяви про звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.actions.act_window,name:odomate_hr_resignation.action_odomate_hr_clearance_item
+#: model:ir.ui.menu,name:odomate_hr_resignation.menu_odomate_hr_clearance_item
+msgid "Clearance Items"
+msgstr "Пункти обхідного листа"
+
+#. module: odomate_hr_resignation
+#: model:ir.actions.act_window,name:odomate_hr_resignation.action_odomate_hr_resignation_clearance_line
+msgid "Clearance Tasks"
+msgstr "Завдання обхідного листа"
+
+#. module: odomate_hr_resignation
+#: model:odomate.hr.clearance.item,name:odomate_hr_resignation.clearance_item_it_accounts
+msgid "IT Accounts"
+msgstr "ІТ-облікові записи"
+
+#. module: odomate_hr_resignation
+#: model:odomate.hr.clearance.item,name:odomate_hr_resignation.clearance_item_company_property
+msgid "Company Property"
+msgstr "Майно компанії"
+
+#. module: odomate_hr_resignation
+#: model:odomate.hr.clearance.item,name:odomate_hr_resignation.clearance_item_handover_notes
+msgid "Handover Notes"
+msgstr "Нотатки щодо передачі справ"
+
+#. module: odomate_hr_resignation
+#: model:odomate.hr.clearance.item,name:odomate_hr_resignation.clearance_item_finance
+msgid "Finance"
+msgstr "Фінанси"
+
+#. module: odomate_hr_resignation
+#: model:odomate.hr.clearance.item,name:odomate_hr_resignation.clearance_item_keys_passes
+msgid "Keys & Passes"
+msgstr "Ключі та перепустки"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__name
+msgid "Reference"
+msgstr "Референс"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__job_id
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__date_notified
+msgid "Notification Date"
+msgstr "Дата повідомлення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__notice_period_days
+msgid "Notice Period (Days)"
+msgstr "Термін попередження (днів)"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__proposed_last_working_day
+msgid "Proposed Last Working Day"
+msgstr "Запропонований останній робочий день"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__last_working_day_manual
+msgid "Last Working Day Set Manually"
+msgstr "Останній робочий день встановлено вручну"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__release_date
+msgid "Release Date"
+msgstr "Дата звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__exit_survey_input_id
+msgid "Exit Interview Answer"
+msgstr "Відповідь на вихідне інтерв'ю"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__exit_survey_sent
+msgid "Exit Interview Sent"
+msgstr "Вихідне інтерв'ю надіслано"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__exit_survey_answered
+msgid "Exit Interview Answered"
+msgstr "На вихідне інтерв'ю відповіли"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation__clearance_progress
+msgid "Clearance Progress"
+msgstr "Прогрес обхідного листа"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_clearance_item__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_clearance_item__sequence
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_clearance_item__responsible_user_id
+msgid "Default Responsible"
+msgstr "Відповідальний за замовчуванням"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_clearance_item__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__resignation_id
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_refuse__resignation_id
+msgid "Resignation"
+msgstr "Заява про звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__clearance_item_id
+msgid "Clearance Item"
+msgstr "Пункт обхідного листа"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_odomate_hr_resignation_clearance_line__cleared_date
+msgid "Cleared On"
+msgstr "Дата закриття"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_hr_employee__active_resignation_id
+msgid "Ongoing Resignation"
+msgstr "Поточна заява про звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_hr_employee__resignation_count
+msgid "Resignation Count"
+msgstr "Кількість заяв про звільнення"
+
+#. module: odomate_hr_resignation
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_res_company__resignation_manager_approval_required
+#: model:ir.model.fields,field_description:odomate_hr_resignation.field_res_config_settings__resignation_manager_approval_required
+msgid "Manager Approval on Resignations"
+msgstr "Затвердження керівником заяв про звільнення"

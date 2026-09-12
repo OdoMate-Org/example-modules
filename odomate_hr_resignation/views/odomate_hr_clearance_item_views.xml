@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_clearance_item_list" model="ir.ui.view">
+        <field name="name">odomate.hr.clearance.item.list</field>
+        <field name="model">odomate.hr.clearance.item</field>
+        <field name="arch" type="xml">
+            <list string="Clearance Items" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="responsible_user_id" widget="many2one_avatar_user"
+                       options="{'no_create': True}"/>
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True}"
+                       placeholder="All companies"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_clearance_item_form" model="ir.ui.view">
+        <field name="name">odomate.hr.clearance.item.form</field>
+        <field name="model">odomate.hr.clearance.item</field>
+        <field name="arch" type="xml">
+            <form string="Clearance Item">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. IT Accounts"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsible_user_id"
+                                   options="{'no_create': True}"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   options="{'no_create': True}"
+                                   placeholder="All companies"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_clearance_item_search" model="ir.ui.view">
+        <field name="name">odomate.hr.clearance.item.search</field>
+        <field name="model">odomate.hr.clearance.item</field>
+        <field name="arch" type="xml">
+            <search string="Clearance Items">
+                <field name="name"/>
+                <field name="responsible_user_id"/>
+                <filter name="filter_global" string="Available To All Companies"
+                        domain="[('company_id', '=', False)]"/>
+                <filter name="filter_archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="group_responsible" string="Responsible"
+                        context="{'group_by': 'responsible_user_id'}"/>
+                <filter name="group_company" string="Company"
+                        context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_clearance_item" model="ir.actions.act_window">
+        <field name="name">Clearance Items</field>
+        <field name="res_model">odomate.hr.clearance.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_clearance_item_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smart_button">
+                Create your first clearance item
+            </p>
+            <p>
+                Clearance items are the checklist entries HR builds for every
+                resigning employee - IT Accounts, Company Property, Finance...
+                Leave the company empty to share an item across all companies.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Deliberately narrow: no field on this view walks back into the parent
+         resignation, so a plain internal user who is responsible for one line
+         never needs (nor gets) access to the rest of the resignation. -->
+    <record id="view_odomate_hr_resignation_clearance_line_form" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.clearance.line.form</field>
+        <field name="model">odomate.hr.resignation.clearance.line</field>
+        <field name="arch" type="xml">
+            <form string="Clearance Task">
+                <header>
+                    <button name="action_set_cleared" type="object" string="Mark as Cleared"
+                            class="btn-primary" invisible="state == 'cleared'"/>
+                    <button name="action_set_blocked" type="object" string="Mark as Blocked"
+                            invisible="state == 'blocked'"/>
+                    <button name="action_reset_pending" type="object" string="Reset to Pending"
+                            invisible="state == 'pending'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="pending,cleared"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="clearance_item_id" readonly="1"
+                                   options="{'no_open': True}"/></h1>
+                        <h2><field name="employee_id" readonly="1"
+                                   options="{'no_open': True}"/></h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsible_user_id" readonly="1"
+                                   widget="many2one_avatar_user"
+                                   options="{'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="cleared_date"/>
+                        </group>
+                    </group>
+                    <group string="Remark">
+                        <field name="remark" nolabel="1"
+                               placeholder="What is still missing, or how was this cleared?"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_resignation_clearance_line_list" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.clearance.line.list</field>
+        <field name="model">odomate.hr.resignation.clearance.line</field>
+        <field name="arch" type="xml">
+            <list string="Clearance Tasks" decoration-danger="state == 'blocked'"
+                  decoration-muted="state == 'cleared'" create="false">
+                <field name="employee_id"/>
+                <field name="clearance_item_id"/>
+                <field name="responsible_user_id" widget="many2one_avatar_user"/>
+                <field name="cleared_date" optional="show"/>
+                <field name="remark" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'cleared'"
+                       decoration-danger="state == 'blocked'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_odomate_hr_resignation_clearance_line_search" model="ir.ui.view">
+        <field name="name">odomate.hr.resignation.clearance.line.search</field>
+        <field name="model">odomate.hr.resignation.clearance.line</field>
+        <field name="arch" type="xml">
+            <search string="Clearance Tasks">
+                <field name="employee_id"/>
+                <field name="clearance_item_id"/>
+                <field name="responsible_user_id"/>
+                <filter name="filter_pending" string="Pending"
+                        domain="[('state', '=', 'pending')]"/>
+                <filter name="filter_blocked" string="Blocked"
+                        domain="[('state', '=', 'blocked')]"/>
+                <filter name="filter_cleared" string="Cleared"
+                        domain="[('state', '=', 'cleared')]"/>
+                <separator/>
+                <filter name="filter_mine" string="My Tasks"
+                        domain="[('responsible_user_id', '=', uid)]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_responsible" string="Responsible"
+                        context="{'group_by': 'responsible_user_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_odomate_hr_resignation_clearance_line" model="ir.actions.act_window">
+        <field name="name">Clearance Tasks</field>
+        <field name="res_model">odomate.hr.resignation.clearance.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_odomate_hr_resignation_clearance_line_search"/>
+        <field name="context">{'search_default_filter_mine': 1, 'search_default_filter_pending': 1}</field>
+    </record>
+
+</odoo>
