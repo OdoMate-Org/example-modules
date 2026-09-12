@@ -1,0 +1,640 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_hr_notices
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: odomate_hr_notices
+#: model:ir.model,name:odomate_hr_notices.model_odomate_hr_announcement
+msgid "HR Announcement"
+msgstr "Оголошення HR"
+
+#. module: odomate_hr_notices
+#: model:ir.model,name:odomate_hr_notices.model_odomate_hr_announcement_category
+msgid "HR Announcement Category"
+msgstr "Категорія оголошень HR"
+
+#. module: odomate_hr_notices
+#: model:ir.model,name:odomate_hr_notices.model_odomate_hr_reminder
+msgid "HR Date Reminder"
+msgstr "Нагадування HR про дату"
+
+#. module: odomate_hr_notices
+#: model:ir.model,name:odomate_hr_notices.model_odomate_hr_announcement_refuse
+msgid "Refuse HR Announcement"
+msgstr "Відхилення оголошення HR"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__reference
+msgid "Reference"
+msgstr "Номер"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__title
+msgid "Title"
+msgstr "Заголовок"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__body
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_refuse__announcement_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Announcement"
+msgstr "Оголошення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__category_id
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_category__name
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Category"
+msgstr "Категорія"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__priority
+msgid "Priority"
+msgstr "Пріоритет"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__date_start
+msgid "Display From"
+msgstr "Показувати з"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__date_end
+msgid "Display Until"
+msgstr "Показувати до"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__state
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__audience
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Audience"
+msgstr "Аудиторія"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__employee_ids
+msgid "Employees"
+msgstr "Співробітники"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__department_ids
+msgid "Departments"
+msgstr "Відділи"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__job_ids
+msgid "Job Positions"
+msgstr "Посади"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__acknowledged_employee_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Acknowledged By"
+msgstr "Підтвердили ознайомлення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__acknowledged_count
+msgid "Acknowledged"
+msgstr "Підтверджено"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__audience_count
+msgid "Audience Size"
+msgstr "Розмір аудиторії"
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Has Not Acknowledged"
+msgstr "Не підтвердили ознайомлення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__pending_employee_ids
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Has Not Acknowledged"
+msgstr "Не підтвердили ознайомлення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__is_acknowledged_by_me
+msgid "Acknowledged By Me"
+msgstr "Підтверджено мною"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__is_for_me
+msgid "Addressed To Me"
+msgstr "Адресовано мені"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__company_id
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_category__company_id
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement__refuse_reason
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_refuse__reason
+msgid "Refusal Reason"
+msgstr "Причина відхилення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_category__color
+msgid "Color"
+msgstr "Колір"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_announcement_category__active
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__name
+msgid "Reminder"
+msgstr "Нагадування"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__model_id
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_search
+msgid "Model"
+msgstr "Модель"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__field_id
+msgid "Date Field"
+msgstr "Поле дати"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__window
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_search
+msgid "Time Window"
+msgstr "Часовий інтервал"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__days_ahead
+msgid "Days Ahead"
+msgstr "Днів наперед"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__date_from
+msgid "From"
+msgstr "З"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__date_to
+msgid "To"
+msgstr "До"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_odomate_hr_reminder__preview_count
+msgid "Matching Records"
+msgstr "Відповідні записи"
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/hr_employee.py:0
+msgid "Notices"
+msgstr "Сповіщення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,field_description:odomate_hr_notices.field_hr_employee__notice_count
+#: model:ir.ui.menu,name:odomate_hr_notices.menu_odomate_hr_notices_root
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_hr_employee_form_inherit_notices
+msgid "Notices"
+msgstr "Сповіщення"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,help:odomate_hr_notices.field_odomate_hr_announcement__date_start
+msgid "First day the announcement is visible to its audience."
+msgstr "Перший день, коли оголошення видиме для його аудиторії."
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,help:odomate_hr_notices.field_odomate_hr_announcement__date_end
+msgid "Last day the announcement is visible to its audience."
+msgstr "Останній день, коли оголошення видиме для його аудиторії."
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,help:odomate_hr_notices.field_odomate_hr_announcement__department_ids
+msgid ""
+"Only employees of these exact departments are addressed; sub-departments are "
+"not included."
+msgstr ""
+"Адресовано лише співробітникам саме цих відділів; підпорядковані відділи не "
+"враховуються."
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,help:odomate_hr_notices.field_odomate_hr_announcement__acknowledged_employee_ids
+msgid ""
+"Employees who pressed the Acknowledge button. This records the button press "
+"only; it is not a statement that the announcement was read and understood."
+msgstr ""
+"Співробітники, які натиснули кнопку підтвердження. Це фіксує лише натискання "
+"кнопки; це не означає, що оголошення прочитано та зрозуміло."
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields,help:odomate_hr_notices.field_odomate_hr_announcement_category__company_id
+msgid "Leave empty to share this category with every company."
+msgstr "Залиште порожнім, щоб зробити категорію спільною для всіх компаній."
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__priority__0
+msgid "Low"
+msgstr "Низький"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__priority__1
+msgid "Normal"
+msgstr "Звичайний"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__priority__2
+msgid "High"
+msgstr "Високий"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__priority__3
+msgid "Urgent"
+msgstr "Терміновий"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__state__draft
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__state__to_approve
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Waiting for Approval"
+msgstr "Очікує затвердження"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__state__published
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Published"
+msgstr "Опубліковано"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__state__refused
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Refused"
+msgstr "Відхилено"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__state__expired
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Expired"
+msgstr "Термін дії минув"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__audience__all
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Everyone"
+msgstr "Усі"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__audience__employee
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Selected Employees"
+msgstr "Вибрані співробітники"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__audience__department
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Selected Departments"
+msgstr "Вибрані відділи"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_announcement__audience__job
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Selected Job Positions"
+msgstr "Вибрані посади"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_reminder__window__today
+msgid "Today"
+msgstr "Сьогодні"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_reminder__window__days_ahead
+msgid "Within the next N days"
+msgstr "Протягом наступних N днів"
+
+#. module: odomate_hr_notices
+#: model:ir.model.fields.selection,name:odomate_hr_notices.selection__odomate_hr_reminder__window__period
+msgid "Between two dates"
+msgstr "Між двома датами"
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "Announcements"
+msgstr "Оголошення"
+
+#. module: odomate_hr_notices
+#: model:ir.actions.act_window,name:odomate_hr_notices.action_odomate_hr_announcement_my
+#: model:ir.ui.menu,name:odomate_hr_notices.menu_odomate_hr_announcement_my
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_search
+msgid "Announcements"
+msgstr "Оголошення"
+
+#. module: odomate_hr_notices
+#: model:ir.actions.act_window,name:odomate_hr_notices.action_odomate_hr_announcement_all
+#: model:ir.ui.menu,name:odomate_hr_notices.menu_odomate_hr_announcement_all
+msgid "All Announcements"
+msgstr "Усі оголошення"
+
+#. module: odomate_hr_notices
+#: model:ir.actions.act_window,name:odomate_hr_notices.action_odomate_hr_announcement_category
+#: model:ir.ui.menu,name:odomate_hr_notices.menu_odomate_hr_announcement_category
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_search
+msgid "Announcement Categories"
+msgstr "Категорії оголошень"
+
+#. module: odomate_hr_notices
+#: model:ir.actions.act_window,name:odomate_hr_notices.action_odomate_hr_reminder
+#: model:ir.ui.menu,name:odomate_hr_notices.menu_odomate_hr_reminder
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_list
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_search
+msgid "Date Reminders"
+msgstr "Нагадування про дати"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_form
+msgid "Announcement Category"
+msgstr "Категорія оголошень"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_form
+msgid "Date Reminder"
+msgstr "Нагадування про дату"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Send for Approval"
+msgstr "Надіслати на затвердження"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Publish"
+msgstr "Опублікувати"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_refuse_form
+msgid "Refuse"
+msgstr "Відхилити"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Reset to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Acknowledge"
+msgstr "Підтвердити ознайомлення"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid ""
+"Records that you pressed this button. It is not a statement that you read and"
+" understood the announcement."
+msgstr ""
+"Фіксує лише те, що ви натиснули цю кнопку. Це не означає, що ви прочитали та "
+"зрозуміли оголошення."
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Acknowledgements"
+msgstr "Підтвердження ознайомлення"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Open the has-not-acknowledged list"
+msgstr "Відкрити список тих, хто не підтвердив"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid ""
+"Acknowledging records the button press only. It is not a\n"
+"                                statement that the announcement was read and understood."
+msgstr ""
+"Підтвердження фіксує лише натискання кнопки. Це не означає,\n"
+"                                що оголошення прочитано та зрозуміло."
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Refusal"
+msgstr "Відхилення"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "e.g. Updated remote work policy"
+msgstr "напр. Оновлена політика дистанційної роботи"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_form
+msgid "Write the announcement here..."
+msgstr "Напишіть текст оголошення тут..."
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_form
+msgid "e.g. Policy"
+msgstr "напр. Політика"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_form
+msgid "e.g. Work permits expiring soon"
+msgstr "напр. Дозволи на роботу, термін яких спливає"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_form
+msgid ""
+"A reminder answers a date question only. It never filters on an\n"
+"                        amount, a state or a status."
+msgstr ""
+"Нагадування відповідає лише на питання про дату. Воно ніколи не фільтрує за\n"
+"                        сумою, станом або статусом."
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_list
+msgid "Matching"
+msgstr "Відповідає"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_category_search
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_form
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_reminder_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Refuse Announcement"
+msgstr "Відхилити оголошення"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_refuse_form
+msgid "Refuse Announcement"
+msgstr "Відхилити оголошення"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_refuse_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: odomate_hr_notices
+#: model_terms:ir.ui.view,arch_db:odomate_hr_notices.view_odomate_hr_announcement_refuse_form
+msgid "Explain why this announcement is refused..."
+msgstr "Поясніть, чому це оголошення відхилено..."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Only a draft announcement can be sent for approval."
+msgstr "На затвердження можна надіслати лише оголошення в статусі чернетки."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Approve announcement %s"
+msgstr "Затвердити оголошення %s"
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Only an HR Administrator can publish an announcement."
+msgstr "Публікувати оголошення може лише адміністратор HR."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Only an announcement waiting for approval can be published."
+msgstr "Опублікувати можна лише оголошення, що очікує затвердження."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+#: code:addons/odomate_hr_notices/wizard/odomate_hr_announcement_refuse.py:0
+msgid "Only an announcement waiting for approval can be refused."
+msgstr "Відхилити можна лише оголошення, що очікує затвердження."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid "Only a refused or expired announcement can be reset to draft."
+msgstr "Повернути в чернетку можна лише відхилене або застаріле оголошення."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_announcement.py:0
+msgid ""
+"Your user account is not linked to an employee record, so the acknowledgement"
+" cannot be recorded."
+msgstr ""
+"Ваш обліковий запис не пов'язаний із записом співробітника, тому підтвердження"
+" неможливо зберегти."
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/wizard/odomate_hr_announcement_refuse.py:0
+msgid "Announcement refused: %s"
+msgstr "Оголошення відхилено: %s"
+
+#. module: odomate_hr_notices
+#. odoo-python
+#: code:addons/odomate_hr_notices/models/odomate_hr_reminder.py:0
+msgid ""
+"Choose a model, a date field and a complete time window before opening the "
+"matching records."
+msgstr ""
+"Виберіть модель, поле дати та повний часовий інтервал, перш ніж відкривати "
+"відповідні записи."
+
+#. module: odomate_hr_notices
+#: model:ir.model.constraint,message:odomate_hr_notices.constraint_odomate_hr_announcement_check_dates
+msgid "The display start date must be on or before the display end date."
+msgstr "Дата початку показу має бути не пізнішою за дату завершення показу."
+
+#. module: odomate_hr_notices
+#: model:ir.model.constraint,message:odomate_hr_notices.constraint_odomate_hr_reminder_check_days_ahead
+msgid "The number of days ahead cannot be negative."
+msgstr "Кількість днів наперед не може бути від'ємною."
+
+#. module: odomate_hr_notices
+#: model:ir.model.constraint,message:odomate_hr_notices.constraint_odomate_hr_reminder_check_period
+msgid "The period start date must be on or before the period end date."
+msgstr "Дата початку періоду має бути не пізнішою за дату завершення періоду."
+
+#. module: odomate_hr_notices
+#: model:odomate.hr.announcement.category,name:odomate_hr_notices.demo_category_policy
+msgid "Policy"
+msgstr "Політика"
+
+#. module: odomate_hr_notices
+#: model:odomate.hr.announcement.category,name:odomate_hr_notices.demo_category_safety
+msgid "Safety"
+msgstr "Безпека"
+
+#. module: odomate_hr_notices
+#: model:odomate.hr.announcement.category,name:odomate_hr_notices.demo_category_social
+msgid "Social"
+msgstr "Соціальне життя"
+
+#. module: odomate_hr_notices
+#: model:odomate.hr.announcement.category,name:odomate_hr_notices.demo_category_benefits
+msgid "Benefits"
+msgstr "Пільги"
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "HR notices addressed to you"
+msgstr "Сповіщення HR, адресовані вам"
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "HR Notices"
+msgstr "Сповіщення HR"
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "Loading..."
+msgstr "Завантаження..."
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "Reminders"
+msgstr "Нагадування"
+
+#. module: odomate_hr_notices
+#. odoo-javascript
+#: code:addons/odomate_hr_notices/static/src/xml/notices_systray.xml:0
+msgid "Nothing to acknowledge right now."
+msgstr "Наразі немає чого підтверджувати."

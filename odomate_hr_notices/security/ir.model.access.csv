@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_announcement_employee,odomate.hr.announcement employee,model_odomate_hr_announcement,base.group_user,1,0,0,0
+access_odomate_hr_announcement_hr_user,odomate.hr.announcement HR officer,model_odomate_hr_announcement,hr.group_hr_user,1,1,1,0
+access_odomate_hr_announcement_hr_manager,odomate.hr.announcement HR administrator,model_odomate_hr_announcement,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_announcement_category_employee,odomate.hr.announcement.category employee,model_odomate_hr_announcement_category,base.group_user,1,0,0,0
+access_odomate_hr_announcement_category_hr_user,odomate.hr.announcement.category HR officer,model_odomate_hr_announcement_category,hr.group_hr_user,1,1,1,0
+access_odomate_hr_announcement_category_hr_manager,odomate.hr.announcement.category HR administrator,model_odomate_hr_announcement_category,hr.group_hr_manager,1,1,1,1
+access_odomate_hr_reminder_hr_user,odomate.hr.reminder HR officer,model_odomate_hr_reminder,hr.group_hr_user,1,1,1,0
+access_odomate_hr_reminder_hr_manager,odomate.hr.reminder HR administrator,model_odomate_hr_reminder,hr.group_hr_manager,1,1,1,1
+access_ir_model_odomate_hr_notices_hr_user,ir.model read for HR reminders,base.model_ir_model,hr.group_hr_user,1,0,0,0
+access_ir_model_fields_odomate_hr_notices_hr_user,ir.model.fields read for HR reminders,base.model_ir_model_fields,hr.group_hr_user,1,0,0,0
+access_odomate_hr_announcement_refuse_hr_user,odomate.hr.announcement.refuse HR officer,model_odomate_hr_announcement_refuse,hr.group_hr_user,1,1,1,1
+access_odomate_hr_announcement_refuse_hr_manager,odomate.hr.announcement.refuse HR administrator,model_odomate_hr_announcement_refuse,hr.group_hr_manager,1,1,1,1

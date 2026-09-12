@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="odomate_hr_announcement_rule_employee" model="ir.rule">
+        <field name="name">Announcement: published, in-window, addressed to me</field>
+        <field name="model_id" ref="model_odomate_hr_announcement"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('is_for_me', '=', True)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="odomate_hr_announcement_rule_hr" model="ir.rule">
+        <field name="name">Announcement: HR full access</field>
+        <field name="model_id" ref="model_odomate_hr_announcement"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="odomate_hr_announcement_rule_company" model="ir.rule">
+        <field name="name">Announcement: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_announcement"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="odomate_hr_announcement_category_rule_company" model="ir.rule">
+        <field name="name">Announcement Category: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_announcement_category"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="odomate_hr_reminder_rule_company" model="ir.rule">
+        <field name="name">HR Reminder: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_reminder"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="odomate_hr_notices.NoticesSystray">
+        <li class="o_odomate_notices_systray dropdown">
+            <Dropdown menuClass="'o_odomate_notices_menu'">
+                <button class="btn o_nav_entry border-0 bg-transparent"
+                        title="HR notices addressed to you"
+                        aria-label="HR notices addressed to you"
+                        t-on-click="loadNotices">
+                    <i class="fa fa-bullhorn" role="img"/>
+                    <span t-if="state.announcementCount"
+                          class="badge rounded-pill text-bg-danger o_odomate_notices_badge"
+                          t-esc="state.announcementCount"/>
+                </button>
+                <t t-set-slot="content">
+                    <div class="o_odomate_notices_panel">
+                        <h6 class="dropdown-header">HR Notices</h6>
+
+                        <div t-if="state.loading" class="dropdown-item-text text-muted">
+                            Loading...
+                        </div>
+
+                        <t t-if="!state.loading">
+                            <t t-if="state.announcements.length">
+                                <h6 class="dropdown-header">Announcements</h6>
+                                <t t-foreach="state.announcements" t-as="announcement"
+                                   t-key="announcement.id">
+                                    <button type="button" class="dropdown-item d-flex align-items-center gap-2"
+                                            t-on-click="() => this.openAnnouncement(announcement.id)">
+                                        <i t-if="announcement.priority >= '2'"
+                                           class="fa fa-star text-warning" role="img"/>
+                                        <span class="flex-grow-1 text-truncate"
+                                              t-esc="announcement.title"/>
+                                        <small class="text-muted" t-esc="announcement.category"/>
+                                    </button>
+                                </t>
+                            </t>
+
+                            <t t-if="state.reminders.length">
+                                <div class="dropdown-divider"/>
+                                <h6 class="dropdown-header">Reminders</h6>
+                                <t t-foreach="state.reminders" t-as="reminder" t-key="reminder.id">
+                                    <button type="button" class="dropdown-item d-flex align-items-center gap-2"
+                                            t-on-click="() => this.openReminder(reminder.id)">
+                                        <span class="flex-grow-1 text-truncate" t-esc="reminder.name"/>
+                                        <span class="badge rounded-pill text-bg-secondary"
+                                              t-esc="reminder.count"/>
+                                    </button>
+                                </t>
+                            </t>
+
+                            <div t-if="!state.announcements.length and !state.reminders.length"
+                                 class="dropdown-item-text text-muted">
+                                Nothing to acknowledge right now.
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </Dropdown>
+        </li>
+    </t>
+
+</templates>

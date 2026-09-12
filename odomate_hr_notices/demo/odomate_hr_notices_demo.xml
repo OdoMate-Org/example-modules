@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_category_policy" model="odomate.hr.announcement.category">
+            <field name="name">Policy</field>
+            <field name="color">4</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_category_safety" model="odomate.hr.announcement.category">
+            <field name="name">Safety</field>
+            <field name="color">1</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_category_social" model="odomate.hr.announcement.category">
+            <field name="name">Social</field>
+            <field name="color">3</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_category_benefits" model="odomate.hr.announcement.category">
+            <field name="name">Benefits</field>
+            <field name="color">10</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_announcement_expense_policy" model="odomate.hr.announcement">
+            <field name="title">Updated expense policy takes effect this month</field>
+            <field name="category_id" ref="demo_category_policy"/>
+            <field name="priority">2</field>
+            <field name="audience">all</field>
+            <field name="state">published</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="date_start"
+                   eval="(DateTime.now() + relativedelta(days=-3)).strftime('%Y-%m-%d')"/>
+            <field name="date_end"
+                   eval="(DateTime.now() + relativedelta(days=25)).strftime('%Y-%m-%d')"/>
+            <field name="body" type="html">
+                <div>
+                    <p>Expense claims must now be submitted within 30 days of the
+                    expense date. Receipts are required for every line above 25.00.</p>
+                    <p>Acknowledging this notice records that you pressed the button.
+                    It is not a statement that you read and understood the policy.</p>
+                </div>
+            </field>
+        </record>
+
+        <record id="demo_announcement_support_shift" model="odomate.hr.announcement">
+            <field name="title">New on-call rotation for the Professional Services team</field>
+            <field name="category_id" ref="demo_category_safety"/>
+            <field name="priority">3</field>
+            <field name="audience">department</field>
+            <field name="department_ids" eval="[(6, 0, [ref('hr.dep_ps')])]"/>
+            <field name="state">published</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="date_start"
+                   eval="(DateTime.now() + relativedelta(days=-1)).strftime('%Y-%m-%d')"/>
+            <field name="date_end"
+                   eval="(DateTime.now() + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+            <field name="body" type="html">
+                <div>
+                    <p>The on-call rotation moves to a weekly hand-over every Monday
+                    morning. Check the shared calendar for your assigned week.</p>
+                </div>
+            </field>
+        </record>
+
+        <record id="demo_announcement_summer_party" model="odomate.hr.announcement">
+            <field name="title">Summer staff party - thanks for coming</field>
+            <field name="category_id" ref="demo_category_social"/>
+            <field name="priority">1</field>
+            <field name="audience">all</field>
+            <field name="state">expired</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="date_start"
+                   eval="(DateTime.now() + relativedelta(days=-60)).strftime('%Y-%m-%d')"/>
+            <field name="date_end"
+                   eval="(DateTime.now() + relativedelta(days=-30)).strftime('%Y-%m-%d')"/>
+            <field name="body" type="html">
+                <div>
+                    <p>Thank you to everyone who joined the summer party. Photos are
+                    available on the internal share.</p>
+                </div>
+            </field>
+        </record>
+
+        <record id="demo_reminder_new_employee_records" model="odomate.hr.reminder">
+            <field name="name">Contracts ending within the next 30 days</field>
+            <field name="model_id" search="[('model', '=', 'hr.version')]"/>
+            <field name="field_id"
+                   search="[('model', '=', 'hr.version'), ('name', '=', 'contract_date_end')]"/>
+            <field name="window">days_ahead</field>
+            <field name="days_ahead">30</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="demo_reminder_contract_versions_this_year" model="odomate.hr.reminder">
+            <field name="name">Contract versions dated this calendar year</field>
+            <field name="model_id" search="[('model', '=', 'hr.version')]"/>
+            <field name="field_id"
+                   search="[('model', '=', 'hr.version'), ('name', '=', 'date_version')]"/>
+            <field name="window">period</field>
+            <field name="date_from"
+                   eval="(DateTime.now() + relativedelta(month=1, day=1)).strftime('%Y-%m-%d')"/>
+            <field name="date_to"
+                   eval="(DateTime.now() + relativedelta(month=12, day=31)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+    </data>
+</odoo>

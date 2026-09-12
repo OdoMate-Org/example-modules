@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_hr_announcement_refuse_form" model="ir.ui.view">
+        <field name="name">odomate.hr.announcement.refuse.form</field>
+        <field name="model">odomate.hr.announcement.refuse</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Announcement">
+                <group>
+                    <field name="announcement_id" invisible="1"/>
+                    <field name="reason" nolabel="1"
+                           placeholder="Explain why this announcement is refused..."/>
+                </group>
+                <footer>
+                    <button name="action_confirm_refusal" type="object"
+                            string="Refuse" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+.o_odomate_notices_systray {
+    .o_odomate_notices_badge {
+        position: relative;
+        top: -0.5em;
+        font-size: 0.7em;
+    }
+}
+
+.o_odomate_notices_menu {
+    .o_odomate_notices_panel {
+        min-width: 320px;
+        max-width: 420px;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+}
