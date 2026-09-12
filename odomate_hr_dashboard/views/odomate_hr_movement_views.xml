@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_movement_list" model="ir.ui.view">
+        <field name="name">odomate.hr.movement.list</field>
+        <field name="model">odomate.hr.movement</field>
+        <field name="arch" type="xml">
+            <list string="Joiners and Leavers" create="false" edit="false" delete="false" sample="1">
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="direction"/>
+                <field name="department_id"/>
+                <field name="departure_reason_id" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_movement_graph" model="ir.ui.view">
+        <field name="name">odomate.hr.movement.graph</field>
+        <field name="model">odomate.hr.movement</field>
+        <field name="arch" type="xml">
+            <graph string="Joiners and Leavers" type="bar" sample="1">
+                <field name="date" interval="month"/>
+                <field name="direction"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_hr_movement_pivot" model="ir.ui.view">
+        <field name="name">odomate.hr.movement.pivot</field>
+        <field name="model">odomate.hr.movement</field>
+        <field name="arch" type="xml">
+            <pivot string="Joiners and Leavers" sample="1">
+                <field name="date" interval="month" type="row"/>
+                <field name="direction" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_hr_movement_search" model="ir.ui.view">
+        <field name="name">odomate.hr.movement.search</field>
+        <field name="model">odomate.hr.movement</field>
+        <field name="arch" type="xml">
+            <search string="Joiners and Leavers">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="departure_reason_id"/>
+                <filter name="filter_join" string="Joined"
+                        domain="[('direction', '=', 'join')]"/>
+                <filter name="filter_leave" string="Left"
+                        domain="[('direction', '=', 'leave')]"/>
+                <separator/>
+                <filter name="filter_this_year" string="This Year"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y-01-01'))]"/>
+                <filter name="filter_last_12_months" string="Last 12 Months"
+                        domain="[('date', '&gt;=', (context_today() - relativedelta(months=12)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_month" string="Month"
+                        context="{'group_by': 'date:month'}"/>
+                <filter name="group_direction" string="Direction"
+                        context="{'group_by': 'direction'}"/>
+                <filter name="group_department" string="Department"
+                        context="{'group_by': 'department_id'}"/>
+                <filter name="group_departure_reason" string="Departure Reason"
+                        context="{'group_by': 'departure_reason_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_movement" model="ir.actions.act_window">
+        <field name="name">Joiners and Leavers</field>
+        <field name="res_model">odomate.hr.movement</field>
+        <field name="view_mode">list,graph,pivot</field>
+        <field name="search_view_id" ref="view_hr_movement_search"/>
+        <field name="context">{'active_test': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No arrivals or departures recorded yet
+            </p>
+            <p>
+                One row per arrival and per departure. An arrival is dated from the
+                earliest Contract Start Date on the employee's versions; a departure
+                from the Departure Date. Employees with no contract start date never
+                appear as joiners. The list opens unfiltered — narrow it yourself with
+                the search panel.
+            </p>
+        </field>
+    </record>
+
+</odoo>

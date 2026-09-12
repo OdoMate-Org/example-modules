@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odomate_hr_dashboard.HrOverview">
+        <div class="o_hr_overview p-3 o_action">
+            <div class="d-flex flex-wrap align-items-end gap-3 mb-4">
+                <div>
+                    <h1 class="mb-0">HR Overview</h1>
+                    <div class="text-muted small">Read-only. Nothing here changes a record.</div>
+                </div>
+                <div class="ms-auto d-flex flex-wrap align-items-end gap-2">
+                    <div>
+                        <label class="form-label small mb-1" for="o_hr_overview_date_from">From</label>
+                        <input id="o_hr_overview_date_from" type="date" class="form-control"
+                               t-att-value="state.dateFrom" t-on-change="onDateFromChange"/>
+                    </div>
+                    <div>
+                        <label class="form-label small mb-1" for="o_hr_overview_date_to">To</label>
+                        <input id="o_hr_overview_date_to" type="date" class="form-control"
+                               t-att-value="state.dateTo" t-on-change="onDateToChange"/>
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="state.loading" class="text-muted">Loading the overview...</div>
+
+            <div t-if="state.data">
+                <div class="o_hr_overview_tiles mb-4">
+                    <div t-foreach="tiles" t-as="tile" t-key="tile.key"
+                         class="o_hr_overview_tile card h-100"
+                         t-on-click="() => this.openAction(tile.action)">
+                        <div class="card-body py-3">
+                            <div class="text-uppercase text-muted small fw-bold" t-esc="tile.label"/>
+                            <div class="display-6 fw-bold lh-1 my-1">
+                                <t t-esc="tile.value"/><t t-esc="tile.suffix"/>
+                            </div>
+                            <div class="small text-muted">
+                                <t t-if="tile.periodBound">
+                                    <t t-esc="state.dateFrom"/> to <t t-esc="state.dateTo"/>
+                                </t>
+                                <t t-else="">as of today</t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body py-3">
+                        <div class="text-uppercase text-muted small fw-bold mb-1">How turnover is worked out</div>
+                        <div t-esc="state.data.turnover_definition"/>
+                        <div class="fw-bold mt-1" t-esc="state.data.turnover_detail"/>
+                    </div>
+                </div>
+
+                <div class="o_hr_overview_entries mb-4">
+                    <div t-foreach="entries" t-as="entry" t-key="entry.key"
+                         class="o_hr_overview_entry card h-100"
+                         t-on-click="() => this.onEntryClick(entry)">
+                        <div class="card-body py-3 d-flex align-items-center gap-2">
+                            <i class="fa fa-fw fa-lg text-muted" t-att-class="entry.icon" role="img"/>
+                            <span class="fw-bold" t-esc="entry.label"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div t-if="state.showPending" class="card">
+                    <div class="card-body py-3">
+                        <div class="text-uppercase text-muted small fw-bold mb-2">Waiting for approval</div>
+                        <div t-if="!state.data.pending.length" class="text-muted">
+                            Nothing from the HR suite is waiting for your approval.
+                        </div>
+                        <div t-foreach="state.data.pending" t-as="source" t-key="source.model"
+                             class="o_hr_overview_pending d-flex align-items-center justify-content-between py-1"
+                             t-on-click="() => this.openAction(source.action)">
+                            <span t-esc="source.label"/>
+                            <span class="badge text-bg-primary" t-esc="source.count"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odomate_hr_movement_company_rule" model="ir.rule">
+        <field name="name">HR Movement: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_movement"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="odomate_hr_absence_factor_company_rule" model="ir.rule">
+        <field name="name">Absence Factor: multi-company</field>
+        <field name="model_id" ref="model_odomate_hr_absence_factor"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

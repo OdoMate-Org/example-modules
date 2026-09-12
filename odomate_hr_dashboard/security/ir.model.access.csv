@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odomate_hr_movement_hr_user,odomate.hr.movement.hr.user,model_odomate_hr_movement,hr.group_hr_user,1,0,0,0
+access_odomate_hr_movement_hr_manager,odomate.hr.movement.hr.manager,model_odomate_hr_movement,hr.group_hr_manager,1,0,0,0
+access_odomate_hr_absence_factor_hr_user,odomate.hr.absence.factor.hr.user,model_odomate_hr_absence_factor,hr.group_hr_user,1,0,0,0
+access_odomate_hr_absence_factor_hr_manager,odomate.hr.absence.factor.hr.manager,model_odomate_hr_absence_factor,hr.group_hr_manager,1,0,0,0
