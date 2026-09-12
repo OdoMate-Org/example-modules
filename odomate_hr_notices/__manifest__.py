@@ -2,10 +2,13 @@
     'name': "HR Notices, Announcements & Acknowledgements",
 
     'summary': """
-        HR announcements with acknowledgement tracking, audience targeting and
-        saved date reminders. Employee notice board, internal communication,
-        HR announcement approval workflow, acknowledgement report, systray
-        notification counter for Odoo 19.
+        Odoo HR Notices, Announcements & Acknowledgements module publishes
+        company notices to a chosen audience with an approval step and
+        acknowledgement tracking, so HR can show who was told and who has not
+        responded. hr announcements | employee notice board | acknowledgement
+        tracking | internal communication | announcement approval workflow |
+        audience targeting | hr date reminders | systray notification counter |
+        company policy notices
     """,
 
     'description': """
@@ -31,12 +34,13 @@ Key capabilities
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/notices?v=site",
     'support': "support@odomate.pro",
 
-    'category': 'Human Resources',
+    'category': 'Generic Modules/Human Resources',
     'version': '19.0.1.0.0',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.gif'],
 
     'depends': ['base', 'mail', 'hr'],
 

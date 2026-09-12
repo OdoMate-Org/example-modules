@@ -1,0 +1,55 @@
+{
+  "module_name": "HR Notices, Announcements & Acknowledgements",
+  "slug": "hr-notices-announcements-acknowledgements",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">HR Notices</span> <span style=\"color:#8fb8e8;\">&amp;</span> <span style=\"color:#a98bf5;\">Acknowledgements</span>",
+  "intro_html": "Turns \"we emailed everyone\" into something you can show: announcements go to a chosen audience, appear as a counter at the top of Odoo instead of in an inbox, and record exactly who pressed Acknowledge &mdash; and who has not.",
+  "test_count": 45,
+  "features": [
+    {"icon": "check-square-o", "title": "Approved Before It Goes Out",
+     "desc": "Draft, then waiting for approval, then published — and a refusal needs a written reason. No step can be skipped, and the check sits in the code, not just in the screen."},
+    {"icon": "users", "title": "Four Ways To Pick The Audience",
+     "desc": "Everybody, named people, whole departments, or everyone holding a job position. One rule decides membership, and the counter, the record rule and the pending list all reuse it."},
+    {"icon": "bell", "title": "A Counter In The Top Bar",
+     "desc": "Published notices show as a number beside the clock. Opening it lists what is waiting, most urgent first, and clicking one opens it — no polling, no background traffic."},
+    {"icon": "list-ol", "title": "Who Has Not Acknowledged",
+     "desc": "Acknowledged, audience size, and the difference as a list of names. The page says plainly that acknowledging records a button press, not that anyone read anything."},
+    {"icon": "calendar", "title": "Standing Date Reminders",
+     "desc": "Save the question once — \"which work permits expire in the next 30 days\" — and see a live count. It runs as you, so it never shows records you may not read."},
+    {"icon": "sliders", "title": "Categories And Priority",
+     "desc": "Policy, Safety, Social, Benefits — a list you maintain, each with its own colour, plus a priority on every notice. Deleting a category never deletes a notice."},
+    {"icon": "clock-o", "title": "Leaves The Board By Itself",
+     "desc": "A daily scheduled run expires notices whose end date has passed. They stay readable in HR's records and disappear from everyone else's."},
+    {"icon": "building", "title": "Separate Per Company",
+     "desc": "Every model carries a multi-company record rule, and an announcement's audience can only ever reach employees of its own company."}
+  ],
+  "limitations": [
+    "Acknowledged means pressed the button. It is not evidence that the person read or understood anything, and should not be used as one — the module's own screens say so too.",
+    "Departments do not cascade. A notice sent to a parent department does not reach its sub-departments; add each department explicitly.",
+    "Reminders answer date questions only. There is no way to add an amount, state or status condition to one.",
+    "Reminder time zones. For datetime fields the day boundaries are plain 00:00:00–23:59:59 without a per-user shift — the same convention Odoo's own date filters use — so records within a few hours of midnight can fall either side for users far from the server's time zone.",
+    "The counter does not live-update. It refreshes on page load and when the dropdown is opened; there is no bus or websocket subscription.",
+    "Non-admin paths are covered by automated tests but were not verified by hand, because the test environment has no least-privileged account. Confirm the employee-visibility, acknowledge and officer-cannot-publish paths on your own install with a real non-HR user."
+  ],
+  "stats": [
+    {"value": "~86 min", "label": "First generated version",
+     "caption": "From the finalized specification to a working, tested module"},
+    {"value": "1", "label": "Generated versions",
+     "caption": "One generation, no enhancement round — nothing in it was corrected by hand"},
+    {"value": "$38.01", "label": "Total spend",
+     "caption": "Specification, generation and every automated test run"},
+    {"value": "45", "label": "Automated tests",
+     "caption": "Generated with the module and run against a clean Odoo 19 install"}
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "short_link": {
+    "slug": "notices",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_notices/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_notices/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  }
+}
