@@ -1,0 +1,95 @@
+{
+  "module_name": "Employee Transfer",
+  "slug": "employee-transfer",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Employee</span> <span style=\"color:#a98bf5;\">Transfer</span>",
+  "intro_html": "An employee moves — a new department, job title, office, manager or company. This turns that into a small record: approved before it happens, dated for the day it takes effect, and applied without ever typing over the employee's history.",
+  "test_count": 32,
+  "features": [
+    {
+      "icon": "exchange",
+      "title": "A Move Becomes A Record",
+      "desc": "One record per move, with its own reference, an effective date, a reason and a chatter trail — instead of an edit nobody can trace."
+    },
+    {
+      "icon": "list-ol",
+      "title": "Five Things Can Change",
+      "desc": "Department, job position, work location, manager, company — any combination. A field left empty means \"no change\", and nothing else moves."
+    },
+    {
+      "icon": "calendar",
+      "title": "Dated History, Not Overwriting",
+      "desc": "Applying writes a new dated version on the employee. The old values stay readable, so \"when did she move to Support?\" has an answer."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Approval Enforced In The Code",
+      "desc": "Only an HR Manager can approve, and the check sits inside the method — a script or an API call is refused exactly like the button is."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Applied On The Day, By Itself",
+      "desc": "A daily scheduled run applies approved transfers when their date arrives. Before that the form says so, instead of offering a button that would be wrong."
+    },
+    {
+      "icon": "lock",
+      "title": "Final Once Applied",
+      "desc": "The employee, the date, the status and every target lock. Reversing a move means recording another one, and the error message says exactly that."
+    },
+    {
+      "icon": "files-o",
+      "title": "The \"From\" Values Stay Frozen",
+      "desc": "The before-values are captured at the moment of applying, so a later change to the employee never rewrites what the record says the person moved from."
+    },
+    {
+      "icon": "building",
+      "title": "Cross-Company Without A Second Record",
+      "desc": "A move between group companies keeps one employee, one time-off balance, one service history — and only an approver who holds both companies can approve it."
+    }
+  ],
+  "limitations": [
+    "Applying is final. There is no un-apply, no reset to draft and no undo: reversing a move means recording another transfer back to the previous values.",
+    "Manager and company are not dated history. Odoo versions department, job position and work location; a change of manager or company overwrites the current value on the employee, so the module cannot answer who someone's manager was last August.",
+    "No back-dating. The effective date must be later than the employee's most recent version, so a move cannot be inserted between two existing ones.",
+    "No pay or contract changes. Wage, contract type and working schedule are carried over unchanged; a promotion with a raise needs the salary handled separately.",
+    "No bulk transfers. One record per employee — re-organising a twenty-person department means twenty transfers.",
+    "No org-chart preview, and no check that a change of manager does not create a reporting loop.",
+    "No transfer letter, PDF or email to the employee. The only notification is an internal to-do activity for HR Managers when a transfer is sent for approval.",
+    "No cross-company handshake. A move between companies is one approval by one manager who holds both; there is no acceptance step by the receiving company.",
+    "A single approval step — no second approver, no delegation, no approval matrix and no escalation if the activity is ignored.",
+    "The scheduled run happens once a day, so a transfer effective today may only become applied hours into the day unless someone presses Apply now."
+  ],
+  "stats": [
+    {
+      "value": "~45 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "4",
+      "label": "Generated versions",
+      "caption": "Three defects found and fixed by generating again, never by editing the code"
+    },
+    {
+      "value": "$46.27",
+      "label": "Total spend",
+      "caption": "Specification, generation and every automated test run"
+    },
+    {
+      "value": "32",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_transfer/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_transfer/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "short_link": {
+    "slug": "transfer",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  }
+}

@@ -1,7 +1,12 @@
 {
     'name': "Employee Transfer",
 
-    'summary': "Record, approve and apply dated employee transfers as hr.version history",
+    'summary': "Odoo Employee Transfer module records, approves and applies dated "
+               "employee moves as new version history, so department, job and "
+               "location changes keep a permanent trail instead of overwriting the "
+               "employee record. employee transfer | hr transfer | employee movement "
+               "| department transfer | job position change | transfer approval | "
+               "employee history | dated version history | internal transfer | hr records",
 
     'description': """
 Employee Transfer
@@ -12,11 +17,13 @@ location, manager, company) as new ``hr.version`` history entries.
     """,
 
     'author': "OdoMate",
-    'website': "https://www.odomate.com",
+    'website': "https://odomate.pro/m/transfer?v=site",
+    'support': "support@odomate.pro",
 
-    'category': 'Human Resources/Employees',
+    'category': 'Generic Modules/Human Resources',
     'version': '19.0.1.0.4',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.gif'],
 
     'depends': ['hr', 'mail'],
 

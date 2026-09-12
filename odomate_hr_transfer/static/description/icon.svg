@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the work structure — a parent block over the two teams, with the employee
+       standing in the team they are leaving. -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="186" y="56" width="140" height="76" rx="20"/>
+    <rect x="60" y="204" width="140" height="140" rx="20"/>
+    <rect x="312" y="204" width="140" height="140" rx="20"/>
+    <circle cx="130" cy="254" r="26"/>
+    <path d="M89 322 c0-22.6 18.4-41 41-41 s41 18.4 41 41"/>
+  </g>
+
+  <!-- CONTEXT: the lines that make it a structure rather than three loose boxes. -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
+    <path d="M256 132 V 170"/>
+    <path d="M130 170 H 382"/>
+    <path d="M130 170 V 204"/>
+    <path d="M382 170 V 204"/>
+  </g>
+
+  <!-- ACTION: the move — out of one team, into the other. -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M212 274 H 300"/>
+    <path d="M270 244 L302 274 L270 304"/>
+  </g>
+</svg>
