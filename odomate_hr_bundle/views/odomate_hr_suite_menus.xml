@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Deliberately NOT noupdate: upgrading one of the eight member modules on its
+    own resets that member's menu back to its native top-level position, so this
+    arrangement must re-apply on every upgrade of odomate_hr_bundle.
+
+    Each <record> below writes parent_id and sequence ONLY. name, action,
+    group_ids, active and web_icon are never touched, so every entry keeps its
+    own screen, records, permissions and translated label.
+-->
+<odoo>
+
+    <!-- The two new, action-less, group-less folders. Visibility is inherited:
+         a folder with no action and no group_ids is hidden from a user when all
+         of its children are hidden to them. -->
+    <menuitem id="menu_odomate_hr_suite_root"
+              name="HR Suite"
+              parent="hr.menu_hr_root"
+              sequence="35"/>
+
+    <menuitem id="menu_odomate_hr_suite_config"
+              name="HR Suite"
+              parent="hr.menu_human_resources_configuration"
+              sequence="90"/>
+
+    <!-- ===================================================================
+         Employees app: six entries under HR Suite, sequences 10..60
+         =================================================================== -->
+
+    <record id="odomate_hr_documents.menu_odomate_hr_documents_root" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="odomate_hr_custody.menu_odomate_hr_custody_root" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="odomate_hr_notices.menu_odomate_hr_notices_root" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- No _root suffix on this one: that is the real identifier. -->
+    <record id="odomate_hr_transfer.menu_odomate_hr_transfer" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="odomate_hr_resignation.menu_odomate_hr_resignation_root" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- Does not carry its own module's prefix: that is the real identifier. -->
+    <record id="odomate_hr_dashboard.menu_hr_overview_analysis" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_root"/>
+        <field name="sequence">60</field>
+    </record>
+
+    <!-- ===================================================================
+         Employees > Configuration: four entries under HR Suite, sequences 10..40
+         =================================================================== -->
+
+    <!-- Identifier ends in _menu rather than starting with menu_: reproduced as-is. -->
+    <record id="odomate_hr_employee_info_06092026_2.odomate_hr_relationship_menu" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_config"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="odomate_hr_notices.menu_odomate_hr_announcement_category" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_config"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="odomate_hr_resignation.menu_odomate_hr_clearance_item" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_config"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="odomate_hr_notices.menu_odomate_hr_reminder" model="ir.ui.menu">
+        <field name="parent_id" ref="menu_odomate_hr_suite_config"/>
+        <field name="sequence">40</field>
+    </record>
+
+</odoo>
