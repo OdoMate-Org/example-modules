@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the HR Suite folder the member menus are gathered into. A folder
+       is the one outline none of the eight member marks uses (ID card, pages,
+       laptop, org chart, envelope, megaphone, framed chart, door). -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 148 a24 24 0 0 1 24-24 H206 L242 162 H416 a24 24 0 0 1 24 24 V396 a24 24 0 0 1 -24 24 H96 a24 24 0 0 1 -24-24 Z"/>
+  </g>
+
+  <!-- ACTION: the modules it holds — a grid of tiles, square where the folder
+       is long, so the contents do not repeat the container's shape. -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="168" y="208" width="72" height="72" rx="14"/>
+    <rect x="272" y="208" width="72" height="72" rx="14"/>
+    <rect x="168" y="312" width="72" height="72" rx="14"/>
+    <rect x="272" y="312" width="72" height="72" rx="14"/>
+  </g>
+</svg>

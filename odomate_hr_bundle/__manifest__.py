@@ -59,7 +59,7 @@ against the Odoo source. We state it as unverified rather than claim it either
 way.
     """,
     'author': "OdoMate",
-    'website': "https://www.odomate.pro",
+    'website': "https://odomate.pro/m/hr-suite?v=site",
     'support': "support@odomate.pro",
     'category': 'Generic Modules/Human Resources',
     'version': '19.0.1.0.0',
@@ -78,6 +78,7 @@ way.
     'data': [
         'views/odomate_hr_suite_menus.xml',
     ],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': True,
     'auto_install': False,

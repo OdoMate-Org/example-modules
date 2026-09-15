@@ -1,0 +1,91 @@
+{
+  "module_name": "OdoMate HR Suite",
+  "slug": "odomate-hr-suite",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">OdoMate HR Suite</span> <span style=\"color:#8fb8e8;\">&mdash;</span> <span style=\"color:#a98bf5;\">eight modules, one install</span>",
+  "intro_html": "<strong>OdoMate HR Suite</strong> installs all eight OdoMate HR modules in one step &mdash; dependants and identity documents, expiring documents, company property, transfers, time off by email, notices, turnover and absence figures, and resignations. Already have some of them? Only the missing ones are added. It then gathers their menus into one <strong>HR Suite</strong> folder in the Employees app and a second one under Configuration, so the suite reads as one system rather than eight separate add-ons.",
+  "test_count": 10,
+  "features": [
+    {
+      "icon": "users",
+      "title": "Employee Dependants & Identity Documents",
+      "desc": "Family members, dependants and identity document details on the employee record."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "Employee Document Expiry Tracking",
+      "desc": "Documents that expire, with advance warning and a renewal history."
+    },
+    {
+      "icon": "shield",
+      "title": "Employee Custody Management",
+      "desc": "Company property held by employees, with request, approval and return."
+    },
+    {
+      "icon": "exchange",
+      "title": "Employee Transfer",
+      "desc": "Moves between departments, locations or companies, keeping the history."
+    },
+    {
+      "icon": "envelope",
+      "title": "Time Off Requests by Email",
+      "desc": "Turns an incoming email into a time-off request."
+    },
+    {
+      "icon": "bell",
+      "title": "HR Notices, Announcements & Acknowledgements",
+      "desc": "Company announcements and personal reminders, with a count in the top bar."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Employee Turnover & Absence Dashboard",
+      "desc": "Headcount, turnover, absence concentration and pending approvals in one screen."
+    },
+    {
+      "icon": "check-square-o",
+      "title": "Employee Resignation & Clearance",
+      "desc": "Resignation requests, a clearance checklist and an exit interview."
+    }
+  ],
+  "limitations": [
+    "Menu placement only. The suite adds no feature of its own; if a member module lacks something, installing the suite does not add it.",
+    "Upgrading one member module on its own puts that module's menu back at its original place. Upgrade OdoMate HR Suite afterwards to restore the grouping; it is safe to repeat.",
+    "Uninstalling the suite does not move the member menus back. The suite never owns those menu entries, and Odoo only reverts what a module owns; each returns to its original place on its own module's next upgrade.",
+    "Not verified: whether the two HR Suite folders disappear on uninstall or linger as empty entries. Odoo protects a menu's parent from deletion (ondelete=\"restrict\"), but what its uninstall does when that deletion is blocked could not be confirmed from the source, so we state it neither way. Empty folders, if they remain, are harmless and can be deleted by hand.",
+    "The Turnover & Absence Dashboard's own HR Overview screen stays at the top of the Employees app; its analysis menu is what moves into HR Suite.",
+    "Fixed layout. The order and grouping are set in the module's menu file; there is no settings screen to change them."
+  ],
+  "stats": [
+    {
+      "value": "~34 min",
+      "label": "First generated version",
+      "caption": "From the finalized specification to a working, tested module"
+    },
+    {
+      "value": "1",
+      "label": "Generated versions",
+      "caption": "One generation, no enhancement round - nothing in it was corrected by hand"
+    },
+    {
+      "value": "$9.29",
+      "label": "Total spend",
+      "caption": "Specification, generation and every automated test run"
+    },
+    {
+      "value": "10",
+      "label": "Automated tests",
+      "caption": "Generated with the module and run against a clean Odoo 19 install"
+    }
+  ],
+  "stats_caption": "Time and cost across specification, generation, and testing.",
+  "short_link": {
+    "slug": "hr-suite",
+    "qr_base64_file": "static/description/ribbon-qr.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_bundle/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/19.0/odomate_hr_bundle/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  }
+}
