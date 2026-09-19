@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_tax_report">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <t t-call="odomate_account_ledger_reports.report_odomate_styles"/>
+                <div class="page">
+                    <h2 class="text-center">Tax Report</h2>
+                    <t t-call="odomate_account_ledger_reports.report_filter_header">
+                        <t t-set="company" t-value="header['company']"/>
+                        <t t-set="date_from" t-value="header['date_from']"/>
+                        <t t-set="date_to" t-value="header['date_to']"/>
+                        <t t-set="journals" t-value="header['journals']"/>
+                        <t t-set="target_move_label" t-value="header['target_move_label']"/>
+                    </t>
+                    <div t-foreach="sections" t-as="section" class="mb-4">
+                        <h3 t-if="section['key'] == 'sale'">Sales</h3>
+                        <h3 t-if="section['key'] == 'purchase'">Purchases</h3>
+                        <p t-if="not section['rows']">No tax movement in this period.</p>
+                        <table t-if="section['rows']" class="table table-sm o_odomate_table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%;">Tax</th>
+                                    <th class="o_odomate_num" style="width: 25%;">Net Amount</th>
+                                    <th class="o_odomate_num" style="width: 25%;">Tax Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="section['rows']" t-as="row">
+                                    <td t-out="row['name']"/>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['net']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['tax']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="fw-bold">Total</td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="section['net']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="section['tax']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

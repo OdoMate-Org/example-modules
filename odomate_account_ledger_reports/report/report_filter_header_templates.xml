@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_odomate_styles">
+        <style>
+            .o_odomate_table { table-layout: fixed; width: 100%; }
+            .o_odomate_table th, .o_odomate_table td { word-break: break-word; overflow-wrap: anywhere; vertical-align: top; }
+            .o_odomate_num { text-align: right; white-space: nowrap; }
+            .o_odomate_block { page-break-inside: auto; }
+            .o_odomate_header dl { margin-bottom: 0; }
+        </style>
+    </template>
+
+    <template id="report_filter_header">
+        <div class="row mt-2 mb-3 o_odomate_header">
+            <div class="col-6">
+                <div class="fw-bold">Company:<span class="fw-normal ms-1" t-out="company.display_name"/></div>
+                <div class="fw-bold">Entries:<span class="fw-normal ms-1" t-out="target_move_label"/></div>
+            </div>
+            <div class="col-6">
+                <div class="fw-bold">Period:<span class="fw-normal ms-1" t-if="date_from" t-out="date_from" t-options="{'widget': 'date'}"/><span class="fw-normal" t-if="date_from and date_to"> &#8211; </span><span class="fw-normal" t-if="date_to" t-out="date_to" t-options="{'widget': 'date'}"/><t t-if="not date_from and not date_to"> All dates</t></div>
+                <div class="fw-bold">Journals:<t t-if="journals"> <t t-foreach="journals" t-as="journal"><span class="fw-normal" t-out="journal.code or journal.name"/><t t-if="not journal_last">, </t></t></t><t t-if="not journals"> All journals</t></div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

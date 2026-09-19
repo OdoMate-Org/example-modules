@@ -1,0 +1,677 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odomate_account_ledger_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 09:00+0000\n"
+"PO-Revision-Date: 2026-09-19 09:00+0000\n"
+"Last-Translator: OdoMate <support@odomate.pro>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_report_filter.py:0
+msgid "You cannot print a report for a company you are not allowed to work in."
+msgstr "Sie können keinen Bericht für ein Unternehmen drucken, in dem Sie nicht arbeiten dürfen."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_report_filter.py:0
+msgid "The start date cannot be after the end date."
+msgstr "Das Startdatum darf nicht nach dem Enddatum liegen."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_report_filter.py:0
+msgid "Every journal must belong to %(company)s."
+msgstr "Jedes Journal muss zu %(company)s gehören."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_report_filter.py:0
+msgid "Only accounting users can print accounting reports."
+msgstr "Nur Buchhaltungsbenutzer dürfen Buchhaltungsberichte drucken."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_report_filter.py:0
+msgid "No printable report is configured for this dialog."
+msgstr "Für diesen Dialog ist kein druckbarer Bericht konfiguriert."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_general_ledger_wizard.py:0
+msgid "Set a start date to print an opening balance."
+msgstr "Geben Sie ein Startdatum an, um eine Eröffnungsbilanz zu drucken."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_aged_partner_wizard.py:0
+msgid "The period length must be at least one day."
+msgstr "Die Periodenlänge muss mindestens einen Tag betragen."
+
+#. module: odomate_account_ledger_reports
+#. odoo-python
+#: code:addons/odomate_account_ledger_reports/models/odomate_account_aged_partner_wizard.py:0
+msgid "Set the date the ageing is measured at."
+msgstr "Geben Sie den Stichtag für die Altersstruktur an."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_report_filter
+msgid "Accounting Report Filter"
+msgstr "Filter für Buchhaltungsbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_general_ledger_wizard
+msgid "General Ledger Report Dialog"
+msgstr "Dialog Hauptbuchbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_partner_ledger_wizard
+msgid "Partner Ledger Report Dialog"
+msgstr "Dialog Partnerkontenbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_aged_partner_wizard
+msgid "Aged Partner Balance Report Dialog"
+msgstr "Dialog Offene-Posten-Altersstruktur"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_tax_report_wizard
+msgid "Tax Report Dialog"
+msgstr "Dialog Steuerbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_odomate_account_journal_audit_wizard
+msgid "Journals Audit Report Dialog"
+msgstr "Dialog Journalprüfungsbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_general_ledger
+msgid "General Ledger Report"
+msgstr "Hauptbuchbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_partner_ledger
+msgid "Partner Ledger Report"
+msgstr "Partnerkontenbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_aged_partner_balance
+msgid "Aged Partner Balance Report"
+msgstr "Bericht Offene-Posten-Altersstruktur"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_journal_audit
+msgid "Journals Audit Report"
+msgstr "Journalprüfungsbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_journal_entry
+msgid "Journal Entry Printout"
+msgstr "Buchungssatz-Ausdruck"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__company_id
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__company_id
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__company_id
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__company_id
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_report_filter__company_id
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__date_from
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__date_from
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__date_from
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__date_from
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_report_filter__date_from
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__date_from
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__date_to
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__date_to
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__date_to
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_report_filter__date_to
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__date_to
+msgid "End Date"
+msgstr "Enddatum"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__date_to
+msgid "As of Date"
+msgstr "Stichtag"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__journal_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__journal_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__journal_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__journal_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_report_filter__journal_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__journal_ids
+msgid "Journals"
+msgstr "Journale"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__target_move
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__target_move
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__target_move
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__target_move
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_report_filter__target_move
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__target_move
+msgid "Entries"
+msgstr "Buchungen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__account_ids
+msgid "Accounts"
+msgstr "Konten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__partner_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__partner_ids
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__partner_ids
+msgid "Partners"
+msgstr "Partner"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__analytic_account_ids
+msgid "Analytic Accounts"
+msgstr "Kostenstellen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__display_account
+msgid "Display Accounts"
+msgstr "Konten anzeigen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__initial_balance
+msgid "Include Opening Balance"
+msgstr "Eröffnungsbilanz einbeziehen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__sortby
+msgid "Sort By"
+msgstr "Sortieren nach"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__result_selection
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__result_selection
+msgid "Account Type"
+msgstr "Kontotyp"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__reconciled
+msgid "Include Settled Items"
+msgstr "Ausgeglichene Posten einbeziehen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__amount_currency
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__amount_currency
+msgid "Show Amount in Currency"
+msgstr "Betrag in Währung anzeigen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__period_length
+msgid "Period Length (days)"
+msgstr "Periodenlänge (Tage)"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,field_description:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__sort_selection
+msgid "Sort Entries By"
+msgstr "Buchungen sortieren nach"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_aged_partner_wizard__journal_ids
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__journal_ids
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_journal_audit_wizard__journal_ids
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__journal_ids
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_report_filter__journal_ids
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_tax_report_wizard__journal_ids
+msgid "Leave empty to cover every journal of the selected company."
+msgstr "Leer lassen, um alle Journale des ausgewählten Unternehmens einzubeziehen."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__account_ids
+msgid "Leave empty to cover every account of the selected company."
+msgstr "Leer lassen, um alle Konten des ausgewählten Unternehmens einzubeziehen."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__partner_ids
+msgid "Leave empty to cover every partner with receivable or payable items."
+msgstr "Leer lassen, um alle Partner mit Forderungs- oder Verbindlichkeitsposten einzubeziehen."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_general_ledger_wizard__initial_balance
+msgid "Print an opening balance line for every account, computed from the entries booked before the start date."
+msgstr "Für jedes Konto eine Eröffnungsbilanzzeile drucken, berechnet aus den vor dem Startdatum gebuchten Buchungen."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields,help:odomate_account_ledger_reports.field_odomate_account_partner_ledger_wizard__reconciled
+msgid "Also print journal items that are already fully reconciled."
+msgstr "Auch bereits vollständig ausgeglichene Buchungszeilen drucken."
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_aged_partner_wizard__target_move__posted
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__target_move__posted
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_journal_audit_wizard__target_move__posted
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_partner_ledger_wizard__target_move__posted
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_report_filter__target_move__posted
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_tax_report_wizard__target_move__posted
+msgid "Posted Entries Only"
+msgstr "Nur gebuchte Buchungen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_aged_partner_wizard__target_move__all
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__target_move__all
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_journal_audit_wizard__target_move__all
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_partner_ledger_wizard__target_move__all
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_report_filter__target_move__all
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_tax_report_wizard__target_move__all
+msgid "All Entries"
+msgstr "Alle Buchungen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__display_account__all
+msgid "All Accounts"
+msgstr "Alle Konten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__display_account__movement
+msgid "With Movements"
+msgstr "Mit Bewegungen"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__display_account__not_zero
+msgid "With Balance Not Equal To Zero"
+msgstr "Mit Saldo ungleich null"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__sortby__sort_date
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_journal_audit_wizard__sort_selection__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_general_ledger_wizard__sortby__sort_journal_partner
+msgid "Journal and Partner"
+msgstr "Journal und Partner"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_journal_audit_wizard__sort_selection__move_name
+msgid "Entry Number"
+msgstr "Buchungsnummer"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_aged_partner_wizard__result_selection__customer
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_partner_ledger_wizard__result_selection__customer
+msgid "Receivable Accounts"
+msgstr "Forderungskonten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_aged_partner_wizard__result_selection__supplier
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_partner_ledger_wizard__result_selection__supplier
+msgid "Payable Accounts"
+msgstr "Verbindlichkeitskonten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_aged_partner_wizard__result_selection__customer_supplier
+#: model:ir.model.fields.selection,name:odomate_account_ledger_reports.selection__odomate_account_partner_ledger_wizard__result_selection__customer_supplier
+msgid "Receivable and Payable Accounts"
+msgstr "Forderungs- und Verbindlichkeitskonten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_general_ledger_wizard
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_general_ledger
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+msgid "General Ledger"
+msgstr "Hauptbuch"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_partner_ledger_print
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_partner_ledger_wizard
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_partner_ledger
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_partner_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Partner Ledger"
+msgstr "Partnerkonten"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_aged_partner_wizard
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_aged_partner
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_aged_partner_balance
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+msgid "Aged Partner Balance"
+msgstr "Offene-Posten-Altersstruktur"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_aged_receivable
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_aged_receivable
+msgid "Aged Receivable"
+msgstr "Offene Forderungen nach Alter"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_aged_payable
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_aged_payable
+msgid "Aged Payable"
+msgstr "Offene Verbindlichkeiten nach Alter"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_tax_report_wizard
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_tax_report
+#: model:ir.model,name:odomate_account_ledger_reports.model_report_odomate_account_ledger_reports_report_tax_report
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_tax_report
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Tax Report"
+msgstr "Steuerbericht"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_journal_audit_wizard
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_journal_audit
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+msgid "Journals Audit"
+msgstr "Journalprüfung"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.report,name:odomate_account_ledger_reports.action_report_odomate_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Journal Entry"
+msgstr "Buchungssatz"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_account_ledger_by_account
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_ledger_by_account
+msgid "Journal Items by Account"
+msgstr "Buchungszeilen nach Konto"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.actions.act_window,name:odomate_account_ledger_reports.action_odomate_account_ledger_by_partner
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_ledger_by_partner
+msgid "Journal Items by Partner"
+msgstr "Buchungszeilen nach Partner"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.ui.menu,name:odomate_account_ledger_reports.menu_odomate_account_reports_audit
+msgid "Audit Reports"
+msgstr "Prüfungsberichte"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_account_report_filter_form
+msgid "Accounting Report"
+msgstr "Buchhaltungsbericht"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_account_report_filter_form
+msgid "Print"
+msgstr "Drucken"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_account_report_filter_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_account_report_filter_form
+msgid "All journals"
+msgstr "Alle Journale"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_general_ledger_wizard_form
+msgid "All accounts"
+msgstr "Alle Konten"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_aged_partner_wizard_form
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_general_ledger_wizard_form
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_partner_ledger_wizard_form
+msgid "All partners"
+msgstr "Alle Partner"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.view_odomate_general_ledger_wizard_form
+msgid "All analytic accounts"
+msgstr "Alle Kostenstellen"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Company:"
+msgstr "Unternehmen:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+msgid "Entries:"
+msgstr "Buchungen:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+msgid "Period:"
+msgstr "Zeitraum:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+msgid "Journals:"
+msgstr "Journale:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Journal:"
+msgstr "Journal:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_filter_header
+msgid "All dates"
+msgstr "Alle Daten"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Journal"
+msgstr "Journal"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Partner"
+msgstr "Partner"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Reference"
+msgstr "Referenz"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Entry"
+msgstr "Buchung"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Label"
+msgstr "Bezeichnung"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Debit"
+msgstr "Soll"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Credit"
+msgstr "Haben"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Balance"
+msgstr "Saldo"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Currency"
+msgstr "Währung"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Analytic"
+msgstr "Kostenstelle"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+msgid "Opening Balance"
+msgstr "Eröffnungsbilanz"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Total"
+msgstr "Summe"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Grand Total"
+msgstr "Gesamtsumme"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "No journal item matches the selected filters."
+msgstr "Keine Buchungszeile entspricht den gewählten Filtern."
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Account"
+msgstr "Konto"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_partner_ledger
+msgid "Amount owed:"
+msgstr "Offener Betrag:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+msgid "Period Length (days):"
+msgstr "Periodenlänge (Tage):"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+msgid "Not Due"
+msgstr "Nicht fällig"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+msgid "Unknown Partner"
+msgstr "Unbekannter Partner"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_aged_partner_balance
+msgid "No open item matches the selected filters."
+msgstr "Kein offener Posten entspricht den gewählten Filtern."
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Sales"
+msgstr "Verkauf"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Purchases"
+msgstr "Einkauf"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "No tax movement in this period."
+msgstr "In diesem Zeitraum gibt es keine Steuerbewegungen."
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Tax"
+msgstr "Steuer"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Net Amount"
+msgstr "Nettobetrag"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_tax_report
+msgid "Tax Amount"
+msgstr "Steuerbetrag"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_audit
+msgid "Base Amount"
+msgstr "Bemessungsgrundlage"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Status:"
+msgstr "Status:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Date:"
+msgstr "Datum:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Partner:"
+msgstr "Partner:"
+
+#. module: odomate_account_ledger_reports
+#: model_terms:ir.ui.view,arch_db:odomate_account_ledger_reports.report_journal_entry
+msgid "Reference:"
+msgstr "Referenz:"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.module.module,shortdesc:base.module_odomate_account_ledger_reports
+msgid "Accounting Audit Reports (General Ledger, Partner Ledger, Aged Balance)"
+msgstr "Buchhaltungs-Prüfungsberichte (Hauptbuch, Partnerkonten, Altersstruktur)"
+
+#. module: odomate_account_ledger_reports
+#: model:ir.module.module,summary:base.module_odomate_account_ledger_reports
+msgid "Print the six standard accounting audit reports as PDF: general ledger, partner ledger, aged receivable and aged payable balance, tax report, journals audit and journal entry printout, with opening balances, ageing buckets and multi-company support"
+msgstr "Die sechs Standard-Prüfungsberichte der Buchhaltung als PDF drucken: Hauptbuch, Partnerkonten, offene Forderungen und Verbindlichkeiten nach Alter, Steuerbericht, Journalprüfung und Buchungssatz-Ausdruck, mit Eröffnungsbilanzen, Altersklassen und Mehrfirmen-Unterstützung"

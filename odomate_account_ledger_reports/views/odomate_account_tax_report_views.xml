@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_tax_report_wizard_form" model="ir.ui.view">
+        <field name="name">odomate.account.tax.report.wizard.form</field>
+        <field name="model">odomate.account.tax.report.wizard</field>
+        <field name="inherit_id" ref="view_odomate_account_report_filter_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="date_from" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="date_to" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_odomate_tax_report_wizard" model="ir.actions.act_window">
+        <field name="name">Tax Report</field>
+        <field name="res_model">odomate.account.tax.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_odomate_tax_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

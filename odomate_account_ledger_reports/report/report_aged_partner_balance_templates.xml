@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_aged_partner_balance">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <t t-call="odomate_account_ledger_reports.report_odomate_styles"/>
+                <div class="page">
+                    <h2 class="text-center">Aged Partner Balance</h2>
+                    <t t-call="odomate_account_ledger_reports.report_filter_header">
+                        <t t-set="company" t-value="header['company']"/>
+                        <t t-set="date_from" t-value="header['date_from']"/>
+                        <t t-set="date_to" t-value="header['date_to']"/>
+                        <t t-set="journals" t-value="header['journals']"/>
+                        <t t-set="target_move_label" t-value="header['target_move_label']"/>
+                    </t>
+                    <p class="fw-bold">Period Length (days):<span class="fw-normal ms-1" t-out="options['period_length']"/></p>
+                    <table class="table table-sm o_odomate_table">
+                        <thead>
+                            <tr>
+                                <th style="width: 28%;">Partner</th>
+                                <th class="o_odomate_num">Not Due</th>
+                                <th t-foreach="period_labels" t-as="period_label" class="o_odomate_num" t-out="period_label"/>
+                                <th class="o_odomate_num">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="rows" t-as="row">
+                                <td>
+                                    <span t-if="row['partner_label']" t-out="row['partner_label']"/>
+                                    <t t-if="not row['partner_label']">Unknown Partner</t>
+                                </td>
+                                <td t-foreach="bucket_keys" t-as="bucket_key" class="o_odomate_num">
+                                    <span t-out="row['amounts'][bucket_key]" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <span t-out="row['total']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="fw-bold">Total</td>
+                                <td t-foreach="bucket_keys" t-as="bucket_key" class="o_odomate_num">
+                                    <strong t-out="totals[bucket_key]" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals_grand" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <p t-if="not rows">No open item matches the selected filters.</p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
