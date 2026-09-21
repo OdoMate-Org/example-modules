@@ -2,10 +2,15 @@
     'name': "Accounting Audit Reports (General Ledger, Partner Ledger, Aged Balance)",
 
     'summary': (
-        "Print the six standard accounting audit reports as PDF: "
-        "general ledger, partner ledger, aged receivable and aged payable "
-        "balance, tax report, journals audit and journal entry printout, "
-        "with opening balances, ageing buckets and multi-company support"
+        "Odoo Accounting Audit Reports (General Ledger, Partner Ledger, "
+        "Aged Balance) module prints the general ledger, partner ledger, "
+        "aged receivable and payable balance, tax report and journals audit "
+        "as PDF with opening balances and ageing buckets, so auditor and "
+        "customer statement requests need no spreadsheet. "
+        "| general ledger pdf | partner ledger report | aged receivable report "
+        "| aged payable balance | tax report pdf | journals audit report "
+        "| journal entry printout | accounting audit reports "
+        "| odoo community reports"
     ),
 
     'description': """
@@ -27,7 +32,7 @@ its own wizard records, and no field added to any standard model.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/ledger-rep?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Accounting',
@@ -56,7 +61,7 @@ its own wizard records, and no field added to any standard model.
         'views/odomate_account_move_line_actions.xml',
         'views/odomate_account_menus.xml',
     ],
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,
