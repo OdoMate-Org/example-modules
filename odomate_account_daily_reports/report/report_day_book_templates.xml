@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_day_book">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <style>
+                    .o_odomate_table { table-layout: fixed; width: 100%; }
+                    .o_odomate_table th, .o_odomate_table td { word-break: break-word; overflow-wrap: anywhere; vertical-align: top; }
+                    .o_odomate_num { text-align: right; white-space: nowrap; }
+                    .o_odomate_day_header td { page-break-inside: avoid; page-break-after: avoid; break-inside: avoid; break-after: avoid; }
+                    .o_odomate_day_header + tr { page-break-before: avoid; break-before: avoid; }
+                </style>
+                <div class="page">
+                    <h2 class="text-center">Day Book</h2>
+                    <t t-call="odomate_account_ledger_reports.report_filter_header">
+                        <t t-set="company" t-value="header['company']"/>
+                        <t t-set="date_from" t-value="header['date_from']"/>
+                        <t t-set="date_to" t-value="header['date_to']"/>
+                        <t t-set="journals" t-value="header['journals']"/>
+                        <t t-set="target_move_label" t-value="header['target_move_label']"/>
+                    </t>
+                    <t t-set="ncols" t-value="8 + (1 if show_currency else 0)"/>
+                    <table class="table table-sm o_odomate_table">
+                        <thead>
+                            <tr>
+                                <th style="width: 7%;">Journal</th>
+                                <th style="width: 13%;">Entry</th>
+                                <th style="width: 16%;">Partner</th>
+                                <th style="width: 12%;">Reference</th>
+                                <th style="width: 20%;">Label</th>
+                                <th class="o_odomate_num" style="width: 10%;">Debit</th>
+                                <th class="o_odomate_num" style="width: 10%;">Credit</th>
+                                <th class="o_odomate_num" style="width: 12%;">Difference</th>
+                                <th t-if="show_currency" class="o_odomate_num">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody t-foreach="blocks" t-as="block">
+                                <tr class="table-active o_odomate_day_header">
+                                    <td t-att-colspan="ncols">
+                                        <strong t-out="block['date']" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="block['rows']" t-as="row">
+                                    <td t-out="row['journal']"/>
+                                    <td t-out="row['move_name']"/>
+                                    <td t-out="row['partner']"/>
+                                    <td t-out="row['ref']"/>
+                                    <td t-out="row['label']"/>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num"/>
+                                    <td t-if="show_currency" class="o_odomate_num">
+                                        <span t-if="row['currency']" t-out="row['amount_currency']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="fw-bold">Day total</td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['difference']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td t-if="show_currency"/>
+                                </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="fw-bold">Total</td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['difference']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td t-if="show_currency"/>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <p t-if="not blocks">No entries in this period.</p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

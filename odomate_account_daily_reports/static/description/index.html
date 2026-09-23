@@ -1,0 +1,78 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color:#875A7B;">Accounting Daily Reports</h2>
+            <h3 class="oe_slogan">Day Book, Cash Book and Bank Book — printable, read-only, multi-company</h3>
+            <p class="oe_mt32" style="text-align:center;">
+                Three daily accounting books for Odoo 19 Community. The Day Book recaps every journal item of the period day by day. The Cash Book and Bank Book show liquidity movements per account, with an optional opening balance and a true per-account running balance. All three print to PDF and never write a single record, so they stay safe behind lock dates and work for a read-only accountant.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Key features</h3>
+        </div>
+        <div class="oe_span6">
+            <ul>
+                <li><b>Day Book</b> — one block per calendar day, with per-day debit, credit and difference totals. Empty days produce no block.</li>
+                <li><b>Cash Book</b> — one block per account over the <code>cash</code> journals, ordered by account code.</li>
+                <li><b>Bank Book</b> — the same layout over the <code>bank</code> and <code>credit</code> journals.</li>
+                <li><b>Opening balance</b> — an optional <i>Opening Balance</i> row per account, computed with the same fiscal-year-correct rule as the General Ledger.</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <ul>
+                <li><b>True running balance</b> — each row carries the previous row's balance plus its own debit minus credit, never the opening repeated.</li>
+                <li><b>Smart account resolution</b> — journal default, suspense and outstanding payment accounts plus the liquidity accounts actually touched, so a journal without a default account still prints.</li>
+                <li><b>Multi-currency</b> — every figure in company currency, with an optional column showing each item's own amount.</li>
+                <li><b>Multi-company</b> — one company per printout, enforced in validation and in every domain.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">How it works</h3>
+            <ol>
+                <li>Open <b>Accounting &rarr; Reporting &rarr; Audit Reports</b> and pick <b>Day Book</b>, <b>Cash Book</b> or <b>Bank Book</b>.</li>
+                <li>Choose <b>Entries</b> (posted only, or all), set the <b>Start Date</b> and <b>End Date</b>, and optionally narrow the <b>Journals</b>.</li>
+                <li>On the Cash Book and Bank Book, pick <b>Sort by</b>, <b>Display Accounts</b>, and tick <b>Include Opening Balance</b> or <b>With Currency</b> as needed.</li>
+                <li>Click <b>Print</b>. The PDF opens in the landscape format shared with the other audit reports.</li>
+            </ol>
+            <p>
+                The books read through the Odoo ORM only — no raw SQL, no <code>sudo()</code>, and no field added to any standard model. Access is limited to the Accounting Administrator, full accounting and read-only accounting groups; the module creates no new security group.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">Documentation</h3>
+            <p style="text-align:center;">
+                The full user guide, including a worked numerical example of the opening, running and closing balances, is shipped in <code>doc/USER_GUIDE.md</code>. Translated guides are available in Ukrainian, Polish, German, Spanish, French and Brazilian Portuguese, and the interface itself ships translations for the same six languages.
+            </p>
+            <p style="text-align:center;">
+                Requires <b>Accounting Audit Reports</b> (<code>odomate_account_ledger_reports</code>), whose filter dialog, page header and paper format these reports reuse.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan">OdoMate</h3>
+            <p style="text-align:center;">
+                Built by OdoMate — <a href="https://odomate.pro">odomate.pro</a><br/>
+                Support: <a href="mailto:support@odomate.pro">support@odomate.pro</a>
+            </p>
+        </div>
+    </div>
+</section>
