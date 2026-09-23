@@ -2,9 +2,14 @@
     'name': "Accounting Daily Reports (Day Book, Cash Book, Bank Book)",
 
     'summary': (
-        "Print the day book, cash book and bank book as PDF: "
-        "daily journal item recap, cash and bank movements with opening "
-        "balance and a true per-account running balance, multi-company"
+        "Odoo Accounting Daily Reports (Day Book, Cash Book, Bank Book) "
+        "module prints the day book, cash book and bank book as PDF with "
+        "opening balances and a per-account running balance, so daily entry "
+        "and closing cash questions need no spreadsheet. "
+        "| day book report | cash book pdf | bank book report "
+        "| daily accounting reports | journal item recap "
+        "| opening balance report | running balance report "
+        "| cash journal printout | odoo community reports"
     ),
 
     'description': """
@@ -25,7 +30,7 @@ kind, and no field added to any standard model.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/daily-books?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Accounting',
@@ -44,7 +49,7 @@ kind, and no field added to any standard model.
         'views/odomate_account_bank_book_views.xml',
         'views/odomate_account_menus.xml',
     ],
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/banner.gif'],
     'installable': True,
     'application': False,
     'auto_install': False,
