@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_liquidity_book_body">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <style>
+                    .o_odomate_table { table-layout: fixed; width: 100%; }
+                    .o_odomate_table th, .o_odomate_table td { word-break: break-word; overflow-wrap: anywhere; vertical-align: top; }
+                    .o_odomate_num { text-align: right; white-space: nowrap; }
+                    .o_odomate_report_total td { border-top: 3px double #000000; background-color: #e9ecef; }
+                </style>
+                <div class="page">
+                    <h2 class="text-center"><t t-out="book_title"/></h2>
+                    <t t-call="odomate_account_ledger_reports.report_filter_header">
+                        <t t-set="company" t-value="header['company']"/>
+                        <t t-set="date_from" t-value="header['date_from']"/>
+                        <t t-set="date_to" t-value="header['date_to']"/>
+                        <t t-set="journals" t-value="header['journals']"/>
+                        <t t-set="target_move_label" t-value="header['target_move_label']"/>
+                    </t>
+                    <t t-set="ncols" t-value="9 + (1 if show_currency else 0)"/>
+                    <table class="table table-sm o_odomate_table">
+                        <thead>
+                            <tr>
+                                <th style="width: 8%;">Date</th>
+                                <th style="width: 6%;">Journal</th>
+                                <th style="width: 11%;">Entry</th>
+                                <th style="width: 13%;">Partner</th>
+                                <th style="width: 10%;">Reference</th>
+                                <th style="width: 16%;">Label</th>
+                                <th class="o_odomate_num" style="width: 9%;">Debit</th>
+                                <th class="o_odomate_num" style="width: 9%;">Credit</th>
+                                <th class="o_odomate_num" style="width: 10%;">Balance</th>
+                                <th t-if="show_currency" class="o_odomate_num">Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="blocks" t-as="block">
+                                <tr class="table-active">
+                                    <td t-att-colspan="ncols">
+                                        <strong t-out="block['account_label']"/>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="block['rows']" t-as="row">
+                                    <td>
+                                        <span t-if="row['date']" t-out="row['date']" t-options="{'widget': 'date'}"/>
+                                    </td>
+                                    <td t-out="row['journal']"/>
+                                    <td t-out="row['move_name']"/>
+                                    <td t-out="row['partner']"/>
+                                    <td t-out="row['ref']"/>
+                                    <td>
+                                        <t t-if="row['opening']">Opening Balance</t>
+                                        <span t-if="not row['opening']" t-out="row['label']"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <span t-out="row['balance']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td t-if="show_currency" class="o_odomate_num">
+                                        <span t-if="row['currency']" t-out="row['amount_currency']" t-options="{'widget': 'monetary', 'display_currency': row['currency']}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="fw-bold">Account total</td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td class="o_odomate_num">
+                                        <strong t-out="block['balance']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                    </td>
+                                    <td t-if="show_currency"/>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tbody class="o_odomate_report_total">
+                            <tr>
+                                <td colspan="6" class="fw-bold">Total</td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['debit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['credit']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td class="o_odomate_num">
+                                    <strong t-out="totals['balance']" t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                                </td>
+                                <td t-if="show_currency"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p t-if="not blocks">No entries in this period.</p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_cash_book">
+        <t t-call="odomate_account_daily_reports.report_liquidity_book_body">
+            <t t-set="book_title">Cash Book</t>
+        </t>
+    </template>
+
+    <template id="report_bank_book">
+        <t t-call="odomate_account_daily_reports.report_liquidity_book_body">
+            <t t-set="book_title">Bank Book</t>
+        </t>
+    </template>
+
+</odoo>

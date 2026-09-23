@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_odomate_cash_book_wizard_form" model="ir.ui.view">
+        <field name="name">odomate.account.cash.book.wizard.form</field>
+        <field name="model">odomate.account.cash.book.wizard</field>
+        <field name="inherit_id" ref="odomate_account_ledger_reports.view_odomate_account_report_filter_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="journal_ids" position="attributes">
+                <attribute name="domain">[('company_id', '=', company_id), ('type', '=', 'cash')]</attribute>
+                <attribute name="placeholder">All cash journals</attribute>
+            </field>
+            <field name="target_move" position="after">
+                <field name="sortby" widget="radio"/>
+                <field name="display_account" widget="radio"/>
+                <field name="initial_balance"/>
+                <field name="amount_currency" groups="base.group_multi_currency"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_odomate_cash_book_wizard" model="ir.actions.act_window">
+        <field name="name">Cash Book</field>
+        <field name="res_model">odomate.account.cash.book.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_odomate_cash_book_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
