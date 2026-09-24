@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_project_checklist_template_user,project.checklist.template user,project.checklist.template,base.group_user,r,
+access_project_checklist_template_manager,project.checklist.template manager,project.checklist.template,project.group_project_manager,crud,
+access_project_checklist_template_line_user,project.checklist.template.line user,project.checklist.template.line,base.group_user,r,
+access_project_checklist_template_line_manager,project.checklist.template.line manager,project.checklist.template.line,project.group_project_manager,crud,
+access_project_task_checklist_line_user,project.task.checklist.line visible tasks,project.task.checklist.line,base.group_user,crud,"['&', ('task_id.company_id', 'in', company_ids + [False]), '|', '|', '|', ('task_id.project_id.privacy_visibility', 'in', ['employees', 'portal']), ('task_id.project_id.message_partner_ids', 'in', [user.partner_id.id]), ('task_id.message_partner_ids', 'in', [user.partner_id.id]), ('task_id.user_ids', 'in', [user.id])]"
+access_project_task_checklist_line_manager,project.task.checklist.line manager,project.task.checklist.line,project.group_project_manager,crud,"[('task_id.company_id', 'in', company_ids + [False])]"
+access_project_task_checklist_replace_wizard_user,project.task.checklist.replace.wizard user,project.task.checklist.replace.wizard,base.group_user,cru,

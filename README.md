@@ -24,6 +24,7 @@ branch for the full Odoo 19 catalogue.
 
 | Module | Description | Complexity |
 |---|---|---|
+| [`odomate_project_checklist`](odomate_project_checklist/) | Reusable step-by-step checklists on Project tasks: template library, per-task customization, live progress bar (cancelled steps excluded), auto-stamped start/end dates with self-healing, and a replace-confirmation wizard. 19 unit tests. | Medium — 4 models incl. an inherited `project.task`, stored computes, a TransientModel wizard |
 
 ## OdoMate tools
 

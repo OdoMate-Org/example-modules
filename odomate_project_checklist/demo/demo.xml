@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <!-- ============================================================ -->
+    <!-- Checklist templates                                          -->
+    <!-- ============================================================ -->
+
+    <record id="demo_template_client_onboarding" model="project.checklist.template">
+        <field name="name">New Client Onboarding</field>
+        <field name="description">Standard steps to bring a newly signed client on board, from account creation to the first invoice.</field>
+    </record>
+
+    <record id="demo_template_client_onboarding_line_1" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_client_onboarding"/>
+        <field name="sequence">10</field>
+        <field name="name">Create Account</field>
+        <field name="note">Create the customer record with billing address, VAT number and main contact.</field>
+    </record>
+    <record id="demo_template_client_onboarding_line_2" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_client_onboarding"/>
+        <field name="sequence">20</field>
+        <field name="name">Send Welcome Email</field>
+        <field name="note">Use the welcome email template and attach the onboarding guide.</field>
+    </record>
+    <record id="demo_template_client_onboarding_line_3" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_client_onboarding"/>
+        <field name="sequence">30</field>
+        <field name="name">Schedule Kick-off Call</field>
+    </record>
+    <record id="demo_template_client_onboarding_line_4" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_client_onboarding"/>
+        <field name="sequence">40</field>
+        <field name="name">Set Up Shared Folder</field>
+        <field name="note">Share the folder with the client contacts only, with edit rights.</field>
+    </record>
+    <record id="demo_template_client_onboarding_line_5" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_client_onboarding"/>
+        <field name="sequence">50</field>
+        <field name="name">Confirm First Invoice</field>
+    </record>
+
+    <record id="demo_template_website_launch" model="project.checklist.template">
+        <field name="name">Website Launch Checklist</field>
+        <field name="description">Final checks to run before a new website goes live for a customer.</field>
+    </record>
+
+    <record id="demo_template_website_launch_line_1" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_website_launch"/>
+        <field name="sequence">10</field>
+        <field name="name">Final Content Review</field>
+        <field name="note">Check spelling, broken links and placeholder images on every page.</field>
+    </record>
+    <record id="demo_template_website_launch_line_2" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_website_launch"/>
+        <field name="sequence">20</field>
+        <field name="name">Cross-browser Testing</field>
+        <field name="note">Test on Chrome, Firefox, Safari and one mobile device.</field>
+    </record>
+    <record id="demo_template_website_launch_line_3" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_website_launch"/>
+        <field name="sequence">30</field>
+        <field name="name">Configure DNS and SSL</field>
+    </record>
+    <record id="demo_template_website_launch_line_4" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_website_launch"/>
+        <field name="sequence">40</field>
+        <field name="name">Announce Launch</field>
+    </record>
+
+    <record id="demo_template_employee_offboarding" model="project.checklist.template">
+        <field name="name">Employee Offboarding</field>
+        <field name="description">Steps to complete when an employee leaves the company.</field>
+    </record>
+
+    <record id="demo_template_employee_offboarding_line_1" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_employee_offboarding"/>
+        <field name="sequence">10</field>
+        <field name="name">Revoke System Access</field>
+        <field name="note">Disable email, VPN and all application accounts on the last working day.</field>
+    </record>
+    <record id="demo_template_employee_offboarding_line_2" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_employee_offboarding"/>
+        <field name="sequence">20</field>
+        <field name="name">Collect Company Equipment</field>
+        <field name="note">Laptop, badge, phone and keys.</field>
+    </record>
+    <record id="demo_template_employee_offboarding_line_3" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_employee_offboarding"/>
+        <field name="sequence">30</field>
+        <field name="name">Conduct Exit Interview</field>
+    </record>
+    <record id="demo_template_employee_offboarding_line_4" model="project.checklist.template.line">
+        <field name="template_id" ref="demo_template_employee_offboarding"/>
+        <field name="sequence">40</field>
+        <field name="name">Process Final Payroll</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Tasks using checklists                                       -->
+    <!-- ============================================================ -->
+
+    <!-- Fresh task: template steps are auto-copied as To Do -->
+    <record id="demo_task_onboarding_fresh" model="project.task">
+        <field name="name">Onboard Northwind Traders</field>
+        <field name="project_id" ref="project.project_project_1"/>
+        <field name="checklist_template_id" ref="demo_template_client_onboarding"/>
+    </record>
+
+    <!-- Mid-progress: done / in progress / to do mix (2 of 5 done = 40%) -->
+    <record id="demo_task_onboarding_progress" model="project.task">
+        <field name="name">Onboard Bluewave Logistics</field>
+        <field name="project_id" ref="project.project_project_1"/>
+        <field name="checklist_template_id" ref="demo_template_client_onboarding"/>
+        <field name="checklist_line_ids" eval="[
+            Command.create({'name': 'Create Account', 'sequence': 10, 'state': 'done', 'note': 'Create the customer record with billing address, VAT number and main contact.', 'template_line_id': ref('demo_template_client_onboarding_line_1')}),
+            Command.create({'name': 'Send Welcome Email', 'sequence': 20, 'state': 'done', 'note': 'Use the welcome email template and attach the onboarding guide.', 'template_line_id': ref('demo_template_client_onboarding_line_2')}),
+            Command.create({'name': 'Schedule Kick-off Call', 'sequence': 30, 'state': 'in_progress', 'template_line_id': ref('demo_template_client_onboarding_line_3')}),
+            Command.create({'name': 'Set Up Shared Folder', 'sequence': 40, 'state': 'to_do', 'note': 'Share the folder with the client contacts only, with edit rights.', 'template_line_id': ref('demo_template_client_onboarding_line_4')}),
+            Command.create({'name': 'Confirm First Invoice', 'sequence': 50, 'state': 'to_do', 'template_line_id': ref('demo_template_client_onboarding_line_5')}),
+        ]"/>
+    </record>
+
+    <!-- Cancelled step excluded from progress (2 of 3 eligible done = 67%) -->
+    <record id="demo_task_website_cancelled" model="project.task">
+        <field name="name">Launch Greenfield Bakery Website</field>
+        <field name="project_id" ref="project.project_project_2"/>
+        <field name="checklist_template_id" ref="demo_template_website_launch"/>
+        <field name="checklist_line_ids" eval="[
+            Command.create({'name': 'Final Content Review', 'sequence': 10, 'state': 'done', 'note': 'Check spelling, broken links and placeholder images on every page.', 'template_line_id': ref('demo_template_website_launch_line_1')}),
+            Command.create({'name': 'Cross-browser Testing', 'sequence': 20, 'state': 'done', 'note': 'Test on Chrome, Firefox, Safari and one mobile device.', 'template_line_id': ref('demo_template_website_launch_line_2')}),
+            Command.create({'name': 'Configure DNS and SSL', 'sequence': 30, 'state': 'cancelled', 'note': 'Handled by the client hosting provider.', 'template_line_id': ref('demo_template_website_launch_line_3')}),
+            Command.create({'name': 'Announce Launch', 'sequence': 40, 'state': 'to_do', 'template_line_id': ref('demo_template_website_launch_line_4')}),
+        ]"/>
+    </record>
+
+    <!-- Fully done: start and end dates populate automatically -->
+    <record id="demo_task_website_done" model="project.task">
+        <field name="name">Launch Summit Outdoor Gear Website</field>
+        <field name="project_id" ref="project.project_project_2"/>
+        <field name="checklist_template_id" ref="demo_template_website_launch"/>
+        <field name="checklist_line_ids" eval="[
+            Command.create({'name': 'Final Content Review', 'sequence': 10, 'state': 'done', 'note': 'Check spelling, broken links and placeholder images on every page.', 'template_line_id': ref('demo_template_website_launch_line_1')}),
+            Command.create({'name': 'Cross-browser Testing', 'sequence': 20, 'state': 'done', 'note': 'Test on Chrome, Firefox, Safari and one mobile device.', 'template_line_id': ref('demo_template_website_launch_line_2')}),
+            Command.create({'name': 'Configure DNS and SSL', 'sequence': 30, 'state': 'done', 'template_line_id': ref('demo_template_website_launch_line_3')}),
+            Command.create({'name': 'Announce Launch', 'sequence': 40, 'state': 'done', 'template_line_id': ref('demo_template_website_launch_line_4')}),
+        ]"/>
+    </record>
+
+    <!-- Employee offboarding mid-progress (1 of 4 done = 25%) -->
+    <record id="demo_task_offboarding_progress" model="project.task">
+        <field name="name">Offboard Departing Sales Representative</field>
+        <field name="project_id" ref="project.project_project_1"/>
+        <field name="checklist_template_id" ref="demo_template_employee_offboarding"/>
+        <field name="checklist_line_ids" eval="[
+            Command.create({'name': 'Revoke System Access', 'sequence': 10, 'state': 'done', 'note': 'Disable email, VPN and all application accounts on the last working day.', 'template_line_id': ref('demo_template_employee_offboarding_line_1')}),
+            Command.create({'name': 'Collect Company Equipment', 'sequence': 20, 'state': 'in_progress', 'note': 'Laptop, badge, phone and keys.', 'template_line_id': ref('demo_template_employee_offboarding_line_2')}),
+            Command.create({'name': 'Conduct Exit Interview', 'sequence': 30, 'state': 'to_do', 'template_line_id': ref('demo_template_employee_offboarding_line_3')}),
+            Command.create({'name': 'Process Final Payroll', 'sequence': 40, 'state': 'to_do', 'template_line_id': ref('demo_template_employee_offboarding_line_4')}),
+        ]"/>
+    </record>
+
+</odoo>
