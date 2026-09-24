@@ -1,0 +1,338 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * project_checklist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 00:00+0000\n"
+"PO-Revision-Date: 2026-09-24 00:00+0000\n"
+"Last-Translator: \n"
+"Language: uk\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: project_checklist
+#. odoo-python
+#: code:addons/project_checklist/wizard/project_task_checklist_replace_wizard.py:0
+#, python-format
+msgid "%(count)s current step(s) (%(done)s done, %(started)s in progress, %(cancelled)s cancelled) will be deleted and replaced by the steps of \"%(template)s\". The End Date will be cleared."
+msgstr "Поточні кроки (%(count)s; виконано: %(done)s, у роботі: %(started)s, скасовано: %(cancelled)s) буде видалено й замінено кроками з «%(template)s». Дату завершення буде очищено."
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_form
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: project_checklist
+#: model:ir.model.fields.selection,name:project_checklist.selection__project_task_checklist_line__state__cancelled
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_template_id
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_form
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Checklist"
+msgstr "Чек-лист"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_date_end
+msgid "Checklist End Date"
+msgstr "Дата завершення чек-листа"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_progress
+msgid "Checklist Progress"
+msgstr "Прогрес чек-листа"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_date_start
+msgid "Checklist Start Date"
+msgstr "Дата початку чек-листа"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_has_progress
+msgid "Checklist Started"
+msgstr "Чек-лист розпочато"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task__checklist_line_ids
+msgid "Checklist Steps"
+msgstr "Кроки чек-листа"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__template_id
+msgid "Checklist Template"
+msgstr "Шаблон чек-листа"
+
+#. module: project_checklist
+#: model:ir.actions.act_window,name:project_checklist.project_checklist_template_action
+#: model:ir.ui.menu,name:project_checklist.project_checklist_template_menu
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_list
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_search
+msgid "Checklists"
+msgstr "Чек-листи"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__create_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__create_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__create_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__create_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__create_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__create_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__current_template_id
+msgid "Current Checklist"
+msgstr "Поточний чек-лист"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_checklist_replace_wizard_view_form
+msgid "Discard"
+msgstr "Відхилити"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__display_name
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__display_name
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__display_name
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: project_checklist
+#: model:ir.model.fields.selection,name:project_checklist.selection__project_task_checklist_line__state__done
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Done"
+msgstr "Виконано"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__state_done_date
+msgid "Done On"
+msgstr "Дата виконання"
+
+#. module: project_checklist
+#: model:ir.model.fields,help:project_checklist.field_project_task__checklist_progress
+msgid "Done steps divided by all steps that are not cancelled."
+msgstr "Кількість виконаних кроків, поділена на кількість усіх нескасованих кроків."
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "End Date"
+msgstr "Дата завершення"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__id
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__id
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__id
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_checklist
+#: model:ir.model.fields.selection,name:project_checklist.selection__project_task_checklist_line__state__in_progress
+msgid "In Progress"
+msgstr "У роботі"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__write_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__write_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__write_uid
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__write_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__write_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__write_date
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__write_date
+msgid "Last Updated on"
+msgstr "Востаннє оновлено"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__name
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__name
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__new_template_id
+msgid "New Checklist"
+msgstr "Новий чек-лист"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__note
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__note
+msgid "Note"
+msgstr "Примітка"
+
+#. module: project_checklist
+#: model:ir.model.fields,help:project_checklist.field_project_task__checklist_template_id
+msgid "Picking a checklist copies its steps into this task. Once a step has been started, done or cancelled, use Replace Checklist to switch to another one."
+msgstr "Вибір чек-листа копіює його кроки в це завдання. Щойно якийсь крок розпочато, виконано або скасовано, використовуйте «Замінити чек-лист», щоб перейти на інший."
+
+#. module: project_checklist
+#: model:ir.model,name:project_checklist.model_project_checklist_template
+msgid "Project Checklist Template"
+msgstr "Шаблон чек-листа проєкту"
+
+#. module: project_checklist
+#: model:ir.model,name:project_checklist.model_project_checklist_template_line
+msgid "Project Checklist Template Step"
+msgstr "Крок шаблону чек-листа проєкту"
+
+#. module: project_checklist
+#. odoo-python
+#: code:addons/project_checklist/models/project_task.py:0
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_checklist_replace_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Replace Checklist"
+msgstr "Замінити чек-лист"
+
+#. module: project_checklist
+#: model:ir.model,name:project_checklist.model_project_task_checklist_replace_wizard
+msgid "Replace Task Checklist"
+msgstr "Заміна чек-листа завдання"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template_line__sequence
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: project_checklist
+#: model:ir.model.fields,help:project_checklist.field_project_task__checklist_date_start
+msgid "Set automatically the first time a checklist step is started, if empty."
+msgstr "Встановлюється автоматично, коли вперше розпочинається крок чек-листа, якщо поле порожнє."
+
+#. module: project_checklist
+#: model:ir.model.fields,help:project_checklist.field_project_task__checklist_date_end
+msgid "Set automatically when the checklist reaches 100%, cleared again if it drops below 100%."
+msgstr "Встановлюється автоматично, коли чек-лист досягає 100%, і знову очищається, якщо прогрес падає нижче 100%."
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Start"
+msgstr "Почати"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_form_inherit_checklist
+msgid "Start Date"
+msgstr "Дата початку"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__state_in_progress_date
+msgid "Started On"
+msgstr "Дата початку роботи"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_search
+msgid "Step"
+msgstr "Крок"
+
+#. module: project_checklist
+#. odoo-python
+#: code:addons/project_checklist/models/project_task_checklist_line.py:0
+#, python-format
+msgid "Step \"%(step)s\" cannot be set to %(target)s from %(current)s."
+msgstr "Крок «%(step)s» не можна перевести зі стану «%(current)s» у стан «%(target)s»."
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__line_ids
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_form
+msgid "Steps"
+msgstr "Кроки"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_checklist_template__line_count
+msgid "Steps Count"
+msgstr "Кількість кроків"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__task_id
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__task_id
+msgid "Task"
+msgstr "Завдання"
+
+#. module: project_checklist
+#: model:ir.model,name:project_checklist.model_project_task_checklist_line
+msgid "Task Checklist Step"
+msgstr "Крок чек-листа завдання"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_line__template_line_id
+msgid "Template Step"
+msgstr "Крок шаблону"
+
+#. module: project_checklist
+#. odoo-python
+#: code:addons/project_checklist/models/project_task.py:0
+#, python-format
+msgid "The checklist of task \"%(task)s\" is already in progress. Use the Replace Checklist button to switch to another checklist."
+msgstr "Чек-лист завдання «%(task)s» уже в роботі. Скористайтеся кнопкою «Замінити чек-лист», щоб перейти на інший чек-лист."
+
+#. module: project_checklist
+#: model:ir.model.fields.selection,name:project_checklist.selection__project_task_checklist_line__state__to_do
+msgid "To Do"
+msgstr "До виконання"
+
+#. module: project_checklist
+#: model:ir.model.fields,field_description:project_checklist.field_project_task_checklist_replace_wizard__warning_message
+msgid "Warning"
+msgstr "Попередження"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_task_view_search_inherit_checklist
+msgid "With Checklist"
+msgstr "З чек-листом"
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_form
+msgid "What this checklist is for..."
+msgstr "Для чого призначений цей чек-лист..."
+
+#. module: project_checklist
+#: model_terms:ir.ui.view,arch_db:project_checklist.project_checklist_template_view_form
+msgid "e.g. New Client Onboarding"
+msgstr "напр. Адаптація нового клієнта"
+
+#. module: project_checklist
+#. odoo-python
+#: code:addons/project_checklist/wizard/project_task_checklist_replace_wizard.py:0
+msgid "the new checklist"
+msgstr "новий чек-лист"
