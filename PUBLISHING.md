@@ -25,7 +25,7 @@ The Notion task tracker is the state machine; this file is the recipe.
 {
     "name": "…",                      # no "Odoo" in the app name (trademark policy)
     "summary": "…",
-    "version": "19.0.1.0.0",          # must start with the series: 19.0.x.y.z
+    "version": "20.0.1.0.0",          # must start with the series: 20.0.x.y.z
     "category": "…",
     "author": "OdoMate",
     "website": "https://www.odomate.pro",
@@ -55,11 +55,11 @@ The Apps Store does not take uploads — it **scans a registered git repository*
 1. apps.odoo.com → login (registered account) → *Apps* → *Upload your app* / repository
    settings → add this repo's git URL (`https://github.com/OdoMate-Org/example-modules.git`
    — public, so no deploy key needed).
-2. The store scans branches named after Odoo series (`19.0`) and lists every top-level
-   module directory it finds as an app.
-3. Each app is then published/unpublished individually from the dashboard. New pushes to
-   `19.0` re-scan automatically (there can be a delay; a manual re-scan button exists in
-   the dashboard).
+2. The store scans branches named after Odoo series (`19.0`, `20.0`, …) and lists every
+   top-level module directory it finds as an app.
+3. Each app is then published/unpublished individually from the dashboard. New pushes to a
+   series branch re-scan automatically (there can be a delay; a manual re-scan button exists
+   in the dashboard).
 4. Free apps: set no price. The listing page renders `static/description/index.html`.
 
 ## 5. Cadence
