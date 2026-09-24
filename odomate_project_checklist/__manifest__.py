@@ -2,9 +2,12 @@
     'name': "Project Task Checklists",
 
     'summary': """
-        Project task checklist templates: reusable step-by-step checklists,
-        per-task customization, checklist progress bar, task start/end date
-        auto-stamping, to-do steps tracking for Odoo Project
+        Odoo Project Task Checklists module automates step-by-step checklist
+        tracking on project tasks, standardizing recurring workflows and
+        keeping completion visible without manual status updates.
+        task checklist module | project management | reusable template |
+        progress tracking | recurring workflow | completion tracking |
+        onboarding checklist | team workflow automation
     """,
 
     'description': """
@@ -24,8 +27,9 @@ copy of the steps, which can be edited, reordered, extended or removed.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/checklist?v=site",
     'support': "support@odomate.pro",
+    'images': ['static/description/banner.gif'],
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/20.0/odoo/addons/base/data/ir_module_category_data.xml
