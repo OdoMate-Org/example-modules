@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_auditlog_rule_form" model="ir.ui.view">
+        <field name="name">auditlog.rule.form</field>
+        <field name="model">auditlog.rule</field>
+        <field name="arch" type="xml">
+            <form string="Rule">
+                <header>
+                    <button name="set_to_confirmed" string="Confirm" type="object" class="oe_highlight" invisible="state == 'confirmed'" groups="auditlog.group_auditlog_manager"/>
+                    <button name="set_to_draft" string="Set to Draft" type="object" invisible="state == 'draft'" groups="auditlog.group_auditlog_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs" type="object" class="oe_stat_button" icon="fa-history" invisible="not model_id">
+                            <field name="log_count" widget="statinfo" string="Logs"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Partner changes" readonly="state == 'confirmed'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Audited Model">
+                            <field name="model_id" readonly="state == 'confirmed'" options="{'no_create': True}"/>
+                            <field name="model_model" invisible="not model_model"/>
+                            <field name="action_id" invisible="not action_id" options="{'no_open': True}" groups="base.group_no_one"/>
+                            <field name="log_type" widget="radio" readonly="state == 'confirmed'"/>
+                            <field name="log_failure_policy" widget="radio" readonly="state == 'confirmed'"/>
+                        </group>
+                        <group string="Operations">
+                            <field name="log_create" readonly="state == 'confirmed'"/>
+                            <field name="log_write" readonly="state == 'confirmed'"/>
+                            <field name="log_unlink" readonly="state == 'confirmed'"/>
+                            <field name="log_read" readonly="state == 'confirmed'"/>
+                            <field name="log_export_data" readonly="state == 'confirmed'"/>
+                            <field name="capture_record" readonly="state == 'confirmed'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Users to Exclude" name="users_to_exclude">
+                            <field name="users_to_exclude_ids" widget="many2many_tags" readonly="state == 'confirmed'"/>
+                        </page>
+                        <page string="Fields to Exclude" name="fields_to_exclude">
+                            <field name="fields_to_exclude_ids" widget="many2many_tags" readonly="state == 'confirmed'" options="{'no_create': True}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_auditlog_rule_list" model="ir.ui.view">
+        <field name="name">auditlog.rule.list</field>
+        <field name="model">auditlog.rule</field>
+        <field name="arch" type="xml">
+            <list string="Rules" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="log_type"/>
+                <field name="log_create" optional="show"/>
+                <field name="log_write" optional="show"/>
+                <field name="log_unlink" optional="show"/>
+                <field name="log_read" optional="hide"/>
+                <field name="log_export_data" optional="hide"/>
+                <field name="log_failure_policy" optional="hide"/>
+                <field name="state" widget="badge" decoration-success="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_auditlog_rule_search" model="ir.ui.view">
+        <field name="name">auditlog.rule.search</field>
+        <field name="model">auditlog.rule</field>
+        <field name="arch" type="xml">
+            <search string="Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter name="state_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="state_confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <group name="group_by">
+                    <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_log_type" string="Type" context="{'group_by': 'log_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_auditlog_rule" model="ir.actions.act_window">
+        <field name="name">Rules</field>
+        <field name="res_model">auditlog.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_auditlog_rule_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create an audit rule</p>
+            <p>Pick a model, choose which operations to log, then confirm the rule to start auditing.</p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,88 @@
+{
+  "module_name": "Audit Log",
+  "slug": "audit-20",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Audit</span> <span style=\"color:#a98bf5;\">Log</span>",
+  "intro_html": "Keeps a tamper-evident record of who did what to which record — every create, edit, delete, read, or export, with the old and new value for every changed field — so \"who changed this, and what was it before?\" always has an answer.",
+  "test_count": 34,
+  "stats": [
+    {
+      "value": "~27 min",
+      "label": "First generated version",
+      "caption": "From spec to a working, tested module"
+    },
+    {
+      "value": "1",
+      "label": "Versions",
+      "caption": "v1 original generation"
+    },
+    {
+      "value": "< $30",
+      "label": "Total cost",
+      "caption": "Requirements refinement, generation and automated browser tests"
+    },
+    {
+      "value": "34",
+      "label": "Automated tests",
+      "caption": "Generated and run with the module itself"
+    }
+  ],
+  "short_link": {
+    "slug": "audit-20",
+    "qr_base64_file": "static/description/assets/qr/ribbon.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/auditlog/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/auditlog/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "features": [
+    {
+      "icon": "file-text-o",
+      "title": "Field-by-Field History",
+      "desc": "Every changed field logged with a readable old value and new value — not just \"something changed\"."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Fast Mode for Busy Models",
+      "desc": "Switch to lightweight logging on high-traffic models where speed matters more than full history."
+    },
+    {
+      "icon": "shield",
+      "title": "Deleted-Record Snapshots",
+      "desc": "Keep every field's value from right before a record is deleted, not just that it happened."
+    },
+    {
+      "icon": "exchange",
+      "title": "Export Tracking",
+      "desc": "Know exactly which records were exported, by whom, with one click back to the records themselves."
+    },
+    {
+      "icon": "sliders",
+      "title": "Exclude the Noise",
+      "desc": "Leave out specific users or fields so the trail stays relevant, not cluttered."
+    },
+    {
+      "icon": "building",
+      "title": "Multi-Company Aware",
+      "desc": "Each log stays scoped to the companies a user is actually allowed to see."
+    },
+    {
+      "icon": "refresh",
+      "title": "Built-in Cleanup",
+      "desc": "Auto-purge old logs on a schedule, or run cleanup on demand — your retention, your call."
+    },
+    {
+      "icon": "globe",
+      "title": "Multilingual Out of the Box",
+      "desc": "Ships fully translated in English, Ukrainian, and Polish."
+    }
+  ],
+  "limitations": [
+    "Logging every read is expensive on high-traffic models (like Contacts) — best turned on only for sensitive, low-volume ones.",
+    "Fast mode trades away the \"before\" value — it shows what was written, not what it replaced.",
+    "Automatic cleanup ships switched off; you turn it on if you want logs purged on a schedule.",
+    "Changes made outside Odoo (direct database edits) aren't captured."
+  ]
+}
