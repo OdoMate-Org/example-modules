@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <!-- ============================================================ -->
+    <!-- 1. Second company                                            -->
+    <!-- ============================================================ -->
+    <record id="demo_company_b" model="res.company">
+        <field name="name">Auditlog Demo Company B</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 2. Partner tags                                              -->
+    <!-- ============================================================ -->
+    <record id="demo_partner_tag_key_account" model="res.partner.category">
+        <field name="name">Key Account</field>
+    </record>
+    <record id="demo_partner_tag_supplier" model="res.partner.category">
+        <field name="name">Preferred Supplier</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 3. Demo partners (5 main company, 4 company B)               -->
+    <!-- ============================================================ -->
+    <record id="demo_partner_northwind" model="res.partner">
+        <field name="name">Northwind Traders Inc</field>
+        <field name="is_company" eval="True"/>
+        <field name="email">info@northwind.example.com</field>
+        <field name="phone">+1 555 0101</field>
+        <field name="city">Chicago</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="category_id" eval="[(6, 0, [ref('demo_partner_tag_key_account'), ref('demo_partner_tag_supplier')])]"/>
+    </record>
+    <record id="demo_partner_maria_keller" model="res.partner">
+        <field name="name">Maria Keller</field>
+        <field name="email">maria.keller@example.com</field>
+        <field name="phone">+1 555 0102</field>
+        <field name="city">Boston</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="comment">Prefers to be contacted in the morning.</field>
+    </record>
+    <record id="demo_partner_bluewater" model="res.partner">
+        <field name="name">Bluewater Logistics</field>
+        <field name="is_company" eval="True"/>
+        <field name="email">contact@bluewater.example.com</field>
+        <field name="phone">+1 555 0103</field>
+        <field name="city">Seattle</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_partner_daniel_okafor" model="res.partner">
+        <field name="name">Daniel Okafor</field>
+        <field name="email">daniel.okafor@example.com</field>
+        <field name="phone">+1 555 0104</field>
+        <field name="city">Denver</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_partner_greenfield" model="res.partner">
+        <field name="name">Greenfield Office Supplies</field>
+        <field name="is_company" eval="True"/>
+        <field name="email">orders@greenfield.example.com</field>
+        <field name="phone">+1 555 0105</field>
+        <field name="city">Austin</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_partner_helios" model="res.partner">
+        <field name="name">Helios Energy GmbH</field>
+        <field name="is_company" eval="True"/>
+        <field name="email">office@helios-energy.example.com</field>
+        <field name="phone">+49 89 5550 201</field>
+        <field name="city">Munich</field>
+        <field name="company_id" ref="demo_company_b"/>
+    </record>
+    <record id="demo_partner_sofia_marino" model="res.partner">
+        <field name="name">Sofia Marino</field>
+        <field name="email">sofia.marino@example.com</field>
+        <field name="phone">+39 02 5550 202</field>
+        <field name="city">Milan</field>
+        <field name="company_id" ref="demo_company_b"/>
+    </record>
+    <record id="demo_partner_fjord_seafood" model="res.partner">
+        <field name="name">Fjord Seafood AS</field>
+        <field name="is_company" eval="True"/>
+        <field name="email">sales@fjordseafood.example.com</field>
+        <field name="phone">+47 55 50 02 03</field>
+        <field name="city">Bergen</field>
+        <field name="company_id" ref="demo_company_b"/>
+    </record>
+    <record id="demo_partner_lukas_brenner" model="res.partner">
+        <field name="name">Lukas Brenner</field>
+        <field name="email">lukas.brenner@example.com</field>
+        <field name="phone">+43 1 5550 204</field>
+        <field name="city">Vienna</field>
+        <field name="company_id" ref="demo_company_b"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 4. Demo login                                                -->
+    <!-- ============================================================ -->
+    <record id="demo_user_auditlog_viewer" model="res.users">
+        <field name="name">Audit Viewer (Main Company)</field>
+        <field name="login">audit_viewer</field>
+        <field name="password">audit_viewer</field>
+        <field name="email">audit.viewer@example.com</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="company_ids" eval="[(6, 0, [ref('base.main_company')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('auditlog.group_auditlog_user')])]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 5. Demo rule on Contacts, then confirm it                    -->
+    <!-- ============================================================ -->
+    <record id="demo_rule_res_partner" model="auditlog.rule">
+        <field name="name">Partner audit trail</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="log_type">full</field>
+        <field name="log_create" eval="True"/>
+        <field name="log_write" eval="True"/>
+        <field name="log_unlink" eval="True"/>
+        <field name="log_export_data" eval="True"/>
+        <field name="log_read" eval="False"/>
+        <field name="capture_record" eval="True"/>
+        <field name="log_failure_policy">block</field>
+        <field name="fields_to_exclude_ids" eval="[(6, 0, [ref('base.field_res_partner__comment')])]"/>
+        <field name="state">draft</field>
+    </record>
+    <function model="auditlog.rule" name="set_to_confirmed" eval="[[ref('demo_rule_res_partner')]]"/>
+
+    <!-- ============================================================ -->
+    <!-- 6a. create logs                                              -->
+    <!-- ============================================================ -->
+    <record id="demo_log_create_northwind" model="auditlog.log">
+        <field name="name">Northwind Traders Inc</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_northwind')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_northwind_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_northwind"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Northwind Traders Inc</field>
+        <field name="new_value_text">Northwind Traders Inc</field>
+    </record>
+    <record id="demo_log_line_create_northwind_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_northwind"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">info@northwind.example.com</field>
+        <field name="new_value_text">info@northwind.example.com</field>
+    </record>
+    <record id="demo_log_line_create_northwind_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_northwind"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Chicago</field>
+        <field name="new_value_text">Chicago</field>
+    </record>
+
+    <record id="demo_log_create_maria_keller" model="auditlog.log">
+        <field name="name">Maria Keller</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_maria_keller')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_maria_keller_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_maria_keller"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Maria Keller</field>
+        <field name="new_value_text">Maria Keller</field>
+    </record>
+    <record id="demo_log_line_create_maria_keller_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_maria_keller"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">maria.keller@example.com</field>
+        <field name="new_value_text">maria.keller@example.com</field>
+    </record>
+    <record id="demo_log_line_create_maria_keller_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_maria_keller"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Boston</field>
+        <field name="new_value_text">Boston</field>
+    </record>
+
+    <record id="demo_log_create_bluewater" model="auditlog.log">
+        <field name="name">Bluewater Logistics</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_bluewater')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_bluewater_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_bluewater"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Bluewater Logistics</field>
+        <field name="new_value_text">Bluewater Logistics</field>
+    </record>
+    <record id="demo_log_line_create_bluewater_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_bluewater"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">info@bluewater.example.com</field>
+        <field name="new_value_text">info@bluewater.example.com</field>
+    </record>
+    <record id="demo_log_line_create_bluewater_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_bluewater"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Seattle</field>
+        <field name="new_value_text">Seattle</field>
+    </record>
+
+    <record id="demo_log_create_daniel_okafor" model="auditlog.log">
+        <field name="name">Daniel Okafor</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_daniel_okafor')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_daniel_okafor_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_daniel_okafor"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Daniel Okafor</field>
+        <field name="new_value_text">Daniel Okafor</field>
+    </record>
+    <record id="demo_log_line_create_daniel_okafor_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_daniel_okafor"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">daniel.okafor@example.com</field>
+        <field name="new_value_text">daniel.okafor@example.com</field>
+    </record>
+    <record id="demo_log_line_create_daniel_okafor_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_daniel_okafor"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Colorado Springs</field>
+        <field name="new_value_text">Colorado Springs</field>
+    </record>
+
+    <record id="demo_log_create_greenfield" model="auditlog.log">
+        <field name="name">Greenfield Office Supplies</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_greenfield')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_greenfield_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_greenfield"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Greenfield Office Supplies</field>
+        <field name="new_value_text">Greenfield Office Supplies</field>
+    </record>
+    <record id="demo_log_line_create_greenfield_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_greenfield"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">orders@greenfield.example.com</field>
+        <field name="new_value_text">orders@greenfield.example.com</field>
+    </record>
+    <record id="demo_log_line_create_greenfield_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_greenfield"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Austin</field>
+        <field name="new_value_text">Austin</field>
+    </record>
+
+    <record id="demo_log_create_helios" model="auditlog.log">
+        <field name="name">Helios Energy GmbH</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_helios')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_helios_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_helios"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Helios Energy GmbH</field>
+        <field name="new_value_text">Helios Energy GmbH</field>
+    </record>
+    <record id="demo_log_line_create_helios_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_helios"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">office@helios-energy.example.com</field>
+        <field name="new_value_text">office@helios-energy.example.com</field>
+    </record>
+    <record id="demo_log_line_create_helios_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_helios"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Munich</field>
+        <field name="new_value_text">Munich</field>
+    </record>
+
+    <record id="demo_log_create_sofia_marino" model="auditlog.log">
+        <field name="name">Sofia Marino</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_sofia_marino')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_sofia_marino_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_sofia_marino"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Sofia Marino</field>
+        <field name="new_value_text">Sofia Marino</field>
+    </record>
+    <record id="demo_log_line_create_sofia_marino_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_sofia_marino"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">sofia.marino@example.com</field>
+        <field name="new_value_text">sofia.marino@example.com</field>
+    </record>
+    <record id="demo_log_line_create_sofia_marino_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_sofia_marino"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Turin</field>
+        <field name="new_value_text">Turin</field>
+    </record>
+
+    <record id="demo_log_create_fjord_seafood" model="auditlog.log">
+        <field name="name">Fjord Seafood AS</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_fjord_seafood')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_fjord_seafood_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_fjord_seafood"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Fjord Seafood AS</field>
+        <field name="new_value_text">Fjord Seafood AS</field>
+    </record>
+    <record id="demo_log_line_create_fjord_seafood_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_fjord_seafood"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">post@fjordseafood.example.com</field>
+        <field name="new_value_text">post@fjordseafood.example.com</field>
+    </record>
+    <record id="demo_log_line_create_fjord_seafood_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_fjord_seafood"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Bergen</field>
+        <field name="new_value_text">Bergen</field>
+    </record>
+
+    <record id="demo_log_create_lukas_brenner" model="auditlog.log">
+        <field name="name">Lukas Brenner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_lukas_brenner')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_lukas_brenner_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_lukas_brenner"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Lukas Brenner</field>
+        <field name="new_value_text">Lukas Brenner</field>
+    </record>
+    <record id="demo_log_line_create_lukas_brenner_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_lukas_brenner"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">lukas.brenner@example.com</field>
+        <field name="new_value_text">lukas.brenner@example.com</field>
+    </record>
+    <record id="demo_log_line_create_lukas_brenner_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_lukas_brenner"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Vienna</field>
+        <field name="new_value_text">Vienna</field>
+    </record>
+
+    <!-- Creation of a partner that was later deleted (see unlink log below) -->
+    <record id="demo_log_create_deleted_supplier" model="auditlog.log">
+        <field name="name">Deleted Supplier Ltd</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="90001"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">create</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_create_deleted_supplier_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="new_value">Deleted Supplier Ltd</field>
+        <field name="new_value_text">Deleted Supplier Ltd</field>
+    </record>
+    <record id="demo_log_line_create_deleted_supplier_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="new_value">accounts@deleted-supplier.example.com</field>
+        <field name="new_value_text">accounts@deleted-supplier.example.com</field>
+    </record>
+    <record id="demo_log_line_create_deleted_supplier_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_create_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="new_value">Portland</field>
+        <field name="new_value_text">Portland</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 6b. write logs                                               -->
+    <!-- ============================================================ -->
+    <!-- Tags (many2many) change -->
+    <record id="demo_log_write_northwind_tags" model="auditlog.log">
+        <field name="name">Northwind Traders Inc</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_northwind')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_northwind_tags" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_northwind_tags"/>
+        <field name="field_id" ref="base.field_res_partner__category_id"/>
+        <field name="field_name">category_id</field>
+        <field name="field_description">Tags</field>
+        <field name="old_value">[]</field>
+        <field name="new_value" eval="'[%d, %d]' % (ref('demo_partner_tag_key_account'), ref('demo_partner_tag_supplier'))"/>
+        <field name="old_value_text"></field>
+        <field name="new_value_text">Key Account, Preferred Supplier</field>
+    </record>
+
+    <!-- Only the excluded Notes field changed: the log carries no lines -->
+    <record id="demo_log_write_maria_keller_comment" model="auditlog.log">
+        <field name="name">Maria Keller</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_maria_keller')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+
+    <!-- Email change -->
+    <record id="demo_log_write_bluewater_email" model="auditlog.log">
+        <field name="name">Bluewater Logistics</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_bluewater')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_bluewater_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_bluewater_email"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="old_value">info@bluewater.example.com</field>
+        <field name="new_value">contact@bluewater.example.com</field>
+        <field name="old_value_text">info@bluewater.example.com</field>
+        <field name="new_value_text">contact@bluewater.example.com</field>
+    </record>
+
+    <!-- City change -->
+    <record id="demo_log_write_daniel_okafor_city" model="auditlog.log">
+        <field name="name">Daniel Okafor</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_daniel_okafor')"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_daniel_okafor_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_daniel_okafor_city"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="old_value">Colorado Springs</field>
+        <field name="new_value">Denver</field>
+        <field name="old_value_text">Colorado Springs</field>
+        <field name="new_value_text">Denver</field>
+    </record>
+
+    <!-- Phone change -->
+    <record id="demo_log_write_helios_phone" model="auditlog.log">
+        <field name="name">Helios Energy GmbH</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_helios')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_helios_phone" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_helios_phone"/>
+        <field name="field_id" ref="base.field_res_partner__phone"/>
+        <field name="field_name">phone</field>
+        <field name="field_description">Phone</field>
+        <field name="old_value">+49 89 5550 100</field>
+        <field name="new_value">+49 89 5550 201</field>
+        <field name="old_value_text">+49 89 5550 100</field>
+        <field name="new_value_text">+49 89 5550 201</field>
+    </record>
+
+    <!-- City change -->
+    <record id="demo_log_write_sofia_marino_city" model="auditlog.log">
+        <field name="name">Sofia Marino</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_sofia_marino')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_sofia_marino_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_sofia_marino_city"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="old_value">Turin</field>
+        <field name="new_value">Milan</field>
+        <field name="old_value_text">Turin</field>
+        <field name="new_value_text">Milan</field>
+    </record>
+
+    <!-- Email and phone changed together -->
+    <record id="demo_log_write_fjord_seafood_contact" model="auditlog.log">
+        <field name="name">Fjord Seafood AS</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="ref('demo_partner_fjord_seafood')"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">write</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_write_fjord_seafood_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_fjord_seafood_contact"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="old_value">post@fjordseafood.example.com</field>
+        <field name="new_value">sales@fjordseafood.example.com</field>
+        <field name="old_value_text">post@fjordseafood.example.com</field>
+        <field name="new_value_text">sales@fjordseafood.example.com</field>
+    </record>
+    <record id="demo_log_line_write_fjord_seafood_phone" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_write_fjord_seafood_contact"/>
+        <field name="field_id" ref="base.field_res_partner__phone"/>
+        <field name="field_name">phone</field>
+        <field name="field_description">Phone</field>
+        <field name="old_value">+47 55 50 01 00</field>
+        <field name="new_value">+47 55 50 02 03</field>
+        <field name="old_value_text">+47 55 50 01 00</field>
+        <field name="new_value_text">+47 55 50 02 03</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 6c. unlink logs                                              -->
+    <!-- ============================================================ -->
+    <!-- Deletion with captured record values (capture_record on) -->
+    <record id="demo_log_unlink_deleted_supplier" model="auditlog.log">
+        <field name="name">Deleted Supplier Ltd</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="90001"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">unlink</field>
+        <field name="log_type">full</field>
+    </record>
+    <record id="demo_log_line_unlink_deleted_supplier_name" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_unlink_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_name">name</field>
+        <field name="field_description">Name</field>
+        <field name="old_value">Deleted Supplier Ltd</field>
+        <field name="old_value_text">Deleted Supplier Ltd</field>
+    </record>
+    <record id="demo_log_line_unlink_deleted_supplier_email" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_unlink_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_name">email</field>
+        <field name="field_description">Email</field>
+        <field name="old_value">accounts@deleted-supplier.example.com</field>
+        <field name="old_value_text">accounts@deleted-supplier.example.com</field>
+    </record>
+    <record id="demo_log_line_unlink_deleted_supplier_city" model="auditlog.log.line">
+        <field name="log_id" ref="demo_log_unlink_deleted_supplier"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_name">city</field>
+        <field name="field_description">City</field>
+        <field name="old_value">Portland</field>
+        <field name="old_value_text">Portland</field>
+    </record>
+
+    <!-- Deletion recorded without captured values -->
+    <record id="demo_log_unlink_obsolete_prospect" model="auditlog.log">
+        <field name="name">Obsolete Prospect Corp</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_id" eval="90002"/>
+        <field name="company_id" ref="demo_company_b"/>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="method">unlink</field>
+        <field name="log_type">full</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- 6d. export log                                               -->
+    <!-- ============================================================ -->
+    <record id="demo_log_export_main_contacts" model="auditlog.log">
+        <field name="name">Contact</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="model_name">Contact</field>
+        <field name="model_model">res.partner</field>
+        <field name="res_ids" eval="'[%d, %d, %d, %d, %d]' % (ref('demo_partner_northwind'), ref('demo_partner_maria_keller'), ref('demo_partner_bluewater'), ref('demo_partner_daniel_okafor'), ref('demo_partner_greenfield'))"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="method">export_data</field>
+        <field name="log_type">full</field>
+    </record>
+
+</odoo>
