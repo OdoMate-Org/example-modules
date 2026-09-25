@@ -2,11 +2,12 @@
     'name': "Audit Log",
 
     'summary': """
-    Field-level audit trail for Odoo: track who created, modified, deleted,
-    read or exported which records, with old and new values.
-    Keywords: audit log, audit trail, change history, compliance, GDPR,
-    user activity tracking, field changes, data export tracking,
-    multi-company audit, log retention
+    Odoo Audit Log module tracks who created, modified, deleted, read or
+    exported records across the models you choose, keeping old and new
+    field values so past activity always stays answerable.
+    audit trail odoo | audit log | field change history | change tracking |
+    user activity log | data export tracking | compliance audit |
+    record deletion snapshot | log retention policy
     """,
 
     'description': """
@@ -28,8 +29,9 @@ Record creations, modifications, deletions, reads and exports on the models you 
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/audit-20?v=site",
     'support': "support@odomate.pro",
+    'images': ['static/description/banner.gif'],
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/20.0/odoo/addons/base/data/ir_module_category_data.xml

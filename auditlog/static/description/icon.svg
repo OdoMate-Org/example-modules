@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- OdoMate brand ramp, identical to banner-template.html's .grad. -->
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="52" y1="60" x2="460" y2="452">
+      <stop offset="0" stop-color="#5fe7b0"/>
+      <stop offset="0.48" stop-color="#5ab4f0"/>
+      <stop offset="1" stop-color="#a98bf5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SUBJECT: the record, a page with a folded corner. -->
+  <g fill="none" stroke="url(#g)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M112 96 H284 L332 144 V372 H112 Z"/>
+    <path d="M284 96 V144 H332"/>
+  </g>
+
+  <!-- CONTEXT: the field rows on the record — one row sits under the glass. -->
+  <g fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity="0.8">
+    <path d="M144 182 H268"/>
+    <path d="M144 224 H268"/>
+    <path d="M144 266 H244"/>
+  </g>
+
+  <!-- ACTION: the magnifying glass, inspecting the changed row. -->
+  <g fill="none" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="352" cy="322" r="62"/>
+    <path d="M396 366 L452 422"/>
+  </g>
+</svg>
