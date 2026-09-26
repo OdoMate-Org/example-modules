@@ -1,0 +1,48 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Audit Trail</h2>
+        <h3 class="oe_slogan">Who changed which record, when, and what it was before</h3>
+        <p class="oe_mt32">Audit Trail records create, change, delete, export and list-open events on the kinds of records you choose to watch, per company. Each change keeps field-level old and new values, the user, the working session and the screen it came from. Watching is switched on deliberately per rule, and old history can be cleaned up by a batch-limited scheduled job.</p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">Key Features</h2>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Watch Rules</b> (<code>audit.rule</code>): one per kind of record and company, Draft/Active with Confirm and Set to Draft; settings locked while active.</li>
+                <li><b>Full or Light detail</b>: keep old and new values, or only the new value for speed.</li>
+                <li><b>Five actions</b>: creation, changes, deletion (with an optional full copy of the deleted record), exports and multi-record list opens.</li>
+                <li><b>Exclusions</b>: people and fields that are never recorded.</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <ul class="oe_mt32">
+                <li><b>Recorded Events and Field Changes</b> screens, searchable and groupable by person, kind of record, date and working session.</li>
+                <li><b>View Logs</b> button on Contacts, Bank Accounts and Price Lists for Auditors.</li>
+                <li><b>View Exported Records</b> opens exactly the records included in an export.</li>
+                <li><b>Per-company clean-up</b>, off by default, removing history older than N months in bounded batches.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #875A7B;">How it works</h2>
+        <ol class="oe_mt32">
+            <li>An Audit Administrator opens <b>Audit → Configuration → Rules</b>, picks a kind of record (e.g. Contact), the detail level and actions, then clicks <b>Confirm</b>.</li>
+            <li>Every matching change made by users of that company is written to <b>Audit → Logs</b> with its field changes. Recording never blocks or reverses the user's action.</li>
+            <li>Auditors review history in <b>Logs</b>, <b>Log Lines</b> and <b>Sessions</b>, or from the watched record itself with <b>View Logs</b>.</li>
+            <li>Optionally, switch on <b>Remove Old History</b> in Settings to keep only the last N months.</li>
+        </ol>
+        <p class="oe_mt32">Full documentation: <code>doc/USER_GUIDE.md</code> (English), <code>doc/USER_GUIDE.uk.md</code> (Ukrainian), <code>doc/USER_GUIDE.pl.md</code> (Polish).</p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <p class="oe_slogan">Built by <a href="https://odomate.pro">OdoMate</a> · <a href="mailto:support@odomate.pro">support@odomate.pro</a></p>
+    </div>
+</section>

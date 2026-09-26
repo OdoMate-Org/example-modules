@@ -1,0 +1,753 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * audit_trail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 00:00+0000\n"
+"PO-Revision-Date: 2026-09-26 00:00+0000\n"
+"Last-Translator: \n"
+"Language: pl\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/base.py:0
+msgid "%(count)s records exported"
+msgstr "Wyeksportowane rekordy: %(count)s"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/base.py:0
+msgid "%(count)s records listed"
+msgstr "Rekordy wyświetlone na liście: %(count)s"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_rule.py:0
+msgid ""
+"A watch rule for %(model)s already exists in %(company)s: \"%(rule)s\". Edit "
+"that rule instead of creating a second one."
+msgstr ""
+"Reguła obserwacji dla %(model)s już istnieje w firmie %(company)s: "
+"\"%(rule)s\". Edytuj tę regułę zamiast tworzyć drugą."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid ""
+"A scheduled job deletes this company's recorded audit history older than the"
+" chosen age, a bounded batch at a time. Off until you switch it on."
+msgstr ""
+"Zaplanowane zadanie usuwa zarejestrowaną historię audytu tej firmy starszą "
+"niż wybrany wiek, ograniczonymi partiami. Wyłączone, dopóki go nie włączysz."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__action
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__action
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Action"
+msgstr "Działanie"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__excluded_user_ids
+msgid "Actions performed by these people are never recorded."
+msgstr "Działania tych osób nigdy nie są rejestrowane."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "Actions to Record"
+msgstr "Działania do rejestrowania"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_rule__state__active
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_search
+msgid "Active"
+msgstr "Aktywna"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_root
+msgid "Audit"
+msgstr "Audyt"
+
+#. module: audit_trail
+#: model:res.groups,name:audit_trail.group_audit_manager
+msgid "Audit Administrator"
+msgstr "Administrator audytu"
+
+#. module: audit_trail
+#: model:ir.model,name:audit_trail.model_audit_log_line
+msgid "Audit Field Change"
+msgstr "Zmiana pola (audyt)"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_res_company__audit_cleanup_enabled
+#: model:ir.model.fields,field_description:audit_trail.field_res_config_settings__audit_cleanup_enabled
+msgid "Audit History Clean-up"
+msgstr "Czyszczenie historii audytu"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/base.py:0
+msgid "Audit Logs"
+msgstr "Dzienniki audytu"
+
+#. module: audit_trail
+#: model:ir.model,name:audit_trail.model_audit_log
+msgid "Audit Recorded Event"
+msgstr "Zarejestrowane zdarzenie audytu"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid "Audit Trail"
+msgstr "Ścieżka audytu"
+
+#. module: audit_trail
+#: model:ir.actions.server,name:audit_trail.ir_cron_audit_log_cleanup_ir_actions_server
+msgid "Audit Trail: Remove Expired History"
+msgstr "Ścieżka audytu: usuwanie przeterminowanej historii"
+
+#. module: audit_trail
+#: model:ir.model,name:audit_trail.model_audit_rule
+msgid "Audit Watch Rule"
+msgstr "Reguła obserwacji audytu"
+
+#. module: audit_trail
+#: model:ir.model,name:audit_trail.model_audit_session
+msgid "Audit Working Session"
+msgstr "Sesja robocza audytu"
+
+#. module: audit_trail
+#: model:res.groups,name:audit_trail.group_audit_user
+msgid "Auditor"
+msgstr "Audytor"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__browser
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_search
+msgid "Browser"
+msgstr "Przeglądarka"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log__action__write
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log_line__action__write
+msgid "Change"
+msgstr "Zmiana"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Changes"
+msgstr "Zmiany"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__excluded_field_ids
+msgid "Changes to these fields are never recorded."
+msgstr "Zmiany tych pól nigdy nie są rejestrowane."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__company_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__company_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__company_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__company_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_search
+msgid "Company"
+msgstr "Firma"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_config
+msgid "Configuration"
+msgstr "Konfiguracja"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "Confirm"
+msgstr "Potwierdź"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__track_read
+msgid ""
+"Counts only lists showing more than one record. A single record opened on "
+"its own is never recorded."
+msgstr ""
+"Liczone są tylko listy z więcej niż jednym rekordem. Pojedynczy rekord "
+"otwarty osobno nigdy nie jest rejestrowany."
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log__action__create
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log_line__action__create
+msgid "Create"
+msgstr "Utworzenie"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__create_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__create_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__create_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__create_uid
+msgid "Created by"
+msgstr "Utworzone przez"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__create_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__create_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__create_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__create_date
+msgid "Created on"
+msgstr "Data utworzenia"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Creations"
+msgstr "Utworzenia"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__date
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Date"
+msgstr "Data"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log__action__unlink
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log_line__action__unlink
+msgid "Delete"
+msgstr "Usunięcie"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__deleted_data
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_form
+msgid "Deleted Record Contents"
+msgstr "Zawartość usuniętego rekordu"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Deletions"
+msgstr "Usunięcia"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__detail_level
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__detail_level
+msgid "Detail Level"
+msgstr "Poziom szczegółowości"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__display_name
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__display_name
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__display_name
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__display_name
+msgid "Display Name"
+msgstr "Nazwa wyświetlana"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_rule__state__draft
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_search
+msgid "Draft"
+msgstr "Projekt"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "Exclusions"
+msgstr "Wykluczenia"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log__action__export
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log_line__action__export
+msgid "Export"
+msgstr "Eksport"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__exported_res_ids
+msgid "Exported Record IDs"
+msgstr "ID wyeksportowanych rekordów"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_log.py:0
+msgid "Exported Records"
+msgstr "Wyeksportowane rekordy"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Exports"
+msgstr "Eksporty"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__field_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+msgid "Field"
+msgstr "Pole"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_form
+msgid "Field Change"
+msgstr "Zmiana pola"
+
+#. module: audit_trail
+#: model:ir.actions.act_window,name:audit_trail.action_audit_log_line
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__line_ids
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_form
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_list
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+msgid "Field Changes"
+msgstr "Zmiany pól"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__field_description
+msgid "Field Label"
+msgstr "Etykieta pola"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__excluded_field_ids
+msgid "Fields to Exclude"
+msgstr "Wykluczone pola"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_rule__detail_level__full
+msgid "Full"
+msgstr "Pełny"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid ""
+"Full keeps both old and new values, but is slower: every change re-reads the"
+" whole record before and after."
+msgstr ""
+"Poziom pełny zachowuje stare i nowe wartości, ale działa wolniej: każda "
+"zmiana ponownie odczytuje cały rekord przed i po."
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__detail_level
+msgid ""
+"Full re-reads the record before and after every change to keep old and new "
+"values. Light stores only the new value and skips the extra read."
+msgstr ""
+"Pełny odczytuje rekord przed i po każdej zmianie, aby zachować stare i nowe "
+"wartości. Lekki zapisuje tylko nową wartość i pomija dodatkowy odczyt."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__id
+msgid "ID"
+msgstr "ID"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__keep_deleted_copy
+msgid "Keep a Copy on Deletion"
+msgstr "Zachowaj kopię przy usunięciu"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_res_company__audit_cleanup_age_months
+#: model:ir.model.fields,field_description:audit_trail.field_res_config_settings__audit_cleanup_age_months
+msgid "Keep Audit History (Months)"
+msgstr "Przechowuj historię audytu (miesiące)"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid "Keep history for"
+msgstr "Przechowuj historię przez"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid ""
+"Keeping a copy stores the full contents of every deleted record, which uses "
+"extra database storage but lets you see exactly what was removed."
+msgstr ""
+"Zachowanie kopii zapisuje pełną zawartość każdego usuniętego rekordu, co "
+"zajmuje dodatkowe miejsce w bazie danych, ale pozwala zobaczyć, co dokładnie "
+"usunięto."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__model_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__res_model
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__res_model
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "Kind of Record"
+msgstr "Rodzaj rekordu"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__last_activity_date
+msgid "Last Activity"
+msgstr "Ostatnia aktywność"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__write_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__write_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__write_uid
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__write_uid
+msgid "Last Updated by"
+msgstr "Ostatnio aktualizowane przez"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__write_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__write_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__write_date
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__write_date
+msgid "Last Updated on"
+msgstr "Data ostatniej aktualizacji"
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_rule__detail_level__light
+msgid "Light"
+msgstr "Lekki"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid ""
+"Light is faster but gives up the old values: only the new value of each "
+"changed field is kept."
+msgstr ""
+"Poziom lekki jest szybszy, ale bez starych wartości: zachowywana jest tylko "
+"nowa wartość każdego zmienionego pola."
+
+#. module: audit_trail
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log__action__read
+#: model:ir.model.fields.selection,name:audit_trail.selection__audit_log_line__action__read
+msgid "List Open"
+msgstr "Otwarcie listy"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+msgid "List Opens"
+msgstr "Otwarcia list"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_log_line
+msgid "Log Lines"
+msgstr "Pozycje dziennika"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_log
+msgid "Logs"
+msgstr "Dzienniki"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__model_name
+msgid "Model Name"
+msgstr "Nazwa modelu"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__name
+msgid "Name"
+msgstr "Nazwa"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__ip_address
+msgid "Network Address"
+msgstr "Adres sieciowy"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__new_value
+msgid "New Value"
+msgstr "Nowa wartość"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__old_value
+msgid "Old Value"
+msgstr "Stara wartość"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_rule.py:0
+msgid "Only one watch rule per kind of record and company is allowed."
+msgstr "Dozwolona jest tylko jedna reguła obserwacji na rodzaj rekordu i firmę."
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__company_id
+msgid "Only changes made while working in this company are recorded."
+msgstr "Rejestrowane są tylko zmiany wprowadzone podczas pracy w tej firmie."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_form
+msgid "Open Record"
+msgstr "Otwórz rekord"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__excluded_user_ids
+msgid "People to Exclude"
+msgstr "Wykluczone osoby"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__record_name
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__record_name
+msgid "Record"
+msgstr "Rekord"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__track_write
+msgid "Record Changes"
+msgstr "Rejestruj zmiany"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__track_create
+msgid "Record Creation"
+msgstr "Rejestruj tworzenie"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__track_unlink
+msgid "Record Deletion"
+msgstr "Rejestruj usuwanie"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__track_export
+msgid "Record Exports"
+msgstr "Rejestruj eksporty"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__res_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__res_id
+msgid "Record ID"
+msgstr "ID rekordu"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__track_read
+msgid "Record List Opens"
+msgstr "Rejestruj otwarcia list"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__log_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_form
+msgid "Recorded Event"
+msgstr "Zarejestrowane zdarzenie"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_rule.py:0
+#: model:ir.actions.act_window,name:audit_trail.action_audit_log
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__log_count
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__log_ids
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_list
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_form
+msgid "Recorded Events"
+msgstr "Zarejestrowane zdarzenia"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__log_count
+msgid "Recorded Events Count"
+msgstr "Liczba zarejestrowanych zdarzeń"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_res_company__audit_cleanup_age_months
+#: model:ir.model.fields,help:audit_trail.field_res_config_settings__audit_cleanup_age_months
+msgid ""
+"Recorded audit history older than this number of months is removed by the "
+"clean-up job."
+msgstr ""
+"Zarejestrowana historia audytu starsza niż ta liczba miesięcy jest usuwana "
+"przez zadanie czyszczenia."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid "Recorded History Clean-up"
+msgstr "Czyszczenie zarejestrowanej historii"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid ""
+"Recording list opens can create a very large number of events, because every"
+" list showing more than one watched record is logged. It is off by default; "
+"switch it on only when you really need it. A single record opened on its own"
+" is never recorded."
+msgstr ""
+"Rejestrowanie otwarć list może utworzyć bardzo dużą liczbę zdarzeń, ponieważ "
+"zapisywana jest każda lista pokazująca więcej niż jeden obserwowany rekord. "
+"Domyślnie wyłączone; włączaj tylko wtedy, gdy naprawdę tego potrzebujesz. "
+"Pojedynczy rekord otwarty osobno nigdy nie jest rejestrowany."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__exported_count
+msgid "Records Included"
+msgstr "Liczba rekordów"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid "Remove Old History"
+msgstr "Usuwaj starą historię"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_rule
+msgid "Rules"
+msgstr "Reguły"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_session.py:0
+msgid "Session Events"
+msgstr "Zdarzenia sesji"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__session_key
+msgid "Session Key"
+msgstr "Klucz sesji"
+
+#. module: audit_trail
+#: model:ir.ui.menu,name:audit_trail.menu_audit_session
+msgid "Sessions"
+msgstr "Sesje"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_rule.py:0
+msgid "Set the watch rule back to Draft before deleting it."
+msgstr "Przed usunięciem przywróć regułę obserwacji do stanu projektu."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "Set to Draft"
+msgstr "Przywróć do projektu"
+
+#. module: audit_trail
+#: model:ir.actions.act_window,name:audit_trail.action_audit_config_settings
+#: model:ir.ui.menu,name:audit_trail.menu_audit_settings
+msgid "Settings"
+msgstr "Ustawienia"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_search
+msgid "Sign-in Day"
+msgstr "Dzień logowania"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__login_date
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_search
+msgid "Sign-in Time"
+msgstr "Czas logowania"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__source_action
+msgid "Source Screen"
+msgstr "Ekran źródłowy"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_rule__state
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_search
+msgid "Status"
+msgstr "Status"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__keep_deleted_copy
+msgid "Stores the full record contents alongside the deletion event."
+msgstr "Zapisuje pełną zawartość rekordu razem ze zdarzeniem usunięcia."
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/res_company.py:0
+msgid "The audit history age must be at least one month."
+msgstr "Wiek historii audytu musi wynosić co najmniej jeden miesiąc."
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_audit_rule__model_id
+msgid "The kind of record being watched, for example Contact or Bank Account."
+msgstr "Obserwowany rodzaj rekordu, na przykład kontakt lub konto bankowe."
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid ""
+"This rule is active: its watch settings are locked. Set it back to Draft to "
+"change them."
+msgstr ""
+"Ta reguła jest aktywna: jej ustawienia obserwacji są zablokowane. Aby je "
+"zmienić, przywróć regułę do stanu projektu."
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_rule.py:0
+msgid ""
+"This watch rule is active, so its watch settings are locked. Set it back to "
+"Draft before changing them."
+msgstr ""
+"Ta reguła obserwacji jest aktywna, więc jej ustawienia są zablokowane. "
+"Przywróć ją do stanu projektu przed ich zmianą."
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_session.py:0
+msgid "Unknown"
+msgstr "Nieznany"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__user_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__user_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_session__user_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_line_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_search
+msgid "User"
+msgstr "Użytkownik"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_form
+msgid "View Exported Records"
+msgstr "Pokaż wyeksportowane rekordy"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.product_pricelist_view_audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_partner_bank_form_audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_partner_form_audit_trail
+msgid "View Logs"
+msgstr "Dzienniki"
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__rule_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "Watch Rule"
+msgstr "Reguła obserwacji"
+
+#. module: audit_trail
+#: model:ir.actions.act_window,name:audit_trail.action_audit_rule
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_list
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_search
+msgid "Watch Rules"
+msgstr "Reguły obserwacji"
+
+#. module: audit_trail
+#: model:ir.model.fields,help:audit_trail.field_res_company__audit_cleanup_enabled
+#: model:ir.model.fields,help:audit_trail.field_res_config_settings__audit_cleanup_enabled
+msgid ""
+"When switched on, a scheduled job removes recorded audit history older than "
+"the chosen age."
+msgstr ""
+"Po włączeniu zaplanowane zadanie usuwa zarejestrowaną historię audytu "
+"starszą niż wybrany wiek."
+
+#. module: audit_trail
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log__session_id
+#: model:ir.model.fields,field_description:audit_trail.field_audit_log_line__session_id
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_log_search
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_form
+msgid "Working Session"
+msgstr "Sesja robocza"
+
+#. module: audit_trail
+#: model:ir.actions.act_window,name:audit_trail.action_audit_session
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_list
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_session_search
+msgid "Working Sessions"
+msgstr "Sesje robocze"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.view_audit_rule_form
+msgid "e.g. Contacts"
+msgstr "np. Kontakty"
+
+#. module: audit_trail
+#: model_terms:ir.ui.view,arch_db:audit_trail.res_config_settings_view_form_audit_trail
+msgid "months"
+msgstr "miesięcy"
+
+#. module: audit_trail
+#. odoo-python
+#: code:addons/audit_trail/models/audit_log.py:0
+msgid "This record no longer exists; its recorded history is kept here."
+msgstr "Ten rekord już nie istnieje; jego zarejestrowana historia jest przechowywana tutaj."

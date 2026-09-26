@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_audit_log_line_list" model="ir.ui.view">
+        <field name="name">audit.log.line.list</field>
+        <field name="model">audit.log.line</field>
+        <field name="arch" type="xml">
+            <list string="Field Changes" create="false" edit="false">
+                <field name="date"/>
+                <field name="record_name"/>
+                <field name="res_model"/>
+                <field name="action"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="field_description"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_log_line_form" model="ir.ui.view">
+        <field name="name">audit.log.line.form</field>
+        <field name="model">audit.log.line</field>
+        <field name="arch" type="xml">
+            <form string="Field Change" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="log_id"/>
+                            <field name="record_name"/>
+                            <field name="res_model"/>
+                            <field name="action"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="field_id"/>
+                            <field name="field_description"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="old_value"/>
+                        <field name="new_value"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_log_line_search" model="ir.ui.view">
+        <field name="name">audit.log.line.search</field>
+        <field name="model">audit.log.line</field>
+        <field name="arch" type="xml">
+            <search string="Field Changes">
+                <field name="record_name"/>
+                <field name="field_description"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="res_model"/>
+                <field name="user_id"/>
+                <filter string="Creations" name="filter_create" domain="[('action', '=', 'create')]"/>
+                <filter string="Changes" name="filter_write" domain="[('action', '=', 'write')]"/>
+                <separator/>
+                <filter string="Date" name="filter_date" date="date"/>
+                <group name="group_by">
+                    <filter string="User" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Kind of Record" name="group_model" context="{'group_by': 'res_model'}"/>
+                    <filter string="Field" name="group_field" context="{'group_by': 'field_description'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_log_line" model="ir.actions.act_window">
+        <field name="name">Field Changes</field>
+        <field name="res_model">audit.log.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_log_line_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No field changes recorded yet</p>
+            <p>Every changed field of every watched record is listed here, across all kinds of records at once.</p>
+        </field>
+    </record>
+</odoo>

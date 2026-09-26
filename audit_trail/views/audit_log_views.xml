@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_audit_log_list" model="ir.ui.view">
+        <field name="name">audit.log.list</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <list string="Recorded Events" create="false" edit="false">
+                <field name="date"/>
+                <field name="record_name"/>
+                <field name="res_model"/>
+                <field name="action" widget="badge" decoration-success="action == 'create'" decoration-info="action == 'write'" decoration-danger="action == 'unlink'" decoration-warning="action == 'export'"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="session_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_log_form" model="ir.ui.view">
+        <field name="name">audit.log.form</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Recorded Event" create="false" edit="false">
+                <header>
+                    <button name="action_view_exported_records" type="object" string="View Exported Records" class="btn-primary" invisible="action != 'export'"/>
+                    <button name="action_open_record" type="object" string="Open Record" invisible="action in ('unlink', 'export', 'read') or not res_id"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="record_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="action"/>
+                            <field name="detail_level"/>
+                        </group>
+                        <group>
+                            <field name="res_model"/>
+                            <field name="res_id" invisible="action in ('export', 'read')"/>
+                            <field name="exported_count" invisible="action not in ('export', 'read')"/>
+                            <field name="rule_id"/>
+                            <field name="session_id"/>
+                            <field name="source_action"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Field Changes" name="changes">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="field_description"/>
+                                    <field name="old_value"/>
+                                    <field name="new_value"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Deleted Record Contents" name="deleted" invisible="not deleted_data">
+                            <field name="deleted_data"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_log_search" model="ir.ui.view">
+        <field name="name">audit.log.search</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <search string="Recorded Events">
+                <field name="record_name"/>
+                <field name="res_model"/>
+                <field name="user_id"/>
+                <field name="session_id"/>
+                <field name="rule_id"/>
+                <filter string="Creations" name="filter_create" domain="[('action', '=', 'create')]"/>
+                <filter string="Changes" name="filter_write" domain="[('action', '=', 'write')]"/>
+                <filter string="Deletions" name="filter_unlink" domain="[('action', '=', 'unlink')]"/>
+                <filter string="Exports" name="filter_export" domain="[('action', '=', 'export')]"/>
+                <filter string="List Opens" name="filter_read" domain="[('action', '=', 'read')]"/>
+                <separator/>
+                <filter string="Date" name="filter_date" date="date"/>
+                <group name="group_by">
+                    <filter string="User" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Kind of Record" name="group_model" context="{'group_by': 'res_model'}"/>
+                    <filter string="Action" name="group_action" context="{'group_by': 'action'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date:day'}"/>
+                    <filter string="Working Session" name="group_session" context="{'group_by': 'session_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_log" model="ir.actions.act_window">
+        <field name="name">Recorded Events</field>
+        <field name="res_model">audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No recorded events yet</p>
+            <p>Events appear here once a watch rule is confirmed and someone creates, changes, deletes or exports a watched record.</p>
+        </field>
+    </record>
+</odoo>

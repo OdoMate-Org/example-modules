@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Starter watch rules: all left in Draft so nothing is recorded until confirmed -->
+    <record id="demo_rule_contacts" model="audit.rule">
+        <field name="name">Contacts</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="detail_level">full</field>
+        <field name="track_read" eval="False"/>
+        <field name="keep_deleted_copy" eval="True"/>
+    </record>
+    <record id="demo_rule_bank_accounts" model="audit.rule">
+        <field name="name">Bank Accounts</field>
+        <field name="model_id" ref="base.model_res_partner_bank"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="detail_level">full</field>
+        <field name="track_read" eval="False"/>
+        <field name="keep_deleted_copy" eval="True"/>
+    </record>
+    <record id="demo_rule_price_lists" model="audit.rule">
+        <field name="name">Price Lists</field>
+        <field name="model_id" ref="product.model_product_pricelist"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="detail_level">full</field>
+        <field name="track_read" eval="False"/>
+        <field name="keep_deleted_copy" eval="True"/>
+    </record>
+
+    <!-- Watched demo records the illustrative history points at -->
+    <record id="demo_bank_deco_addict" model="res.partner.bank">
+        <field name="account_number">BE71 0961 2345 6769</field>
+        <field name="partner_id" ref="base.res_partner_2"/>
+    </record>
+    <record id="demo_bank_gemini" model="res.partner.bank">
+        <field name="account_number">NL91 ABNA 0417 1643 00</field>
+        <field name="partner_id" ref="base.res_partner_3"/>
+    </record>
+    <record id="demo_pricelist_retail" model="product.pricelist">
+        <field name="name">Retail 2026</field>
+    </record>
+    <record id="demo_pricelist_wholesale" model="product.pricelist">
+        <field name="name">Wholesale 2026</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <!-- Working sessions -->
+    <record id="demo_session_admin_firefox" model="audit.session">
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="login_date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d 08:02:00')"/>
+        <field name="last_activity_date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d 11:47:00')"/>
+        <field name="browser">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0</field>
+        <field name="ip_address">192.0.2.14</field>
+    </record>
+    <record id="demo_session_demo_chrome" model="audit.session">
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="login_date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 09:10:00')"/>
+        <field name="last_activity_date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 16:25:00')"/>
+        <field name="browser">Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36</field>
+        <field name="ip_address">198.51.100.37</field>
+    </record>
+    <record id="demo_session_admin_safari" model="audit.session">
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="login_date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d 13:30:00')"/>
+        <field name="last_activity_date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d 14:05:00')"/>
+        <field name="browser">Mozilla/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/604.1</field>
+        <field name="ip_address">203.0.113.88</field>
+    </record>
+
+    <!-- Illustrative recorded events (demo history only) -->
+    <record id="demo_log_01" model="audit.log">
+        <field name="rule_id" ref="demo_rule_contacts"/>
+        <field name="res_model">res.partner</field>
+        <field name="res_id" eval="ref('base.res_partner_2')"/>
+        <field name="record_name">Deco Addict</field>
+        <field name="action">write</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d 08:15:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_firefox"/>
+        <field name="source_action">Contacts</field>
+    </record>
+    <record id="demo_log_01_line_phone" model="audit.log.line">
+        <field name="log_id" ref="demo_log_01"/>
+        <field name="field_id" ref="base.field_res_partner__phone"/>
+        <field name="field_description">Phone</field>
+        <field name="old_value">(603)-996-3829</field>
+        <field name="new_value">(603)-996-4100</field>
+    </record>
+
+    <record id="demo_log_02" model="audit.log">
+        <field name="rule_id" ref="demo_rule_contacts"/>
+        <field name="res_model">res.partner</field>
+        <field name="res_id" eval="ref('base.res_partner_3')"/>
+        <field name="record_name">Gemini Furniture</field>
+        <field name="action">write</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d 09:40:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_firefox"/>
+        <field name="source_action">Contacts</field>
+    </record>
+    <record id="demo_log_02_line_email" model="audit.log.line">
+        <field name="log_id" ref="demo_log_02"/>
+        <field name="field_id" ref="base.field_res_partner__email"/>
+        <field name="field_description">Email</field>
+        <field name="old_value">gemini.furniture39@example.com</field>
+        <field name="new_value">orders@gemini-furniture.example.com</field>
+    </record>
+    <record id="demo_log_02_line_city" model="audit.log.line">
+        <field name="log_id" ref="demo_log_02"/>
+        <field name="field_id" ref="base.field_res_partner__city"/>
+        <field name="field_description">City</field>
+        <field name="old_value">Fairfield</field>
+        <field name="new_value">Bridgeport</field>
+    </record>
+
+    <record id="demo_log_03" model="audit.log">
+        <field name="rule_id" ref="demo_rule_contacts"/>
+        <field name="res_model">res.partner</field>
+        <field name="res_id" eval="ref('base.res_partner_4')"/>
+        <field name="record_name">Ready Mat</field>
+        <field name="action">create</field>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 09:22:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_demo_chrome"/>
+        <field name="source_action">Contacts</field>
+    </record>
+    <record id="demo_log_03_line_name" model="audit.log.line">
+        <field name="log_id" ref="demo_log_03"/>
+        <field name="field_id" ref="base.field_res_partner__name"/>
+        <field name="field_description">Name</field>
+        <field name="new_value">Ready Mat</field>
+    </record>
+    <record id="demo_log_03_line_phone" model="audit.log.line">
+        <field name="log_id" ref="demo_log_03"/>
+        <field name="field_id" ref="base.field_res_partner__phone"/>
+        <field name="field_description">Phone</field>
+        <field name="new_value">(803)-873-6126</field>
+    </record>
+
+    <record id="demo_log_04" model="audit.log">
+        <field name="rule_id" ref="demo_rule_contacts"/>
+        <field name="res_model">res.partner</field>
+        <field name="record_name">3 records exported</field>
+        <field name="action">export</field>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 10:05:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_demo_chrome"/>
+        <field name="source_action">Contacts</field>
+        <field name="exported_res_ids" eval="'[%d, %d, %d]' % (ref('base.res_partner_2'), ref('base.res_partner_3'), ref('base.res_partner_4'))"/>
+    </record>
+
+    <record id="demo_log_05" model="audit.log">
+        <field name="rule_id" ref="demo_rule_bank_accounts"/>
+        <field name="res_model">res.partner.bank</field>
+        <field name="res_id" eval="ref('demo_bank_deco_addict')"/>
+        <field name="record_name">BE71 0961 2345 6769</field>
+        <field name="action">write</field>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 14:12:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_demo_chrome"/>
+        <field name="source_action">Bank Accounts</field>
+    </record>
+    <record id="demo_log_05_line_acc" model="audit.log.line">
+        <field name="log_id" ref="demo_log_05"/>
+        <field name="field_id" ref="base.field_res_partner_bank__account_number"/>
+        <field name="field_description">Account Number</field>
+        <field name="old_value">BE68 5390 0754 7034</field>
+        <field name="new_value">BE71 0961 2345 6769</field>
+    </record>
+
+    <record id="demo_log_06" model="audit.log">
+        <field name="rule_id" ref="demo_rule_bank_accounts"/>
+        <field name="res_model">res.partner.bank</field>
+        <field name="record_name">BE68 5390 0754 7034</field>
+        <field name="action">unlink</field>
+        <field name="user_id" ref="base.user_demo"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d 16:20:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_demo_chrome"/>
+        <field name="source_action">Bank Accounts</field>
+        <field name="deleted_data">{
+  "account_number": "BE68 5390 0754 7034",
+  "active": "True",
+  "allow_out_payment": "False",
+  "partner_id": "Gemini Furniture"
+}</field>
+    </record>
+
+    <record id="demo_log_07" model="audit.log">
+        <field name="rule_id" ref="demo_rule_bank_accounts"/>
+        <field name="res_model">res.partner.bank</field>
+        <field name="record_name">2 records exported</field>
+        <field name="action">export</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d 11:30:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_firefox"/>
+        <field name="source_action">Bank Accounts</field>
+        <field name="exported_res_ids" eval="'[%d, %d]' % (ref('demo_bank_deco_addict'), ref('demo_bank_gemini'))"/>
+    </record>
+
+    <record id="demo_log_08" model="audit.log">
+        <field name="rule_id" ref="demo_rule_price_lists"/>
+        <field name="res_model">product.pricelist</field>
+        <field name="res_id" eval="ref('demo_pricelist_retail')"/>
+        <field name="record_name">Retail 2026</field>
+        <field name="action">write</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d 13:42:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_safari"/>
+        <field name="source_action">Pricelists</field>
+    </record>
+    <record id="demo_log_08_line_name" model="audit.log.line">
+        <field name="log_id" ref="demo_log_08"/>
+        <field name="field_id" ref="product.field_product_pricelist__name"/>
+        <field name="field_description">Pricelist Name</field>
+        <field name="old_value">Retail 2025</field>
+        <field name="new_value">Retail 2026</field>
+    </record>
+
+    <record id="demo_log_09" model="audit.log">
+        <field name="rule_id" ref="demo_rule_price_lists"/>
+        <field name="res_model">product.pricelist</field>
+        <field name="res_id" eval="ref('demo_pricelist_wholesale')"/>
+        <field name="record_name">Wholesale 2026</field>
+        <field name="action">create</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d 13:55:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_safari"/>
+        <field name="source_action">Pricelists</field>
+    </record>
+    <record id="demo_log_09_line_name" model="audit.log.line">
+        <field name="log_id" ref="demo_log_09"/>
+        <field name="field_id" ref="product.field_product_pricelist__name"/>
+        <field name="field_description">Pricelist Name</field>
+        <field name="new_value">Wholesale 2026</field>
+    </record>
+
+    <record id="demo_log_10" model="audit.log">
+        <field name="rule_id" ref="demo_rule_price_lists"/>
+        <field name="res_model">product.pricelist</field>
+        <field name="res_id" eval="ref('demo_pricelist_wholesale')"/>
+        <field name="record_name">Wholesale 2026</field>
+        <field name="action">write</field>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d 14:03:00')"/>
+        <field name="detail_level">full</field>
+        <field name="session_id" ref="demo_session_admin_safari"/>
+        <field name="source_action">Pricelists</field>
+    </record>
+    <record id="demo_log_10_line_sequence" model="audit.log.line">
+        <field name="log_id" ref="demo_log_10"/>
+        <field name="field_id" ref="product.field_product_pricelist__sequence"/>
+        <field name="field_description">Sequence</field>
+        <field name="old_value">16</field>
+        <field name="new_value">5</field>
+    </record>
+</odoo>

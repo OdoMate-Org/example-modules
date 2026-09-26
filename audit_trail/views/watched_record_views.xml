@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_audit_trail" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.audit_trail</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_audit_view_logs" type="object" class="oe_stat_button" icon="fa-history" string="View Logs" groups="audit_trail.group_audit_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_bank_form_audit_trail" model="ir.ui.view">
+        <field name="name">res.partner.bank.form.inherit.audit_trail</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/*[1]" position="before">
+                <div class="d-flex justify-content-end" name="audit_trail_logs" groups="audit_trail.group_audit_user">
+                    <button name="action_audit_view_logs" type="object" class="btn btn-link" icon="fa-history" string="View Logs"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_view_audit_trail" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit.audit_trail</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/*[1]" position="before">
+                <div class="d-flex justify-content-end" name="audit_trail_logs" groups="audit_trail.group_audit_user">
+                    <button name="action_audit_view_logs" type="object" class="btn btn-link" icon="fa-history" string="View Logs"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

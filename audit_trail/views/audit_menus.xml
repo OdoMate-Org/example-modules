@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_audit_root" name="Audit" web_icon="audit_trail,static/description/icon.png" groups="audit_trail.group_audit_user" sequence="90"/>
+
+    <menuitem id="menu_audit_log" name="Logs" parent="menu_audit_root" action="action_audit_log" groups="audit_trail.group_audit_user" sequence="10"/>
+    <menuitem id="menu_audit_log_line" name="Log Lines" parent="menu_audit_root" action="action_audit_log_line" groups="audit_trail.group_audit_user" sequence="20"/>
+    <menuitem id="menu_audit_session" name="Sessions" parent="menu_audit_root" action="action_audit_session" groups="audit_trail.group_audit_user" sequence="30"/>
+
+    <menuitem id="menu_audit_config" name="Configuration" parent="menu_audit_root" groups="audit_trail.group_audit_manager" sequence="90"/>
+    <menuitem id="menu_audit_rule" name="Rules" parent="menu_audit_config" action="action_audit_rule" groups="audit_trail.group_audit_manager" sequence="10"/>
+    <menuitem id="menu_audit_settings" name="Settings" parent="menu_audit_config" action="action_audit_config_settings" groups="base.group_system" sequence="20"/>
+</odoo>
