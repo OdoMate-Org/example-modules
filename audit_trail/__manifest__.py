@@ -2,9 +2,14 @@
     'name': "Audit Trail",
 
     'summary': """
-        Audit trail and change log: per-company watch rules record who created,
-        changed, deleted or exported which record and when, with field-level
-        before/after values, user sessions and scheduled history clean-up.
+        Odoo Audit Trail module records who created, changed, deleted,
+        exported or opened any record, storing before and after field
+        values, deletion snapshots and session context, so past
+        activity stays answerable.
+        audit trail odoo | audit log | change tracking |
+        field history tracking | record change history |
+        deletion snapshot | export tracking | user activity log |
+        data retention cleanup | compliance audit odoo
     """,
 
     'description': """
@@ -17,8 +22,9 @@ See doc/USER_GUIDE.md for the full guide.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/audit?v=site",
     'support': "support@odomate.pro",
+    'images': ['static/description/banner.gif'],
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/20.0/odoo/addons/base/data/ir_module_category_data.xml
