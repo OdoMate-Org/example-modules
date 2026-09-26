@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_audit_user" model="res.groups">
+        <field name="name">Auditor</field>
+        <field name="comment">Read-only access to audit watch rules, recorded events, field changes and working sessions.</field>
+    </record>
+
+    <record id="group_audit_manager" model="res.groups">
+        <field name="name">Audit Administrator</field>
+        <field name="comment">Sets up watch rules, switches recording on and off, and may delete recorded history.</field>
+        <field name="implied_ids" eval="[(4, ref('group_audit_user'))]"/>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_audit_manager'))]"/>
+    </record>
+
+    <record id="base.user_admin" model="res.users">
+        <field name="group_ids" eval="[(4, ref('group_audit_manager'))]"/>
+    </record>
+</odoo>

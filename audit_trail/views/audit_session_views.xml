@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_audit_session_list" model="ir.ui.view">
+        <field name="name">audit.session.list</field>
+        <field name="model">audit.session</field>
+        <field name="arch" type="xml">
+            <list string="Working Sessions" create="false" edit="false">
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="login_date"/>
+                <field name="last_activity_date" optional="show"/>
+                <field name="browser"/>
+                <field name="ip_address"/>
+                <field name="log_count"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_session_form" model="ir.ui.view">
+        <field name="name">audit.session.form</field>
+        <field name="model">audit.session</field>
+        <field name="arch" type="xml">
+            <form string="Working Session" create="false" edit="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="log_count" widget="statinfo" string="Recorded Events"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="login_date"/>
+                            <field name="last_activity_date"/>
+                        </group>
+                        <group>
+                            <field name="browser"/>
+                            <field name="ip_address"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Recorded Events" name="events">
+                            <field name="log_ids">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="record_name"/>
+                                    <field name="res_model"/>
+                                    <field name="action"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_session_search" model="ir.ui.view">
+        <field name="name">audit.session.search</field>
+        <field name="model">audit.session</field>
+        <field name="arch" type="xml">
+            <search string="Working Sessions">
+                <field name="user_id"/>
+                <field name="ip_address"/>
+                <field name="browser"/>
+                <filter string="Sign-in Time" name="filter_login" date="login_date"/>
+                <group name="group_by">
+                    <filter string="User" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Sign-in Day" name="group_login" context="{'group_by': 'login_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_session" model="ir.actions.act_window">
+        <field name="name">Working Sessions</field>
+        <field name="res_model">audit.session</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_session_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No working sessions recorded yet</p>
+            <p>A session appears the first time a signed-in person triggers a recorded event.</p>
+        </field>
+    </record>
+</odoo>

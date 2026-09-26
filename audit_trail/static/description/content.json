@@ -1,0 +1,67 @@
+{
+  "module_name": "Audit Trail",
+  "slug": "audit-trail",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">Audit</span> <span style=\"color:#a98bf5;\">Trail</span>",
+  "intro_html": "Keeps a history book for the records you choose to watch, per company: who created, changed, deleted, exported or opened each one, and what every changed value was before and after — so \"who changed this supplier's bank account, and when?\" becomes a question you can answer.",
+  "test_count": 29,
+  "short_link": {
+    "slug": "audit",
+    "qr_base64_file": "static/description/assets/qr/ribbon.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/audit_trail/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/audit_trail/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "features": [
+    {
+      "icon": "sliders",
+      "title": "Watch Only What Matters",
+      "desc": "Pick one kind of record at a time and tick exactly which of the five actions get recorded. Nothing is recorded until you switch a rule on."
+    },
+    {
+      "icon": "exchange",
+      "title": "Before and After, Side by Side",
+      "desc": "Every change stores the old value next to the new one, on one screen you can search across every watched record at once."
+    },
+    {
+      "icon": "copy",
+      "title": "A Copy of What Was Deleted",
+      "desc": "Optionally keep the full contents of a record as it stood the moment it was deleted, so a removed record is still answerable."
+    },
+    {
+      "icon": "file-text-o",
+      "title": "See What Left the Building",
+      "desc": "Spreadsheet exports are recorded too, with a button that reopens exactly the records that were exported."
+    },
+    {
+      "icon": "users",
+      "title": "One Person's Visit, Start to Finish",
+      "desc": "Events are grouped into working sessions and the screen they came from, turning scattered entries into one readable story."
+    },
+    {
+      "icon": "tachometer",
+      "title": "The Cost Is on the Screen",
+      "desc": "Switching on view recording warns you first, in plain words: opening a list of 80 records records 80 events."
+    },
+    {
+      "icon": "clock-o",
+      "title": "Clean-up Each Company Switches On",
+      "desc": "Retention is off by default and set per company — nothing deletes audit evidence unless that company's admin says so."
+    },
+    {
+      "icon": "shield",
+      "title": "Two Roles, Scoped by Company",
+      "desc": "An Auditor who reads but never changes, and an Administrator who configures rules — both automatically limited to the companies they're already allowed to work in."
+    }
+  ],
+  "limitations": [
+    "Only changes made through Odoo's ORM are recorded — direct SQL changes are not seen.",
+    "The company recorded is the user's current company at the time of the change, not the record's own company.",
+    "Binary/image and one-to-many fields aren't compared (their child records can be watched with their own rule).",
+    "Source Screen is best-effort, read from the browser address, and may be empty for API calls.",
+    "No approval, blocking, alerting or tamper-proof sealing — Audit Administrators can delete history."
+  ]
+}

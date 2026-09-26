@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_audit_trail" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.audit_trail</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Audit Trail" string="Audit Trail" name="audit_trail" groups="audit_trail.group_audit_manager">
+                    <block title="Recorded History Clean-up" name="audit_cleanup_block">
+                        <setting id="audit_cleanup_setting" string="Remove Old History" help="A scheduled job deletes this company's recorded audit history older than the chosen age, a bounded batch at a time. Off until you switch it on.">
+                            <field name="audit_cleanup_enabled"/>
+                            <div class="mt8 d-flex align-items-center gap-1" invisible="not audit_cleanup_enabled">
+                                <div>Keep history for</div>
+                                <field name="audit_cleanup_age_months" class="oe_inline"/>
+                                <div>months</div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_audit_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'audit_trail', 'bin_size': False}</field>
+    </record>
+</odoo>

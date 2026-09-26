@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_audit_rule_user,audit.rule auditor,audit.rule,group_audit_user,r,"[('company_id', 'in', company_ids)]"
+access_audit_rule_manager,audit.rule administrator,audit.rule,group_audit_manager,crud,"[('company_id', 'in', company_ids)]"
+access_audit_log_user,audit.log auditor,audit.log,group_audit_user,r,"[('company_id', 'in', company_ids)]"
+access_audit_log_manager,audit.log administrator,audit.log,group_audit_manager,rd,"[('company_id', 'in', company_ids)]"
+access_audit_log_line_user,audit.log.line auditor,audit.log.line,group_audit_user,r,"[('company_id', 'in', company_ids)]"
+access_audit_log_line_manager,audit.log.line administrator,audit.log.line,group_audit_manager,rd,"[('company_id', 'in', company_ids)]"
+access_audit_session_user,audit.session auditor,audit.session,group_audit_user,r,"[('company_id', 'in', company_ids)]"
+access_audit_session_manager,audit.session administrator,audit.session,group_audit_manager,rd,"[('company_id', 'in', company_ids)]"

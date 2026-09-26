@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_audit_rule_list" model="ir.ui.view">
+        <field name="name">audit.rule.list</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <list string="Watch Rules" decoration-muted="state == 'draft'" decoration-it="state == 'draft'">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-muted="state == 'draft'"/>
+                <field name="detail_level"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_rule_form" model="ir.ui.view">
+        <field name="name">audit.rule.form</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <form string="Watch Rule">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'" groups="audit_trail.group_audit_manager"/>
+                    <button name="action_set_draft" type="object" string="Set to Draft" invisible="state != 'active'" groups="audit_trail.group_audit_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="log_count" widget="statinfo" string="Recorded Events"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Contacts"/></h1>
+                    </div>
+                    <div class="alert alert-info" role="status" invisible="state != 'active'">This rule is active: its watch settings are locked. Set it back to Draft to change them.</div>
+                    <group>
+                        <group>
+                            <field name="model_id" readonly="state == 'active'" options="{'no_create': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="company_id" readonly="state == 'active'" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="detail_level" widget="radio" readonly="state == 'active'"/>
+                            <div colspan="2" class="text-muted" invisible="detail_level != 'full'">Full keeps both old and new values, but is slower: every change re-reads the whole record before and after.</div>
+                            <div colspan="2" class="text-muted" invisible="detail_level != 'light'">Light is faster but gives up the old values: only the new value of each changed field is kept.</div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Actions to Record" name="actions">
+                            <group>
+                                <group>
+                                    <field name="track_create" readonly="state == 'active'"/>
+                                    <field name="track_write" readonly="state == 'active'"/>
+                                    <field name="track_unlink" readonly="state == 'active'"/>
+                                    <field name="track_export" readonly="state == 'active'"/>
+                                    <field name="track_read" readonly="state == 'active'"/>
+                                </group>
+                                <group>
+                                    <div colspan="2" class="alert alert-warning" role="alert">Recording list opens can create a very large number of events, because every list showing more than one watched record is logged. It is off by default; switch it on only when you really need it. A single record opened on its own is never recorded.</div>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="keep_deleted_copy" readonly="state == 'active'"/>
+                                </group>
+                                <group>
+                                    <div colspan="2" class="text-muted">Keeping a copy stores the full contents of every deleted record, which uses extra database storage but lets you see exactly what was removed.</div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Exclusions" name="exclusions">
+                            <group>
+                                <field name="excluded_user_ids" widget="many2many_tags" readonly="state == 'active'" options="{'no_create': True}"/>
+                                <field name="excluded_field_ids" widget="many2many_tags" readonly="state == 'active' or not model_id" options="{'no_create': True}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_rule_search" model="ir.ui.view">
+        <field name="name">audit.rule.search</field>
+        <field name="model">audit.rule</field>
+        <field name="arch" type="xml">
+            <search string="Watch Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Active" name="active_rules" domain="[('state', '=', 'active')]"/>
+                <group name="group_by">
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_rule" model="ir.actions.act_window">
+        <field name="name">Watch Rules</field>
+        <field name="res_model">audit.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_audit_rule_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first watch rule</p>
+            <p>Choose a kind of record, pick which actions to record, then press Confirm to start recording.</p>
+        </field>
+    </record>
+</odoo>
