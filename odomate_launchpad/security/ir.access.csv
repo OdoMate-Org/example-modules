@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_odomate_launchpad_usage_own,odomate.launchpad.usage own records,odomate.launchpad.usage,base.group_user,crud,"[('user_id', '=', user.id)]"
+access_odomate_launchpad_pin_own,odomate.launchpad.pin own records,odomate.launchpad.pin,base.group_user,crud,"[('user_id', '=', user.id)]"
