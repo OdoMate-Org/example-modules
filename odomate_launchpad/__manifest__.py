@@ -2,9 +2,11 @@
     'name': "OdoMate Launchpad",
 
     'summary': """
-        Personal app launcher home screen: square app icons sorted by your
-        30-day usage, pinned favourite apps, instant app search, set as
-        startup screen / home action - Odoo app switcher, app dashboard.
+        Odoo OdoMate Launchpad module opens a personal start screen of app
+        tiles ordered by pins and 30-day usage, so every user reaches their
+        daily apps in one click.
+        app launcher | odoo home screen | app switcher | favourite apps |
+        pinned apps | most used apps | personal start page | app dashboard
     """,
 
     'description': """
@@ -23,11 +25,12 @@ action. Usage logs and pins are strictly personal (per-user access rules).
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/launchpad?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Productivity',
     'version': '20.0.1.0.1',
+    'images': ['static/description/banner.gif'],
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly

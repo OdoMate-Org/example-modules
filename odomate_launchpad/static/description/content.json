@@ -1,0 +1,90 @@
+{
+  "module_name": "OdoMate Launchpad",
+  "slug": "app-launchpad",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">OdoMate</span> <span style=\"color:#a98bf5;\">Launchpad</span>",
+  "intro_html": "<strong>Launchpad</strong> gives every user a start screen that matches how they work: their pinned apps come first, then the apps they opened most in the last 30 days, so the few apps someone uses all day are never buried among the twenty they rarely touch.",
+  "test_count": 17,
+  "stats": [
+    {
+      "value": "~20 min",
+      "label": "First generated version",
+      "caption": "From spec to a working, tested module"
+    },
+    {
+      "value": "2",
+      "label": "Versions",
+      "caption": "v1 original generation + one enhancement round"
+    },
+    {
+      "value": "< $15",
+      "label": "Total cost",
+      "caption": "Requirements refinement, generation and automated browser tests"
+    },
+    {
+      "value": "17",
+      "label": "Automated tests",
+      "caption": "Generated and run with the module itself"
+    }
+  ],
+  "short_link": {
+    "slug": "launchpad",
+    "qr_base64_file": "static/description/assets/qr/ribbon.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/odomate_launchpad/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/odomate_launchpad/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "features": [
+    {
+      "icon": "thumb-tack",
+      "title": "Pinned Apps on Top",
+      "desc": "Pin the apps you always need. They stay first, in the order you pinned them."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Ranked by Your Own Use",
+      "desc": "Apps you opened most in the last 30 days move forward on their own."
+    },
+    {
+      "icon": "refresh",
+      "title": "Always Up to Date",
+      "desc": "The order is recalculated each time the screen opens, with nothing to schedule or reset."
+    },
+    {
+      "icon": "search",
+      "title": "Instant Search",
+      "desc": "Type to filter the tiles; Enter opens the first match."
+    },
+    {
+      "icon": "rocket",
+      "title": "Your Own Start Screen",
+      "desc": "One click makes the Launchpad the first screen after login, for you only. One more click reverts it."
+    },
+    {
+      "icon": "lock",
+      "title": "Private by Design",
+      "desc": "Each user sees only their own history and pins."
+    },
+    {
+      "icon": "building",
+      "title": "Custom Apps Included",
+      "desc": "Every app you can access shows up, including your company's own modules."
+    },
+    {
+      "icon": "magic",
+      "title": "No Setup",
+      "desc": "Install and open. No settings, groups or scheduled jobs."
+    }
+  ],
+  "limitations": [
+    "Each user's order is personal: there is no company-wide default order an admin can push.",
+    "Only opens from the Launchpad count; opening an app from the standard menu or a bookmark does not change the ranking.",
+    "Old usage rows are never deleted automatically; on very busy databases an admin may want to clean them up.",
+    "Pins keep the order they were created in, with no drag-and-drop.",
+    "The standard Odoo app menu keeps its default order."
+  ],
+  "card_min_height": 228
+}

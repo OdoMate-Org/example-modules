@@ -25,6 +25,7 @@ branch for the full Odoo 19 catalogue.
 | Module | Description | Complexity |
 |---|---|---|
 | [`odomate_project_checklist`](odomate_project_checklist/) | Reusable step-by-step checklists on Project tasks: template library, per-task customization, live progress bar (cancelled steps excluded), auto-stamped start/end dates with self-healing, and a replace-confirmation wizard. 19 unit tests. | Medium — 4 models incl. an inherited `project.task`, stored computes, a TransientModel wizard |
+| [`odomate_launchpad`](odomate_launchpad/) | Personal start screen of app tiles: pinned apps first, then the apps each user opened most in the last 30 days, instant search, and an opt-in "Set as Startup Screen". 17 unit tests. | Medium — 2 models with per-user record rules, an OWL client action |
 
 ## OdoMate tools
 
