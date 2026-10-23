@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * odomate_launchpad
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-18 00:00+0000\n"
+"PO-Revision-Date: 2026-10-18 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "Opens in the last 30 days: %s"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "%s pinned to the top"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "%s unpinned"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__menu_id
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__menu_id
+msgid "App"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__create_uid
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__create_date
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__display_name
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__id
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__id
+msgid "ID"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__write_uid
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__write_date
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.actions.client,name:odomate_launchpad.action_odomate_launchpad
+#: model:ir.ui.menu,name:odomate_launchpad.menu_odomate_launchpad_root
+msgid "Launchpad"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model,name:odomate_launchpad.model_odomate_launchpad_usage
+msgid "Launchpad App Usage"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "Launchpad is no longer your startup screen."
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model,name:odomate_launchpad.model_odomate_launchpad_pin
+msgid "Launchpad Pinned App"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "Launchpad will open after your next login."
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "No app matches your search."
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "No apps are available to you."
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "Pin %s to the top"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "Search apps"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "Search apps..."
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "Set as Startup Screen"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "Startup Screen"
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/xml/launchpad.xml:0
+msgid "Stop opening Launchpad after login"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.constraint,message:odomate_launchpad.constraint_odomate_launchpad_pin_user_menu_uniq
+msgid "This app is already pinned for this user."
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-python
+#: code:addons/odomate_launchpad/models/launchpad_pin.py:0
+msgid "This app is not available to you."
+msgstr ""
+
+#. module: odomate_launchpad
+#. odoo-javascript
+#: code:addons/odomate_launchpad/static/src/js/launchpad.js:0
+msgid "Unpin %s"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__used_on
+msgid "Used On"
+msgstr ""
+
+#. module: odomate_launchpad
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_pin__user_id
+#: model:ir.model.fields,field_description:odomate_launchpad.field_odomate_launchpad_usage__user_id
+msgid "User"
+msgstr ""
