@@ -1,0 +1,60 @@
+.o_app_dashboard {
+    .o_app_dashboard_container {
+        max-width: 1140px;
+    }
+
+    .o_app_dashboard_search {
+        max-width: 320px;
+    }
+
+    .o_app_dashboard_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+        gap: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+        }
+    }
+
+    .o_app_dashboard_tile {
+        aspect-ratio: 1 / 1;
+        transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+
+        &:hover,
+        &:focus-within {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+    }
+
+    .o_app_dashboard_icon {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        font-size: 32px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+        @include media-breakpoint-down(sm) {
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+        }
+    }
+
+    .o_app_dashboard_star {
+        z-index: 1;
+        font-size: 1.1rem;
+    }
+
+    .o_app_dashboard_priority_badge {
+        z-index: 1;
+        font-size: 0.8rem;
+        opacity: 0.6;
+    }
+
+    .o_app_dashboard_draggable {
+        cursor: grab;
+    }
+}

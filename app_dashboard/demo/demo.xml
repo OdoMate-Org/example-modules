@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Already-decided-permanent apps, pinned first for everyone's dashboard, in this order. -->
+    <function model="app_dashboard.priority.app" name="_app_dashboard_set_demo_priority_apps">
+        <value eval="['hr.menu_hr_root', 'project.menu_main_pm', 'hr_timesheet.timesheet_menu_root']"/>
+    </function>
+
+    <!-- Pins Employees, Project, Timesheets plus (when installed) Invoicing, Time Off, Recruitment,
+         CRM, Sales and Purchase for the admin; falls back to Settings if none resolve. -->
+    <function model="res.users" name="_app_dashboard_set_demo_favorites">
+        <value>base.user_admin</value>
+        <value eval="[
+            'hr.menu_hr_root', 'project.menu_main_pm', 'hr_timesheet.timesheet_menu_root',
+            'account.menu_finance', 'hr_holidays.menu_hr_holidays_root', 'hr_recruitment.menu_hr_recruitment_root',
+            'crm.crm_menu_root', 'sale.sale_menu_root', 'purchase.menu_purchase_root',
+            'base.menu_administration',
+        ]"/>
+    </function>
+</odoo>

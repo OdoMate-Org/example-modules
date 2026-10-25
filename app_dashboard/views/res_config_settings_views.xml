@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_app_dashboard" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.app_dashboard</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="priority" eval="40"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <div class="app_settings_block" data-string="My Apps Dashboard" string="My Apps Dashboard" data-key="app_dashboard" groups="base.group_system">
+                    <h2>My Apps Dashboard</h2>
+                    <div class="row mt16 o_settings_container" name="app_dashboard_settings">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="app_dashboard_default_home_screen"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="app_dashboard_default_home_screen" string="Default Home Screen"/>
+                                <div class="text-muted">Every user lands on the My Apps dashboard right after logging in, instead of the default menu. Each person can still switch back from their own Preferences.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="o_form_label">Priority Apps</div>
+                                <div class="text-muted">Apps shown first, in this order, on everyone's My Apps dashboard.</div>
+                                <button name="action_app_dashboard_manage_priority_apps" type="object" string="Manage Priority Apps" class="btn btn-link mt-1" icon="fa-arrow-right"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

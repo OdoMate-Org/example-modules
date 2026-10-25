@@ -1,0 +1,179 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * app_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language: uk\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/js/apps_dashboard.js:0
+msgid "Add to favorites"
+msgstr "Додати до обраного"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "All Apps"
+msgstr "Усі застосунки"
+
+#. module: app_dashboard
+#: model:ir.model.fields.selection,name:app_dashboard.selection__res_users__home_screen_mode__apps_dashboard
+msgid "Apps Dashboard"
+msgstr "Панель застосунків"
+
+#. module: app_dashboard
+#: model:ir.model.fields,help:app_dashboard.field_res_users__favorite_app_menu_ids
+msgid "Apps pinned at the top of the My Apps dashboard."
+msgstr "Застосунки, закріплені вгорі панелі «Мої застосунки»."
+
+#. module: app_dashboard
+#: model:ir.model.fields.selection,name:app_dashboard.selection__res_users__home_screen_mode__default_menu
+msgid "Default Menu"
+msgstr "Стандартне меню"
+
+#. module: app_dashboard
+#: model:ir.model.fields,field_description:app_dashboard.field_res_users__favorite_app_menu_ids
+msgid "Favorite Apps"
+msgstr "Обрані застосунки"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "Favorites"
+msgstr "Обране"
+
+#. module: app_dashboard
+#: model:ir.model.fields,field_description:app_dashboard.field_res_users__home_screen_mode
+msgid "Home Screen"
+msgstr "Головний екран"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+#: model:ir.actions.client,name:app_dashboard.action_apps_dashboard
+#: model:ir.ui.menu,name:app_dashboard.menu_apps_dashboard_root
+msgid "My Apps"
+msgstr "Мої застосунки"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "No app matches your search."
+msgstr "Жоден застосунок не відповідає вашому запиту."
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "No apps available yet"
+msgstr "Поки що немає доступних застосунків"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/js/apps_dashboard.js:0
+msgid "Remove from favorites"
+msgstr "Видалити з обраного"
+
+#. module: app_dashboard
+#: model:ir.model.fields,help:app_dashboard.field_res_users__home_screen_mode
+msgid "Screen opened right after login: the standard Odoo menu, or the My Apps dashboard. Defaults to whatever an administrator configured in Settings."
+msgstr "Екран, що відкривається одразу після входу: стандартне меню Odoo або панель «Мої застосунки». За замовчуванням використовується налаштування, вказане адміністратором у Налаштуваннях."
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "Search apps"
+msgstr "Пошук застосунків"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "Search apps..."
+msgstr "Пошук застосунків..."
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/js/apps_dashboard.js:0
+msgid "This app is no longer available to you."
+msgstr "Цей застосунок більше вам не доступний."
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "You do not have access to any application. Ask your administrator to grant you access rights."
+msgstr "У вас немає доступу до жодного застосунку. Зверніться до адміністратора, щоб отримати права доступу."
+
+#. module: app_dashboard
+#: model:ir.model.fields,field_description:app_dashboard.field_app_dashboard_priority_app__menu_id
+msgid "App"
+msgstr "Застосунок"
+
+#. module: app_dashboard
+#: model:ir.model.fields,field_description:app_dashboard.field_res_config_settings__app_dashboard_default_home_screen
+msgid "Apps Dashboard is the default home screen"
+msgstr "Панель застосунків є типовим головним екраном"
+
+#. module: app_dashboard
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+msgid "Apps shown first, in this order, on everyone's My Apps dashboard."
+msgstr "Застосунки, що показуються першими, у цьому порядку, на панелі «Мої застосунки» кожного користувача."
+
+#. module: app_dashboard
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+msgid "Default Home Screen"
+msgstr "Типовий головний екран"
+
+#. module: app_dashboard
+#: model:ir.model.fields,help:app_dashboard.field_res_config_settings__app_dashboard_default_home_screen
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+msgid "Every user lands on the My Apps dashboard right after logging in, instead of the default menu. Each person can still switch back from their own Preferences."
+msgstr "Кожен користувач потрапляє на панель «Мої застосунки» одразу після входу, замість стандартного меню. Кожен може повернутися до стандартного меню зі своїх особистих налаштувань."
+
+#. module: app_dashboard
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+msgid "Manage Priority Apps"
+msgstr "Керувати пріоритетними застосунками"
+
+#. module: app_dashboard
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+msgid "My Apps Dashboard"
+msgstr "Панель «Мої застосунки»"
+
+#. module: app_dashboard
+#: model:ir.model,name:app_dashboard.model_app_dashboard_tile
+msgid "My Apps Dashboard: Per-User Tile State"
+msgstr "Панель «Мої застосунки»: стан плитки користувача"
+
+#. module: app_dashboard
+#: model:ir.model,name:app_dashboard.model_app_dashboard_priority_app
+msgid "My Apps Dashboard: Priority App"
+msgstr "Панель «Мої застосунки»: пріоритетний застосунок"
+
+#. module: app_dashboard
+#: model:ir.actions.act_window,name:app_dashboard.action_app_dashboard_priority_app
+#: model_terms:ir.ui.view,arch_db:app_dashboard.res_config_settings_view_form_app_dashboard
+#: model_terms:ir.ui.view,arch_db:app_dashboard.view_app_dashboard_priority_app_list
+msgid "Priority Apps"
+msgstr "Пріоритетні застосунки"
+
+#. module: app_dashboard
+#. odoo-javascript
+#: code:addons/app_dashboard/static/src/xml/apps_dashboard.xml:0
+msgid "Priority app"
+msgstr "Пріоритетний застосунок"
+
+#. module: app_dashboard
+#: model:ir.model.fields,help:app_dashboard.field_app_dashboard_priority_app__menu_id
+msgid "Root app menu pinned first, for every user, on the My Apps dashboard."
+msgstr "Кореневе меню застосунку, закріплене першим для кожного користувача на панелі «Мої застосунки»."

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_apps_dashboard" model="ir.actions.client">
+        <field name="name">My Apps</field>
+        <field name="tag">app_dashboard.AppsDashboard</field>
+        <field name="path">my-apps</field>
+    </record>
+
+    <menuitem id="menu_apps_dashboard_root"
+              name="My Apps"
+              action="action_apps_dashboard"
+              web_icon="app_dashboard,static/description/icon.svg"
+              groups="base.group_user"
+              sequence="9999"/>
+
+    <record id="view_users_form_simple_modif_app_dashboard" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.app_dashboard</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='preferences_page']//group[@name='other_preferences']" position="inside">
+                <field name="home_screen_mode" widget="radio" readonly="0"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_form_app_dashboard" model="ir.ui.view">
+        <field name="name">res.users.form.app_dashboard</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='preferences']//group[@name='other_preferences']" position="inside">
+                <field name="home_screen_mode" widget="radio" invisible="share"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
