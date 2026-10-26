@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_app_dashboard_priority_app_list" model="ir.ui.view">
+        <field name="name">app_dashboard.priority.app.list</field>
+        <field name="model">app_dashboard.priority.app</field>
+        <field name="arch" type="xml">
+            <list string="Priority Apps">
+                <field name="sequence" widget="handle"/>
+                <field name="menu_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_app_dashboard_priority_app" model="ir.actions.act_window">
+        <field name="name">Priority Apps</field>
+        <field name="res_model">app_dashboard.priority.app</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Pin the apps that should always come first on everyone's My Apps dashboard</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_app_dashboard_priority_app"
+              name="Priority Apps"
+              parent="app_dashboard.menu_apps_dashboard_root"
+              action="action_app_dashboard_priority_app"
+              groups="base.group_system"
+              sequence="10"/>
+</odoo>

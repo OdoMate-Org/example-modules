@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="app_dashboard.AppsDashboard">
+        <div class="o_action o_app_dashboard h-100 overflow-auto">
+            <div class="o_app_dashboard_container container py-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                    <h2 class="m-0">My Apps</h2>
+                    <div class="o_app_dashboard_search input-group">
+                        <span class="input-group-text"><i class="oi" data-icon="search" aria-hidden="true"/></span>
+                        <input type="search" class="form-control" placeholder="Search apps..." aria-label="Search apps" t-att-value="this.state.search" t-on-input="(ev) => this.onSearchInput(ev)"/>
+                    </div>
+                </div>
+
+                <t t-if="!this.state.apps.length">
+                    <div class="o_app_dashboard_empty text-center text-muted py-5">
+                        <i class="oi oi-3x mb-3" data-icon="apps" aria-hidden="true"/>
+                        <p class="fs-4 mb-1">No apps available yet</p>
+                        <p>You do not have access to any application. Ask your administrator to grant you access rights.</p>
+                    </div>
+                </t>
+                <t t-elif="!this.filteredApps.length">
+                    <div class="o_app_dashboard_no_match text-center text-muted py-5">
+                        <p class="fs-5">No app matches your search.</p>
+                    </div>
+                </t>
+                <t t-else="">
+                    <section t-if="this.favoriteApps.length" class="o_app_dashboard_favorites mb-4">
+                        <h5 class="text-muted mb-3"><i class="oi oi-filled text-warning me-1" data-icon="star" aria-hidden="true"/>Favorites</h5>
+                        <div class="o_app_dashboard_grid">
+                            <t t-foreach="this.favoriteApps" t-as="app" t-key="app.id">
+                                <t t-call="app_dashboard.AppsDashboard.Tile"/>
+                            </t>
+                        </div>
+                    </section>
+                    <section t-if="this.otherApps.length" class="o_app_dashboard_others">
+                        <h5 t-if="this.favoriteApps.length" class="text-muted mb-3">All Apps</h5>
+                        <div class="o_app_dashboard_grid">
+                            <t t-foreach="this.otherApps" t-as="app" t-key="app.id">
+                                <t t-call="app_dashboard.AppsDashboard.Tile"/>
+                            </t>
+                        </div>
+                    </section>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="app_dashboard.AppsDashboard.Tile">
+        <div class="o_app_dashboard_tile card position-relative" t-att-data-menu-id="app.id"
+             t-att-class="this.canReorder ? 'o_app_dashboard_draggable' : ''"
+             t-att-draggable="this.canReorder ? 'true' : 'false'"
+             t-on-dragstart="(ev) => this.onTileDragStart(ev, app)"
+             t-on-dragover="(ev) => this.onTileDragOver(ev)"
+             t-on-drop="(ev) => this.onTileDrop(ev, app)">
+            <i t-if="app.isPriority" class="o_app_dashboard_priority_badge oi position-absolute top-0 start-0 p-2 text-muted" data-icon="push_pin" title="Priority app" aria-hidden="true"/>
+            <button type="button" class="o_app_dashboard_open btn btn-link text-reset text-decoration-none w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" t-att-title="app.name" t-on-click="() => this.onOpenApp(app)">
+                <img t-if="app.icon.type === 'image'" class="o_app_dashboard_icon rounded-3" t-att-src="app.icon.src" t-att-alt="app.name"/>
+                <div t-else="" class="o_app_dashboard_icon rounded-3 d-flex align-items-center justify-content-center" t-att-style="this.iconStyle(app)">
+                    <i t-if="app.icon.useOi" class="oi" t-att-data-icon="app.icon.dataIcon" aria-hidden="true"/>
+                    <i t-else="" t-att-class="app.icon.iconClass" aria-hidden="true"/>
+                </div>
+                <span class="o_app_dashboard_name mt-2 text-center text-truncate w-100" t-out="app.name"/>
+            </button>
+            <button type="button" class="o_app_dashboard_star btn btn-sm btn-link position-absolute top-0 end-0 p-2" t-att-title="this.starTitle(app)" t-att-aria-label="this.starTitle(app)" t-att-aria-pressed="app.isFavorite ? 'true' : 'false'" t-on-click.stop="() => this.onToggleFavorite(app)">
+                <i class="oi" data-icon="star" t-att-class="app.isFavorite ? 'oi-filled text-warning' : 'text-muted'" aria-hidden="true"/>
+            </button>
+        </div>
+    </t>
+
+</templates>
