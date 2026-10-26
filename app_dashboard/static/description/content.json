@@ -1,0 +1,89 @@
+{
+  "module_name": "My Apps Dashboard",
+  "slug": "app-my-apps-dashboard",
+  "hero_title_html": "<span style=\"color:#5fe7b0;\">My Apps</span> <span style=\"color:#a98bf5;\">Dashboard</span>",
+  "intro_html": "<strong>My Apps Dashboard</strong> gives every user a home screen of big app tiles: their favourite apps pinned on top, the apps the company relies on next, and the rest ordered by how often that person opens them, so nobody hunts through the app menu again.",
+  "test_count": 19,
+  "stats": [
+    {
+      "value": "~18 min",
+      "label": "First generated version",
+      "caption": "From spec to a working, tested module"
+    },
+    {
+      "value": "4",
+      "label": "Versions",
+      "caption": "v1 original generation + three enhancement rounds"
+    },
+    {
+      "value": "< $45",
+      "label": "Total cost",
+      "caption": "Requirements refinement, generation and automated browser tests"
+    },
+    {
+      "value": "19",
+      "label": "Automated tests",
+      "caption": "Generated and run with the module itself"
+    }
+  ],
+  "short_link": {
+    "slug": "my-apps",
+    "qr_base64_file": "static/description/assets/qr/ribbon.b64"
+  },
+  "doc_guide": {
+    "cover_image": "assets/doc/guide-cover-en.png",
+    "en_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/app_dashboard/doc/USER_GUIDE.pdf",
+    "en_qr_base64_file": "static/description/assets/doc/doc-qr-en.b64",
+    "uk_pdf_url": "https://github.com/OdoMate-Org/example-modules/blob/20.0/app_dashboard/doc/USER_GUIDE.uk.pdf",
+    "uk_qr_base64_file": "static/description/assets/doc/doc-qr-uk.b64"
+  },
+  "features": [
+    {
+      "icon": "star",
+      "title": "Pin Your Favourites",
+      "desc": "One click on the star moves an app into a Favorites row at the top."
+    },
+    {
+      "icon": "thumb-tack",
+      "title": "Company Priority Apps",
+      "desc": "An admin picks the apps everyone sees first, in a set order."
+    },
+    {
+      "icon": "tachometer",
+      "title": "Sorted by Your Habits",
+      "desc": "The apps you open most move up on their own."
+    },
+    {
+      "icon": "exchange",
+      "title": "Drag to Reorder",
+      "desc": "Put any tile where you want it; your order is kept."
+    },
+    {
+      "icon": "search",
+      "title": "Find Any App Fast",
+      "desc": "Type part of a name and the tiles filter instantly."
+    },
+    {
+      "icon": "rocket",
+      "title": "Your Start Screen, If You Want",
+      "desc": "Each user, or an admin for everyone, can make it the first screen after login."
+    },
+    {
+      "icon": "lock",
+      "title": "Never Grants Access",
+      "desc": "Shows only the apps a user can already open."
+    },
+    {
+      "icon": "shield",
+      "title": "Changes Nothing by Default",
+      "desc": "Installing it doesn't change anyone's landing screen."
+    }
+  ],
+  "limitations": [
+    "The admin's \"everyone's home screen\" switch applies once, when saved; users can change it back afterwards.",
+    "A home-screen change takes effect after the next login or page reload.",
+    "Usage counts how often an app is opened, not how long it's used.",
+    "A favourite for an app the user loses access to is hidden, not deleted."
+  ],
+  "card_min_height": 228
+}

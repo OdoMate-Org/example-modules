@@ -2,9 +2,12 @@
     'name': "My Apps Dashboard",
 
     'summary': """
-        Personal My Apps home screen for Odoo: square app tiles, favorite apps,
-        admin-curated priority apps, usage-based ordering, drag-to-reorder,
-        quick app search and a per-user or database-wide starting screen.
+        Odoo My Apps Dashboard module turns the app menu into a personal home
+        screen of app tiles, with pinned favourites, company priority apps and
+        usage-based ordering, so every user reaches their daily apps in one click.
+        odoo app dashboard | home screen | app launcher | favorite apps |
+        app tiles | quick app search | drag and drop apps | user start page |
+        priority apps
     """,
 
     'description': """
@@ -19,11 +22,12 @@ or manually reordered are sorted by how often that user opens them.
     """,
 
     'author': "OdoMate",
-    'website': "https://odomate.pro",
+    'website': "https://odomate.pro/m/my-apps?v=site",
     'support': "support@odomate.pro",
 
     'category': 'Productivity',
     'version': '20.0.1.0.5',
+    'images': ['static/description/banner.gif'],
     'license': 'LGPL-3',
 
     'depends': ['base', 'web', 'base_setup'],
