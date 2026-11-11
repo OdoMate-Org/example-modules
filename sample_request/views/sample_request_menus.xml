@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_sample_request_root" name="Sample Requests" web_icon="sample_request,static/description/icon.png" groups="sample_request.group_sample_request_user" sequence="45"/>
+
+    <menuitem id="menu_sample_request_my" name="My Requests" parent="menu_sample_request_root" action="sample_request_action_my" groups="sample_request.group_sample_request_user" sequence="10"/>
+
+    <menuitem id="menu_sample_request_approvals" name="Approvals" parent="menu_sample_request_root" action="sample_request_action_approvals" groups="sample_request.group_sample_request_manager" sequence="20"/>
+
+    <menuitem id="menu_sample_request_all" name="All Requests" parent="menu_sample_request_root" action="sample_request_action_all" groups="sample_request.group_sample_request_manager" sequence="30"/>
+
+    <menuitem id="menu_sample_request_reporting" name="Reporting" parent="menu_sample_request_root" action="sample_request_action_report" groups="sample_request.group_sample_request_user" sequence="40"/>
+</odoo>

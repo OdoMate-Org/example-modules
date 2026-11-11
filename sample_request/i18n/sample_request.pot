@@ -1,0 +1,535 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * sample_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-11 00:00+0000\n"
+"PO-Revision-Date: 2026-11-11 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "\"%(action)s\" is not possible on %(name)s while it is %(state)s."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,help:sample_request.field_sample_request__converted_count
+msgid "1 when the request was followed up with the outcome \"Ordered\", otherwise 0."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,help:sample_request.field_sample_request__conversion_rate
+msgid "100 for a request that led to an order, 0 otherwise. Averaged over sent and followed-up requests it gives the conversion rate."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "A rejected sample request must have a rejection reason."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "A sales order can only be linked when the follow-up outcome is \"Ordered\"."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "A sample request can no longer be edited once it has been submitted. Cancel it while it is pending if it needs to change."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Add at least one product to %(name)s before submitting it."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.ui.menu,name:sample_request.menu_sample_request_all
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "All Requests"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_action_all
+msgid "All Sample Requests"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_action_approvals
+#: model:ir.ui.menu,name:sample_request.menu_sample_request_approvals
+msgid "Approvals"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Approve"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__approved
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Approved"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Awaiting Follow-up"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Cancel this sample request?"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__cancelled
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Context for the approver: deal, opportunity, event..."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__conversion_rate
+msgid "Conversion Rate (%)"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__converted_count
+msgid "Converted"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Converted to Order"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__partner_id
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_outcome_wizard__partner_id
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Customer"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__reason_category__deal_in_progress
+msgid "Deal in Progress"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__manager_id
+msgid "Decided By"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Decision & Follow-up"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_outcome_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_reject_wizard_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__draft
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Draft"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__reason_category__existing_customer
+msgid "Existing Customer"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_reject_wizard_view_form
+msgid "Explain why this sample request is rejected..."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Follow up on sample request"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__follow_up_activity_id
+msgid "Follow-up Activity"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__follow_up_outcome
+msgid "Follow-up Outcome"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__followed_up
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Followed Up"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__is_manager
+msgid "Is Sample Manager"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_outcome_wizard_action
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_outcome_wizard_view_form
+msgid "Log Follow-up Outcome"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_outcome_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Log Outcome"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model,name:sample_request.model_sample_request_outcome_wizard
+msgid "Log Sample Request Follow-up Outcome"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Mark as Sent"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.ui.menu,name:sample_request.menu_sample_request_my
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "My Requests"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_action_my
+msgid "My Sample Requests"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__reason_category__new_prospect
+msgid "New Prospect"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "New sample requests always start as drafts."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__follow_up_outcome__not_interested
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request_outcome_wizard__follow_up_outcome__not_interested
+msgid "Not Interested"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Only Sample Request managers can perform this action."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Only draft or cancelled sample requests can be deleted."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Only the requesting sales rep or a manager can perform this action."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__follow_up_outcome__ordered
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request_outcome_wizard__follow_up_outcome__ordered
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Ordered"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__reason_category__other
+msgid "Other"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_outcome_wizard__follow_up_outcome
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Outcome"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Outcome: %(outcome)s"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Pending Approval"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Please choose a valid follow-up outcome."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Please give a rejection reason before rejecting the sample request."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_line__product_id
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Product"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__line_count
+msgid "Product Count"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model,name:sample_request.model_sample_request
+msgid "Product Sample Request"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model,name:sample_request.model_sample_request_line
+msgid "Product Sample Request Line"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__line_ids
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Products"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request_line.py:0
+msgid "Products can only be changed while the sample request is a draft."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_line__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__reason_category
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Reason"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__reason_note
+msgid "Reason Details"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__name
+msgid "Reference"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_reject_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Reject"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_reject_wizard_action
+#: model:ir.model,name:sample_request.model_sample_request_reject_wizard
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_reject_wizard_view_form
+msgid "Reject Sample Request"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__rejected
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Rejected"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__rejection_reason
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_reject_wizard__rejection_reason
+msgid "Rejection Reason"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.ui.menu,name:sample_request.menu_sample_request_reporting
+msgid "Reporting"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Request"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__sale_order_id
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_outcome_wizard__sale_order_id
+msgid "Sales Order"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__user_id
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_line__user_id
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Sales Rep"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_line__request_id
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_outcome_wizard__request_id
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_reject_wizard__request_id
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Sample Request"
+msgstr ""
+
+#. module: sample_request
+#: model:res.groups,name:sample_request.group_sample_request_manager
+msgid "Sample Request / Manager"
+msgstr ""
+
+#. module: sample_request
+#: model:res.groups,name:sample_request.group_sample_request_user
+msgid "Sample Request / User"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.actions.act_window,name:sample_request.sample_request_action_report
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_graph
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_pivot
+msgid "Sample Request Analysis"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.ui.menu,name:sample_request.menu_sample_request_root
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_list
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Sample Requests"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__sent
+msgid "Sent"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__sent_date
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Sent Date"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Sent or Followed Up"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__state
+#: model:ir.model.fields,field_description:sample_request.field_sample_request_line__state
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_search
+msgid "Status"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__follow_up_outcome__still_thinking
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request_outcome_wizard__follow_up_outcome__still_thinking
+msgid "Still Thinking"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_form
+msgid "Submit"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__state__submitted
+msgid "Submitted"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.constraint,message:sample_request.constraint_sample_request_line_quantity_positive
+msgid "The sample quantity must be greater than zero."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "The status of a sample request can only be changed with its workflow buttons."
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields.selection,name:sample_request.selection__sample_request__reason_category__trade_show
+msgid "Trade Show"
+msgstr ""
+
+#. module: sample_request
+#: model_terms:ir.ui.view,arch_db:sample_request.sample_request_view_kanban
+msgid "product(s)"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,field_description:sample_request.field_sample_request__request_count
+msgid "Count"
+msgstr ""
+
+#. module: sample_request
+#: model:ir.model.fields,help:sample_request.field_sample_request__request_count
+msgid "Always 1: summed in reporting it counts the requests."
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Sample request awaiting approval"
+msgstr ""
+
+#. module: sample_request
+#. odoo-python
+#: code:addons/sample_request/models/sample_request.py:0
+msgid "Request decided."
+msgstr ""

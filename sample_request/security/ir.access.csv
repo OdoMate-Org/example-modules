@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_sample_request_user_own,sample.request own requests,sample.request,group_sample_request_user,crud,"[('user_id', '=', user.id)]"
+access_sample_request_manager,sample.request manager,sample.request,group_sample_request_manager,crud,
+access_sample_request_line_user_own,sample.request.line own requests,sample.request.line,group_sample_request_user,crud,"[('request_id.user_id', '=', user.id)]"
+access_sample_request_line_manager,sample.request.line manager,sample.request.line,group_sample_request_manager,crud,
+access_sample_request_reject_wizard_manager,sample.request.reject.wizard manager,sample.request.reject.wizard,group_sample_request_manager,crud,
+access_sample_request_outcome_wizard_user,sample.request.outcome.wizard user,sample.request.outcome.wizard,group_sample_request_user,crud,

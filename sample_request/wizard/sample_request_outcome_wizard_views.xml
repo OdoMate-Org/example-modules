@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sample_request_outcome_wizard_view_form" model="ir.ui.view">
+        <field name="name">sample.request.outcome.wizard.form</field>
+        <field name="model">sample.request.outcome.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Log Follow-up Outcome">
+                <field name="request_id" invisible="1"/>
+                <field name="partner_id" invisible="1"/>
+                <group>
+                    <field name="follow_up_outcome" widget="radio"/>
+                    <field name="sale_order_id" invisible="follow_up_outcome != 'ordered'" domain="[('partner_id', 'child_of', partner_id)]" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Log Outcome" class="btn-primary" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sample_request_outcome_wizard_action" model="ir.actions.act_window">
+        <field name="name">Log Follow-up Outcome</field>
+        <field name="res_model">sample.request.outcome.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

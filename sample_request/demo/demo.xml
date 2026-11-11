@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ============================================================ -->
+    <!-- Demo users: 4 sales reps, 2 sales managers                     -->
+    <!-- ============================================================ -->
+    <record id="demo_user_rep_anna" model="res.users">
+        <field name="name">Anna Kowalski</field>
+        <field name="login">sr_rep_anna@example.com</field>
+        <field name="email">sr_rep_anna@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_user'))]"/>
+    </record>
+
+    <record id="demo_user_rep_kenji" model="res.users">
+        <field name="name">Kenji Watanabe</field>
+        <field name="login">sr_rep_kenji@example.com</field>
+        <field name="email">sr_rep_kenji@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_user'))]"/>
+    </record>
+
+    <record id="demo_user_rep_lucia" model="res.users">
+        <field name="name">Lucía Fernández</field>
+        <field name="login">sr_rep_lucia@example.com</field>
+        <field name="email">sr_rep_lucia@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_user'))]"/>
+    </record>
+
+    <record id="demo_user_rep_omar" model="res.users">
+        <field name="name">Omar Haddad</field>
+        <field name="login">sr_rep_omar@example.com</field>
+        <field name="email">sr_rep_omar@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_user'))]"/>
+    </record>
+
+    <record id="demo_user_mgr_sophie" model="res.users">
+        <field name="name">Sophie Laurent</field>
+        <field name="login">sr_mgr_sophie@example.com</field>
+        <field name="email">sr_mgr_sophie@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_manager'))]"/>
+    </record>
+
+    <record id="demo_user_mgr_david" model="res.users">
+        <field name="name">David Okafor</field>
+        <field name="login">sr_mgr_david@example.com</field>
+        <field name="email">sr_mgr_david@example.com</field>
+        <field name="group_ids" eval="[(4, ref('sample_request.group_sample_request_manager'))]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Demo sale orders resulting from converted sample requests      -->
+    <!-- ============================================================ -->
+    <record id="demo_sale_order_1" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+    </record>
+    <record id="demo_sale_order_1_line_1" model="sale.order.line">
+        <field name="order_id" ref="demo_sale_order_1"/>
+        <field name="product_id" ref="product.product_product_6"/>
+        <field name="product_uom_qty">25</field>
+    </record>
+
+    <record id="demo_sale_order_2" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+    </record>
+    <record id="demo_sale_order_2_line_1" model="sale.order.line">
+        <field name="order_id" ref="demo_sale_order_2"/>
+        <field name="product_id" ref="product.product_product_9"/>
+        <field name="product_uom_qty">40</field>
+    </record>
+
+    <record id="demo_sale_order_3" model="sale.order">
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+    </record>
+    <record id="demo_sale_order_3_line_1" model="sale.order.line">
+        <field name="order_id" ref="demo_sale_order_3"/>
+        <field name="product_id" ref="product.product_product_12"/>
+        <field name="product_uom_qty">15</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: draft                                         -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_draft_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="reason_category">new_prospect</field>
+        <field name="reason_note">Met the purchasing lead last week; they want to compare our finish quality with their current supplier.</field>
+        <field name="state">draft</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_7'), 'quantity': 2}),
+            (0, 0, {'product_id': ref('product.product_product_8'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_draft_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_10"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="reason_category">trade_show</field>
+        <field name="reason_note">Visitor at our booth asked for a sample kit to show their design team.</field>
+        <field name="state">draft</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_11'), 'quantity': 3}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_draft_3" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_4"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+        <field name="reason_category">other</field>
+        <field name="reason_note">Replacement samples for their new showroom opening next month.</field>
+        <field name="state">draft</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_13'), 'quantity': 5}),
+            (0, 0, {'product_id': ref('product.product_delivery_01'), 'quantity': 2}),
+            (0, 0, {'product_id': ref('product.product_product_10'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: submitted                                     -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_submitted_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+        <field name="reason_category">deal_in_progress</field>
+        <field name="reason_note">Quote for 200 units is pending; the customer needs samples to sign off on the material.</field>
+        <field name="state">submitted</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_6'), 'quantity': 2}),
+            (0, 0, {'product_id': ref('product.product_product_9'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_submitted_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="reason_category">existing_customer</field>
+        <field name="reason_note">Long-standing customer wants to try the new model before adding it to their next reorder.</field>
+        <field name="state">submitted</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_10'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_submitted_3" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="reason_category">new_prospect</field>
+        <field name="reason_note">Inbound lead from the website; they are evaluating three vendors this quarter.</field>
+        <field name="state">submitted</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_delivery_02'), 'quantity': 10}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: approved                                      -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_approved_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_4"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+        <field name="reason_category">deal_in_progress</field>
+        <field name="reason_note">Final step before the framework agreement; procurement asked for physical samples.</field>
+        <field name="state">approved</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_8'), 'quantity': 3}),
+            (0, 0, {'product_id': ref('product.product_product_12'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_approved_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_10"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+        <field name="reason_category">trade_show</field>
+        <field name="reason_note">Promised at the regional trade fair to a facilities manager planning an office refit.</field>
+        <field name="state">approved</field>
+        <field name="manager_id" ref="demo_user_mgr_david"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_13'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: rejected                                      -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_rejected_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="reason_category">other</field>
+        <field name="reason_note">Customer asked for a large set of samples for an internal exhibition.</field>
+        <field name="state">rejected</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="rejection_reason">Quantity is far above our sample policy; please offer a discounted demo unit instead.</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_11'), 'quantity': 10}),
+            (0, 0, {'product_id': ref('product.product_product_6'), 'quantity': 5}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_rejected_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="reason_category">existing_customer</field>
+        <field name="reason_note">Customer wants another sample of the same product they received last quarter.</field>
+        <field name="state">rejected</field>
+        <field name="manager_id" ref="demo_user_mgr_david"/>
+        <field name="rejection_reason">This customer already received a sample of this product three months ago with no order since.</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_9'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: cancelled                                     -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_cancelled_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+        <field name="reason_category">new_prospect</field>
+        <field name="reason_note">Prospect postponed their project indefinitely, so the samples are no longer needed.</field>
+        <field name="state">cancelled</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_delivery_01'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: sent (activities added further below)         -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_sent_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+        <field name="reason_category">deal_in_progress</field>
+        <field name="reason_note">Customer is choosing between two models for a 50-seat order and wants both in hand.</field>
+        <field name="state">sent</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_7'), 'quantity': 1}),
+            (0, 0, {'product_id': ref('product.product_product_8'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_sent_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_4"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="reason_category">trade_show</field>
+        <field name="reason_note">Follow-up from the spring trade show; the buyer wants to test durability in their warehouse.</field>
+        <field name="state">sent</field>
+        <field name="manager_id" ref="demo_user_mgr_david"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_delivery_02'), 'quantity': 5}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_sent_3" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="reason_category">existing_customer</field>
+        <field name="reason_note">Existing account expanding to a second site; samples help them standardise equipment.</field>
+        <field name="state">sent</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=12)).strftime('%Y-%m-%d')"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_10'), 'quantity': 2}),
+            (0, 0, {'product_id': ref('product.product_product_12'), 'quantity': 3}),
+            (0, 0, {'product_id': ref('product.product_product_13'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Sample requests: followed up                                   -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_followed_1" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="reason_category">deal_in_progress</field>
+        <field name="reason_note">Customer needed to validate the product with their engineering team before ordering.</field>
+        <field name="state">followed_up</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="follow_up_outcome">ordered</field>
+        <field name="sale_order_id" ref="demo_sale_order_1"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_6'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_followed_2" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+        <field name="reason_category">new_prospect</field>
+        <field name="reason_note">New prospect referred by a partner; wanted to check build quality before a first order.</field>
+        <field name="state">followed_up</field>
+        <field name="manager_id" ref="demo_user_mgr_david"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="follow_up_outcome">ordered</field>
+        <field name="sale_order_id" ref="demo_sale_order_2"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_9'), 'quantity': 3}),
+            (0, 0, {'product_id': ref('product.product_delivery_01'), 'quantity': 1}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_followed_3" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+        <field name="reason_category">existing_customer</field>
+        <field name="reason_note">Regular customer considering an upgrade of their current product line.</field>
+        <field name="state">followed_up</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=25)).strftime('%Y-%m-%d')"/>
+        <field name="follow_up_outcome">ordered</field>
+        <field name="sale_order_id" ref="demo_sale_order_3"/>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_12'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_followed_4" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_10"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="reason_category">trade_show</field>
+        <field name="reason_note">Booth visitor liked the demo and asked for samples to present to their board.</field>
+        <field name="state">followed_up</field>
+        <field name="manager_id" ref="demo_user_mgr_david"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="follow_up_outcome">still_thinking</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_product_11'), 'quantity': 1}),
+            (0, 0, {'product_id': ref('product.product_product_7'), 'quantity': 2}),
+        ]"/>
+    </record>
+
+    <record id="demo_sample_request_followed_5" model="sample.request">
+        <field name="partner_id" ref="base.res_partner_4"/>
+        <field name="user_id" ref="demo_user_rep_lucia"/>
+        <field name="reason_category">other</field>
+        <field name="reason_note">Architect firm requested samples for a tender specification.</field>
+        <field name="state">followed_up</field>
+        <field name="manager_id" ref="demo_user_mgr_sophie"/>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=60)).strftime('%Y-%m-%d')"/>
+        <field name="follow_up_outcome">not_interested</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'product_id': ref('product.product_delivery_02'), 'quantity': 3}),
+        ]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Follow-up activities for the sent requests                     -->
+    <!-- ============================================================ -->
+    <record id="demo_activity_sent_1" model="mail.activity">
+        <field name="res_model_id" ref="sample_request.model_sample_request"/>
+        <field name="res_id" eval="ref('demo_sample_request_sent_1')"/>
+        <field name="activity_type_id" ref="mail.mail_activity_data_todo"/>
+        <field name="user_id" ref="demo_user_rep_kenji"/>
+        <field name="summary">Follow up on sample request</field>
+        <field name="date_deadline" eval="(DateTime.today() - relativedelta(days=3) + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <record id="demo_activity_sent_2" model="mail.activity">
+        <field name="res_model_id" ref="sample_request.model_sample_request"/>
+        <field name="res_id" eval="ref('demo_sample_request_sent_2')"/>
+        <field name="activity_type_id" ref="mail.mail_activity_data_todo"/>
+        <field name="user_id" ref="demo_user_rep_omar"/>
+        <field name="summary">Follow up on sample request</field>
+        <field name="date_deadline" eval="(DateTime.today() - relativedelta(days=8) + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <record id="demo_activity_sent_3" model="mail.activity">
+        <field name="res_model_id" ref="sample_request.model_sample_request"/>
+        <field name="res_id" eval="ref('demo_sample_request_sent_3')"/>
+        <field name="activity_type_id" ref="mail.mail_activity_data_todo"/>
+        <field name="user_id" ref="demo_user_rep_anna"/>
+        <field name="summary">Follow up on sample request</field>
+        <field name="date_deadline" eval="(DateTime.today() - relativedelta(days=12) + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Link the activities back to their requests                     -->
+    <!-- ============================================================ -->
+    <record id="demo_sample_request_sent_1" model="sample.request">
+        <field name="follow_up_activity_id" ref="demo_activity_sent_1"/>
+    </record>
+
+    <record id="demo_sample_request_sent_2" model="sample.request">
+        <field name="follow_up_activity_id" ref="demo_activity_sent_2"/>
+    </record>
+
+    <record id="demo_sample_request_sent_3" model="sample.request">
+        <field name="follow_up_activity_id" ref="demo_activity_sent_3"/>
+    </record>
+
+</odoo>
