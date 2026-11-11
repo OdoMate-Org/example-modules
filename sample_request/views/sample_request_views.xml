@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sample_request_view_form" model="ir.ui.view">
+        <field name="name">sample.request.form</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <form string="Sample Request">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'" groups="sample_request.group_sample_request_user" data-hotkey="s"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'" groups="sample_request.group_sample_request_manager" data-hotkey="a"/>
+                    <button name="action_open_reject_wizard" type="object" string="Reject" invisible="state != 'submitted'" groups="sample_request.group_sample_request_manager" data-hotkey="r"/>
+                    <button name="action_mark_sent" type="object" string="Mark as Sent" class="btn-primary" invisible="state != 'approved'" groups="sample_request.group_sample_request_manager" data-hotkey="m"/>
+                    <button name="action_open_outcome_wizard" type="object" string="Log Outcome" class="btn-primary" invisible="state != 'sent'" groups="sample_request.group_sample_request_user" data-hotkey="o"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state not in ('draft', 'submitted')" groups="sample_request.group_sample_request_user" confirm="Cancel this sample request?" data-hotkey="z"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,rejected,sent,followed_up"/>
+                </header>
+                <sheet>
+                    <field name="is_manager" invisible="1"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="text-bg-danger" invisible="state != 'rejected'"/>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="text-bg-secondary" invisible="state != 'cancelled'"/>
+                    <widget name="web_ribbon" title="Ordered" bg_color="text-bg-success" invisible="follow_up_outcome != 'ordered'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user" readonly="state != 'draft' or not is_manager"/>
+                            <field name="reason_category" readonly="state != 'draft'"/>
+                            <field name="reason_note" readonly="state != 'draft'" placeholder="Context for the approver: deal, opportunity, event..."/>
+                        </group>
+                        <group string="Decision &amp; Follow-up">
+                            <field name="manager_id" widget="many2one_avatar_user" invisible="not manager_id"/>
+                            <field name="rejection_reason" invisible="state != 'rejected'" readonly="1"/>
+                            <field name="sent_date" invisible="state not in ('sent', 'followed_up')" readonly="state != 'sent' or not is_manager"/>
+                            <field name="follow_up_outcome" invisible="state != 'followed_up'" readonly="1"/>
+                            <field name="sale_order_id" invisible="follow_up_outcome != 'ordered'" domain="[('partner_id', 'child_of', partner_id)]" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products" name="products">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="sample_request_view_list" model="ir.ui.view">
+        <field name="name">sample.request.list</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <list string="Sample Requests" sample="1">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="reason_category" optional="hide"/>
+                <field name="line_count"/>
+                <field name="state" widget="badge" decoration-info="state == 'submitted'" decoration-success="state in ('approved', 'followed_up')" decoration-warning="state == 'sent'" decoration-danger="state == 'rejected'" decoration-muted="state == 'cancelled'"/>
+                <field name="sent_date"/>
+                <field name="follow_up_outcome"/>
+                <field name="sale_order_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sample_request_view_kanban" model="ir.ui.view">
+        <field name="name">sample.request.kanban</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" records_draggable="0" class="o_kanban_small_column" sample="1">
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="partner_id"/>
+                        <field name="reason_category" widget="badge"/>
+                        <footer>
+                            <span><field name="line_count"/> product(s)</span>
+                            <field name="user_id" widget="many2one_avatar_user" class="ms-auto"/>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="sample_request_view_pivot" model="ir.ui.view">
+        <field name="name">sample.request.pivot</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <pivot string="Sample Request Analysis" sample="1">
+                <field name="user_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="request_count" type="measure"/>
+                <field name="converted_count" type="measure"/>
+                <field name="conversion_rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="sample_request_view_graph" model="ir.ui.view">
+        <field name="name">sample.request.graph</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <graph string="Sample Request Analysis" type="bar" stacked="1" sample="1">
+                <field name="user_id"/>
+                <field name="state"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="sample_request_view_search" model="ir.ui.view">
+        <field name="name">sample.request.search</field>
+        <field name="model">sample.request</field>
+        <field name="arch" type="xml">
+            <search string="Sample Requests">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="line_ids" string="Product" filter_domain="[('line_ids.product_id', 'ilike', self)]"/>
+                <filter string="My Requests" name="my_requests" domain="[('user_id', '=', uid)]"/>
+                <filter string="All Requests" name="all_requests" domain="[('id', '!=', False)]"/>
+                <separator/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Pending Approval" name="filter_submitted" domain="[('state', '=', 'submitted')]"/>
+                <filter string="Approved" name="filter_approved" domain="[('state', '=', 'approved')]"/>
+                <filter string="Awaiting Follow-up" name="filter_sent" domain="[('state', '=', 'sent')]"/>
+                <filter string="Followed Up" name="filter_followed_up" domain="[('state', '=', 'followed_up')]"/>
+                <filter string="Rejected" name="filter_rejected" domain="[('state', '=', 'rejected')]"/>
+                <filter string="Cancelled" name="filter_cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter string="Sent or Followed Up" name="filter_sent_followed_up" domain="[('state', 'in', ('sent', 'followed_up'))]"/>
+                <filter string="Converted to Order" name="filter_converted" domain="[('converted_count', '=', 1)]"/>
+                <separator/>
+                <filter string="Sent Date" name="filter_sent_date" date="sent_date"/>
+                <group>
+                    <filter string="Sales Rep" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Outcome" name="group_outcome" context="{'group_by': 'follow_up_outcome'}"/>
+                    <filter string="Reason" name="group_reason" context="{'group_by': 'reason_category'}"/>
+                    <filter string="Customer" name="group_partner" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="sample_request_action_my" model="ir.actions.act_window">
+        <field name="name">My Sample Requests</field>
+        <field name="res_model">sample.request</field>
+        <field name="view_mode">kanban,list,form,pivot,graph</field>
+        <field name="search_view_id" ref="sample_request_view_search"/>
+        <field name="context">{'search_default_my_requests': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Request product samples for a customer</p>
+            <p>Add the products and quantities, then submit the request for manager approval.</p>
+        </field>
+    </record>
+
+    <record id="sample_request_action_approvals" model="ir.actions.act_window">
+        <field name="name">Approvals</field>
+        <field name="res_model">sample.request</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="sample_request_view_search"/>
+        <field name="domain">[('state', '=', 'submitted')]</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No sample request is waiting for approval</p>
+            <p>Requests submitted by sales reps appear here until a manager approves or rejects them.</p>
+        </field>
+    </record>
+
+    <record id="sample_request_action_all" model="ir.actions.act_window">
+        <field name="name">All Sample Requests</field>
+        <field name="res_model">sample.request</field>
+        <field name="view_mode">list,kanban,form,pivot,graph</field>
+        <field name="search_view_id" ref="sample_request_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No sample request yet</p>
+            <p>Every sample request from every sales rep is listed here.</p>
+        </field>
+    </record>
+
+    <record id="sample_request_action_report" model="ir.actions.act_window">
+        <field name="name">Sample Request Analysis</field>
+        <field name="res_model">sample.request</field>
+        <field name="view_mode">pivot,graph,list</field>
+        <field name="search_view_id" ref="sample_request_view_search"/>
+        <field name="context">{'search_default_filter_sent_followed_up': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">No data to analyse yet</p>
+            <p>Conversion Rate (%) is meaningful with the "Sent or Followed Up" filter active: it averages 100 for requests that led to an order and 0 for the others.</p>
+        </field>
+    </record>
+</odoo>
